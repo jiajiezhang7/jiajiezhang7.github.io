@@ -8,4 +8,20 @@ redirect_from:
 ---
 I am a graduate student at ShanghaiTech University pursuing a Master's degree in Computer Science. Since 2023, I have been conducting research at the [MARS Lab](https://robotics.shanghaitech.edu.cn/) at ShanghaiTech University, advised by Professor [Soeren Schwertfeger](https://robotics.shanghaitech.edu.cn/people/soeren), focusing on cutting-edge areas including Mobile Robotics, Embodied AI, and Autonomous Driving Planning & Control.
 
-<!-- [](网址) -->
+
+Publications
+======
+* [Intelligent LiDAR Navigation: Leveraging External Information and Semantic Maps with LLM as Copilot](https://arxiv.org/abs/2409.08493)
+Published on [arXiv](https://arxiv.org/abs/2409.08493) 2024
+
+- This study enhances robot navigation by integrating Large Language Models (LLMs) with ROS move_base, using osmAG for semantic mapping. The approach combines human-like contextual understanding with traditional navigation, improving adaptability and robustness.
+
+<img src="/images/llm-copilot-teaser.png" alt="LLM-Copilot-Overview" style="width: 100%;"/>
+
+* [Neural Surfel Reconstruction: Addressing Loop Closure Challenges in Large-Scale 3D Neural Scene Mapping](https://www.mdpi.com/1424-8220/24/21/6919)
+Published on [MDPI Sensors](https://www.mdpi.com/1424-8220/24/21/6919) 2024
+- This paper introduces a novel neural surfel-based method for large-scale 3D scene reconstruction, addressing challenges in loop closure and bundle adjustment. By integrating neural descriptors with surfels and optimizing surfel associations, the approach achieves improved reconstruction accuracy and significantly reduces file sizes compared to traditional methods.
+
+<img src="/images/neural-surfel-teaser.png" alt="Neural Surfel Reconstruction Teaser" style="width: 100%;"/>
+
+<img src="/images/neural-surfel-overview.png" alt="Neural Surfel Reconstruction Overview" style="width: 100%;"/>

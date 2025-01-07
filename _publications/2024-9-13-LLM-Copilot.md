@@ -19,3 +19,5 @@ citation: '@misc{xie2024intelligentlidarnavigationleveraging,
 ---
 
 You can view this paper online [here](https://arxiv.org/abs/2409.08493)
+
+<img src="/images/llm-copilot-teaser.png" alt="LLM-Copilot-Overview" style="width: 100%;"/>
