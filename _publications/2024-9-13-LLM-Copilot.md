@@ -1,8 +1,8 @@
 ---
 title: "Intelligent LiDAR Navigation: Leveraging External Information and Semantic Maps with LLM as Copilot"
 collection: publications
-category: Preprints
-permalink: https://arxiv.org/abs/2409.08493
+category: Conferences
+permalink: llm-copilot
 excerpt: 'This study enhances robot navigation by integrating Large Language Models (LLMs) with ROS move_base, using osmAG for semantic mapping. The approach combines human-like contextual understanding with traditional navigation, improving adaptability and robustness.'
 date: 2024-09-13
 venue: 'arXiv'
@@ -18,4 +18,4 @@ citation: '@misc{xie2024intelligentlidarnavigationleveraging,
 }'
 ---
 
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
+You can view this paper online [here](https://arxiv.org/abs/2409.08493)
