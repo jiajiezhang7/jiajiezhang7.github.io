@@ -38,6 +38,7 @@ Skills
   * C++
   * ROS1&2
   * Pytorch
+  * Cursor & Widnsurf
 * Mobile Robotics Algorithms
   * Navigation
   * Perception & Localization
