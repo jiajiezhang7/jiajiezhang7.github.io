@@ -83,7 +83,6 @@ The experimental results demonstrate successful:
 
 <video width="100%" controls>
   <source src="/videos/MoMa_Project_Demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
 </video>
 
 <div style="text-align: center;">
