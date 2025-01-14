@@ -1,7 +1,7 @@
 ---
 title: "Real-time Object Detection From LiDAR Point Clouds"
 excerpt: "A LiDAR-based perception system for automated solar panel installation, featuring real-time detection of solar racks and support structures.<br/><img src='/images/1_origin_scene.png'>"
-collection: portfolio
+collection: projects
 ---
 
 ## Project Overview

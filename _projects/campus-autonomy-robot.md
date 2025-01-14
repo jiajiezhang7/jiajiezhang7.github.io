@@ -1,7 +1,7 @@
 ---
 title: "Campus Autonomy: Navigating the Future with Autonomous Indoor-Outdoor Delivery Vehicles"
 excerpt: "Development of an autonomous delivery vehicle capable of navigating both indoor and outdoor environments within a campus setting.<br/><img src='/images/hunterSE.png'>"
-collection: portfolio
+collection: projects
 ---
 
 ## Project Overview
