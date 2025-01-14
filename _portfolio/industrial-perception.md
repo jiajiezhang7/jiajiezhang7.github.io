@@ -33,7 +33,7 @@ Our system implements a comprehensive pipeline for processing LiDAR data:
    * Inclination degree computation with safety alerts
 
 3. **Output and Visualization**
-   * Custom message publishing at 10Hz
+   * Custom message publishing at 10HzPortfolio
    * Real-time visualization in RViz
    * Integration with robot URDF
    * Marker-based visualization of key points
