@@ -19,10 +19,12 @@ This project introduces an innovative solution leveraging Light Detection and Ra
     <img src="/images/PipeLine.png" alt="System Pipeline" style="width: 90%;">
 </div>
 
-<div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0;">
+<div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0; background-color: #e6f3ff; padding: 15px; border-radius: 8px;">
     <a href="/videos/MoMa_Project_Demo.mp4" class="btn btn--primary" target="_blank">Watch Demo Video</a>
+    <a href="/files/Bolight-Detection-Report.pdf" class="btn btn--primary" target="_blank">Download Report (PDF)</a>
     <a href="https://github.com/jiajiezhang7/bolight-perception" class="btn btn--primary" target="_blank">View Source Code (GitHub)</a>
 </div>
+
 ## Technical Framework
 
 Our system implements a comprehensive pipeline for processing LiDAR data:

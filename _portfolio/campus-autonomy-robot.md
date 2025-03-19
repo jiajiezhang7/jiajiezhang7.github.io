@@ -16,7 +16,7 @@ The "Campus Autonomy" project focuses on developing an autonomous delivery vehic
         <img src="/images/campusautonomy-robot.png" alt="Completed Autonomous Robot" style="max-width: 100%; height: auto;">
     </div>
 </div>
-<div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0;">
+<div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0; background-color: #e6f3ff; padding: 15px; border-radius: 8px;">
     <a href="/files/CampusAutonomy_FinalReport.pdf" class="btn btn--primary" target="_blank">Download Final Report (PDF)</a>
     <a href="/videos/campusautonomy.mp4" class="btn btn--primary" target="_blank">Watch Demo Video</a>
 </div>
