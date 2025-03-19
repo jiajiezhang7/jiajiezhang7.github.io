@@ -15,6 +15,14 @@ This project introduces an innovative solution leveraging Light Detection and Ra
 * Assessment of solar panel tilt angles
 * Integration with robotic installation systems
 
+<div style="text-align: center; margin: 20px 0;">
+    <img src="/images/PipeLine.png" alt="System Pipeline" style="width: 90%;">
+</div>
+
+<div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0;">
+    <a href="/videos/MoMa_Project_Demo.mp4" class="btn btn--primary" target="_blank">Watch Demo Video</a>
+    <a href="https://github.com/jiajiezhang7/bolight-perception" class="btn btn--primary" target="_blank">View Source Code (GitHub)</a>
+</div>
 ## Technical Framework
 
 Our system implements a comprehensive pipeline for processing LiDAR data:
@@ -61,6 +69,24 @@ The system processes point cloud data through several key stages:
 
 ## Experimental Results
 
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin: 20px 0;">
+    <div style="width: 48%; margin-bottom: 20px;">
+        <img src="/images/pc_filtered.png" alt="Filtered Point Cloud" style="width: 100%;">
+    </div>
+    <div style="width: 48%; margin-bottom: 20px;">
+        <img src="/images/pc_panel.png" alt="Detected Solar Panel" style="width: 100%;">
+    </div>
+    <div style="width: 48%; margin-bottom: 20px;">
+        <img src="/images/pc_rods.png" alt="Detected Support Rods" style="width: 100%;">
+    </div>
+    <div style="width: 48%; margin-bottom: 20px;">
+        <img src="/images/detected_pc.png" alt="Complete Detection Results" style="width: 100%;">
+    </div>
+    <div style="width: 48%; margin-bottom: 20px;">
+        <img src="/images/custom_msg.png" alt="Custom Message Output" style="width: 100%;">
+    </div>
+</div>
+
 Our system has been tested with real-world data collected by Bolight Company:
 
 * Dataset: "trans_2023-12-08-11-31-27.bag"
@@ -76,20 +102,7 @@ The experimental results demonstrate successful:
 
 ## Project Team
 
-* Dong Lingzheng (donglzh@shanghaitech.edu.cn)
 * Zhang Jiajie (zhangjj2023@shanghaitech.edu.cn)
+* Dong Lingzheng (donglzh@shanghaitech.edu.cn)
 
-## Demo Video
 
-<video width="100%" controls>
-  <source src="/videos/MoMa_Project_Demo.mp4" type="video/mp4">
-</video>
-
-<div style="text-align: center;">
-    <img src="/images/PipeLine.png" alt="System Pipeline" width="700">
-    <img src="/images/pc_filtered.png" alt="Filtered Point Cloud" width="700">
-    <img src="/images/pc_panel.png" alt="Detected Solar Panel" width="700">
-    <img src="/images/pc_rods.png" alt="Detected Support Rods" width="700">
-    <img src="/images/detected_pc.png" alt="Complete Detection Results" width="700">
-    <img src="/images/custom_msg.png" alt="Custom Message Output" width="700">
-</div>

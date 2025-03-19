@@ -1,12 +1,25 @@
 ---
 title: "Campus Autonomy: Navigating the Future with Autonomous Indoor-Outdoor Delivery Vehicles"
-excerpt: "Development of an autonomous delivery vehicle capable of navigating both indoor and outdoor environments within a campus setting.<br/><img src='/images/hunterSE.png'>"
+excerpt: "Development of an autonomous delivery vehicle capable of navigating both indoor and outdoor environments within a campus setting.<br/><img src='/images/campusautonomy-robot.png'>"
 collection: portfolio
 ---
 
 ## Project Overview
 
 The "Campus Autonomy" project focuses on developing an autonomous delivery vehicle capable of navigating both indoor and outdoor environments within a campus setting. By assembling an Agile X HUNTER SE Ackermann model drive vehicle equipped with advanced sensors like Lidar and panoramic camera, the project aims to address the complex challenges of autonomous localization, path planning and navigation.
+
+<div style="display: flex; justify-content: space-between; margin: 20px 0;">
+    <div style="flex: 0 0 48%;">
+        <img src="/images/hunterSE.png" alt="Hunter SE Chassis" style="max-width: 100%; height: auto;">
+    </div>
+    <div style="flex: 0 0 48%;">
+        <img src="/images/campusautonomy-robot.png" alt="Completed Autonomous Robot" style="max-width: 100%; height: auto;">
+    </div>
+</div>
+<div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0;">
+    <a href="/files/CampusAutonomy_FinalReport.pdf" class="btn btn--primary" target="_blank">Download Final Report (PDF)</a>
+    <a href="/videos/campusautonomy.mp4" class="btn btn--primary" target="_blank">Watch Demo Video</a>
+</div>
 
 ## Key Technologies
 
@@ -46,20 +59,28 @@ The system integrates sophisticated hardware and software components:
 
 Future development will focus on:
 
-1. Introducing osmAG map format into the navigation stack
-2. Replacing Global Planner with osmAG plug-in
+1. Introducing osmAG map format into the navigation2 stack
+2. Replacing Global Planner with osmAG Planner plug-in
+3. Replacing osmAG Localizer with AMCL
 3. Implementing Smac Hybrid A* algorithm for improved path planning
 4. Customizing local cost map for real-time dynamic obstacle detection
-5. Breaking through storage limits and environment constraints
 
 ## Project Team
 
-* Yongqi Zhang (zhangyq12023@shanghaitech.edu.cn)
 * Jiajie Zhang (zhangjj2023@shanghaitech.edu.cn)
+* Yongqi Zhang (zhangyq12023@shanghaitech.edu.cn)
 
-<div style="text-align: center;">
-    <img src="/images/robot_finished.jpg" alt="Robot" width="50%">
-    <img src="/images/nav2_architecture.png" alt="Navigation Architecture" width="50%">
-    <img src="/images/overall_bt_w_breakdown.png" alt="Behavior Tree" width="75%">
-    <img src="/images/in_out.png" alt="Indoor-Outdoor Navigation" width="50%">
+<div style="display: flex; justify-content: space-between; margin: 20px 0;">
+    <div style="flex: 0 0 48%;">
+        <img src="/images/robot_finished.jpg" alt="Robot" style="max-width: 100%; height: auto;">
+    </div>
+    <div style="flex: 0 0 48%;">
+        <img src="/images/hunter-se-rviz-visual.png" alt="Hunter SE RViz Visualization" style="max-width: 100%; height: auto;">
+    </div>
+</div>
+
+<div style="text-align: center; margin: 20px 0;">
+    <div style="max-width: 75%; margin: 0 auto;">
+        <img src="/images/nav2_architecture.png" alt="Navigation Architecture" style="max-width: 100%; height: auto;">
+    </div>
 </div>
