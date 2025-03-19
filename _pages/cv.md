@@ -9,60 +9,35 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* M.S. in Computer Science and Technology, ShanghaiTech University, 2023-
-* B.S. in Automation, Zhengzhou University, 2019-2023
+## Education
 
-<!-- Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* **M.S. in Computer Science and Technology** <span style="float: right;">2023-Present</span>  
+  ShanghaiTech University
+* **B.S. in Automation** <span style="float: right;">2019-2023</span>  
+  Zhengzhou University
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+## Technical Skills
 
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git -->
-  
-Skills
-======
-* Programming
-  * Python
-  * C++
-  * ROS1&2
-  * Pytorch
-  * Cursor & Widnsurf
-* Mobile Robotics Algorithms
-  * Navigation
+* **Programming Languages & Tools**
+  * C++ / Python
+  * ROS1 & ROS2
+  * PyTorch
+  * Cursor & Windsurf
+
+* **Robotics Expertise**
+  * Navigation & Path Planning
   * Perception & Localization
-  * Planning & Control
+  * Motion Planning & Control
+  * SLAM & Mapping
 
+## Publications
 
+<ul>{% for post in site.publications reversed %}
+  {% include archive-single-cv.html %}
+{% endfor %}</ul>
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-<!-- Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul> -->
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-<!-- Service and leadership
-======
-* Currently signed in to 43 different slack teams -->
+## Teaching
+
+<ul>{% for post in site.teaching reversed %}
+  {% include archive-single-cv.html %}
+{% endfor %}</ul>

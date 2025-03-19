@@ -75,12 +75,6 @@ Future development will focus on:
         <img src="/images/robot_finished.jpg" alt="Robot" style="max-width: 100%; height: auto;">
     </div>
     <div style="flex: 0 0 48%;">
-        <img src="/images/hunter-se-rviz-visual.png" alt="Hunter SE RViz Visualization" style="max-width: 100%; height: auto;">
-    </div>
-</div>
-
-<div style="text-align: center; margin: 20px 0;">
-    <div style="max-width: 75%; margin: 0 auto;">
         <img src="/images/nav2_architecture.png" alt="Navigation Architecture" style="max-width: 100%; height: auto;">
     </div>
 </div>
