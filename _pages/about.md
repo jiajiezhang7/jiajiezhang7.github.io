@@ -13,8 +13,7 @@ I am a graduate student at ShanghaiTech University pursuing a Master's degree in
 
 ## Publications
 
-### Intelligent LiDAR Navigation
-**[Leveraging External Information and Semantic Maps with LLM as Copilot](https://arxiv.org/abs/2409.08493)**
+**[Intelligent LiDAR Navigation: Leveraging External Information and Semantic Maps with LLM as Copilot](https://arxiv.org/abs/2409.08493)**
 
 *Available on [arXiv](https://arxiv.org/abs/2409.08493), 2024*
 
@@ -26,8 +25,7 @@ This study enhances robot navigation by integrating Large Language Models (LLMs)
 
 ---
 
-### Neural Surfel Reconstruction
-**[Addressing Loop Closure Challenges in Large-Scale 3D Neural Scene Mapping](https://www.mdpi.com/1424-8220/24/21/6919)**
+**[Neural Surfel Reconstruction: Addressing Loop Closure Challenges in Large-Scale 3D Neural Scene Mapping](https://www.mdpi.com/1424-8220/24/21/6919)**
 
 *Available on [MDPI Sensors](https://www.mdpi.com/1424-8220/24/21/6919), 2024*
 
