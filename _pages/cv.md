@@ -9,6 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
+You can download my CV [here]({{ site.baseurl }}/files/intern_final.pdf)
+
 ## Education
 
 * **M.S. in Computer Science and Technology** <span style="float: right;">2023-Present</span>  
