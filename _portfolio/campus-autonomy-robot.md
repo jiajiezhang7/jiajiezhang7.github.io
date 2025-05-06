@@ -28,8 +28,6 @@ The "Campus Autonomy" project focuses on developing an autonomous delivery vehic
 * Insta360 Air panoramic camera
 * ROS2 framework with Navigation2
 * SLAM using Cartographer
-* Smac hybrid A* planner
-* MPPI controller
 
 ## System Architecture
 
@@ -43,17 +41,13 @@ The system integrates sophisticated hardware and software components:
 
 * **Software**:
   - ROS2 framework
-  - Navigation2 package for path planning
+  - Navigation2 package
   - Cartographer for SLAM operations
-  - Behavior trees for navigation strategy
-  - Custom Nav2 plugins optimized for Ackermann steering
 
 ## Key Features
 
-1. **Indoor-Outdoor Navigation**: Seamless transition between indoor and outdoor environments
-2. **Advanced Path Planning**: Using Smac hybrid A* and MPPI controller
-3. **Real-time Obstacle Avoidance**: Dynamic obstacle detection and path adjustment
-4. **Modular Design**: Scalable architecture for future expansions
+- **Real-time Obstacle Avoidance**: Dynamic obstacle detection and path adjustment
+- **Modular Design**: Scalable architecture for future expansions
 
 ## Future Work
 
@@ -61,9 +55,7 @@ Future development will focus on:
 
 1. Introducing osmAG map format into the navigation2 stack
 2. Replacing Global Planner with osmAG Planner plug-in
-3. Replacing osmAG Localizer with AMCL
-3. Implementing Smac Hybrid A* algorithm for improved path planning
-4. Customizing local cost map for real-time dynamic obstacle detection
+3. Replacing AMCL with osmAG Localizer
 
 ## Project Team
 
