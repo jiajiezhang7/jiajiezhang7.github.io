@@ -9,9 +9,11 @@ collection: portfolio
 AGLoc ([link](https://ieeexplore.ieee.org/abstract/document/10321673/)) proposes a robust indoor localization method using 3D LiDAR and hierarchical topo-semantic Area Graphs, achieving long-term stable performance in office environments by filtering dynamic clutter and matching architectural features (e.g., walls/doors), outperforming traditional SLAM approaches. This Project enhance the previous work in the following aspects:
 1. Port from ROS1 to ROS2 (Done)
 2. Implement WiFi-aided Kidnap Recovery (Done)
-3. Implement Odom-fused Monte Carlo Tracking (Doing)
-4. Re-localize when losing tracking (Doing)
-5. indoor cross-level re-localization (Doing)
+3. Integrated with Nav2 stack by replacing AMCL (Done)
+4. indoor cross-level localizaiton (Done)
+5. Implement Odom-fused Monte Carlo Tracking (Doing)
+6. Re-localize when losing tracking (Doing)
+
 
 <div style="display: flex; justify-content: space-between; margin: 20px 0;">
     <div style="flex: 0 0 48%;">
