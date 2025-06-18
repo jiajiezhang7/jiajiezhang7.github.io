@@ -15,7 +15,7 @@ I am a graduate student at ShanghaiTech University pursuing a Master's degree in
 
 **[Intelligent LiDAR Navigation: Leveraging External Information and Semantic Maps with LLM as Copilot](https://arxiv.org/abs/2409.08493)**
 
-*Accepted by [IROS2025](https://arxiv.org/abs/2409.08493), 2025*
+*Accepted by [IROS2025](https://arxiv.org/abs/2409.08493)*
 
 This study enhances robot navigation by integrating Large Language Models (LLMs) with ROS move_base, using [osmAG](https://ieeexplore.ieee.org/abstract/document/10354976) for semantic mapping. The approach combines human-like contextual understanding with traditional navigation, improving adaptability and robustness.
 

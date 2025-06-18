@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SIDEBAR
+   MODERN SIDEBAR
    ========================================================================== */
 
 /*
@@ -15,7 +15,7 @@
 
   @media screen and (min-width: $sidebar-screen-min-width) {
     height: 100vh;
-    overflow-y: auto;               // Add scrollbar if the sidebar is too long
+    overflow-y: auto;
     position: fixed;
     padding-top: $masthead-height;
   }
@@ -23,8 +23,8 @@
   @include breakpoint($large) {
     @include span(2 of 12);
     opacity: 1;
-    -webkit-transition: opacity 0.2s ease-in-out;
-            transition: opacity 0.2s ease-in-out;
+    -webkit-transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
       opacity: 1;
@@ -48,7 +48,7 @@
   p, li {
     font-family: $sans-serif;
     font-size: $type-size-6;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   img {
@@ -73,29 +73,38 @@
 }
 
 /*
-   Author profile and links
+   Modern Author profile and links
    ========================================================================== */
 
 .author__avatar {
   display: table-cell;
   vertical-align: top;
   width: 36px;
-  // set width only, for non-square avatars
-  // height: 36px;
 
   @include breakpoint($large) {
     display: block;
     width: auto;
     height: auto;
+    text-align: center;
+    margin-bottom: 1.5rem;
   }
 
   img {
     max-width: 175px;
     border-radius: 50%;
+    transition: $global-transition;
+    border: 4px solid rgba($primary-blue, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 
     @include breakpoint($large) {
-      padding: 5px;
-      border: 1px solid $border-color;
+      padding: 0;
+      max-width: 200px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      border-color: rgba($primary-blue, 0.3);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     }
   }
 }
@@ -105,27 +114,35 @@
   vertical-align: top;
   padding-left: 15px;
   padding-right: 25px;
-  line-height: 1;
+  line-height: 1.4;
 
   @include breakpoint($large) {
     display: block;
     width: 100%;
     padding-left: 0;
     padding-right: 0;
+    text-align: center;
   }
 }
 
 .author__name {
-  margin: 0;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+  color: $gray-800;
 
   @include breakpoint($large) {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
   }
 }
+
 .sidebar .author__name {
   font-family: $sans-serif;
-  font-size: $type-size-5;
+  font-size: $type-size-4;
+  
+  @include breakpoint($medium) {
+    font-size: $type-size-3;
+  }
 }
 
 .sidebar .author__desktop {
@@ -136,20 +153,27 @@
 }
 
 .author__pronouns {
-  margin: 0;
+  margin: 0 0 0.5rem 0;
+  font-size: $type-size-6;
+  color: $gray-600;
+  font-style: italic;
 
   @include breakpoint($large) {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
   }
 }
 
 .author__bio {
-  margin: 0;
+  margin: 0 0 1rem 0;
+  font-size: $type-size-6;
+  color: $gray-700;
+  line-height: 1.6;
 
   @include breakpoint($large) {
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: $type-size-5;
   }
 }
 
@@ -174,6 +198,20 @@
 
   button {
     margin-bottom: 0;
+    background: $gradient-primary;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: $border-radius;
+    font-weight: 600;
+    font-size: $type-size-6;
+    transition: $global-transition;
+    box-shadow: 0 4px 8px rgba($primary-blue, 0.3);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba($primary-blue, 0.4);
+    }
 
     @include breakpoint($large) {
       display: none;
@@ -186,75 +224,174 @@
   position: absolute;
   right: 0;
   margin-top: 15px;
-  padding: 10px;
+  padding: 1.5rem;
   list-style-type: none;
-  border: 1px solid $border-color;
+  border: 1px solid rgba($border-color, 0.5);
   border-radius: $border-radius;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
   z-index: -1;
-  box-shadow: 0 0 10px rgba(#000, 0.25);
+  box-shadow: $box-shadow-lg;
   cursor: default;
+  min-width: 280px;
 
   @include breakpoint($large) {
     display: block;
     position: relative;
-    margin: 0;
+    right: auto;
+    margin-top: 0;
     padding: 0;
-    border: 0;
+    border: none;
     background: transparent;
     box-shadow: none;
+    backdrop-filter: none;
   }
 
   &:before {
-    display: block;
+    @include breakpoint($large) {
+      display: none;
+    }
+
     content: "";
     position: absolute;
     top: -11px;
-    left: calc(50% - 10px);
+    right: 10px;
     width: 0;
     border-style: solid;
     border-width: 0 10px 10px;
-    border-color: $border-color transparent;
+    border-color: transparent transparent rgba(255, 255, 255, 0.98);
     z-index: 0;
-
-    @include breakpoint($large) {
-      display: none;
-    }
   }
 
   &:after {
-    display: block;
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: calc(50% - 10px);
-    width: 0;
-    border-style: solid;
-    border-width: 0 10px 10px;
-    border-color: #fff transparent;
-    z-index: 1;
-
     @include breakpoint($large) {
       display: none;
     }
+
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: transparent transparent rgba(255, 255, 255, 0.98);
+    z-index: 1;
   }
 
   li {
     white-space: nowrap;
+    margin-bottom: 0.75rem;
+
+    @include breakpoint($large) {
+      margin-bottom: 0.5rem;
+    }
   }
 
   a {
     display: block;
-    margin-bottom: 5px;
-    padding-right: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    color: inherit;
-    font-size: $type-size-5;
+    margin-right: 5px;
+    padding: 0.75rem 1rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    color: $gray-700;
+    font-size: $type-size-6;
     text-decoration: none;
+    border-radius: $border-radius-sm;
+    transition: $global-transition;
+    position: relative;
+
+    @include breakpoint($large) {
+      padding: 0.5rem 1rem;
+      background: rgba($gray-100, 0.7);
+      margin-bottom: 0.5rem;
+      border-radius: $border-radius;
+    }
 
     &:hover {
-      text-decoration: underline;
+      color: $primary-blue;
+      background: rgba($primary-blue, 0.08);
+      transform: translateX(4px);
+
+      @include breakpoint($large) {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .icon-pad-right {
+        color: $primary-blue;
+        transform: scale(1.1);
+      }
+    }
+
+    // Special styling for location and employer
+    &:has(.fa-location-dot),
+    &:has(.fa-building-columns) {
+      @include breakpoint($large) {
+        background: rgba($primary-teal, 0.1);
+        border-left: 3px solid $primary-teal;
+      }
+    }
+  }
+
+  .icon-pad-right {
+    padding-right: 0.5rem;
+    width: 1.2em;
+    text-align: center;
+    color: $gray-500;
+    transition: $global-transition;
+  }
+}
+
+.author__urls.social-icons {
+  .linkedin-color { color: $linkedin-color; }
+  .github-color { color: $github-color; }
+  .email-color { color: $primary-blue; }
+  .scholar-color { color: $primary-teal; }
+  .researchgate-color { color: #00d4aa; }
+  .orcid-color { color: $orcid-color; }
+}
+
+// Mobile improvements
+@include breakpoint($medium down) {
+  .author__avatar img {
+    max-width: 120px;
+  }
+  
+  .author__content {
+    padding-left: 1rem;
+  }
+  
+  .author__bio {
+    font-size: $type-size-7;
+  }
+}
+
+// Enhanced animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sidebar {
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+.author__urls li {
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{0.3 + ($i * 0.05)}s;
     }
   }
 }

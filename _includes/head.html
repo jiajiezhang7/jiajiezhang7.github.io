@@ -2,9 +2,55 @@
 
 <meta charset="utf-8">
 
-{% include seo.html %}
+{% if page.title %}
+  <title>{{ page.title }} | {{ site.title }}</title>
+{% else %}
+  <title>{{ site.title }}</title>
+{% endif %}
 
-<link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+<meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+
+<meta name="author" content="{{ site.author.name }}">
+
+{% if page.read_time %}
+  <meta property="article:reading_time" content="{{ page.read_time }}">
+{% endif %}
+
+{% if site.owner.twitter %}
+  <meta name="twitter:site" content="@{{ site.owner.twitter }}">
+  <meta name="twitter:creator" content="@{{ site.owner.twitter }}">
+{% endif %}
+
+{% if page.image %}
+  <meta property="og:image" content="{{ page.image | prepend: base_path | prepend: site.url }}">
+{% endif %}
+
+{% if site.social %}
+  {% if site.social.name %}
+    <meta property="og:locale" content="{{ site.locale }}">
+    <meta property="og:site_name" content="{{ site.social.name }}">
+  {% endif %}
+{% endif %}
+
+{% if page.date %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+{% endif %}
+
+{% if page.modified %}
+  <meta property="article:modified_time" content="{{ page.modified | date_to_xmlschema }}">
+{% endif %}
+
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: base_path | prepend: site.url }}">
+
+<script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Person",
+    "name" : "{{ site.author.name }}",
+    "url" : "{{ site.url }}",
+    "sameAs" : null
+  }
+</script>
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -18,4 +64,180 @@
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
 
+<!-- Modern Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Modern CSS Features -->
+<style>
+  /* CSS Custom Properties for theming */
+  :root {
+    --primary-blue: #2563eb;
+    --primary-purple: #7c3aed;
+    --primary-teal: #0d9488;
+    --accent-orange: #f59e0b;
+    --accent-pink: #ec4899;
+    
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    
+    --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--primary-teal) 0%, var(--accent-orange) 100%);
+    --gradient-subtle: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+    
+    --border-radius: 12px;
+    --border-radius-sm: 6px;
+    --border-radius-lg: 16px;
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --box-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --gray-50: #1f2937;
+      --gray-100: #374151;
+      --gray-200: #4b5563;
+      --gray-900: #f9fafb;
+      --gray-800: #f3f4f6;
+      --gray-700: #e5e7eb;
+    }
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced focus styles */
+  *:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+  }
+
+  /* Loading animation */
+  .loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(var(--primary-blue), 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-blue);
+    animation: spin 1s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Progressive enhancement for modern browsers */
+  @supports (backdrop-filter: blur(10px)) {
+    .modern-blur {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  }
+
+  /* Scroll to top button */
+  .scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 1000;
+    box-shadow: var(--box-shadow-lg);
+  }
+
+  .scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .scroll-to-top:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Enhanced selection colors */
+  ::selection {
+    background: rgba(var(--primary-blue), 0.2);
+    color: var(--gray-900);
+  }
+
+  ::-moz-selection {
+    background: rgba(var(--primary-blue), 0.2);
+    color: var(--gray-900);
+  }
+
+  /* Modern scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--gray-100);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--gray-400);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-500);
+  }
+
+  /* Page transition animation */
+  .page-transition {
+    animation: pageTransition 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes pageTransition {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+
 <meta http-equiv="cleartype" content="on">
+
+<!-- start custom head snippets -->
+{% include head/custom.html %}
+<!-- end custom head snippets -->

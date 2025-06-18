@@ -1,15 +1,21 @@
 /* ==========================================================================
-   SINGLE PAGE/POST
+   MODERN SINGLE PAGE/POST
    ========================================================================== */
 
 #main {
   @include container;
   @include clearfix;
-  margin-top: 2em;
-  padding-left: 1em;
-  padding-right: 1em;
-  animation: intro 0.3s both;
-  animation-delay: 0.35s;
+  margin-top: 2.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  animation: fadeInContent 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+
+  @include breakpoint($medium) {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
 
   @include breakpoint($x-large) {
     max-width: $x-large;
@@ -25,6 +31,16 @@
 
   .page__inner-wrap {
     @include full();
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: $border-radius-lg;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba($border-color, 0.5);
+
+    @include breakpoint($medium) {
+      padding: 3rem;
+    }
 
     .page__content,
     .page__meta,
@@ -36,32 +52,87 @@
 
 .page__title {
   margin-top: 0;
-  line-height: 1;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  color: $gray-900;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: $gradient-primary;
+    border-radius: 2px;
+  }
 
   & + .page__meta {
-    margin-top: -0.5em;
+    margin-top: 0.5em;
   }
 }
 
 .page__lead {
   font-family: $global-font-family;
-  font-size: $type-size-4;
+  font-size: $type-size-3;
+  font-weight: 300;
+  line-height: 1.4;
+  color: $gray-700;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: $gradient-subtle;
+  border-radius: $border-radius;
+  border-left: 4px solid $primary-blue;
+
+  @include breakpoint($medium) {
+    font-size: $type-size-2;
+  }
 }
 
 .page__content {
 
+  h1, h2, h3, h4, h5, h6 {
+    color: $gray-800;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
   h2 {
-    padding-bottom: 0.5em;
-    border-bottom: 1px solid $border-color;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba($primary-blue, 0.1);
+    color: $gray-900;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 1.5em;
+      background: $gradient-primary;
+      border-radius: 2px;
+    }
+  }
+
+  h3 {
+    color: $primary-blue;
+    margin-top: 2rem;
   }
 
   p, li, dl {
-    font-size: 1em;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: $gray-700;
+    margin-bottom: 1.5rem;
   }
 
-  /* paragraph indents */
   p {
-    margin: 0 0 $indent-var;
+    margin: 0 0 1.5rem;
 
     /* sibling indentation*/
     @if $paragraph-indent == true {
@@ -72,66 +143,259 @@
     }
   }
 
+  // Enhanced link styling
   a {
-    text-decoration: underline;
+    color: $link-color;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: $global-transition;
+    font-weight: 500;
 
     &:hover {
-      text-decoration: underline;
+      color: $link-color-hover;
+      border-bottom-color: $link-color-hover;
+      text-decoration: none;
 
       img {
-        box-shadow: 0 0 10px rgba(#000, 0.25);
+        transform: scale(1.02);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    &:visited {
+      color: $link-color-visited;
+    }
+  }
+
+  // Enhanced blockquotes
+  blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    background: rgba($primary-teal, 0.05);
+    border-left: 4px solid $primary-teal;
+    border-radius: 0 $border-radius $border-radius 0;
+    font-style: italic;
+    font-size: 1.1em;
+    color: $gray-700;
+    position: relative;
+
+    &::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      font-size: 4rem;
+      color: rgba($primary-teal, 0.3);
+      font-family: serif;
+      line-height: 1;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    cite {
+      display: block;
+      margin-top: 1rem;
+      font-style: normal;
+      font-weight: 600;
+      color: $gray-600;
+      font-size: 0.9em;
+
+      &:before {
+        content: "— ";
+        padding-right: 5px;
+      }
+    }
+  }
+
+  // Enhanced code styling
+  pre, code {
+    background: $gray-50;
+    border: 1px solid $gray-200;
+  }
+
+  pre {
+    padding: 1.5rem;
+    border-radius: $border-radius;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+  }
+
+  p > code,
+  a > code,
+  li > code,
+  figcaption > code,
+  td > code {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9em;
+    background: rgba($primary-blue, 0.08);
+    border: 1px solid rgba($primary-blue, 0.15);
+    border-radius: $border-radius-sm;
+    color: $primary-blue;
+    font-weight: 600;
+
+    &:before, &:after {
+      letter-spacing: 0;
+      content: "";
+    }
+  }
+
+  // Enhanced image styling
+  img {
+    border-radius: $border-radius;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: $global-transition;
+    margin: 1.5rem 0;
+
+    &:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  // List improvements
+  ul, ol {
+    margin-bottom: 1.5rem;
+    
+    li {
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+  }
+
+  ul li {
+    padding-left: 0.5rem;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 0.7em;
+      width: 6px;
+      height: 6px;
+      background: $primary-blue;
+      border-radius: 50%;
+    }
+  }
+
+  ol {
+    counter-reset: custom-counter;
+    
+    li {
+      counter-increment: custom-counter;
+      padding-left: 0.5rem;
+      
+      &::before {
+        content: counter(custom-counter);
+        position: absolute;
+        left: -2rem;
+        top: 0;
+        background: $gradient-primary;
+        color: white;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8em;
+        font-weight: 600;
       }
     }
   }
 
   dt {
-    margin-top: 1em;
+    margin-top: 1.5rem;
     font-family: $sans-serif;
-    font-weight: bold;
+    font-weight: 700;
+    color: $gray-800;
+    font-size: 1.1em;
   }
 
   dd {
-    margin-left: 1em;
+    margin-left: 1.5rem;
     font-family: $sans-serif;
     font-size: $type-size-6;
+    color: $gray-600;
+    margin-bottom: 1rem;
   }
 
   .small {
     font-size: $type-size-6;
+    color: $gray-600;
   }
 
   /* blockquote citations */
   blockquote + .small {
-    margin-top: -1.5em;
-    padding-left: 1.25rem;
+    margin-top: -1rem;
+    padding-left: 2rem;
+  }
+
+  // Publication styling enhancements
+  .publication-item {
+    background: rgba($gray-50, 0.8);
+    border-radius: $border-radius;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid $primary-blue;
+    transition: $global-transition;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-left-color: $primary-purple;
+    }
   }
 }
 
 .page__hero {
   position: relative;
-  margin-bottom: 2em;
+  margin-bottom: 3rem;
   @include clearfix;
-  animation: intro 0.3s both;
-  animation-delay: 0.25s;
+  animation: fadeInContent 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
 
   &--overlay {
     position: relative;
-    margin-bottom: 2em;
-    padding: 3em 0;
+    margin-bottom: 3rem;
+    padding: 4rem 0;
     @include clearfix;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    animation: intro 0.3s both;
-    animation-delay: 0.25s;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba($primary-blue, 0.8) 0%, rgba($primary-purple, 0.8) 100%);
+      z-index: 1;
+    }
+
+    > * {
+      position: relative;
+      z-index: 2;
+    }
 
     a {
       color: #fff;
+      border-bottom-color: rgba(255, 255, 255, 0.3);
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.9);
+        border-bottom-color: rgba(255, 255, 255, 0.6);
+      }
     }
 
     .wrapper {
-      padding-left: 1em;
-      padding-right: 1em;
+      padding-left: 2rem;
+      padding-right: 2rem;
 
       @include breakpoint($x-large) {
         max-width: $x-large;
@@ -143,18 +407,25 @@
     .page__lead,
     .btn {
       color: #fff;
-      text-shadow: 1px 1px 4px rgba(#000, 0.5);
+      text-shadow: 0 2px 4px rgba(#000, 0.3);
     }
 
     .page__lead {
-      max-width: $medium;
+      max-width: $large;
+      background: none;
+      border: none;
+      padding: 0;
     }
 
     .page__title {
-      font-size: $type-size-2;
+      font-size: $type-size-1;
 
       @include breakpoint($small) {
-        font-size: $type-size-1;
+        font-size: 3.5rem;
+      }
+
+      &::after {
+        background: rgba(255, 255, 255, 0.8);
       }
     }
   }
@@ -164,62 +435,138 @@
   width: 100%;
   height: auto;
   -ms-interpolation-mode: bicubic;
+  border-radius: $border-radius-lg;
 }
 
 .page__hero-caption {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 1rem;
+  right: 1rem;
   margin: 0 auto;
-  padding: 2px 5px;
+  padding: 0.5rem 1rem;
   color: #fff;
   font-family: $caption-font-family;
   font-size: $type-size-7;
-  background: #000;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
   text-align: right;
   z-index: 5;
-  opacity: 0.5;
-  border-radius: $border-radius 0 $border-radius 0;
+  border-radius: $border-radius;
 
   @include breakpoint($large) {
-    padding: 5px 10px;
+    padding: 0.75rem 1.25rem;
   }
 
   a {
     color: #fff;
     text-decoration: none;
-  }
-}
 
-/*
-   Social sharing
-   ========================================================================== */
-
-.page__share {
-  margin-top: 2em;
-  padding-top: 1em;
-  border-top: 1px solid $border-color;
-
-  @include breakpoint(max-width $small) {
-    .btn span {
-      border: 0;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
+    &:hover {
+      color: rgba(255, 255, 255, 0.8);
     }
   }
 }
 
-.page__share-title {
-  margin-bottom: 10px;
-  font-size: $type-size-6;
-  text-transform: uppercase;
+/*
+   Modern Social sharing
+   ========================================================================== */
+
+.page__share {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba($border-color, 0.5);
+
+  .share-title {
+    font-weight: 600;
+    color: $gray-700;
+    margin-bottom: 1rem;
+    font-size: $type-size-5;
+  }
+
+  .social-share-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+
+    a {
+      padding: 0.75rem 1rem;
+      border-radius: $border-radius;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: $type-size-6;
+      transition: $global-transition;
+      border: 2px solid transparent;
+
+      &.twitter {
+        background: rgba($twitter-color, 0.1);
+        color: $twitter-color;
+        border-color: rgba($twitter-color, 0.3);
+
+        &:hover {
+          background: $twitter-color;
+          color: white;
+        }
+      }
+
+      &.linkedin {
+        background: rgba($linkedin-color, 0.1);
+        color: $linkedin-color;
+        border-color: rgba($linkedin-color, 0.3);
+
+        &:hover {
+          background: $linkedin-color;
+          color: white;
+        }
+      }
+
+      &.facebook {
+        background: rgba($facebook-color, 0.1);
+        color: $facebook-color;
+        border-color: rgba($facebook-color, 0.3);
+
+        &:hover {
+          background: $facebook-color;
+          color: white;
+        }
+      }
+    }
+  }
 }
 
+// Enhanced animations
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive improvements
+@include breakpoint($medium down) {
+  #main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .page .page__inner-wrap {
+    padding: 1.5rem;
+  }
+
+  .page__content {
+    h2::before {
+      display: none;
+    }
+
+    ul li::before,
+    ol li::before {
+      display: none;
+    }
+  }
+}
 
 /*
    Page meta
