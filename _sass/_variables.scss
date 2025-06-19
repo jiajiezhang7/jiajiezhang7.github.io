@@ -46,8 +46,8 @@ $type-size-8                : 0.625em;  // ~10px
 $masthead-height            : 80px; // Increased for better proportions
 
 /* Sidebar properties */
-$sidebar-screen-min-width   : 1024px;
-$sidebar-link-max-width     : 350px; // Increased for better content display
+$sidebar-screen-min-width   : 768px; // Reduced to show sidebar on smaller tablets
+$sidebar-link-max-width     : 380px; // Further increased for better content display
 
 /*
    Modern Color Scheme
