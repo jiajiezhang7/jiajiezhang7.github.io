@@ -290,12 +290,176 @@
     });
   }
 
+  // Fix Navigation Visibility
+  function initNavigationFix() {
+    // Completely disable greedy navigation on desktop
+    function ensureNavVisibility() {
+      const nav = document.querySelector('#site-nav');
+      const visibleLinks = document.querySelector('#site-nav .visible-links');
+      const hiddenLinks = document.querySelector('#site-nav .hidden-links');
+      const navButton = document.querySelector('#site-nav button');
+      
+      if (!nav || !visibleLinks || !hiddenLinks) return;
+      
+      if (window.innerWidth >= 768) {
+        // Force disable greedy navigation behavior
+        nav.classList.add('desktop-nav');
+        
+        // Move ALL hidden items back to visible
+        const hiddenItems = Array.from(hiddenLinks.querySelectorAll('li'));
+        hiddenItems.forEach(item => {
+          visibleLinks.appendChild(item);
+        });
+        
+        // Completely hide and disable the dropdown button
+        if (navButton) {
+          navButton.classList.add('hidden');
+          navButton.style.display = 'none !important';
+          navButton.style.visibility = 'hidden';
+          navButton.setAttribute('disabled', 'true');
+        }
+        
+        // Completely hide the hidden links container
+        hiddenLinks.classList.add('hidden');
+        hiddenLinks.style.display = 'none !important';
+        hiddenLinks.style.visibility = 'hidden';
+        
+        // Ensure visible links are properly displayed
+        visibleLinks.style.display = 'flex !important';
+        visibleLinks.style.width = '100%';
+        
+        // Force all navigation items to be visible
+        const allNavItems = visibleLinks.querySelectorAll('li');
+        allNavItems.forEach(item => {
+          item.style.display = 'block !important';
+        });
+      } else {
+        nav.classList.remove('desktop-nav');
+      }
+    }
+    
+    // Run immediately
+    ensureNavVisibility();
+    
+    // Run on window resize
+    window.addEventListener('resize', ensureNavVisibility);
+    
+    // Run after various delays to ensure it overrides other scripts
+    setTimeout(ensureNavVisibility, 100);
+    setTimeout(ensureNavVisibility, 500);
+    setTimeout(ensureNavVisibility, 1000);
+    
+    // Override any future changes by observing the DOM
+    if (window.MutationObserver) {
+      const observer = new MutationObserver(ensureNavVisibility);
+      const nav = document.querySelector('#site-nav');
+      if (nav && window.innerWidth >= 768) {
+        observer.observe(nav, { childList: true, subtree: true });
+      }
+    }
+  }
+
+  // Component modernization enhancements
+  function initComponentModernization() {
+    // Enhanced card hover effects
+    const cards = document.querySelectorAll('.modern-card');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-6px) scale(1.02)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+
+    // Enhanced image loading with fade-in effect
+    const images = document.querySelectorAll('.modern-teaser img, .modern-avatar img');
+    images.forEach(img => {
+      if (img.complete) {
+        img.style.opacity = '1';
+      } else {
+        img.style.opacity = '0';
+        img.addEventListener('load', function() {
+          this.style.transition = 'opacity 0.5s ease';
+          this.style.opacity = '1';
+        });
+      }
+    });
+
+    // Enhanced social links animation
+    const socialLinks = document.querySelectorAll('.modern-social-list a');
+    socialLinks.forEach((link, index) => {
+      link.style.animationDelay = `${index * 0.1}s`;
+      link.classList.add('fadeInLeft');
+    });
+
+    // Enhanced action buttons with ripple effect
+    const actionButtons = document.querySelectorAll('.action-btn');
+    actionButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        // Only add ripple if not a download link
+        if (!this.hasAttribute('target')) return;
+        
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple-effect');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+
+    // Enhanced follow button interaction
+    const followBtn = document.querySelector('.modern-follow-btn');
+    if (followBtn) {
+      followBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        this.innerHTML = '<i class="fas fa-check"></i><span>已关注</span>';
+        this.style.background = 'var(--accent-green)';
+        
+        setTimeout(() => {
+          this.innerHTML = '<i class="fas fa-user-plus"></i><span>关注我</span>';
+          this.style.background = '';
+        }, 2000);
+      });
+    }
+
+    // Enhanced teaser overlay with smooth transition
+    const teasers = document.querySelectorAll('.modern-teaser');
+    teasers.forEach(teaser => {
+      const overlay = teaser.querySelector('.teaser-overlay');
+      if (overlay) {
+        teaser.addEventListener('mouseenter', function() {
+          overlay.style.opacity = '1';
+          this.querySelector('img').style.transform = 'scale(1.1)';
+        });
+        
+        teaser.addEventListener('mouseleave', function() {
+          overlay.style.opacity = '0';
+          this.querySelector('img').style.transform = 'scale(1)';
+        });
+      }
+    });
+  }
+
   // Initialize all enhancements
   function init() {
     // Use requestIdleCallback if available for better performance
     const runWhenIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
     
     runWhenIdle(() => {
+      initNavigationFix(); // Add navigation fix first
       initNavScrollEffects();
       initScrollAnimations();
       initLazyImages();
@@ -307,6 +471,7 @@
       initSearchEnhancements();
       initFormEnhancements();
       initPerformanceMetrics();
+      initComponentModernization(); // Add component modernization
     });
   }
 
@@ -426,6 +591,70 @@
   .error textarea {
     border-color: #ef4444 !important;
     box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+  }
+
+  /* Component modernization styles */
+  .ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    transform: scale(0);
+    animation: ripple-expand 0.6s ease-out;
+  }
+
+  @keyframes ripple-expand {
+    to {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  /* Enhanced meta item animations */
+  .meta-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpDelayed 0.6s ease forwards;
+  }
+
+  @keyframes fadeInUpDelayed {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Enhanced social link animations */
+  .fadeInLeft {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInLeftAnimation 0.6s ease forwards;
+  }
+
+  @keyframes fadeInLeftAnimation {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Enhanced teaser overlay transitions */
+  .modern-teaser img {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .teaser-overlay {
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Enhanced card transitions */
+  .modern-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Avatar image loading enhancement */
+  .modern-avatar img {
+    transition: opacity 0.5s ease, transform 0.3s ease;
   }
 
   /* Reduced motion support */

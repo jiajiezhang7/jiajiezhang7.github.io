@@ -1,9 +1,10 @@
 /* ==========================================================================
-   ARCHIVE
+   MODERN ARCHIVE
    ========================================================================== */
 
 .archive {
-  margin-bottom: 2em;
+  margin-bottom: 3em;
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
   @include breakpoint($medium) {
     @include span(12 of 12);
@@ -15,13 +16,16 @@
   }
 
   a {
-    text-decoration: underline;
+    text-decoration: none;
+    transition: $global-transition;
 
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
+      transform: translateY(-2px);
 
       img {
-        box-shadow: 0 0 10px rgba(#000, 0.25);
+        transform: scale(1.05);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
       }
     }
   }
@@ -39,12 +43,78 @@
   }
 }
 
-.archive__item-title {
-  margin-bottom: 0.25em;
-  font-family: $sans-serif-narrow;
+// Modern card styling
+.modern-card {
+  transition: $global-transition;
+  
+  &:hover {
+    transform: translateY(-4px);
+    
+    .modern-article {
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    }
+  }
+}
 
-  a + a {
-    opacity: 0.5;
+.modern-article {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: $border-radius-lg;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba($border-color, 0.3);
+  transition: $global-transition;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: $gradient-primary;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  @include breakpoint($medium) {
+    padding: 2rem;
+  }
+}
+
+.archive__item-title {
+  margin-bottom: 0.75em;
+  font-family: $sans-serif;
+  
+  .title-link {
+    color: $gray-800;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: $global-transition;
+    
+    &:hover {
+      color: $primary-blue;
+      border-bottom-color: $primary-blue;
+      text-decoration: none;
+    }
+  }
+
+  .permalink-link {
+    margin-left: 0.5rem;
+    opacity: 0.6;
+    font-size: 0.8em;
+    
+    &:hover {
+      opacity: 1;
+      color: $primary-teal;
+    }
   }
 }
 
@@ -57,20 +127,204 @@
   }
 }
 
-.archive__item-excerpt {
-  margin-top: 0;
-  font-size: $type-size-6;
-
-  & + p {
-    text-indent: 0;
+// Modern meta information
+.modern-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  
+  .meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: $type-size-6;
+    color: $gray-600;
+    background: rgba($gray-100, 0.5);
+    padding: 0.25rem 0.75rem;
+    border-radius: $border-radius;
+    border: 1px solid rgba($border-color, 0.3);
+    
+    i {
+      color: $primary-blue;
+      font-size: 0.9em;
+    }
+    
+    &.teaching-meta i {
+      color: $accent-green;
+    }
+    
+    &.publication-meta i {
+      color: $primary-teal;
+    }
+    
+    &.date-meta i {
+      color: $accent-orange;
+    }
   }
 }
 
-.archive__item-teaser {
-  border-radius: $border-radius;
+.modern-excerpt {
+  margin-top: 0;
+  font-size: $type-size-6;
+  line-height: 1.6;
+  color: $gray-700;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .read-more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $primary-blue;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: rgba($primary-blue, 0.1);
+    border-radius: $border-radius;
+    border: 1px solid rgba($primary-blue, 0.2);
+    transition: $global-transition;
+    
+    &:hover {
+      background: rgba($primary-blue, 0.15);
+      border-color: $primary-blue;
+      transform: translateX(4px);
+      
+      i {
+        transform: translateX(2px);
+      }
+    }
+    
+    i {
+      transition: transform 0.3s ease;
+    }
+  }
+}
+
+// Modern teaser with overlay
+.modern-teaser {
+  position: relative;
+  border-radius: $border-radius-lg;
   overflow: hidden;
+  margin-bottom: 1.5rem;
+  
   img {
     width: 100%;
+    height: auto;
+    transition: $global-transition;
+    object-fit: cover;
+  }
+  
+  .teaser-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($primary-blue, 0.8);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    
+    .teaser-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: white;
+      font-weight: 600;
+      
+      i {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+  
+  &:hover .teaser-overlay {
+    opacity: 1;
+  }
+}
+
+// Modern action buttons
+.modern-actions {
+  margin-top: 1.5rem;
+  
+  .citation-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba($gray-100, 0.5);
+    border-radius: $border-radius;
+    border-left: 4px solid $primary-teal;
+    
+    i {
+      color: $primary-teal;
+      margin-top: 0.25rem;
+      flex-shrink: 0;
+    }
+    
+    .citation-text {
+      font-size: $type-size-6;
+      line-height: 1.5;
+      color: $gray-700;
+      font-style: italic;
+    }
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: $border-radius;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: $type-size-6;
+      transition: $global-transition;
+      border: 2px solid transparent;
+      
+      &.paper-btn {
+        background: rgba($accent-red, 0.1);
+        color: $accent-red;
+        border-color: rgba($accent-red, 0.2);
+        
+        &:hover {
+          background: $accent-red;
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba($accent-red, 0.3);
+        }
+      }
+      
+      &.slides-btn {
+        background: rgba($accent-orange, 0.1);
+        color: $accent-orange;
+        border-color: rgba($accent-orange, 0.2);
+        
+        &:hover {
+          background: $accent-orange;
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba($accent-orange, 0.3);
+        }
+      }
+      
+      i {
+        font-size: 1.1em;
+      }
+    }
   }
 }
 

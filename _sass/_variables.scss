@@ -47,7 +47,7 @@ $masthead-height            : 80px; // Increased for better proportions
 
 /* Sidebar properties */
 $sidebar-screen-min-width   : 1024px;
-$sidebar-link-max-width     : 280px; // Slightly wider
+$sidebar-link-max-width     : 350px; // Increased for better content display
 
 /*
    Modern Color Scheme
@@ -59,6 +59,8 @@ $primary-purple             : #7c3aed; // Vibrant purple
 $primary-teal               : #0d9488; // Fresh teal
 $accent-orange              : #f59e0b; // Warm orange
 $accent-pink                : #ec4899; // Energetic pink
+$accent-green               : #10b981; // Modern green
+$accent-red                 : #ef4444; // Modern red
 
 /* Neutrals */
 $gray-50                    : #f9fafb;
@@ -142,9 +144,9 @@ $x-large                    : 1536px !default;
    Grid
    ========================================================================== */
 
-$right-sidebar-width-narrow : 220px !default;
-$right-sidebar-width        : 320px !default;
-$right-sidebar-width-wide   : 420px !default;
+$right-sidebar-width-narrow : 200px !default;
+$right-sidebar-width        : 280px !default;
+$right-sidebar-width-wide   : 350px !default;
 
 $susy: (
   columns: 12,
@@ -174,3 +176,4 @@ $global-transition          : all 0.3s cubic-bezier(0.4, 0, 0.2, 1); // Modern e
 $gradient-primary           : linear-gradient(135deg, $primary-blue 0%, $primary-purple 100%);
 $gradient-accent            : linear-gradient(135deg, $primary-teal 0%, $accent-orange 100%);
 $gradient-subtle            : linear-gradient(135deg, $gray-50 0%, $gray-100 100%);
+$gradient-text              : linear-gradient(135deg, $primary-blue 0%, $primary-purple 50%, $primary-teal 100%);

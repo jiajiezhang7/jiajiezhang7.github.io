@@ -13,6 +13,25 @@ var $hlinks = $('#site-nav .hidden-links');
 var breaks = [];
 
 function updateNav() {
+  // Check if we're on a larger screen (desktop)
+  if ($(window).width() >= 768) {
+    // On larger screens, completely disable greedy navigation
+    // Move all hidden items back to visible
+    $hlinks.children().appendTo($vlinks);
+    
+    // Force hide the button and dropdown
+    $btn.addClass('hidden').hide();
+    $hlinks.addClass('hidden').hide();
+    
+    // Clear breaks array
+    breaks = [];
+    
+    // Force all visible items to display
+    $vlinks.children().show();
+    
+    // Disable further execution
+    return;
+  }
 
   var availableSpace = $btn.hasClass('hidden') ? $nav.width() : $nav.width() - $btn.width() - 30;
 
@@ -59,7 +78,6 @@ function updateNav() {
 }
 
 // Window listeners
-
 $(window).resize(function() {
   updateNav();
 });
@@ -69,4 +87,18 @@ $btn.on('click', function() {
   $(this).toggleClass('close');
 });
 
-updateNav();
+// Initialize on document ready
+$(document).ready(function() {
+  // Only run on smaller screens
+  if ($(window).width() < 768) {
+    // Delay execution to ensure CSS is loaded
+    setTimeout(function() {
+      updateNav();
+    }, 100);
+  }
+});
+
+// Only run updateNav on smaller screens
+if ($(window).width() < 768) {
+  updateNav();
+}
