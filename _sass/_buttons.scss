@@ -21,9 +21,12 @@
   border: 0 !important;
   border-radius: $border-radius;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: mix(white, #000, 20%);
+    background-color: mix(#000, $primary-color, 15%);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
   }
 
   .icon {
@@ -71,7 +74,7 @@
     background-color: $info-color;
 
     &:hover {
-      background-color: mix(#000, $info-color, 20%);
+      background-color: mix(#000, $info-color, 15%);
     }
   }
 
@@ -81,7 +84,7 @@
     background-color: $warning-color;
 
     &:hover {
-      background-color: mix(#000, $warning-color, 20%);
+      background-color: mix(#000, $warning-color, 15%);
     }
   }
 
@@ -91,7 +94,7 @@
     background-color: $success-color;
 
     &:hover {
-      background-color: mix(#000, $success-color, 20%);
+      background-color: mix(#000, $success-color, 15%);
     }
   }
 
@@ -101,7 +104,7 @@
     background-color: $danger-color;
 
     &:hover {
-      background-color: mix(#000, $danger-color, 20%);
+      background-color: mix(#000, $danger-color, 15%);
     }
   }
 
@@ -128,7 +131,7 @@
       background-color: $color;
 
       &:hover {
-        background-color: mix(#000, $color, 20%);
+        background-color: mix(#000, $color, 15%);
       }
     }
   }
