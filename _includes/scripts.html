@@ -1,3 +1,442 @@
-<script src="{{ base_path }}/assets/js/main.min.js"></script>
+{% if site.footer_scripts %}
+  {% for script in site.footer_scripts %}
+    {% if script contains "://" %}
+      {% assign script_path = script %}
+    {% else %}
+      {% assign script_path = script | prepend: "/assets/js/" | prepend: base_path %}
+    {% endif %}
+    <script src="{{ script_path }}"></script>
+  {% endfor %}
+{% else %}
+  <script src="{{ base_path }}/assets/js/main.min.js"></script>
+{% endif %}
 
 {% include analytics.html %}
+{% include /comments-providers/scripts.html %}
+
+<!-- Modern JavaScript Enhancements -->
+<script>
+(function() {
+  'use strict';
+
+  // Enhanced Navigation Scroll Effects
+  function initNavScrollEffects() {
+    const masthead = document.querySelector('.masthead');
+    if (!masthead) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateNavigation() {
+      const scrollY = window.scrollY;
+      
+      // Add scrolled class for styling
+      if (scrollY > 20) {
+        masthead.classList.add('scrolled');
+      } else {
+        masthead.classList.remove('scrolled');
+      }
+
+      // Hide/show navigation on scroll
+      if (scrollY > 100) {
+        if (scrollY > lastScrollY && scrollY > 200) {
+          // Scrolling down - hide nav
+          masthead.style.transform = 'translateY(-100%)';
+        } else {
+          // Scrolling up - show nav
+          masthead.style.transform = 'translateY(0)';
+        }
+      } else {
+        masthead.style.transform = 'translateY(0)';
+      }
+
+      lastScrollY = scrollY;
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateNavigation);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick, { passive: true });
+  }
+
+  // Intersection Observer for Animations
+  function initScrollAnimations() {
+    if (!window.IntersectionObserver) return;
+
+    const animateElements = document.querySelectorAll('.page__content > *, .author__content, .archive__item');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    animateElements.forEach((el, index) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      el.style.transitionDelay = `${index * 0.1}s`;
+      observer.observe(el);
+    });
+  }
+
+  // Enhanced Image Loading
+  function initLazyImages() {
+    if (!window.IntersectionObserver) return;
+
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.classList.add('fade-in');
+          imageObserver.unobserve(img);
+        }
+      });
+    });
+
+    images.forEach((img) => {
+      imageObserver.observe(img);
+    });
+  }
+
+  // Smooth Anchor Links
+  function initSmoothAnchors() {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    
+    anchorLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          const offsetTop = targetElement.offsetTop - 100; // Account for fixed header
+          
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }
+
+  // Reading Progress Indicator
+  function initReadingProgress() {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'reading-progress';
+    progressBar.innerHTML = '<div class="reading-progress__fill"></div>';
+    document.body.appendChild(progressBar);
+
+    const progressFill = progressBar.querySelector('.reading-progress__fill');
+    
+    function updateProgress() {
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      
+      progressFill.style.width = `${Math.min(scrollPercent, 100)}%`;
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+  }
+
+  // Enhanced Button Interactions
+  function initButtonEnhancements() {
+    const buttons = document.querySelectorAll('.btn, button');
+    
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', function(e) {
+        // Create ripple effect
+        const rect = btn.getBoundingClientRect();
+        const ripple = document.createElement('span');
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        btn.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+  }
+
+  // Code Block Enhancements
+  function initCodeBlocks() {
+    const codeBlocks = document.querySelectorAll('div.highlight');
+    
+    codeBlocks.forEach((block) => {
+      // Add copy functionality
+      const copyBtn = document.createElement('button');
+      copyBtn.className = 'code-copy-btn';
+      copyBtn.innerHTML = 'Copy';
+      copyBtn.setAttribute('aria-label', 'Copy code to clipboard');
+      
+      copyBtn.addEventListener('click', async () => {
+        const code = block.querySelector('pre').textContent;
+        
+        try {
+          await navigator.clipboard.writeText(code);
+          copyBtn.innerHTML = 'Copied!';
+          copyBtn.classList.add('copied');
+          
+          setTimeout(() => {
+            copyBtn.innerHTML = 'Copy';
+            copyBtn.classList.remove('copied');
+          }, 2000);
+        } catch (err) {
+          console.warn('Failed to copy code:', err);
+        }
+      });
+      
+      block.appendChild(copyBtn);
+    });
+  }
+
+  // Theme Toggle (if needed)
+  function initThemeToggle() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (!themeToggle) return;
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+
+  // Improved Search Enhancement
+  function initSearchEnhancements() {
+    const searchInput = document.querySelector('input[type="search"]');
+    if (!searchInput) return;
+
+    let searchTimeout;
+    
+    searchInput.addEventListener('input', (e) => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        // Add search suggestions or live filtering here
+        console.log('Search query:', e.target.value);
+      }, 300);
+    });
+  }
+
+  // Form Enhancements
+  function initFormEnhancements() {
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach((form) => {
+      const inputs = form.querySelectorAll('input, textarea, select');
+      
+      inputs.forEach((input) => {
+        // Enhanced focus states
+        input.addEventListener('focus', () => {
+          input.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', () => {
+          if (!input.value) {
+            input.parentElement.classList.remove('focused');
+          }
+        });
+        
+        // Validation states
+        input.addEventListener('invalid', () => {
+          input.parentElement.classList.add('error');
+        });
+        
+        input.addEventListener('input', () => {
+          input.parentElement.classList.remove('error');
+        });
+      });
+    });
+  }
+
+  // Performance Monitoring
+  function initPerformanceMetrics() {
+    if (!window.performance) return;
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const perfData = performance.getEntriesByType('navigation')[0];
+        if (perfData) {
+          console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart + 'ms');
+        }
+      }, 0);
+    });
+  }
+
+  // Initialize all enhancements
+  function init() {
+    // Use requestIdleCallback if available for better performance
+    const runWhenIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
+    
+    runWhenIdle(() => {
+      initNavScrollEffects();
+      initScrollAnimations();
+      initLazyImages();
+      initSmoothAnchors();
+      initReadingProgress();
+      initButtonEnhancements();
+      initCodeBlocks();
+      initThemeToggle();
+      initSearchEnhancements();
+      initFormEnhancements();
+      initPerformanceMetrics();
+    });
+  }
+
+  // Wait for DOM to be ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+
+<!-- Additional CSS for JavaScript enhancements -->
+<style>
+  /* Reading progress bar */
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 1000;
+    background: rgba(229, 231, 235, 0.3);
+  }
+
+  .reading-progress__fill {
+    height: 100%;
+    background: var(--gradient-primary, linear-gradient(135deg, #2563eb 0%, #7c3aed 100%));
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+
+  /* Button ripple effect */
+  .btn, button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+  }
+
+  @keyframes ripple-animation {
+    to {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  /* Code copy button styling */
+  .code-copy-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+  }
+
+  div.highlight:hover .code-copy-btn {
+    opacity: 1;
+  }
+
+  .code-copy-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .code-copy-btn.copied {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: rgba(34, 197, 94, 0.4);
+    color: #22c55e;
+  }
+
+  /* Enhanced masthead transitions */
+  .masthead {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Fade in animation for images */
+  img.fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Form focus enhancements */
+  .focused {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+  }
+
+  .error input,
+  .error textarea {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .reading-progress__fill,
+    .masthead,
+    .ripple,
+    img.fade-in,
+    .focused {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+</style>
