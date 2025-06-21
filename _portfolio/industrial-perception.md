@@ -1,6 +1,6 @@
 ---
 title: "Real-time Object Detection From LiDAR Point Clouds"
-excerpt: "A LiDAR-based perception system for automated solar panel installation, featuring real-time detection of solar racks and support structures.<br/><img src='/images/1_origin_scene.png'>"
+excerpt: "A LiDAR-based perception system for automated solar panel installation, featuring real-time detection of solar racks and support structures.<br/><img src='/images/industrial-perception/1_origin_scene.png'>"
 collection: portfolio
 ---
 
@@ -16,7 +16,7 @@ This project introduces an innovative solution leveraging Light Detection and Ra
 * Integration with robotic installation systems
 
 <div style="text-align: center; margin: 20px 0;">
-    <img src="/images/PipeLine.png" alt="System Pipeline" style="width: 90%;">
+    <img src="/images/industrial-perception/PipeLine.png" alt="System Pipeline" style="width: 90%;">
 </div>
 
 <div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0; background-color: #e6f3ff; padding: 15px; border-radius: 8px;">
@@ -73,19 +73,19 @@ The system processes point cloud data through several key stages:
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin: 20px 0;">
     <div style="width: 48%; margin-bottom: 20px;">
-        <img src="/images/pc_filtered.png" alt="Filtered Point Cloud" style="width: 100%;">
+        <img src="/images/industrial-perception/pc_filtered.png" alt="Filtered Point Cloud" style="width: 100%;">
     </div>
     <div style="width: 48%; margin-bottom: 20px;">
-        <img src="/images/pc_panel.png" alt="Detected Solar Panel" style="width: 100%;">
+        <img src="/images/industrial-perception/pc_panel.png" alt="Detected Solar Panel" style="width: 100%;">
     </div>
     <div style="width: 48%; margin-bottom: 20px;">
-        <img src="/images/pc_rods.png" alt="Detected Support Rods" style="width: 100%;">
+        <img src="/images/industrial-perception/pc_rods.png" alt="Detected Support Rods" style="width: 100%;">
     </div>
     <div style="width: 48%; margin-bottom: 20px;">
-        <img src="/images/detected_pc.png" alt="Complete Detection Results" style="width: 100%;">
+        <img src="/images/industrial-perception/detected_pc.png" alt="Complete Detection Results" style="width: 100%;">
     </div>
     <div style="width: 48%; margin-bottom: 20px;">
-        <img src="/images/custom_msg.png" alt="Custom Message Output" style="width: 100%;">
+        <img src="/images/industrial-perception/custom_msg.png" alt="Custom Message Output" style="width: 100%;">
     </div>
 </div>
 

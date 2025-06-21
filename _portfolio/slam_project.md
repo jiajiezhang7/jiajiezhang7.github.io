@@ -1,6 +1,6 @@
 ---
 title: "SLAM with Vertical Plane Segmentation for Lifelong Indoor Mapping"
-excerpt: "Development of a SLAM system with vertical plane segmentation for creating long-term indoor maps.<br/><img src='/images/slam_project_teaser.png'>"
+excerpt: "Development of a SLAM system with vertical plane segmentation for creating long-term indoor maps.<br/><img src='/images/slam-project/slam_project_teaser.png'>"
 collection: portfolio
 ---
 
@@ -10,10 +10,10 @@ This project develops an innovative indoor SLAM system that utilizes vertical pl
 
 <div style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
     <div>
-        <img src="/images/original_map.png" alt="Original SLAM Map" style="width: 100%; height: auto;">
+        <img src="/images/slam-project/original_map.png" alt="Original SLAM Map" style="width: 100%; height: auto;">
     </div>
     <div>
-        <img src="/images/filtered_map.png" alt="Map After Vertical Plane Segmentation" style="width: 100%; height: auto;">
+        <img src="/images/slam-project/filtered_map.png" alt="Map After Vertical Plane Segmentation" style="width: 100%; height: auto;">
     </div>
 </div>
 
@@ -58,10 +58,10 @@ The system integrates various hardware and software components:
 
 <div style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
     <div>
-        <img src="/images/slam_pipeline_0.png" alt="SLAM Pipeline Part 1" style="width: 100%; height: auto;">
+        <img src="/images/slam-project/slam_pipeline_0.png" alt="SLAM Pipeline Part 1" style="width: 100%; height: auto;">
     </div>
     <div>
-        <img src="/images/slam_pipeline_2.png" alt="SLAM Pipeline Part 2" style="width: 100%; height: auto;">
+        <img src="/images/slam-project/slam_pipeline_2.png" alt="SLAM Pipeline Part 2" style="width: 100%; height: auto;">
     </div>
 </div>
 
@@ -77,10 +77,10 @@ The system integrates various hardware and software components:
 
 <div style="display: flex; justify-content: space-between; margin: 20px 0;">
     <div style="flex: 0 0 48%; background-color: #e6f3ff; padding: 15px; border-radius: 8px;">
-        <img src="/images/slam_simulation_test.png" alt="Simulation Environment Test" style="max-width: 100%; height: auto;">
+        <img src="/images/slam-project/slam_simulation_test.png" alt="Simulation Environment Test" style="max-width: 100%; height: auto;">
     </div>
     <div style="flex: 0 0 48%; background-color: #e6f3ff; padding: 15px; border-radius: 8px;">
-        <img src="/images/slam_real_world_test.png" alt="Real-world Environment Test" style="max-width: 100%; height: auto;">
+        <img src="/images/slam-project/slam_real_world_test.png" alt="Real-world Environment Test" style="max-width: 100%; height: auto;">
     </div>
 </div>
 

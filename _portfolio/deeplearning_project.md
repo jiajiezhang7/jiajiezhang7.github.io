@@ -1,6 +1,6 @@
 ---
 title: "Towards Safer Navigation: Reward Shaping with Prior Topographic Knowledge"
-excerpt: "Enhancing navigation safety in deep reinforcement learning agents through reward shaping with prior map information.<br/><img src='/images/dl_method.png'>"
+excerpt: "Enhancing navigation safety in deep reinforcement learning agents through reward shaping with prior map information.<br/><img src='/images/deeplearning-project/dl_method.png'>"
 collection: portfolio
 ---
 
@@ -10,10 +10,10 @@ This project addresses a critical challenge in deep reinforcement learning navig
 
 <div style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
     <div style="text-align: center;">
-        <img src="/images/traditional_nav.png" alt="Traditional Navigation Stack" style="width: 50%; height: auto;">
+        <img src="/images/deeplearning-project/traditional_nav.png" alt="Traditional Navigation Stack" style="width: 50%; height: auto;">
     </div>
     <div style="text-align: center;">
-        <img src="/images/rl_nav.png" alt="RL Navigation Results" style="width: 70%; height: auto;">
+        <img src="/images/deeplearning-project/rl_nav.png" alt="RL Navigation Results" style="width: 70%; height: auto;">
     </div>
 </div>
 
@@ -43,7 +43,7 @@ The navigation field is dominated by two main approaches:
 ### Network Architecture
 
 <div style="display: flex; justify-content: center; margin: 20px 0;">
-    <img src="/images/dl_ppo_framework.png" alt="PPO Framework" style="max-width: 100%; height: auto;">
+    <img src="/images/deeplearning-project/dl_ppo_framework.png" alt="PPO Framework" style="max-width: 100%; height: auto;">
 </div>
 
 * **Input Layer**
@@ -70,10 +70,10 @@ The navigation field is dominated by two main approaches:
 
 <div style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
     <div>
-        <img src="/images/dl_method.png" alt="Method Overview" style="width: 70%; height: auto;">
+        <img src="/images/deeplearning-project/dl_method.png" alt="Method Overview" style="width: 70%; height: auto;">
     </div>
     <div>
-        <img src="/images/dl_rewardshaping.png" alt="Reward Shaping" style="width: 70%; height: auto;">
+        <img src="/images/deeplearning-project/dl_rewardshaping.png" alt="Reward Shaping" style="width: 70%; height: auto;">
     </div>
 </div>
 
@@ -113,10 +113,10 @@ The navigation field is dominated by two main approaches:
 ## Results
 <div style="display: flex; flex-direction: column; gap: 20px; margin: 20px 0;">
     <div>
-        <img src="/images/dl_result_1.png" alt="Navigation Results" style="width: 70%; height: auto;">
+        <img src="/images/deeplearning-project/dl_result_1.png" alt="Navigation Results" style="width: 70%; height: auto;">
     </div>
     <div>
-        <img src="/images/dl_result_2.png" alt="Performance Analysis" style="width: 70%; height: auto;">
+        <img src="/images/deeplearning-project/dl_result_2.png" alt="Performance Analysis" style="width: 70%; height: auto;">
     </div>
 </div>
 

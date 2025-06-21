@@ -1,6 +1,6 @@
 ---
 title: "Campus Autonomy: Navigating the Future with Autonomous Indoor-Outdoor Delivery Vehicles"
-excerpt: "Development of an autonomous delivery vehicle capable of navigating both indoor and outdoor environments within a campus setting.<br/><img src='/images/campusautonomy-robot.png'>"
+excerpt: "Development of an autonomous delivery vehicle capable of navigating both indoor and outdoor environments within a campus setting.<br/><img src='/images/campus-autonomy-robot/campusautonomy-robot.png'>"
 collection: portfolio
 ---
 
@@ -10,10 +10,10 @@ The "Campus Autonomy" project focuses on developing an autonomous delivery vehic
 
 <div style="display: flex; justify-content: space-between; margin: 20px 0;">
     <div style="flex: 0 0 48%;">
-        <img src="/images/hunterSE.png" alt="Hunter SE Chassis" style="max-width: 100%; height: auto;">
+        <img src="/images/campus-autonomy-robot/hunterSE.png" alt="Hunter SE Chassis" style="max-width: 100%; height: auto;">
     </div>
     <div style="flex: 0 0 48%;">
-        <img src="/images/campusautonomy-robot.png" alt="Completed Autonomous Robot" style="max-width: 100%; height: auto;">
+        <img src="/images/campus-autonomy-robot/campusautonomy-robot.png" alt="Completed Autonomous Robot" style="max-width: 100%; height: auto;">
     </div>
 </div>
 <div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0; background-color: #e6f3ff; padding: 15px; border-radius: 8px;">
@@ -64,9 +64,9 @@ Future development will focus on:
 
 <div style="display: flex; justify-content: space-between; margin: 20px 0;">
     <div style="flex: 0 0 48%;">
-        <img src="/images/robot_finished.jpg" alt="Robot" style="max-width: 100%; height: auto;">
+        <img src="/images/campus-autonomy-robot/robot_finished.jpg" alt="Robot" style="max-width: 100%; height: auto;">
     </div>
     <div style="flex: 0 0 48%;">
-        <img src="/images/nav2_architecture.png" alt="Navigation Architecture" style="max-width: 100%; height: auto;">
+        <img src="/images/campus-autonomy-robot/nav2_architecture.png" alt="Navigation Architecture" style="max-width: 100%; height: auto;">
     </div>
 </div>

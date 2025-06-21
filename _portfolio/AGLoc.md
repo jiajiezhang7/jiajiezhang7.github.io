@@ -17,10 +17,10 @@ AGLoc ([link](https://ieeexplore.ieee.org/abstract/document/10321673/)) proposes
 
 <div style="display: flex; justify-content: space-between; margin: 20px 0;">
     <div style="flex: 0 0 48%;">
-        <img src="/images/campusautonomy-robot.png" alt="Autonomous Robot" style="max-width: 100%; height: auto;">
+        <img src="/images/AGLoc/campusautonomy-robot.png" alt="Autonomous Robot" style="max-width: 100%; height: auto;">
     </div>
     <div style="flex: 0 0 48%;">
-        <img src="/images/AGLoc_demo01.png" alt="Localization Result" style="max-width: 100%; height: auto;">
+        <img src="/images/AGLoc/AGLoc_demo01.png" alt="Localization Result" style="max-width: 100%; height: auto;">
     </div>
 </div>
 <div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0; background-color: #e6f3ff; padding: 15px; border-radius: 8px;">
@@ -37,7 +37,7 @@ AGLoc ([link](https://ieeexplore.ieee.org/abstract/document/10321673/)) proposes
 
 ## System Architecture
 <div style="display: flex; justify-content: center; margin: 20px 0;">
-    <img src="/images/AGLoc-system-archi.png" alt="System Architecture" style="max-width: 100%; height: auto;">
+    <img src="/images/AGLoc/AGLoc-system-archi.png" alt="System Architecture" style="max-width: 100%; height: auto;">
 </div>
 
 ## Future Work
