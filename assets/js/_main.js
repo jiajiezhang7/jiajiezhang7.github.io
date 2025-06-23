@@ -73,20 +73,24 @@ $(document).ready(function(){
   });
 
   // Scroll-reveal animation
-  const animatedElements = document.querySelectorAll('.page__inner-wrap');
+  const animatedElements = document.querySelectorAll('.page__inner-wrap, .archive__inner-wrap');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-      }
+  if (animatedElements.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, {
+      threshold: 0.1
     });
-  }, {
-    threshold: 0.1
-  });
 
-  animatedElements.forEach(element => {
-    observer.observe(element);
-  });
+    animatedElements.forEach(element => {
+      // Add animation-ready class to enable animation, then observe
+      element.classList.add('animation-ready');
+      observer.observe(element);
+    });
+  }
 
 });

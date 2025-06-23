@@ -14,6 +14,34 @@
     @include prefix(0.5 of 12);
   }
 
+  /* Card-style background for archive pages */
+  .archive__inner-wrap {
+    padding: 2em;
+    background: #fff;
+    border: 1px solid $lighter-gray;
+    border-radius: $border-radius * 2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+    /* Optional animation state - content is visible by default */
+    &:not(.animation-ready) {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &.animation-ready {
+      opacity: 0;
+      transform: translateY(20px);
+      
+      &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
   a {
     text-decoration: underline;
 
