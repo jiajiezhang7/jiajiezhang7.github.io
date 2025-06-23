@@ -39,31 +39,100 @@
     {% endif %}
 
         {% if post.collection == 'teaching' %}
-          <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
+          {% comment %} Teaching course info will be shown in blue box below {% endcomment %}
         {% elsif post.collection == 'publications' %}
           <p>Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif post.date %}
          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
         {% endif %}
 
-    {% if post.excerpt and site.read_more != 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
-    {% elsif post.excerpt and site.read_more == 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
-    {% endif %}
-    
-    {% if post.citation and post.paperurl and post.slidesurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a> | <a href="{{ post.slidesurl }}">Download Slides</a></p>
-    {% elsif post.citation and post.paperurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a></p>
-    {% elsif post.citation and post.slidesurl %}
-      <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">Download Slides</a></p>
-    {% elsif post.citation %}
-      <p>Recommended citation: {{ post.citation }}</p>
-    {% elsif post.paperurl %}
-      <p><a href=" {{ post.paperurl }} ">Download Paper</a></p>
-    {% elsif post.slidesurl %}
-      <p><a href="{{ post.slidesurl }}">Download Slides</a></p>
+    {% if post.collection == 'publications' %}
+      {% comment %} For publications, show citation in the blue box instead of excerpt {% endcomment %}
+      {% if post.citation %}
+        <div class="archive__item-excerpt" itemprop="description">
+          <strong>Recommended citation:</strong><br>
+          {{ post.citation }}
+        </div>
+      {% elsif post.excerpt and site.read_more != 'enabled' %}
+        <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+      {% elsif post.excerpt and site.read_more == 'enabled' %}
+        <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
+      {% endif %}
+      
+      {% comment %} Show download links separately for publications {% endcomment %}
+      {% if post.paperurl or post.slidesurl %}
+        <p class="publication-links">
+          {% if post.paperurl %}<a href="{{ post.paperurl }}" class="download-link">Download Paper</a>{% endif %}
+          {% if post.paperurl and post.slidesurl %} | {% endif %}
+          {% if post.slidesurl %}<a href="{{ post.slidesurl }}" class="download-link">Download Slides</a>{% endif %}
+        </p>
+      {% endif %}
+    {% elsif post.collection == 'portfolio' %}
+      {% comment %} For portfolio, separate text description and images {% endcomment %}
+      {% if post.excerpt %}
+        {% assign excerpt_content = post.excerpt %}
+        {% assign img_tags = excerpt_content | split: '<img' %}
+        {% assign text_only = img_tags[0] | markdownify | remove: '<p>' | remove: '</p>' | strip %}
+        
+        {% comment %} Show text description in blue box {% endcomment %}
+        {% if text_only != '' %}
+          <div class="archive__item-excerpt" itemprop="description">
+            <strong>Project Description:</strong><br>
+            {{ text_only }}
+            {% if site.read_more == 'enabled' %}
+              <br><strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong>
+            {% endif %}
+          </div>
+        {% endif %}
+        
+        {% comment %} Show images outside the blue box {% endcomment %}
+        {% if img_tags.size > 1 %}
+          {% for i in (1..img_tags.size) %}
+            {% unless forloop.last %}
+              {% assign img_content = '<img' | append: img_tags[forloop.index] %}
+              {% assign img_end = img_content | split: '>' %}
+              {% assign complete_img = img_end[0] | append: '>' %}
+              <div class="portfolio-teaser">
+                {{ complete_img }}
+              </div>
+            {% endunless %}
+                     {% endfor %}
+         {% endif %}
+       {% endif %}
+     {% elsif post.collection == 'teaching' %}
+       {% comment %} For teaching, show course information in the blue box {% endcomment %}
+       <div class="archive__item-excerpt" itemprop="description">
+         <strong>Course Information:</strong><br>
+         {{ post.type }}{% if post.venue %}, <i>{{ post.venue }}</i>{% endif %}{% if post.date %}, {{ post.date | default: "1900-01-01" | date: "%Y" }}{% endif %}
+         {% if post.location %}<br><i class="fa fa-map-marker" aria-hidden="true"></i> {{ post.location }}{% endif %}
+       </div>
+       
+       {% comment %} Show excerpt content if available {% endcomment %}
+       {% if post.excerpt %}
+         <p class="teaching-description">{{ post.excerpt | markdownify }}</p>
+       {% endif %}
+     {% else %}
+      {% comment %} For non-publications, keep original excerpt logic {% endcomment %}
+      {% if post.excerpt and site.read_more != 'enabled' %}
+      <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+      {% elsif post.excerpt and site.read_more == 'enabled' %}
+      <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
+      {% endif %}
+      
+      {% comment %} Original citation logic for non-publications {% endcomment %}
+      {% if post.citation and post.paperurl and post.slidesurl %}
+        <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a> | <a href="{{ post.slidesurl }}">Download Slides</a></p>
+      {% elsif post.citation and post.paperurl %}
+        <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a></p>
+      {% elsif post.citation and post.slidesurl %}
+        <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">Download Slides</a></p>
+      {% elsif post.citation %}
+        <p>Recommended citation: {{ post.citation }}</p>
+      {% elsif post.paperurl %}
+        <p><a href=" {{ post.paperurl }} ">Download Paper</a></p>
+      {% elsif post.slidesurl %}
+        <p><a href="{{ post.slidesurl }}">Download Slides</a></p>
+      {% endif %}
     {% endif %}
 
   </article>

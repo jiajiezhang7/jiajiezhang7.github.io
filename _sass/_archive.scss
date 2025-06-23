@@ -24,6 +24,10 @@
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    
+    /* Ensure content fits within card */
+    max-width: 100%;
+    overflow: hidden;
 
     /* Optional animation state - content is visible by default */
     &:not(.animation-ready) {
@@ -40,6 +44,135 @@
         transform: translateY(0);
       }
     }
+    
+    /* Improve typography within cards */
+    h1, h2, h3, h4, h5, h6 {
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+    
+    /* Better spacing for content sections */
+    > * + * {
+      margin-top: 1.25em;
+    }
+    
+    /* Optimize text readability */
+    p, li, div {
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.6;
+    }
+    
+    /* Special handling for citation and links */
+    .archive__item {
+      border-bottom: 1px solid rgba($lighter-gray, 0.5);
+      padding-bottom: 1.5em;
+      margin-bottom: 1.5em;
+      
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+      
+      /* Citation text formatting */
+      p {
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        
+        /* Style for citation paragraphs */
+        &:contains("Recommended citation:") {
+          font-style: italic;
+          background: rgba($lighter-gray, 0.1);
+          padding: 0.75em;
+          border-radius: $border-radius;
+          margin: 1em 0;
+        }
+        
+        /* Style for download links */
+        a[href*="Download"],
+        a[href*="download"],
+        a.download-link {
+          display: inline-block;
+          padding: 0.4em 0.8em;
+          margin: 0.2em 0.3em 0.2em 0;
+          background: $primary-color;
+          color: white;
+          text-decoration: none;
+          border-radius: $border-radius;
+          font-size: 0.9em;
+          transition: background 0.2s ease;
+          
+          &:hover {
+            background: darken($primary-color, 10%);
+            text-decoration: none;
+          }
+        }
+      }
+      
+      /* Meta information styling */
+      .page__meta {
+        color: rgba($text-color, 0.7);
+        font-size: 0.9em;
+        margin-bottom: 0.5em;
+      }
+      
+              /* Publication venue styling */
+        em {
+          color: rgba($text-color, 0.8);
+          font-weight: 500;
+        }
+      }
+      
+             /* Special styling for publication links */
+       .publication-links {
+         margin-top: 1em;
+         padding-top: 0.75em;
+         border-top: 1px solid rgba($lighter-gray, 0.7);
+         text-align: left;
+         
+         a.download-link {
+           font-size: 0.85em;
+           padding: 0.35em 0.7em;
+         }
+       }
+       
+               /* Portfolio teaser images styling */
+        .portfolio-teaser {
+          margin-top: 1em;
+          text-align: center;
+          
+          img {
+            max-width: 100%;
+            height: auto;
+            border-radius: $border-radius;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            }
+          }
+        }
+        
+        /* Teaching description styling */
+        .teaching-description {
+          margin-top: 1em;
+          padding-top: 0.75em;
+          border-top: 1px solid rgba($lighter-gray, 0.5);
+          font-style: italic;
+          color: rgba($text-color, 0.8);
+          line-height: 1.5;
+          
+          p {
+            margin-bottom: 0.5em;
+            
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
   }
 
   a {
@@ -70,9 +203,34 @@
 .archive__item-title {
   margin-bottom: 0.25em;
   font-family: $sans-serif-narrow;
+  
+  /* Better handling of long titles in cards */
+  .archive & {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.4;
+  }
 
   a + a {
     opacity: 0.5;
+  }
+  
+  /* Consistent font sizing with Home page Publications */
+  .archive & {
+    font-size: $type-size-5; /* 1em - same as Home page strong links */
+    
+    a {
+      font-weight: bold; /* Match strong tag styling from Home page */
+      text-decoration: none;
+      color: $link-color; /* Default blue color like Home page Publications */
+      
+      &:hover {
+        color: darken($link-color, 15%); /* Slightly darker blue on hover */
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -88,6 +246,23 @@
 .archive__item-excerpt {
   margin-top: 0;
   font-size: $type-size-6;
+  
+  /* Better excerpt formatting in cards */
+  .archive & {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    text-align: justify;
+    text-justify: inter-word;
+    
+    /* Add subtle visual separation */
+    padding: 0.75em 0;
+    border-left: 3px solid rgba($primary-color, 0.3);
+    padding-left: 1em;
+    margin-left: 0.5em;
+    background: rgba($primary-color, 0.02);
+  }
 
   & + p {
     text-indent: 0;
@@ -118,16 +293,55 @@
    ========================================================================== */
 
 .list__item {
+  /* Reset padding for archive pages to fit card width */
+  .archive & {
+    padding-right: 0;
+    max-width: 100%;
+    margin-bottom: 1.5em;
+    
+    /* Ensure content fits card width */
+    .archive__item {
+      max-width: 100%;
+      word-wrap: break-word;
+      
+      /* Better text layout within cards */
+      .archive__item-title {
+        line-height: 1.3;
+        margin-bottom: 0.5em;
+      }
+      
+      .archive__item-excerpt {
+        line-height: 1.5;
+        margin-bottom: 0.75em;
+      }
+      
+      /* Ensure citation text fits card width */
+      p {
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+      }
+    }
+  }
+
+  /* Non-archive pages keep original padding */
   @include breakpoint($medium) {
-    padding-right: $right-sidebar-width-narrow;
+    &:not(.archive *) {
+      padding-right: $right-sidebar-width-narrow;
+    }
   }
 
   @include breakpoint($large) {
-    padding-right: $right-sidebar-width;
+    &:not(.archive *) {
+      padding-right: $right-sidebar-width;
+    }
   }
 
   @include breakpoint($x-large) {
-    padding-right: $right-sidebar-width-wide;
+    &:not(.archive *) {
+      padding-right: $right-sidebar-width-wide;
+    }
   }
 
   .page__meta {

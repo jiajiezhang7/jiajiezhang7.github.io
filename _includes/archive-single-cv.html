@@ -36,7 +36,17 @@
     {% if post.read_time %}
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
-    {% if post.venue%}<p class="archive__item-excerpt" itemprop="description">{{ post.citation }}</p> {% endif %}
+    {% if post.collection == 'teaching' %}
+      {% comment %} For teaching in CV, show course information in blue box {% endcomment %}
+      <div class="archive__item-excerpt" itemprop="description">
+        <strong>Course Information:</strong><br>
+        {{ post.type }}{% if post.venue %}, <i>{{ post.venue }}</i>{% endif %}{% if post.date %}, {{ post.date | default: "1900-01-01" | date: "%Y" }}{% endif %}
+        {% if post.location %}<br><i class="fa fa-map-marker" aria-hidden="true"></i> {{ post.location }}{% endif %}
+      </div>
+    {% elsif post.venue %}
+      {% comment %} For publications and other collections {% endcomment %}
+      <p class="archive__item-excerpt" itemprop="description">{{ post.citation }}</p>
+    {% endif %}
     </li>
  </article>
 </div>
