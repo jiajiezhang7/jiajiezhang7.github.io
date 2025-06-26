@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Variables
+   Variables - Modernized Design System
    ========================================================================== */
 
 /*
@@ -10,12 +10,12 @@ $doc-font-size              : 16;
 
 /* paragraph indention */
 $paragraph-indent           : false; // true, false (default)
-$indent-var                 : 1.3em;
+$indent-var                 : 1.5em;
 
 /* system typefaces */
 $serif                      : Georgia, Times, serif;
 $sans-serif                 : "Inter", -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-$monospace                  : Monaco, Consolas, "Lucida Console", monospace;
+$monospace                  : "JetBrains Mono", "Fira Code", Monaco, Consolas, "Lucida Console", monospace;
 
 /* sans serif typefaces */
 $sans-serif-narrow          : $sans-serif;
@@ -32,18 +32,25 @@ $global-font-family         : $sans-serif;
 $header-font-family         : $sans-serif;
 $caption-font-family        : $serif;
 
-/* type scale */
-$type-size-1                : 2.441em;  // ~39.056px
-$type-size-2                : 1.953em;  // ~31.248px
-$type-size-3                : 1.563em;  // ~25.008px
-$type-size-4                : 1.25em;   // ~20px
-$type-size-5                : 1em;      // ~16px
-$type-size-6                : 0.75em;   // ~12px
-$type-size-7                : 0.6875em; // ~11px
-$type-size-8                : 0.625em;  // ~10px
+/* Enhanced type scale for better hierarchy */
+$type-size-1                : 3.052em;  // ~48.8px (hero titles)
+$type-size-2                : 2.441em;  // ~39.1px (main headings)
+$type-size-3                : 1.953em;  // ~31.2px (section headings)
+$type-size-4                : 1.563em;  // ~25px (subsection headings)
+$type-size-5                : 1.25em;   // ~20px (large text)
+$type-size-6                : 1em;      // ~16px (body text)
+$type-size-7                : 0.875em;  // ~14px (small text)
+$type-size-8                : 0.75em;   // ~12px (tiny text)
+
+/* Font weights */
+$font-weight-light          : 300;
+$font-weight-normal         : 400;
+$font-weight-medium         : 500;
+$font-weight-semibold       : 600;
+$font-weight-bold           : 700;
 
 /* masthead properties */
-$masthead-height            : 70px;
+$masthead-height            : 80px;
 
 /* Sidebar properties */
 $sidebar-screen-min-width   : 1024px;
@@ -52,27 +59,44 @@ $sidebar-link-max-width     : 250px;
 
 
 /*
-   Colors
+   Modern Color System
    ========================================================================== */
 
-$gray                       : #7a8288;
-$dark-gray                  : mix(#000, $gray, 40%);
-$darker-gray                : mix(#000, $gray, 60%);
-$light-gray                 : mix(#fff, $gray, 50%);
-$lighter-gray               : mix(#fff, $gray, 90%);
+/* Modern neutral palette (warmer grays) */
+$gray-50                    : #f9fafb;
+$gray-100                   : #f3f4f6;
+$gray-200                   : #e5e7eb;
+$gray-300                   : #d1d5db;
+$gray-400                   : #9ca3af;
+$gray-500                   : #6b7280;
+$gray-600                   : #4b5563;
+$gray-700                   : #374151;
+$gray-800                   : #1f2937;
+$gray-900                   : #111827;
 
+/* Legacy gray variables for compatibility */
+$gray                       : $gray-500;
+$dark-gray                  : $gray-700;
+$darker-gray                : $gray-800;
+$light-gray                 : $gray-300;
+$lighter-gray               : $gray-100;
+
+/* Base colors */
 $body-color                 : #fff;
 $background-color           : #fff;
-$code-background-color      : #fafafa;
-$code-background-color-dark : $light-gray;
-$text-color                 : $dark-gray;
-$border-color               : $lighter-gray;
+$code-background-color      : $gray-50;
+$code-background-color-dark : $gray-200;
+$text-color                 : $gray-700;
+$border-color               : $gray-200;
 
-$primary-color              : #007AFF;
-$success-color              : #62c462;
-$warning-color              : #f89406;
-$danger-color               : #ee5f5b;
-$info-color                 : #007AFF;
+/* Modern brand colors */
+$primary-color              : #6366f1;  // Modern indigo
+$secondary-color            : #8b5cf6;  // Purple accent
+$accent-color               : #06b6d4;  // Cyan highlight
+$success-color              : #10b981;  // Emerald
+$warning-color              : #f59e0b;  // Amber
+$danger-color               : #ef4444;  // Red
+$info-color                 : $accent-color;
 
 /* brands */
 $behance-color              : #1769FF;
@@ -101,12 +125,33 @@ $youtube-color              : #bb0000;
 $xing-color                 : #006567;
 
 
+/* Gradient backgrounds */
+$bg-gradient-primary        : linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$bg-gradient-secondary      : linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+$bg-gradient-accent         : linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+
 /* links */
 $link-color                 : $primary-color;
-$link-color-hover           : mix(#000, $link-color, 15%);
-$link-color-visited         : mix(#fff, $link-color, 25%);
+$link-color-hover           : $secondary-color;
+$link-color-visited         : mix($gray-500, $link-color, 25%);
 $masthead-link-color        : $primary-color;
-$masthead-link-color-hover  : mix(#000, $primary-color, 25%);
+$masthead-link-color-hover  : $secondary-color;
+
+/*
+   Modern Spacing System
+   ========================================================================== */
+
+$space-1                    : 0.25rem;   // 4px
+$space-2                    : 0.5rem;    // 8px
+$space-3                    : 0.75rem;   // 12px
+$space-4                    : 1rem;      // 16px
+$space-5                    : 1.25rem;   // 20px
+$space-6                    : 1.5rem;    // 24px
+$space-8                    : 2rem;      // 32px
+$space-10                   : 2.5rem;    // 40px
+$space-12                   : 3rem;      // 48px
+$space-16                   : 4rem;      // 64px
+$space-20                   : 5rem;      // 80px
 
 
 /*
@@ -155,11 +200,34 @@ $susy: (
 
 
 /*
-   Other
+   Modern Design Tokens
    ========================================================================== */
 
-$border-radius              : 4px;
-$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
+/* Border radius scale */
+$border-radius-sm           : 6px;
+$border-radius              : 8px;
+$border-radius-lg           : 12px;
+$border-radius-xl           : 16px;
+$border-radius-full         : 9999px;
+
+/* Enhanced shadows */
+$box-shadow-sm              : 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$box-shadow                 : 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$box-shadow-md              : 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$box-shadow-lg              : 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$box-shadow-xl              : 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+/* Navigation */
 $navicon-width              : 28px;
 $navicon-height             : 4px;
-$global-transition          : all 0.2s ease-in-out;
+
+/* Modern animation system */
+$duration-fast              : 150ms;
+$duration-normal            : 250ms;
+$duration-slow              : 350ms;
+
+$ease-out-cubic             : cubic-bezier(0.33, 1, 0.68, 1);
+$ease-in-out-cubic          : cubic-bezier(0.65, 0, 0.35, 1);
+$ease-spring                : cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+$global-transition          : all $duration-normal $ease-out-cubic;

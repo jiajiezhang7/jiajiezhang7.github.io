@@ -502,3 +502,83 @@ a.reversefootnote {
   color: $danger-color;
   font-weight: bold;
 }
+
+/*
+   Modern Design Utilities
+   ========================================================================== */
+
+/* Gradient text */
+.gradient-text {
+  background: $bg-gradient-accent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Modern cards */
+.modern-card {
+  background: linear-gradient(145deg, #ffffff 0%, #fafbfc 100%);
+  border: 1px solid $gray-200;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-md;
+  padding: $space-8;
+  transition: all $duration-normal $ease-out-cubic;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $box-shadow-xl;
+  }
+}
+
+/* Glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Interactive hover effects */
+.hover-lift {
+  transition: transform $duration-normal $ease-out-cubic;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.hover-scale {
+  transition: transform $duration-normal $ease-out-cubic;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* Spacing utilities */
+.mt-0 { margin-top: 0 !important; }
+.mt-1 { margin-top: $space-1 !important; }
+.mt-2 { margin-top: $space-2 !important; }
+.mt-3 { margin-top: $space-3 !important; }
+.mt-4 { margin-top: $space-4 !important; }
+.mt-5 { margin-top: $space-5 !important; }
+.mt-6 { margin-top: $space-6 !important; }
+.mt-8 { margin-top: $space-8 !important; }
+
+.mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: $space-1 !important; }
+.mb-2 { margin-bottom: $space-2 !important; }
+.mb-3 { margin-bottom: $space-3 !important; }
+.mb-4 { margin-bottom: $space-4 !important; }
+.mb-5 { margin-bottom: $space-5 !important; }
+.mb-6 { margin-bottom: $space-6 !important; }
+.mb-8 { margin-bottom: $space-8 !important; }
+
+.p-0 { padding: 0 !important; }
+.p-1 { padding: $space-1 !important; }
+.p-2 { padding: $space-2 !important; }
+.p-3 { padding: $space-3 !important; }
+.p-4 { padding: $space-4 !important; }
+.p-5 { padding: $space-5 !important; }
+.p-6 { padding: $space-6 !important; }
+.p-8 { padding: $space-8 !important; }

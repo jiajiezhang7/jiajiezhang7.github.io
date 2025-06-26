@@ -63,14 +63,34 @@
       line-height: 1.6;
     }
     
-    /* Special handling for citation and links */
+    /* Modern card styling for archive items */
     .archive__item {
-      border-bottom: 1px solid rgba($lighter-gray, 0.5);
-      padding-bottom: 1.5em;
-      margin-bottom: 1.5em;
-      
+      background: linear-gradient(145deg, #ffffff 0%, #fafbfc 100%);
+      border: 1px solid $gray-200;
+      border-radius: $border-radius-lg;
+      padding: $space-8;
+      margin-bottom: $space-6;
+      box-shadow: $box-shadow-md;
+      transition: all $duration-normal $ease-out-cubic;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: $bg-gradient-accent;
+      }
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: $box-shadow-xl;
+      }
+
       &:last-child {
-        border-bottom: none;
         margin-bottom: 0;
       }
       
@@ -270,20 +290,32 @@
 }
 
 .archive__item-teaser {
-  border-radius: $border-radius;
+  border-radius: $border-radius-lg;
   overflow: hidden;
+  transition: transform $duration-normal $ease-out-cubic;
+
   img {
     width: 100%;
+    transition: transform $duration-normal $ease-out-cubic;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
   }
 }
 
 .archive__item:hover {
   .archive__item-teaser {
-    box-shadow: 0 0 10px rgba(#000, 0.25);
+    transform: scale(1.02);
+    box-shadow: $box-shadow-lg;
   }
 
   .archive__item-title {
-    text-decoration: underline;
+    color: $primary-color;
+
+    a {
+      color: $primary-color;
+    }
   }
 }
 

@@ -7,26 +7,51 @@
    ========================================================================== */
 
 .btn {
-  /* default button */
-  display: inline-block;
-  margin-bottom: 0.25em;
-  padding: 0.5em 1em;
+  /* Modern button design */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $space-2;
+  padding: $space-3 $space-6;
   color: #fff !important;
   font-family: $sans-serif;
-  font-size: $type-size-6;
-  font-weight: bold;
+  font-size: $type-size-7;
+  font-weight: $font-weight-medium;
   text-align: center;
   text-decoration: none;
-  background-color: $primary-color;
+  background: $bg-gradient-accent;
   border: 0 !important;
   border-radius: $border-radius;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all $duration-normal $ease-out-cubic;
+  box-shadow: $box-shadow-sm;
+  position: relative;
+  overflow: hidden;
 
   &:hover {
-    background-color: mix(#000, $primary-color, 15%);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: $box-shadow-lg;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+    opacity: 0;
+    transition: opacity $duration-normal $ease-out-cubic;
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+    transition-duration: $duration-fast;
   }
 
   .icon {
@@ -48,16 +73,39 @@
     }
   }
 
-  /* for dark backgrounds */
-
-  &--inverse {
-    color: $gray !important;
-    border: 1px solid $light-gray !important; /* override*/
-    background-color: #fff;
+  /* Secondary button variant */
+  &--secondary {
+    background: linear-gradient(135deg, $secondary-color 0%, $accent-color 100%);
 
     &:hover {
-      color: #fff !important;
-      border-color: $gray;
+      background: linear-gradient(135deg, darken($secondary-color, 10%) 0%, darken($accent-color, 10%) 100%);
+    }
+  }
+
+  /* Outline button variant */
+  &--outline {
+    background: transparent;
+    color: $primary-color !important;
+    border: 2px solid $primary-color !important;
+
+    &:hover {
+      background: $primary-color;
+      color: white !important;
+      border-color: $primary-color !important;
+    }
+  }
+
+  /* for dark backgrounds */
+  &--inverse {
+    color: $gray-600 !important;
+    border: 2px solid $gray-300 !important;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+
+    &:hover {
+      color: $primary-color !important;
+      border-color: $primary-color !important;
+      background: rgba(255, 255, 255, 1);
     }
   }
 

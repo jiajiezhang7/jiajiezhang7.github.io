@@ -183,6 +183,7 @@
     padding: 0.5rem 0;
     color: $masthead-link-color;
     text-decoration: none;
+    line-height: 1.4; /* Add line-height to prevent descender clipping */
 
     &:hover {
       color: $masthead-link-color-hover;
