@@ -13,6 +13,18 @@ I am a graduate student at ShanghaiTech University pursuing a Master's degree in
 
 ## Publications
 
+**[Generation of Indoor Open Street Maps for Robot Navigation from CAD Files](https://arxiv.org/abs/2507.00552)**
+
+*Avaliable on arXiv preprint [arXiv:2507.00552](https://arxiv.org/abs/2507.00552), 2025*
+
+This paper presents a complete and automated system to convert architectural Computer-Aided Design (CAD) files into a hierarchical topometric OpenStreetMap (OSM) representation for robust, life-long robot navigation. The method overcomes the limitations of traditional SLAM by leveraging permanent structural information, employing a multi-stage pipeline that includes topological segmentation, semantic text association, and multi-floor fusion to generate semantically rich and topologically correct maps.
+
+<div style="text-align: center; margin: 20px 0;">
+  <img src="/images/CAD2OSM/CAD2OSM-teaser.png" alt="CAD2OSM Generation Pipeline Teaser" style="width: 100%; max-width: 800px;"/>
+</div>
+
+---
+
 **[Intelligent LiDAR Navigation: Leveraging External Information and Semantic Maps with LLM as Copilot](https://arxiv.org/abs/2409.08493)**
 
 *Accepted by [IROS2025](https://arxiv.org/abs/2409.08493), 2025*

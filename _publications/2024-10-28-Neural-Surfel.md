@@ -15,4 +15,3 @@ You can view this paper online [here](https://www.mdpi.com/1424-8220/24/21/6919)
 <img src="/images/neural-surfel-teaser.png" alt="Neural Surfel Reconstruction Teaser" style="width: 100%;"/>
 
 <img src="/images/neural-surfel-overview.png" alt="Neural Surfel Reconstruction Overview" style="width: 100%;"/>
-
