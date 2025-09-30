@@ -5,7 +5,7 @@ description: "Extension of indoor LiDAR localization system based on hierarchica
 img: assets/img/agloc_teaser.jpg
 importance: 1
 category: research
-related_publications: true
+related_publications: xie2023agloc
 ---
 
 ## Project Overview

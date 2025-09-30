@@ -1,34 +1,23 @@
-"adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+"Schwertfeger":
+  - firstname: ["Soeren", "S."]
+    url: https://robotics.shanghaitech.edu.cn/people/soeren
 
-"podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+"Xie":
+  - firstname: ["Fujing", "F."]
+    url: https://robotics.shanghaitech.edu.cn/
 
-"rosen":
-  - firstname: ["Nathan", "N."]
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
+"Wu":
+  - firstname: ["Siyu", "S."]
+    url: https://robotics.shanghaitech.edu.cn/
 
-"bach":
-  - firstname: ["Johann Sebastian", "J. S."]
-    url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
+"Ma":
+  - firstname: ["Xiaoyu", "X."]
+    url: https://robotics.shanghaitech.edu.cn/
 
-  - firstname: ["Carl Philipp Emanuel", "C. P. E."]
-    url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
+"Cui":
+  - firstname: ["Jinyu", "J."]
+    url: https://robotics.shanghaitech.edu.cn/
 
-"przibram":
-  - firstname: ["Karl"]
-    url: https://link.springer.com/article/10.1007/s00016-019-00242-z
-
-"schrodinger":
-  - firstname: ["Erwin"]
-    url: https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger
-
-"lorentz":
-  - firstname: ["Hendrik Antoon"]
-    url: https://en.wikipedia.org/wiki/Hendrik_Lorentz
-
-"planck":
-  - firstname: ["Max"]
-    url: https://en.wikipedia.org/wiki/Max_Planck
+"Kneip":
+  - firstname: ["Laurent", "L."]
+    url: https://www.mi.sdu.edu.cn/
