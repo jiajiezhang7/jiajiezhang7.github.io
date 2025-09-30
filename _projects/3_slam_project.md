@@ -172,7 +172,7 @@ The system integrates various hardware and software components:
 ## Project Team
 
 - **Developer**: Jiajie Zhang (zhangjj2023@shanghaitech.edu.cn)
-- **Advisor**: Professor Soeren Schwertfeger
+- **Advisor**: Professor Sören Schwertfeger
 
 ## Related Resources
 

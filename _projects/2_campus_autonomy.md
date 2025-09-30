@@ -119,7 +119,7 @@ Future development will focus on:
 
 - **Lead Developer**: Jiajie Zhang (zhangjj2023@shanghaitech.edu.cn)
 - **Co-developer**: Yongqi Zhang (zhangyq12023@shanghaitech.edu.cn)
-- **Advisor**: Professor Soeren Schwertfeger
+- **Advisor**: Professor Sören Schwertfeger
 
 ## Related Resources
 

@@ -116,7 +116,7 @@
 
 ### 9. 合作者信息 (_data/coauthors.yml)
 已添加所有合作者：
-- ✅ Soeren Schwertfeger (导师)
+- ✅ Sören Schwertfeger (导师)
 - ✅ Fujing Xie
 - ✅ Siyu Wu
 - ✅ Xiaoyu Ma

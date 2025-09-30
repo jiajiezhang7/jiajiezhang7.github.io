@@ -185,7 +185,7 @@ This industrial perception system contributes to:
 - **Computer Vision Specialist**: [Team Member Name]
 - **Robotics Engineer**: [Team Member Name]
 - **Industrial Partner**: [Company Name]
-- **Academic Advisor**: Professor Soeren Schwertfeger
+- **Academic Advisor**: Professor Sören Schwertfeger
 
 ## Related Resources
 

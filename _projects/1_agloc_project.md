@@ -120,7 +120,7 @@ Optimizes point cloud registration in corridor-dominated spaces, improving ICP a
 
 - **Current Work**: Jiajie Zhang (zhangjj2023@shanghaitech.edu.cn)
 - **Previous Work**: Fujing Xie (xiefj@shanghaitech.edu.cn)
-- **Advisor**: Professor Soeren Schwertfeger
+- **Advisor**: Professor Sören Schwertfeger
 
 ## Related Resources
 

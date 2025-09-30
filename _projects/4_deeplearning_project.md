@@ -195,7 +195,7 @@ This research contributes to the field of safe autonomous navigation by:
 ## Project Team
 
 - **Lead Researcher**: Jiajie Zhang (zhangjj2023@shanghaitech.edu.cn)
-- **Advisor**: Professor Soeren Schwertfeger
+- **Advisor**: Professor Sören Schwertfeger
 - **Institution**: MARS Lab, ShanghaiTech University
 
 ## Related Resources

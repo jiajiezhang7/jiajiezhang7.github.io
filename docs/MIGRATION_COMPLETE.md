@@ -106,7 +106,7 @@ jiajiezhang7-new.github.io (al-folio模板)
    │   ├── ResearchGate
    │   └── Semantic Scholar
    ├── coauthors.yml       # 合作者信息（6人）
-   │   ├── Soeren Schwertfeger
+   │   ├── Sören Schwertfeger
    │   ├── Fujing Xie
    │   ├── Siyu Wu
    │   ├── Xiaoyu Ma

@@ -21,7 +21,7 @@
       description:
         - Research focus on Mobile Robotics and Embodied AI
         - Member of MARS Lab (Mobile Autonomous Robotics Systems)
-        - Advisor: Professor Soeren Schwertfeger
+        - Advisor: Professor Sören Schwertfeger
         - Key research areas include navigation, SLAM, and intelligent robotics systems
     - title: B.S. in Automation
       institution: Zhengzhou University, Zhengzhou, China
@@ -37,7 +37,7 @@
       institution: MARS Lab, ShanghaiTech University
       year: 2023 - Present
       description:
-        - Conducting research on mobile robotics and embodied AI under Prof. Soeren Schwertfeger
+        - Conducting research on mobile robotics and embodied AI under Prof. Sören Schwertfeger
         - Developing intelligent LiDAR navigation systems with LLM integration
         - Working on neural surfel reconstruction for large-scale 3D scene mapping
         - Contributing to AGLoc++ project for WiFi-fused global localization

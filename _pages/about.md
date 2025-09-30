@@ -2,17 +2,16 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://robotics.shanghaitech.edu.cn/'>MARS Lab</a>, ShanghaiTech University
+subtitle: >
+  <a href='https://robotics.shanghaitech.edu.cn/'>MARS Lab</a>, ShanghaiTech University<br>
+  Graduate Student | Shanghai, China<br>
+  Email: zhangjj2023@shanghaitech.edu.cn
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>Graduate Student</p>
-    <p>ShanghaiTech University</p>
-    <p>Shanghai, China</p>
-    <p>Email: zhangjj2023@shanghaitech.edu.cn</p>
+  more_info:
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -23,14 +22,14 @@ announcements:
   limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: true
+  enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
 
 ## About Me
 
-I am a graduate student at ShanghaiTech University pursuing a Master's degree in Computer Science and Technology. Since 2023, I have been conducting research at the [MARS Lab](https://robotics.shanghaitech.edu.cn/) (Mobile Autonomous Robotics Systems Laboratory) at ShanghaiTech University, advised by [Professor Soeren Schwertfeger](https://robotics.shanghaitech.edu.cn/people/soeren), focusing on cutting-edge areas including **Mobile Robotics** and **Embodied AI**.
+I am a graduate student at ShanghaiTech University pursuing a Master's degree in Computer Science and Technology. Since 2023, I have been conducting research at the [MARS Lab](https://robotics.shanghaitech.edu.cn/) (Mobile Autonomous Robotics Systems Laboratory) at ShanghaiTech University, advised by [Professor Sören Schwertfeger](https://robotics.shanghaitech.edu.cn/people/soeren), focusing on cutting-edge areas including **Mobile Robotics** and **Embodied AI**.
 
 My research interests lie at the intersection of robotics and artificial intelligence, with particular emphasis on:
 - **Intelligent Navigation Systems**: Developing robust navigation algorithms that integrate semantic understanding with traditional path planning
