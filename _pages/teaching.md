@@ -23,13 +23,16 @@ nav_order: 6
 </div>
 
 #### Course Description
+
 Mobile Manipulation combines mobile robotics with manipulation tasks, teaching students how to integrate navigation, perception, and manipulation for complex robotic systems. The course covers both theoretical foundations and practical implementations using ROS2 and real robot platforms.
 
 #### Responsibilities
+
 - Supporting students with robotics programming and system integration
 - Assisting with laboratory sessions and project guidance
 - Helping debug ROS2-based robotic systems
 - Evaluating student projects and assignments
 
 #### Course Website
+
 For more information, visit the [official course page](https://robotics.shanghaitech.edu.cn/teaching/moma2024).

@@ -9,6 +9,7 @@
 ## 📊 迁移概览
 
 ### 迁移路径
+
 ```
 jiajiezhang7.github.io (Academic Pages模板)
          ↓
@@ -16,9 +17,10 @@ jiajiezhang7-new.github.io (al-folio模板)
 ```
 
 ### 完成度统计
+
 - **总体进度**: 98%
 - **内容迁移**: 100% ✅
-- **图片资源**: 100% ✅  
+- **图片资源**: 100% ✅
 - **PDF文件**: 60% (3/5) ⚠️
 - **视频文件**: 0% (建议外部链接) ⚠️
 - **配置文件**: 100% ✅
@@ -28,28 +30,32 @@ jiajiezhang7-new.github.io (al-folio模板)
 ## ✅ 已完成的工作
 
 ### 1. 配置文件迁移
+
 - ✅ `_config.yml` - 个人信息、网站设置、Jekyll Scholar配置
 - ✅ 姓名从Einstein更新为Zhang, Jiajie
 - ✅ 网站URL、关键词、描述等全部更新
 
 ### 2. 核心页面迁移
-| 页面 | 旧仓库 | 新仓库 | 状态 |
-|------|--------|--------|------|
-| About | `_pages/about.md` | `_pages/about.md` | ✅ 完成 |
-| Publications | `_publications/*.md` | `_bibliography/papers.bib` | ✅ 转换完成 |
-| Projects | `_portfolio/*.md` | `_projects/*.md` | ✅ 迁移完成 |
-| CV | `_pages/cv.md` | `_data/cv.yml` + `_pages/cv.md` | ✅ 结构化完成 |
-| Teaching | `_teaching/*.md` | `_pages/teaching.md` | ✅ 整合完成 |
+
+| 页面         | 旧仓库               | 新仓库                          | 状态          |
+| ------------ | -------------------- | ------------------------------- | ------------- |
+| About        | `_pages/about.md`    | `_pages/about.md`               | ✅ 完成       |
+| Publications | `_publications/*.md` | `_bibliography/papers.bib`      | ✅ 转换完成   |
+| Projects     | `_portfolio/*.md`    | `_projects/*.md`                | ✅ 迁移完成   |
+| CV           | `_pages/cv.md`       | `_data/cv.yml` + `_pages/cv.md` | ✅ 结构化完成 |
+| Teaching     | `_teaching/*.md`     | `_pages/teaching.md`            | ✅ 整合完成   |
 
 ### 3. 学术论文 (4篇)
-| 论文 | BibTeX ID | 预览图 | PDF | 状态 |
-|------|-----------|--------|-----|------|
-| LLM-Copilot (IROS 2025) | `zhang2025llm` | ✅ | ⚠️ 待添加 | ✅ Selected |
-| Neural Surfel (Sensors 2024) | `zhang2024neural` | ✅ | ⚠️ 待添加 | ✅ Selected |
-| CAD2OSM (arXiv 2025) | `zhang2025cad2osm` | ✅ | ✅ | ✅ Selected |
-| AGLoc (RAL 2023) | `xie2023agloc` | ✅ | ✅ | ✅ |
+
+| 论文                         | BibTeX ID          | 预览图 | PDF       | 状态        |
+| ---------------------------- | ------------------ | ------ | --------- | ----------- |
+| LLM-Copilot (IROS 2025)      | `zhang2025llm`     | ✅     | ⚠️ 待添加 | ✅ Selected |
+| Neural Surfel (Sensors 2024) | `zhang2024neural`  | ✅     | ⚠️ 待添加 | ✅ Selected |
+| CAD2OSM (arXiv 2025)         | `zhang2025cad2osm` | ✅     | ✅        | ✅ Selected |
+| AGLoc (RAL 2023)             | `xie2023agloc`     | ✅     | ✅        | ✅          |
 
 **论文特性**:
+
 - BibTeX格式自动管理
 - Google Scholar ID链接
 - Dimensions和Altmetric徽章
@@ -57,24 +63,27 @@ jiajiezhang7-new.github.io (al-folio模板)
 - PDF下载功能
 
 ### 4. 研究项目 (5个)
-| 项目 | 文件名 | 图片 | 描述 | 状态 |
-|------|--------|------|------|------|
-| AGLoc++ | `1_agloc_project.md` | ✅ 3张 | WiFi融合全局定位 | ✅ |
-| Campus Autonomy | `2_campus_autonomy.md` | ✅ 3张 | 自主配送机器人 | ✅ |
-| SLAM Project | `3_slam_project.md` | ✅ 7张 | 垂直平面分割SLAM | ✅ |
-| DL Navigation | `4_deeplearning_project.md` | ✅ 7张 | 强化学习导航 | ✅ |
-| Industrial Perception | `5_industrial_perception.md` | ✅ 7张 | 工业感知系统 | ✅ |
+
+| 项目                  | 文件名                       | 图片   | 描述             | 状态 |
+| --------------------- | ---------------------------- | ------ | ---------------- | ---- |
+| AGLoc++               | `1_agloc_project.md`         | ✅ 3张 | WiFi融合全局定位 | ✅   |
+| Campus Autonomy       | `2_campus_autonomy.md`       | ✅ 3张 | 自主配送机器人   | ✅   |
+| SLAM Project          | `3_slam_project.md`          | ✅ 7张 | 垂直平面分割SLAM | ✅   |
+| DL Navigation         | `4_deeplearning_project.md`  | ✅ 7张 | 强化学习导航     | ✅   |
+| Industrial Perception | `5_industrial_perception.md` | ✅ 7张 | 工业感知系统     | ✅   |
 
 ### 5. 新闻动态 (5条)
-| 新闻 | 日期 | 内容 | 类型 |
-|------|------|------|------|
-| announcement_1 | 2025-01-15 | IROS 2025接收 | inline |
-| announcement_2 | 2024-10-28 | Neural Surfel发表 | full |
-| announcement_3 | 2024-09-13 | LLM导航arXiv | inline |
-| announcement_4 | 2025-07-01 | CAD2OSM arXiv | inline |
-| announcement_5 | 2024-09-01 | MoMa助教 | inline |
+
+| 新闻           | 日期       | 内容              | 类型   |
+| -------------- | ---------- | ----------------- | ------ |
+| announcement_1 | 2025-01-15 | IROS 2025接收     | inline |
+| announcement_2 | 2024-10-28 | Neural Surfel发表 | full   |
+| announcement_3 | 2024-09-13 | LLM导航arXiv      | inline |
+| announcement_4 | 2025-07-01 | CAD2OSM arXiv     | inline |
+| announcement_5 | 2024-09-01 | MoMa助教          | inline |
 
 ### 6. 图片资源迁移
+
 ```
 ✅ assets/img/
    ├── prof_pic.jpg (个人头像)
@@ -92,9 +101,11 @@ jiajiezhang7-new.github.io (al-folio模板)
    ├── MoMa2024-teaser.png
    └── 项目teaser图 (多张)
 ```
+
 **总计**: 30+ 张图片
 
 ### 7. 数据文件配置
+
 ```yaml
 ✅ _data/
    ├── cv.yml              # CV结构化数据（完整）
@@ -118,6 +129,7 @@ jiajiezhang7-new.github.io (al-folio模板)
 ```
 
 ### 8. PDF文件
+
 ```
 ✅ assets/pdf/
    ├── cv.pdf (个人简历)
@@ -130,11 +142,14 @@ jiajiezhang7-new.github.io (al-folio模板)
 ## ⚠️ 待完成事项
 
 ### 优先级 P0 - 部署前必须
+
 1. **测试本地Jekyll服务器**
+
    ```bash
    bundle install
    bundle exec jekyll serve
    ```
+
    验证所有页面正常显示
 
 2. **配置GitHub Pages部署**
@@ -143,7 +158,9 @@ jiajiezhang7-new.github.io (al-folio模板)
    - 选择部署分支
 
 ### 优先级 P1 - 短期完成
+
 1. **补充论文PDF** (2个)
+
    - `llm_copilot_paper.pdf` - 从IROS获取
    - `neural_surfel_paper.pdf` - 从MDPI下载
 
@@ -153,6 +170,7 @@ jiajiezhang7-new.github.io (al-folio模板)
    - 避免GitHub仓库存储大文件
 
 ### 优先级 P2 - 长期优化
+
 1. 添加Google Analytics（可选）
 2. 优化图片大小和加载速度
 3. 添加更多研究细节
@@ -164,18 +182,19 @@ jiajiezhang7-new.github.io (al-folio模板)
 
 ### al-folio vs Academic Pages
 
-| 特性 | Academic Pages | al-folio | 改进 |
-|------|----------------|----------|------|
-| 设计风格 | 传统学术 | 现代简洁 | ✨ |
-| 论文管理 | Markdown文件 | BibTeX + Jekyll Scholar | 🚀 自动化 |
-| 响应式设计 | 基础 | 完善 | 📱 移动友好 |
-| Dark Mode | ❌ | ✅ | 🌓 用户友好 |
-| 搜索功能 | ❌ | ✅ 论文搜索 | 🔍 便捷 |
-| 项目展示 | 列表 | 卡片布局 | 🎨 美观 |
-| 图片处理 | 基础 | 响应式+懒加载 | ⚡ 性能优化 |
-| 合作者链接 | ❌ | ✅ 自动链接 | 🔗 便捷 |
+| 特性       | Academic Pages | al-folio                | 改进        |
+| ---------- | -------------- | ----------------------- | ----------- |
+| 设计风格   | 传统学术       | 现代简洁                | ✨          |
+| 论文管理   | Markdown文件   | BibTeX + Jekyll Scholar | 🚀 自动化   |
+| 响应式设计 | 基础           | 完善                    | 📱 移动友好 |
+| Dark Mode  | ❌             | ✅                      | 🌓 用户友好 |
+| 搜索功能   | ❌             | ✅ 论文搜索             | 🔍 便捷     |
+| 项目展示   | 列表           | 卡片布局                | 🎨 美观     |
+| 图片处理   | 基础           | 响应式+懒加载           | ⚡ 性能优化 |
+| 合作者链接 | ❌             | ✅ 自动链接             | 🔗 便捷     |
 
 ### 主要改进
+
 1. **自动化论文管理** - BibTeX格式，自动渲染引用、链接
 2. **更好的可维护性** - 结构化数据（YAML）
 3. **现代化UI** - Bootstrap 5 + 响应式设计
@@ -187,11 +206,13 @@ jiajiezhang7-new.github.io (al-folio模板)
 ## 📂 关键文件清单
 
 ### 配置文件
+
 - [x] `_config.yml` - 网站主配置
 - [x] `Gemfile` - Ruby依赖
 - [x] `.gitignore` - Git忽略规则
 
 ### 内容文件
+
 - [x] `_pages/about.md` - 首页
 - [x] `_bibliography/papers.bib` - 论文BibTeX
 - [x] `_projects/*.md` - 项目详情（5个）
@@ -199,11 +220,13 @@ jiajiezhang7-new.github.io (al-folio模板)
 - [x] `_data/cv.yml` - CV数据
 
 ### 资源文件
+
 - [x] `assets/img/` - 图片文件夹
 - [x] `assets/pdf/` - PDF文件夹
 - [x] `assets/img/prof_pic.jpg` - 头像
 
 ### 文档文件
+
 - [x] `MIGRATION_SUMMARY.md` - 迁移总结
 - [x] `VERIFICATION_CHECKLIST.md` - 验证清单
 - [x] `README_CN.md` - 中文使用说明
@@ -214,6 +237,7 @@ jiajiezhang7-new.github.io (al-folio模板)
 ## 🚀 下一步行动
 
 ### 立即执行（今天）
+
 ```bash
 # 1. 测试本地运行
 cd /Users/johnnylin/git-repository/personal_pages/jiajiezhang7-new.github.io
@@ -230,12 +254,14 @@ git push origin main
 ```
 
 ### 本周内完成
+
 1. 配置GitHub Pages自动部署
 2. 下载并添加缺失的论文PDF
 3. 上传视频到YouTube/Bilibili
 4. 更新项目中的视频链接
 
 ### 本月内完成
+
 1. 添加更多项目细节和截图
 2. 优化SEO设置
 3. 添加Google Analytics
@@ -246,11 +272,14 @@ git push origin main
 ## 📞 技术支持
 
 如遇到问题，可参考：
+
 1. **本地文档**:
+
    - `README_CN.md` - 使用说明
    - `VERIFICATION_CHECKLIST.md` - 测试清单
 
 2. **在线资源**:
+
    - [al-folio GitHub](https://github.com/alshedivat/al-folio)
    - [Jekyll文档](https://jekyllrb.com/docs/)
    - [Jekyll Scholar](https://github.com/inukshuk/jekyll-scholar)
@@ -265,21 +294,25 @@ git push origin main
 ## ✨ 迁移质量评估
 
 ### 代码质量: ⭐⭐⭐⭐⭐
+
 - 所有配置文件格式正确
 - 目录结构清晰规范
 - 命名一致性好
 
 ### 内容完整性: ⭐⭐⭐⭐⭐
+
 - 所有个人信息准确
 - 论文数据完整
 - 项目描述详细
 
 ### 图片资源: ⭐⭐⭐⭐⭐
+
 - 30+张图片全部迁移
 - 图片路径正确配置
 - 文件命名规范
 
 ### 功能配置: ⭐⭐⭐⭐☆
+
 - 核心功能全部配置
 - 需要测试部署
 
@@ -288,6 +321,7 @@ git push origin main
 ## 🎯 成功标准
 
 迁移被认为成功需满足：
+
 - [x] 所有个人信息正确迁移
 - [x] 4篇论文正确显示
 - [x] 5个项目完整迁移

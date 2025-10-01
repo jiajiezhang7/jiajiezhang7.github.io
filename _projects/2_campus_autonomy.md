@@ -27,12 +27,14 @@ The "Campus Autonomy" project focuses on developing an autonomous delivery vehic
 ## Key Technologies
 
 ### Hardware Platform
+
 - **Vehicle Platform**: Agile X HUNTER SE Ackermann drive vehicle
 - **LiDAR**: Hesai PandarQT64 for high-precision environment perception
 - **Vision System**: Insta360 Air panoramic camera for 360° visual input
 - **Navigation Sensors**: Odometer and IMU for precise movement tracking
 
 ### Software Stack
+
 - **Framework**: ROS2 with Navigation2 package
 - **SLAM**: Cartographer for simultaneous localization and mapping
 - **Path Planning**: Global and local planners for optimal route generation
@@ -54,16 +56,19 @@ The system integrates sophisticated hardware and software components:
 ## Key Features
 
 ### 1. Dual Environment Navigation
+
 - **Indoor Navigation**: Precise localization in structured environments
 - **Outdoor Navigation**: GPS-aided navigation with obstacle avoidance
 - **Seamless Transition**: Automatic switching between indoor and outdoor modes
 
 ### 2. Real-time Obstacle Avoidance
+
 - Dynamic obstacle detection using LiDAR point clouds
 - Adaptive path re-planning for moving obstacles
 - Safety-first approach with emergency stop capabilities
 
 ### 3. Modular Design
+
 - Scalable architecture for future sensor additions
 - Plugin-based navigation components
 - Easy configuration and parameter tuning
@@ -82,11 +87,13 @@ The system integrates sophisticated hardware and software components:
 ## Experimental Results
 
 ### Navigation Performance
+
 - **Localization Accuracy**: ±0.2m in indoor environments
 - **Path Planning Efficiency**: 95% success rate in reaching destinations
 - **Obstacle Avoidance**: 100% collision-free navigation in test scenarios
 
 ### System Metrics
+
 - **Real-time Performance**: 20Hz sensor processing
 - **Battery Life**: 4+ hours continuous operation
 - **Payload Capacity**: Up to 10kg delivery capacity
@@ -129,4 +136,4 @@ Future development will focus on:
 
 ---
 
-*This project demonstrates the practical application of autonomous navigation technologies in real-world campus environments, contributing to the advancement of service robotics and autonomous delivery systems.*
+_This project demonstrates the practical application of autonomous navigation technologies in real-world campus environments, contributing to the advancement of service robotics and autonomous delivery systems._

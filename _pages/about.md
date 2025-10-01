@@ -32,6 +32,7 @@ latest_posts:
 I am a graduate student at ShanghaiTech University pursuing a Master's degree in Computer Science and Technology. Since 2023, I have been conducting research at the [MARS Lab](https://robotics.shanghaitech.edu.cn/) (Mobile Autonomous Robotics Systems Laboratory) at ShanghaiTech University, advised by [Professor Sören Schwertfeger](https://robotics.shanghaitech.edu.cn/people/soeren), focusing on cutting-edge areas including **Mobile Robotics** and **Embodied AI**.
 
 My research interests lie at the intersection of robotics and artificial intelligence, with particular emphasis on:
+
 - **Intelligent Navigation Systems**: Developing robust navigation algorithms that integrate semantic understanding with traditional path planning
 - **SLAM and Mapping**: Creating long-term, lifelong mapping solutions for dynamic indoor environments
 - **Embodied AI**: Bridging the gap between large language models and robotic systems for enhanced human-robot interaction

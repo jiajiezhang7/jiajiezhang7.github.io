@@ -17,26 +17,31 @@ This project enhances the previous work in the following key aspects:
 ### Major Improvements
 
 1. **ROS1 to ROS2 Migration** ✅ Completed
+
    - Complete system architecture migration
    - Compatible with ROS2 Humble distribution
    - Optimized message passing mechanisms
 
 2. **WiFi-aided Kidnap Recovery** ✅ Completed
+
    - Integrated WiFi signal strength fingerprinting
    - Provides coarse position estimates for global localization initialization
    - Significantly improves system robustness
 
 3. **Nav2 Navigation Stack Integration** ✅ Completed
+
    - Replaces traditional AMCL localizer
    - Seamless integration into Nav2 ecosystem
    - Supports standard navigation interfaces
 
 4. **Indoor Cross-level Localization** ✅ Completed
+
    - Multi-floor building environment support
    - Automatic floor identification and switching
    - Hierarchical map management
 
 5. **Odometry-fused Monte Carlo Tracking** 🔄 In Progress
+
    - Improved particle filter algorithms
    - Multi-sensor data fusion
    - More stable pose tracking
@@ -61,18 +66,23 @@ This project enhances the previous work in the following key aspects:
 ## Key Technologies
 
 ### 1. Long-term LiDAR Localization Framework
+
 Global and local localization framework based on hierarchical Area Graph, enabling robust localization in dynamic indoor environments.
 
 ### 2. Clutter-adaptive Subsampling
+
 Filters transient objects (e.g., furniture, pedestrians) from 3D LiDAR point clouds, preserving structural features (walls, doors).
 
 ### 3. Hypothesis-scoring Global Localization
+
 Addresses the kidnapped robot problem: samples candidate poses, ranks via novel Area Graph match metric, and refines for reliability.
 
 ### 4. Weighted Point-to-line ICP
+
 Weighted point-to-line ICP with clutter-aware weight function, ensuring pose tracking relies solely on lifelong architectural features.
 
 ### 5. Corridorness-aware Downsampling
+
 Optimizes point cloud registration in corridor-dominated spaces, improving ICP accuracy.
 
 ## System Architecture
@@ -99,11 +109,13 @@ Optimizes point cloud registration in corridor-dominated spaces, improving ICP a
 ## Experimental Results
 
 ### Localization Accuracy
+
 - **Average Localization Error**: < 0.15m
 - **Angular Error**: < 3°
 - **Success Rate**: > 95% (in test environments)
 
 ### System Performance
+
 - **Real-time Performance**: 10Hz localization update frequency
 - **Memory Usage**: < 500MB
 - **CPU Usage**: < 30% (Intel i7-8700K)
@@ -130,4 +142,4 @@ Optimizes point cloud registration in corridor-dominated spaces, improving ICP a
 
 ---
 
-*This project is supported by the MARS Lab at ShanghaiTech University and is an important component of mobile robotics research.*
+_This project is supported by the MARS Lab at ShanghaiTech University and is an important component of mobile robotics research._
