@@ -5,14 +5,14 @@ name: Deploy GitHub Pages site
 on:
   push:
     branches:
-      - main  # 仅在 main 分支上触发，简化逻辑
+      - main # 仅在 main 分支上触发，简化逻辑
   workflow_dispatch:
 
 # 为整个 workflow 设置权限
 permissions:
   contents: read
-  pages: write      # 必须有 pages 的写权限
-  id-token: write   # 部署时需要用到的身份令牌
+  pages: write # 必须有 pages 的写权限
+  id-token: write # 部署时需要用到的身份令牌
 
 # 只允许一个并发部署，新的 push 会取消正在运行的 workflow
 concurrency:
