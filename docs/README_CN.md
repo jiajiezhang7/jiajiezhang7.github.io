@@ -16,6 +16,7 @@
 ## 🚀 本地运行
 
 ### 环境要求
+
 - Ruby 3.0+
 - Jekyll 4.3+
 - Bundler
@@ -23,23 +24,26 @@
 ### 安装步骤
 
 1. 克隆仓库
+
 ```bash
 git clone https://github.com/jiajiezhang7/jiajiezhang7-new.github.io.git
 cd jiajiezhang7-new.github.io
 ```
 
 2. 安装依赖
+
 ```bash
 bundle install
 ```
 
 3. 运行本地服务器
+
 ```bash
 bundle exec jekyll serve
 ```
 
 4. 访问网站
-打开浏览器访问 `http://localhost:4000`
+   打开浏览器访问 `http://localhost:4000`
 
 ## 📁 项目结构
 
@@ -74,7 +78,9 @@ bundle exec jekyll serve
 ## 🛠️ 自定义配置
 
 ### 修改个人信息
+
 编辑 `_config.yml`:
+
 ```yaml
 title: Your Name
 first_name: Your
@@ -83,7 +89,9 @@ email: your.email@example.com
 ```
 
 ### 添加新论文
+
 在 `_bibliography/papers.bib` 中添加BibTeX条目：
+
 ```bibtex
 @article{yourname2024paper,
   title={Your Paper Title},
@@ -95,14 +103,17 @@ email: your.email@example.com
 ```
 
 ### 添加新项目
+
 在 `_projects/` 目录下创建新的Markdown文件。
 
 ### 更新新闻
+
 在 `_news/` 目录下创建新的Markdown文件。
 
 ## 📝 重要文件说明
 
 ### 论文管理 (`_bibliography/papers.bib`)
+
 - 使用BibTeX格式管理所有论文
 - 支持的字段：
   - `abbr`: 会议/期刊缩写
@@ -112,7 +123,9 @@ email: your.email@example.com
   - `selected`: 是否在首页显示
 
 ### 社交媒体 (`_data/socials.yml`)
+
 配置所有社交媒体和学术平台链接：
+
 - Email
 - GitHub
 - Google Scholar
@@ -121,27 +134,33 @@ email: your.email@example.com
 - Semantic Scholar
 
 ### CV数据 (`_data/cv.yml`)
+
 结构化的简历数据，自动渲染到CV页面。
 
 ## 🎨 主题定制
 
 ### 颜色主题
+
 编辑 `_sass/_variables.scss` 修改颜色方案。
 
 ### 字体
+
 在 `_config.yml` 中配置Google Fonts。
 
 ### 布局
+
 修改 `_layouts/` 目录下的模板文件。
 
 ## 📦 部署
 
 ### GitHub Pages（推荐）
+
 1. 推送代码到GitHub仓库
 2. 在仓库设置中启用GitHub Pages
 3. 选择部署分支（通常是`main`或`gh-pages`）
 
 ### 自定义域名
+
 1. 在仓库根目录创建 `CNAME` 文件
 2. 添加你的域名，如：`www.yourname.com`
 3. 在域名提供商配置DNS记录
@@ -149,13 +168,17 @@ email: your.email@example.com
 ## 🔧 常见问题
 
 ### Q: 图片不显示？
+
 A: 检查图片路径是否正确，确保图片在 `assets/img/` 目录下。
 
 ### Q: 论文不显示？
+
 A: 确保BibTeX格式正确，检查 `_bibliography/papers.bib` 文件。
 
 ### Q: 本地运行报错？
+
 A: 尝试：
+
 ```bash
 bundle update
 bundle exec jekyll serve --trace
@@ -170,6 +193,7 @@ bundle exec jekyll serve --trace
 ## 📧 联系方式
 
 如有问题，请联系：
+
 - Email: zhangjj2023@shanghaitech.edu.cn
 - GitHub: [@jiajiezhang7](https://github.com/jiajiezhang7)
 
