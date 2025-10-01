@@ -1,71 +1,27 @@
-name: Deploy site
+# deploy.yml
+
+name: Deploy GitHub Pages site
 
 on:
   push:
     branches:
-      - main
-    paths:
-      - "assets/**"
-      - "_sass/**"
-      - "_scripts/**"
-      - "**.bib"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
-      - "Gemfile"
-      - "Gemfile.lock"
-      - "!.github/workflows/axe.yml"
-      - "!.github/workflows/broken-links.yml"
-      - "!.github/workflows/deploy-docker-tag.yml"
-      - "!.github/workflows/deploy-image.yml"
-      - "!.github/workflows/docker-slim.yml"
-      - "!.github/workflows/lighthouse-badger.yml"
-      - "!.github/workflows/prettier.yml"
-      - "!lighthouse_results/**"
-      - "!CONTRIBUTING.md"
-      - "!CUSTOMIZE.md"
-      - "!FAQ.md"
-      - "!INSTALL.md"
-      - "!README.md"
-  pull_request:
-    branches:
-      - master
-      - main
-    paths:
-      - "assets/**"
-      - "_sass/**"
-      - "_scripts/**"
-      - "**.bib"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
-      - "Gemfile"
-      - "Gemfile.lock"
-      - "!.github/workflows/axe.yml"
-      - "!.github/workflows/broken-links.yml"
-      - "!.github/workflows/deploy-docker-tag.yml"
-      - "!.github/workflows/deploy-image.yml"
-      - "!.github/workflows/docker-slim.yml"
-      - "!.github/workflows/lighthouse-badger.yml"
-      - "!.github/workflows/prettier.yml"
-      - "!lighthouse_results/**"
-      - "!CONTRIBUTING.md"
-      - "!CUSTOMIZE.md"
-      - "!FAQ.md"
-      - "!INSTALL.md"
-      - "!README.md"
+      - main  # 仅在 main 分支上触发，简化逻辑
   workflow_dispatch:
 
+# 为整个 workflow 设置权限
 permissions:
-  contents: write
+  contents: read
+  pages: write      # 必须有 pages 的写权限
+  id-token: write   # 部署时需要用到的身份令牌
+
+# 只允许一个并发部署，新的 push 会取消正在运行的 workflow
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  deploy:
-    # available images: https://github.com/actions/runner-images#available-images
+  # 构建任务
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -73,13 +29,13 @@ jobs:
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.3.5"
+          ruby-version: "3.3.5" # 您可以根据需要更改版本
           bundler-cache: true
       - name: Setup Python 🐍
         uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
-          cache: "pip" # caching pip dependencies
+          python-version: "3.13" # 您可以根据需要更改版本
+          cache: "pip"
       - name: Update _config.yml ⚙️
         uses: fjogeleit/yaml-update-action@main
         with:
@@ -92,13 +48,28 @@ jobs:
           sudo apt-get update && sudo apt-get install -y imagemagick
           pip3 install --upgrade nbconvert
           export JEKYLL_ENV=production
-          bundle exec jekyll build
+          bundle exec jekyll build # Jekyll 默认构建到 _site 文件夹
       - name: Purge unused CSS 🧹
         run: |
-          npm install -g purgecss
-          purgecss -c purgecss.config.js
-      - name: Deploy 🚀
-        if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4
+          # 确保您已在 package.json 中定义了 purgecss
+          npm install
+          npm run purge:css # 假设您有一个运行 purgecss 的脚本
+          # 如果没有，可以直接使用 npx:
+          # npx purgecss -c purgecss.config.js
+      - name: Upload artifact 📦
+        uses: actions/upload-pages-artifact@v3
         with:
-          folder: _site
+          # 上传 Jekyll 构建的输出文件夹
+          path: ./_site
+
+  # 部署任务
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build # 部署任务依赖于构建任务
+    steps:
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v4 # 这是官方的部署 Action
