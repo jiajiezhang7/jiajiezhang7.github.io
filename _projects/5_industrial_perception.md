@@ -8,9 +8,9 @@ category: research
 related_publications: false
 ---
 
-## Project Overview
+## Overview
 
-This project focuses on developing an advanced industrial perception system that combines computer vision, LiDAR sensing, and machine learning techniques to enable automated manufacturing processes. The system is designed to perform real-time object detection, quality inspection, and robotic guidance in industrial environments.
+Modern manufacturing demands faster production without compromising quality, yet traditional manual inspection is time-consuming and error-prone. We developed an intelligent perception system that combines computer vision, LiDAR sensing, and deep learning to automate manufacturing inspection and robotic guidance. The system performs real-time object detection, quality inspection, and provides sub-millimeter precision for robotic operations while maintaining reliability in challenging factory environments.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -24,28 +24,11 @@ This project focuses on developing an advanced industrial perception system that
     Left: Industrial perception system setup; Right: Real-time object detection and classification results
 </div>
 
-## Key Technologies
+## Technical Approach
 
-### 1. Multi-modal Sensor Fusion
+Our system fuses multiple sensor modalities: RGB cameras for visual inspection, depth sensors for 3D measurements, LiDAR for workspace scanning, and force sensors for tactile feedback. This multi-sensory approach handles diverse scenarios from inspecting tiny components to guiding industrial robots.
 
-- **RGB Cameras**: High-resolution imaging for detailed visual inspection
-- **Depth Sensors**: 3D spatial understanding for precise measurements
-- **LiDAR**: Long-range accurate distance measurements
-- **Force Sensors**: Tactile feedback for manipulation tasks
-
-### 2. Computer Vision Pipeline
-
-- **Object Detection**: YOLO-based real-time detection algorithms
-- **Instance Segmentation**: Mask R-CNN for precise object boundaries
-- **Quality Inspection**: Defect detection using deep learning
-- **Pose Estimation**: 6DOF object pose for robotic manipulation
-
-### 3. Machine Learning Models
-
-- **Convolutional Neural Networks**: Feature extraction and classification
-- **Transformer Architecture**: Attention-based processing for complex scenes
-- **Reinforcement Learning**: Adaptive control strategies
-- **Transfer Learning**: Domain adaptation for different industrial scenarios
+The perception pipeline employs YOLO for real-time object detection at 30+ FPS, Mask R-CNN for precise segmentation, and deep learning models for defect detection and 6DOF pose estimation. Built on CNNs and Transformer architectures, the system uses reinforcement learning for adaptive control and transfer learning for rapid adaptation to new manufacturing processes.
 
 ## System Architecture
 
@@ -58,145 +41,25 @@ This project focuses on developing an advanced industrial perception system that
     Complete system architecture showing sensor integration, processing pipeline, and control interfaces
 </div>
 
-### Hardware Components
+### Implementation
 
-- **Industrial Cameras**: Basler acA2440-75um cameras with C-mount lenses
-- **3D Sensors**: Intel RealSense D435i depth cameras
-- **LiDAR**: Velodyne VLP-16 for wide-area scanning
-- **Computing Platform**: NVIDIA Jetson AGX Xavier for edge computing
-- **Robotic Arm**: Universal Robots UR5e for manipulation tasks
+Hardware includes Basler industrial cameras, Intel RealSense depth sensors, Velodyne LiDAR, and UR5e robotic arm, all powered by NVIDIA Jetson AGX Xavier for edge computing. The software stack combines Ubuntu 20.04, ROS2 Humble for integration, PyTorch/TensorRT for deep learning, and OpenCV/PCL for vision processing. Industrial protocol support (Ethernet/IP, OPC-UA) ensures compatibility with existing factory systems.
 
-### Software Stack
+## Capabilities
 
-- **Operating System**: Ubuntu 20.04 LTS
-- **Framework**: ROS2 Humble for system integration
-- **Deep Learning**: PyTorch, TensorRT for optimized inference
-- **Computer Vision**: OpenCV, PCL for image and point cloud processing
-- **Communication**: Ethernet/IP for industrial protocol compatibility
+Operating at 30+ FPS with >95% accuracy, the system detects surface defects, performs dimensional analysis, and implements statistical process control with real-time alerts. It enables sub-millimeter robotic pick-and-place through 6DOF pose estimation and collision-free trajectory planning. An intuitive interface with dashboards and intelligent alerts makes the system accessible to operators.
 
-## Key Features
+## Performance
 
-### 1. Real-time Object Detection and Classification
+Detection achieves 96.5% precision and 94.2% recall at 35ms per frame with <2% false positives. The system maintains 99.7% uptime with >1000 hours MTBF, <0.1mm calibration drift over 8-hour shifts, and operates reliably from -10°C to +60°C.
 
-- **Detection Speed**: 30+ FPS on industrial hardware
-- **Accuracy**: >95% detection rate for trained object classes
-- **Robustness**: Handles varying lighting conditions and occlusions
+## Applications
 
-### 2. Quality Control and Defect Detection
+The system serves diverse manufacturing sectors: automotive (component inspection, paint quality control, assembly verification), electronics (PCB inspection, solder joint quality, wire harness assembly), and packaging/logistics (automated sorting, barcode verification, damage detection). Deployed across these industries, it delivers 25% faster inspection, 40% fewer defect escapes, and 30% labor cost reduction.
 
-- **Surface Inspection**: Automated detection of scratches, dents, and color variations
-- **Dimensional Analysis**: Precise measurements using calibrated cameras
-- **Statistical Process Control**: Real-time quality metrics and alerts
+## Future Directions
 
-### 3. Robotic Guidance and Control
-
-- **Pick-and-Place Operations**: Automated object handling with sub-millimeter precision
-- **Path Planning**: Collision-free trajectory generation
-- **Force Control**: Compliant manipulation for delicate operations
-
-### 4. Human-Machine Interface
-
-- **Visualization Dashboard**: Real-time system status and metrics
-- **Configuration Tools**: Easy setup for new products and processes
-- **Alert System**: Immediate notification of quality issues or system faults
-
-## Implementation Details
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/detection_pipeline.jpg" title="Detection Pipeline" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/quality_inspection.jpg" title="Quality Inspection" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Left: Object detection and pose estimation pipeline; Right: Automated quality inspection results
-</div>
-
-### Computer Vision Algorithms
-
-- **Preprocessing**: Image enhancement, noise reduction, and normalization
-- **Feature Extraction**: Deep CNN features for robust object representation
-- **Object Tracking**: Multi-object tracking for temporal consistency
-- **Calibration**: Camera-LiDAR extrinsic calibration for sensor fusion
-
-### Machine Learning Pipeline
-
-- **Data Collection**: Automated dataset generation with synthetic data augmentation
-- **Model Training**: Distributed training on GPU clusters
-- **Model Optimization**: TensorRT optimization for real-time inference
-- **Continuous Learning**: Online adaptation to new scenarios
-
-## Performance Metrics
-
-### Detection Performance
-
-- **Precision**: 96.5% average across all object classes
-- **Recall**: 94.2% for critical manufacturing components
-- **Processing Speed**: 35ms average per frame
-- **False Positive Rate**: <2% in production environments
-
-### System Reliability
-
-- **Uptime**: 99.7% operational availability
-- **Mean Time Between Failures**: >1000 hours
-- **Calibration Stability**: <0.1mm drift over 8-hour shifts
-- **Temperature Tolerance**: -10°C to +60°C operating range
-
-## Technology Stack
-
-- **Programming Languages**: C++17, Python 3.8+
-- **Deep Learning**: PyTorch, TensorFlow, TensorRT
-- **Computer Vision**: OpenCV 4.5+, PCL 1.12+
-- **Robotics**: ROS2 Humble, MoveIt2
-- **Communication**: OPC-UA, Ethernet/IP, Modbus TCP
-- **Database**: InfluxDB for time-series data, PostgreSQL for configuration
-- **Visualization**: Grafana dashboards, Qt-based GUI applications
-
-## Industrial Applications
-
-### 1. Automotive Manufacturing
-
-- **Component Inspection**: Engine parts, body panels, electronic assemblies
-- **Assembly Verification**: Correct part placement and orientation
-- **Paint Quality Control**: Color matching and surface finish inspection
-
-### 2. Electronics Assembly
-
-- **PCB Inspection**: Component placement verification and solder joint quality
-- **Wire Harness Assembly**: Automated routing and connection verification
-- **Final Product Testing**: Functional testing with visual feedback
-
-### 3. Packaging and Logistics
-
-- **Package Sorting**: Automated sorting based on size, weight, and destination
-- **Label Verification**: Barcode and QR code reading with quality checks
-- **Damage Detection**: Automated inspection of incoming and outgoing packages
-
-## Future Enhancements
-
-### Short-term Goals
-
-1. **Edge AI Optimization**: Further optimization for embedded deployment
-2. **Multi-camera Fusion**: Enhanced 3D reconstruction from multiple viewpoints
-3. **Predictive Maintenance**: AI-driven prediction of system maintenance needs
-
-### Long-term Vision
-
-1. **Digital Twin Integration**: Real-time synchronization with digital factory models
-2. **5G Connectivity**: Ultra-low latency communication for distributed systems
-3. **Explainable AI**: Interpretable decision-making for regulatory compliance
-4. **Autonomous Reconfiguration**: Self-adapting systems for flexible manufacturing
-
-## Project Impact
-
-This industrial perception system contributes to:
-
-- **Manufacturing Efficiency**: 25% reduction in inspection time
-- **Quality Improvement**: 40% decrease in defect escape rate
-- **Cost Reduction**: 30% savings in manual inspection labor
-- **Safety Enhancement**: Reduced human exposure to hazardous environments
+Near-term development focuses on edge AI optimization, multi-camera fusion for 3D reconstruction, and predictive maintenance. Long-term vision includes digital twin integration, 5G connectivity for distributed systems, explainable AI for regulatory compliance, and autonomous reconfiguration for flexible manufacturing.
 
 ## Project Team
 

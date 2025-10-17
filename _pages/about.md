@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: >
   <a href='https://robotics.shanghaitech.edu.cn/'>MARS Lab</a>, ShanghaiTech University<br>
@@ -9,7 +9,7 @@ subtitle: >
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: new-profile-no-print.png
   image_circular: false # crops the image to make it circular
   more_info:
 

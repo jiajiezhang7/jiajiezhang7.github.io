@@ -2,7 +2,7 @@
 layout: page
 title: Towards Safer Navigation - Reward Shaping with Prior Topographic Knowledge
 description: Enhancing navigation safety in deep reinforcement learning agents through reward shaping with prior map information
-img: assets/img/dl_method.jpg
+img: assets/img/rl_nav.jpg
 importance: 4
 category: research
 related_publications: false
@@ -12,16 +12,13 @@ related_publications: false
 
 This project addresses a critical challenge in deep reinforcement learning navigation: improving agent safety while maintaining navigation capabilities. Through innovative integration of prior map information into reward shaping, we successfully enhanced the safety distance between agents and obstacles, contributing to more reliable autonomous navigation systems.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+<div class="row justify-content-center">
+    <div class="col-sm-4 mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/traditional_nav.jpg" title="Traditional Navigation Stack" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/rl_nav.jpg" title="RL Navigation Results" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Left: Traditional navigation stack architecture; Right: Deep reinforcement learning navigation results
+    Traditional navigation stack architecture
 </div>
 
 ## Research Motivation
