@@ -211,7 +211,6 @@ This industrial perception system contributes to:
 - **Technical Report**: [Industrial Perception Final Report](../files/industrial_perception_report.pdf)
 - **System Demo**: [Live System Demonstration](../videos/industrial_demo.mp4)
 - **Code Repository**: [GitHub Repository](https://github.com/jiajiezhang7/industrial_perception)
-- **Patent Application**: [Pending Patent Documentation]
 
 ---
 
