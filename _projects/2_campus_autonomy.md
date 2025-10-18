@@ -8,72 +8,62 @@ category: research
 related_publications: false
 ---
 
-## Project Overview
+## Motivation
 
-The "Campus Autonomy" project focuses on developing an autonomous delivery vehicle capable of navigating both indoor and outdoor environments within a campus setting. By assembling an Agile X HUNTER SE Ackermann model drive vehicle equipped with advanced sensors like LiDAR and panoramic camera, the project aims to address the complex challenges of autonomous localization, path planning, and navigation.
+Campus logistics require a single vehicle to navigate open outdoor paths and complex indoor corridors seamlessly. The core challenges are robust scene switching, safe real-time avoidance, and reliable navigation across diverse conditions. This project targets these challenges to enable unified, end-to-end campus delivery.
 
-<div class="row">
+## Contributions
+
+- Built a campus delivery platform on **Agile X HUNTER SE** with integrated **Hesai PandarQT64** and panoramic vision.
+- Established **dual-environment navigation** with GPS-aided outdoor and LiDAR-based indoor localization.
+- Integrated **ROS2 Nav2** with **Cartographer** for mapping, planning, and control.
+- Demonstrated **real-time dynamic obstacle avoidance** and robust path re-planning.
+
+<style>
+.equal-height-images img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+</style>
+
+<div class="row equal-height-images">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/hunter_chassis.jpg" title="Hunter SE Chassis" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/hunter_chassis.jpg" title="Hunter SE Chassis" class="rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/completed_robot.jpg" title="Completed Autonomous Robot" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/completed_robot.jpg" title="Completed Autonomous Robot" class="rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Left: Agile X HUNTER SE vehicle chassis; Right: Completed autonomous delivery robot with full sensor suite
+    From a bare chassis to a fully equipped autonomous delivery robot, ready for the challenges of a dynamic campus.
 </div>
 
-## Key Technologies
+## System Overview
 
-### Hardware Platform
+The platform is equipped with a rugged base, 64-line LiDAR, panoramic RGB camera, and inertial/odometry sensors to provide reliable perception across indoor/outdoor conditions.
 
-- **Vehicle Platform**: Agile X HUNTER SE Ackermann drive vehicle
-- **LiDAR**: Hesai PandarQT64 for high-precision environment perception
-- **Vision System**: Insta360 Air panoramic camera for 360° visual input
-- **Navigation Sensors**: Odometer and IMU for precise movement tracking
+The software stack leverages **ROS2 + Nav2** for planning and control, with **Google Cartographer** for SLAM. Real-time perception supports dynamic obstacle avoidance and continuous re-planning for safe navigation in crowded scenes.
 
-### Software Stack
+## Key Capabilities
 
-- **Framework**: ROS2 with Navigation2 package
-- **SLAM**: Cartographer for simultaneous localization and mapping
-- **Path Planning**: Global and local planners for optimal route generation
-- **Obstacle Avoidance**: Real-time dynamic obstacle detection and avoidance
+- **Dual-environment navigation** with seamless switching between GPS-aided outdoor and LiDAR-based indoor localization.
+- **Real-time obstacle avoidance** with dynamic re-planning for safe navigation in crowded environments.
 
 ## System Architecture
 
 The system integrates sophisticated hardware and software components:
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+<div class="row justify-content-center">
+    <div class="col-sm-6 mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/nav2_architecture.jpg" title="Navigation Architecture" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    ROS2 Navigation2 system architecture showing the integration of perception, planning, and control modules
+    Our system is built upon the powerful and flexible ROS2 Navigation2 stack, integrating perception, planning, and control.
 </div>
 
-## Key Features
-
-### 1. Dual Environment Navigation
-
-- **Indoor Navigation**: Precise localization in structured environments
-- **Outdoor Navigation**: GPS-aided navigation with obstacle avoidance
-- **Seamless Transition**: Automatic switching between indoor and outdoor modes
-
-### 2. Real-time Obstacle Avoidance
-
-- Dynamic obstacle detection using LiDAR point clouds
-- Adaptive path re-planning for moving obstacles
-- Safety-first approach with emergency stop capabilities
-
-### 3. Modular Design
-
-- Scalable architecture for future sensor additions
-- Plugin-based navigation components
-- Easy configuration and parameter tuning
-
-## Technology Stack
+## Tech Stack
 
 - **Programming Languages**: C++17, Python 3.8+
 - **Robotics Framework**: ROS2 Humble
@@ -84,43 +74,32 @@ The system integrates sophisticated hardware and software components:
 - **Hardware Interface**: ROS2 device drivers
 - **Simulation**: Gazebo Classic
 
-## Experimental Results
+## Results
 
-### Navigation Performance
-
-- **Localization Accuracy**: ±0.2m in indoor environments
-- **Path Planning Efficiency**: 95% success rate in reaching destinations
-- **Obstacle Avoidance**: 100% collision-free navigation in test scenarios
-
-### System Metrics
-
-- **Real-time Performance**: 20Hz sensor processing
-- **Battery Life**: 4+ hours continuous operation
-- **Payload Capacity**: Up to 10kg delivery capacity
+- **Localization Accuracy**: ±0.2 m (indoor)
+- **Goal Reaching**: 95% success rate
+- **Collision Safety**: 100% collision-free in tests
+- **Throughput**: 20 Hz sensor processing
+- **Endurance**: 4+ hours continuous operation
+- **Payload**: Up to 10 kg
 
 ## Implementation Highlights
 
-<div class="row">
+<div class="row equal-height-images">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/robot_testing.jpg" title="Robot Field Testing" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/robot_testing.jpg" title="Robot Field Testing" class="rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/rviz_visualization.jpg" title="RViz Visualization" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/rviz_visualization.jpg" title="RViz Visualization" class="rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
     Left: Field testing of the autonomous delivery robot; Right: Real-time visualization in RViz2
 </div>
 
-## Future Work
+## Next Steps
 
-Future development will focus on:
-
-1. **osmAG Map Integration**: Introducing osmAG map format into the Navigation2 stack
-2. **Custom Global Planner**: Replacing default global planner with osmAG Planner plugin
-3. **Advanced Localization**: Replacing AMCL with osmAG Localizer for improved accuracy
-4. **Multi-robot Coordination**: Enabling fleet management capabilities
-5. **Weather Adaptation**: Robust operation in various weather conditions
+Integrate **osmAG** map format with Nav2 plugins for lifelong mapping and accuracy improvements, explore **multi-robot coordination** for fleet operations, and strengthen robustness under varied weather and lighting conditions.
 
 ## Project Team
 
@@ -130,10 +109,10 @@ Future development will focus on:
 
 ## Related Resources
 
-- **Project Report**: [Campus Autonomy Final Report](../files/CampusAutonomy_FinalReport.pdf)
-- **Demo Video**: [System Demonstration](../videos/campusautonomy.mp4)
-- **Code Repository**: [GitHub Repository](https://github.com/jiajiezhang7/campus_autonomy)
+- **Project Report**: [Campus Autonomy Final Report](/files/CampusAutonomy_FinalReport.pdf)
+- **Demo Video**: [System Demonstration](/videos/campusautonomy.mp4)
+- **Code Repository**: [GitHub Repository](https://github.com/jiajiezhang7/campus-autonomy-course-project)
 
 ---
 
-_This project demonstrates the practical application of autonomous navigation technologies in real-world campus environments, contributing to the advancement of service robotics and autonomous delivery systems._
+_This project successfully demonstrates the practical application of modern autonomous navigation technologies in a real-world campus, marking a significant step forward for service robotics and autonomous delivery._

@@ -8,82 +8,41 @@ category: research
 related_publications: xie2023agloc
 ---
 
-## Project Overview
+## Motivation
 
-AGLoc++ is a significant extension of the AGLoc system previously published in RAL 2023. The original AGLoc system proposed a robust indoor localization method using 3D LiDAR and hierarchical topo-semantic Area Graphs, achieving long-term stable performance in office environments by filtering dynamic clutter and matching architectural features (e.g., walls/doors), outperforming traditional SLAM approaches.
+Dynamic indoor environments make lifelong localization difficult: people and movable objects cause drift, kidnap events can reset tracking, and multi-floor spaces require robust map management. AGLoc++ targets these challenges with a resilient indoor localization and tracking system designed for real-world navigation.
 
-This project enhances the previous work in the following key aspects:
+## Contributions
 
-### Major Improvements
+- Migrated the full system to **ROS2 Humble** with an optimized architecture and data flow.
+- Integrated **WiFi-aided kidnap recovery** via fingerprint mapping for rapid coarse re-localization.
+- Achieved **seamless Nav2 integration** as a drop-in replacement for AMCL.
+- Enabled **multi-floor awareness** with automatic floor identification and map switching.
+- Designed an **odometry-fused Monte Carlo tracking** module for enhanced robustness (in progress).
 
-1. **ROS1 to ROS2 Migration** ✅ Completed
+<style>
+.equal-height-images-contain img {
+    height: 300px;
+    width: 100%;
+    object-fit: contain;
+}
+</style>
 
-   - Complete system architecture migration
-   - Compatible with ROS2 Humble distribution
-   - Optimized message passing mechanisms
-
-2. **WiFi-aided Kidnap Recovery** ✅ Completed
-
-   - Integrated WiFi signal strength fingerprinting
-   - Provides coarse position estimates for global localization initialization
-   - Significantly improves system robustness
-
-3. **Nav2 Navigation Stack Integration** ✅ Completed
-
-   - Replaces traditional AMCL localizer
-   - Seamless integration into Nav2 ecosystem
-   - Supports standard navigation interfaces
-
-4. **Indoor Cross-level Localization** ✅ Completed
-
-   - Multi-floor building environment support
-   - Automatic floor identification and switching
-   - Hierarchical map management
-
-5. **Odometry-fused Monte Carlo Tracking** 🔄 In Progress
-
-   - Improved particle filter algorithms
-   - Multi-sensor data fusion
-   - More stable pose tracking
-
-6. **Re-localization when Losing Tracking** 🔄 In Progress
-   - Automatic tracking failure detection
-   - Intelligent re-localization strategies
-   - Fast recovery mechanisms
-
-<div class="row">
+<div class="row equal-height-images-contain">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/agloc_robot.jpg" title="Autonomous Robot Platform" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/agloc_robot.jpg" title="Autonomous Robot Platform" class="rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/agloc_demo.jpg" title="Localization Results Demo" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/agloc_demo.jpg" title="Localization Results Demo" class="rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Left: Autonomous robot platform equipped with LiDAR; Right: AGLoc++ system localization results visualization
+    Left: Our autonomous robot platform equipped with 3D LiDAR. Right: A demonstration of the AGLoc++ system's localization results.
 </div>
 
-## Key Technologies
+## Method Overview
 
-### 1. Long-term LiDAR Localization Framework
-
-Global and local localization framework based on hierarchical Area Graph, enabling robust localization in dynamic indoor environments.
-
-### 2. Clutter-adaptive Subsampling
-
-Filters transient objects (e.g., furniture, pedestrians) from 3D LiDAR point clouds, preserving structural features (walls, doors).
-
-### 3. Hypothesis-scoring Global Localization
-
-Addresses the kidnapped robot problem: samples candidate poses, ranks via novel Area Graph match metric, and refines for reliability.
-
-### 4. Weighted Point-to-line ICP
-
-Weighted point-to-line ICP with clutter-aware weight function, ensuring pose tracking relies solely on lifelong architectural features.
-
-### 5. Corridorness-aware Downsampling
-
-Optimizes point cloud registration in corridor-dominated spaces, improving ICP accuracy.
+The system filters transient objects from 3D LiDAR and focuses on permanent structures. A **hypothesis-scoring global localization** generates and evaluates candidate poses for robust re-localization, followed by **weighted point-to-line ICP** to track poses with high accuracy, even in cluttered spaces.
 
 ## System Architecture
 
@@ -93,10 +52,17 @@ Optimizes point cloud registration in corridor-dominated spaces, improving ICP a
     </div>
 </div>
 <div class="caption">
-    Overall architecture of AGLoc++ system, showing data flow and interactions between modules
+    The overall architecture of the AGLoc++ system, illustrating the data flow and interaction between its core modules.
 </div>
 
-## Technology Stack
+## Results
+
+- **Accuracy**: < 0.15 m average localization error; < 3° angular error
+- **Robustness**: > 95% success rate in challenging indoor environments
+- **Throughput**: Real-time at 10 Hz
+- **Resource Usage**: < 500 MB memory; < 30% CPU on Intel i7
+
+## Tech Stack
 
 - **Programming Languages**: C++17, Python 3.8+
 - **Robotics Framework**: ROS2 Humble
@@ -106,27 +72,9 @@ Optimizes point cloud registration in corridor-dominated spaces, improving ICP a
 - **Visualization**: RViz2, Matplotlib
 - **Hardware Platform**: Agile X HUNTER SE, Hesai PandarQT64
 
-## Experimental Results
+## Next Steps
 
-### Localization Accuracy
-
-- **Average Localization Error**: < 0.15m
-- **Angular Error**: < 3°
-- **Success Rate**: > 95% (in test environments)
-
-### System Performance
-
-- **Real-time Performance**: 10Hz localization update frequency
-- **Memory Usage**: < 500MB
-- **CPU Usage**: < 30% (Intel i7-8700K)
-
-## Future Work
-
-1. **Complete odometry-fused Monte Carlo tracking module**
-2. **Implement intelligent re-localization when tracking is lost**
-3. **Extend to indoor cross-level re-localization functionality**
-4. **Optimize system real-time performance**
-5. **Test and validate in more diverse environments**
+Finalize the **odometry-fused Monte Carlo tracking** module, enhance **automatic re-localization** strategies, and scale to broader multi-floor deployments with further performance optimizations and real-world validations.
 
 ## Project Team
 
@@ -137,9 +85,9 @@ Optimizes point cloud registration in corridor-dominated spaces, improving ICP a
 ## Related Resources
 
 - **Original Paper**: [AGLoc: Robust Lifelong Indoor LiDAR Localization using the Area Graph](https://ieeexplore.ieee.org/abstract/document/10321673/)
-- **Code Repository**: [GitHub Repository](https://github.com/jiajiezhang7/agloc_plus_plus)
-- **Demo Video**: [Project Demo](https://youtu.be/demo_video)
+- **Code Repository**: [GitHub Repository](https://github.com/jiajiezhang7/localization_using_area_graph)
+<!-- - **Demo Video**: [Project Demo](https://youtu.be/demo_video) -->
 
 ---
 
-_This project is supported by the MARS Lab at ShanghaiTech University and is an important component of mobile robotics research._
+_This project is supported by the MARS Lab at ShanghaiTech University and represents a key component of our ongoing research in mobile robotics._
