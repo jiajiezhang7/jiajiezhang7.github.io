@@ -30,25 +30,15 @@
         - Graduated with strong foundation in control systems and robotics
         - Completed coursework in automatic control theory, signal processing, and embedded systems
 
-- title: Research Experience
+- title: Work Experience
   type: time_table
   contents:
-    - title: Graduate Research Assistant
-      institution: MARS Lab, ShanghaiTech University
-      year: 2023 - Present
+    - title: Research Assistant
+      institution: AI R&D Center, Central Research Institute, Wolong Electric
+      year: 2023 July - Oct.
       description:
-        - Conducting research on mobile robotics and embodied AI under Prof. Sören Schwertfeger
-        - Developing intelligent LiDAR navigation systems with LLM integration
-        - Working on neural surfel reconstruction for large-scale 3D scene mapping
-        - Contributing to AGLoc++ project for WiFi-fused global localization
-    - title: Teaching Assistant
-      institution: ShanghaiTech University
-      year: 2024 Fall
-      description:
-        - Teaching Assistant for MoMa (Mobile Manipulation) course
-        - Assisting students with robotics programming and system integration
-        - Supporting laboratory sessions and project guidance
-
+        - Supervised by <a href="https://de.linkedin.com/in/alexander-kleiner-9bb5422">Alexander Kleiner</a>
+        - To pioneer a framework for learning generalizable robot policies from large-scale, action-free video data by representing complex motion dynamics within a task-centric latent action space.
 - title: Technical Skills
   type: nested_list
   contents:
@@ -57,23 +47,23 @@
         - C++ / Python
         - ROS1 & ROS2
         - PyTorch
-        - Cursor & Windsurf
+        - Cursor & Codex & Claude Code
     - title: Robotics Expertise
       items:
         - Navigation & Path Planning
         - Perception & Localization
         - Motion Planning & Control
-        - SLAM & Mapping
 
 - title: Publications
   type: time_table
   contents:
     - year: 2025
       items:
-        - "Intelligent LiDAR Navigation: Leveraging External Information and Semantic Maps with LLM as Copilot. <em>IROS 2025</em> (Accepted)"
+        - "Zhang, J., Wu, S., Ma, X., & Schwertfeger, S. (2025). Generation of Indoor Open Street Maps for Robot Navigation from CAD Files. <em>arXiv preprint arXiv:2507.00552</em>."
     - year: 2024
       items:
-        - "Neural Surfel Reconstruction: Addressing Loop Closure Challenges in Large-Scale 3D Neural Scene Mapping. <em>MDPI Sensors</em>, 2024"
+        - "Xie, F., Zhang, J., & Schwertfeger, S. (2024). Intelligent LiDAR Navigation: Leveraging External Information and Semantic Maps with LLM as Copilot. <em>arXiv preprint arXiv:2409.08493</em>. (Accepted to IROS 2025)"
+        - "Cui, J., Zhang, J., Kneip, L., & Schwertfeger, S. (2024). Neural Surfel Reconstruction: Addressing Loop Closure Challenges in Large-Scale 3D Neural Scene Mapping. <em>Sensors</em>, 24(21), 6919."
 
 - title: Research Interests
   type: nested_list
