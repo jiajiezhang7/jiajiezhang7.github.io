@@ -2,7 +2,7 @@
 layout: page
 title: Campus Autonomy - Autonomous Indoor-Outdoor Delivery Vehicle
 description: Development of an autonomous delivery vehicle capable of navigating both indoor and outdoor environments within a campus setting
-img: assets/img/campus_robot.jpg
+img: assets/img/campus-autonomy-robot/campusautonomy-robot.jpg
 importance: 2
 category: research
 related_publications: false
