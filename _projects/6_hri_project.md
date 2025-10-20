@@ -85,6 +85,7 @@ The system continuously perceives the environment through panoramic vision, dete
 ## Related Resources
 
 - **Demo Video**: [System Demonstration](/assets/video/hri_demo.MP4)
+- **code**: [GitHub](https://github.com/jiajiezhang7/HRI-Campus)
 
 ---
 
