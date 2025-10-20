@@ -2,10 +2,15 @@
  * Content
  ******************************************************************************/
 
+html {
+  font-size: 100%; // 使用浏览器默认字体大小（通常为16px），尊重用户的可访问性设置
+}
+
 body {
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
+  font-size: 1rem; // 使用rem单位，相对于html的font-size
 
   h1,
   h2,
