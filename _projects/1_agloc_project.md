@@ -8,6 +8,41 @@ category: research
 related_publications: xie2023agloc
 ---
 
+<style>
+.demo-video {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background-color: #000;
+}
+.equal-height-images-contain img {
+    height: 300px;
+    width: 100%;
+    object-fit: contain;
+}
+</style>
+
+<div class="row mt-3">
+    <div class="col-md-6">
+        <video class="demo-video" controls preload="auto" playsinline>
+            <source src="{{ site.baseurl }}/assets/video/AGLoc_Simulation_demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="caption text-center mt-2">
+            <strong>Simulation Demo</strong>: AGLoc++ system demonstration in simulated environment
+        </div>
+    </div>
+    <div class="col-md-6">
+        <video class="demo-video" controls preload="auto" playsinline>
+            <source src="{{ site.baseurl }}/assets/video/AGLoc_RealEx_demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="caption text-center mt-2">
+            <strong>Real-World Demo</strong>: AGLoc++ system demonstration in real indoor environment
+        </div>
+    </div>
+</div>
+
 ## Motivation
 
 Dynamic indoor environments make lifelong localization difficult: people and movable objects cause drift, kidnap events can reset tracking, and multi-floor spaces require robust map management. AGLoc++ targets these challenges with a resilient indoor localization and tracking system designed for real-world navigation.
@@ -19,14 +54,6 @@ Dynamic indoor environments make lifelong localization difficult: people and mov
 - Achieved **seamless Nav2 integration** as a drop-in replacement for AMCL.
 - Enabled **multi-floor awareness** with automatic floor identification and map switching.
 - Designed an **odometry-fused Monte Carlo tracking** module for enhanced robustness (in progress).
-
-<style>
-.equal-height-images-contain img {
-    height: 300px;
-    width: 100%;
-    object-fit: contain;
-}
-</style>
 
 <div class="row equal-height-images-contain">
     <div class="col-sm mt-3 mt-md-0">
