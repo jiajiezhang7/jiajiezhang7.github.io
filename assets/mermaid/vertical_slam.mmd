@@ -1,0 +1,30 @@
+graph LR
+    %% Main System Flow
+    A[3D LiDAR<br/>Sensor] --> B(Raw Point Cloud<br/>/point_cloud)
+    B --> C1
+    
+    %% Core Contribution: Vertical Plane Segmentation Node
+    subgraph CoreAlgo["🔍 Core: Vertical Plane Segmentation"]
+        C1[1. Voxel Grid<br/>Downsampling]
+        C2[2. Plane Seg<br/>RANSAC]
+        C3{3. Vertical?}
+        C4[4. Accumulate<br/>Vertical Planes]
+        C5[5. Project to<br/>2D LaserScan]
+
+        C1 --> C2 --> C3
+        C3 -->|Yes| C4 --> C5
+        C3 -->|No| C2
+    end
+    
+    C5 --> D(Filtered 2D<br/>LaserScan /scan)
+    D --> E[Gmapping<br/>SLAM]
+    E --> F((Clean 2D<br/>Structural Map))
+
+    %% Styling
+    classDef coreStyle fill:#ffe6f0,stroke:#ff1493,stroke-width:2px
+    classDef outputStyle fill:#e6f3ff,stroke:#0066cc,stroke-width:2px
+    classDef processStyle fill:#fff9e6,stroke:#ffa500,stroke-width:2px
+    
+    class C1,C2,C3,C4,C5 coreStyle
+    class F outputStyle
+    class A,B,D,E processStyle

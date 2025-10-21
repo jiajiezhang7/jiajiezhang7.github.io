@@ -1,0 +1,60 @@
+graph LR
+    subgraph HW["🤖 Hardware Platform"]
+        A[Hunter SE Robot<br/>Ackermann 4-Wheel]
+        B[Hesai 3D LiDAR]
+        C[IMU Sensor]
+    end
+    
+    subgraph Perception["👁️ Perception Processing"]
+        D[Point Cloud Filter<br/>PCL Filters]
+        E[3D to 2D<br/>LaserScan]
+        F[Sensor Fusion<br/>EKF Localization]
+    end
+    
+    subgraph Mapping["🗺️ Mapping & Localization"]
+        G[SLAM Mapping<br/>Cartographer]
+        H[AMCL Localization]
+        I[Area Graph<br/>Semantic Map]
+    end
+    
+    subgraph Navigation["🧭 Navigation Planning"]
+        J[Global Planning<br/>SMAC Planner]
+        K[Local Control<br/>DWB Controller]
+        L[Costmaps<br/>Obstacle Detection]
+    end
+    
+    subgraph Control["⚡ Motion Control"]
+        M[Velocity Command<br/>cmd_vel]
+    end
+    
+    A --> F
+    B --> D --> E
+    C --> F
+    
+    E --> G
+    E --> H
+    E --> L
+    
+    G --> H
+    H --> J
+    I --> J
+    
+    L --> J
+    J --> K
+    L --> K
+    
+    K --> M --> A
+    
+    F -.-> Navigation
+    
+    classDef hw fill:#ffcccc,stroke:#ff0000,stroke-width:2px
+    classDef perc fill:#d4edda,stroke:#28a745,stroke-width:2px
+    classDef map fill:#cce5ff,stroke:#0066cc,stroke-width:2px
+    classDef nav fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    classDef ctrl fill:#f8d7da,stroke:#dc3545,stroke-width:2px
+    
+    class A,B,C hw
+    class D,E,F perc
+    class G,H,I map
+    class J,K,L nav
+    class M ctrl

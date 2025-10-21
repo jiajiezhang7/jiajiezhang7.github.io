@@ -27,28 +27,22 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
+> **Seeking PhD Position in Embodied AI / Robotics**  
+> I am actively seeking PhD opportunities in **Embodied AI** and **Robotics**. If you are interested in my research background and would like to discuss potential opportunities, please feel free to contact me at [zhangjj2023@shanghaitech.edu.cn](mailto:zhangjj2023@shanghaitech.edu.cn).
+> {: .block-tip }
+
 ## About Me
 
-I am a graduate student at ShanghaiTech University pursuing a Master's degree in Computer Science and Technology. Since 2023, I have been conducting research at the [MARS Lab](https://robotics.shanghaitech.edu.cn/) (Mobile Autonomous Robotics Systems Laboratory) at ShanghaiTech University, advised by [Professor Sören Schwertfeger](https://robotics.shanghaitech.edu.cn/people/soeren), focusing on cutting-edge areas including **Mobile Robotics** and **Embodied AI**.
+I am a graduate student at ShanghaiTech University pursuing a Master's degree in Computer Science and Technology. Since 2023, I have been conducting research at the [MARS Lab](https://robotics.shanghaitech.edu.cn/) (Mobile Autonomous Robotics Systems Laboratory) at ShanghaiTech University, advised by [Professor Sören Schwertfeger](https://robotics.shanghaitech.edu.cn/people/soeren), focusing on cutting-edge areas including **Mobile Robotics** and **Embodied AI**. Prior to joining ShanghaiTech University, I completed my Bachelor's degree in Automation at Zhengzhou University (2019-2023), where I developed a strong foundation in control systems, signal processing, and robotics fundamentals.
 
-My research interests lie at the intersection of robotics and artificial intelligence, with particular emphasis on:
-
-- **Intelligent Navigation Systems**: Developing robust navigation algorithms that integrate semantic understanding with traditional path planning
-- **SLAM and Mapping**: Creating long-term, lifelong mapping solutions for dynamic indoor environments
-- **Embodied AI**: Bridging the gap between large language models and robotic systems for enhanced human-robot interaction
+My research interests lie in how embodied agents learn efficiently from limited supervision in continual, open-world settings and how to ground large foundation models in the physical world. My goal is to build fundamental algorithms that learn from unbounded data streams and endow agents with robust, physically grounded interaction skills.
 
 ## Recent Work
 
-I am currently working on several exciting projects that push the boundaries of mobile robotics:
+I am currently working on several exciting projects:
 
-**LLM-Enhanced Navigation**: My recent work on integrating Large Language Models with traditional ROS navigation stack has been accepted at **IROS 2025**. This research demonstrates how contextual understanding can significantly improve robot navigation in complex environments.
+**AGLoc++ System(Master Thesis)**: I am extending previous work on robust indoor localization by incorporating WiFi-aided recovery and Sensor Fusion tracking leveraging osmAG, solving the robot kidnapping problem, making the system product-level practical for real-world deployment.
 
-**Neural Scene Reconstruction**: I have contributed to advancing 3D scene mapping through neural surfel-based methods, addressing critical challenges in loop closure and large-scale reconstruction. This work was published in **MDPI Sensors** in 2024.
-
-**AGLoc++ System**: I am extending previous work on robust indoor localization by incorporating WiFi-aided recovery and Monte Carlo tracking, making the system more practical for real-world deployment.
-
-## Background
-
-Before joining ShanghaiTech University, I completed my Bachelor's degree in Automation at Zhengzhou University (2019-2023), where I developed a strong foundation in control systems, signal processing, and robotics fundamentals.
+**Latent Action Tokenizer For VLM Pretraining**: I am working on a novel, unsupervised pipeline that is automatically segmenting continuous, unstructured industrial videos into meaningful action primitives for Vision-Language-Action (VLA) model latent pre-training by defining and detecting semantic boundaries in a latent action representation space.
 
 Feel free to explore my [publications](/publications/) and [projects](/projects/) to learn more about my research contributions, or check out my [CV](/cv/) for detailed academic information.

@@ -6,6 +6,9 @@ img: assets/img/slam_teaser.jpg
 importance: 3
 category: research
 related_publications: false
+mermaid:
+  enabled: true
+  zoomable: true
 ---
 
 ## Motivation
@@ -16,6 +19,45 @@ Indoor environments change frequently, making conventional maps quickly outdated
 
 The system applies real-time **vertical plane segmentation** on 3D LiDAR using RANSAC to extract large structural surfaces (e.g., walls) and filter out transient objects.
 
+### Algorithm Pipeline
+
+```mermaid
+graph LR
+    %% Main System Flow
+    A[3D LiDAR<br/>Sensor] --> B(Raw Point Cloud<br/>/point_cloud)
+    B --> C1
+
+    %% Core Contribution: Vertical Plane Segmentation Node
+    subgraph CoreAlgo["🔍 Core: Vertical Plane Segmentation"]
+        C1[1. Voxel Grid<br/>Downsampling]
+        C2[2. Plane Seg<br/>RANSAC]
+        C3{3. Vertical?}
+        C4[4. Accumulate<br/>Vertical Planes]
+        C5[5. Project to<br/>2D LaserScan]
+
+        C1 --> C2 --> C3
+        C3 -->|Yes| C4 --> C5
+        C3 -->|No| C2
+    end
+
+    C5 --> D(Filtered 2D<br/>LaserScan /scan)
+    D --> E[Gmapping<br/>SLAM]
+    E --> F((Clean 2D<br/>Structural Map))
+
+    %% Styling
+    classDef coreStyle fill:#ffe6f0,stroke:#ff1493,stroke-width:2px
+    classDef outputStyle fill:#e6f3ff,stroke:#0066cc,stroke-width:2px
+    classDef processStyle fill:#fff9e6,stroke:#ffa500,stroke-width:2px
+
+    class C1,C2,C3,C4,C5 coreStyle
+    class F outputStyle
+    class A,B,D,E processStyle
+```
+
+<div class="caption">
+    The complete processing pipeline from raw 3D point cloud to clean 2D structural map. The core contribution (highlighted in pink) is the vertical plane segmentation node that filters out transient objects.
+</div>
+
 <style>
 .equal-height-images img {
     height: 300px;
@@ -24,23 +66,11 @@ The system applies real-time **vertical plane segmentation** on 3D LiDAR using R
 }
 </style>
 
-<div class="row equal-height-images">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/slam_original_map.jpg" title="Original SLAM Map" class="rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/slam_filtered_map.jpg" title="Map After Vertical Plane Segmentation" class="rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    The cluttered reality (left) versus the clean, structural map our system generates (right).
-</div>
-
-After isolating structural planes, the 3D point cloud is projected into a 2D laser scan, enabling the use of mature 2D SLAM (e.g., Gmapping) to build efficient, structure-consistent maps.
-
 ## From Simulation to Reality: Proving the Concept
 
 We validated the approach in Gazebo simulation and real laboratory corridors with transient obstacles, consistently producing clean structural maps in real time.
+
+### Simulation Test
 
 <div class="row equal-height-images">
     <div class="col-sm mt-3 mt-md-0">
@@ -53,6 +83,34 @@ We validated the approach in Gazebo simulation and real laboratory corridors wit
 <div class="caption">
     Testing our approach, from controlled simulations in Gazebo to dynamic, real-world laboratory environments.
 </div>
+
+### Real World Experiment
+
+<div class="row justify-content-center mt-4 mb-4">
+    <div class="col-sm-10">
+        <video width="100%" controls>
+            <source src="{{ '/videos/slam_projects.mp4' | relative_url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+<div class="caption">
+    Live demonstration of the vertical plane segmentation SLAM system in action, showing real-time mapping in dynamic indoor environments.
+</div>
+
+<div class="row equal-height-images">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/slam_original_map.jpg" title="Original SLAM Map" class="rounded z-depth-1" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/slam_filtered_map.jpg" title="Map After Vertical Plane Segmentation" class="rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Real World Experiment: The cluttered reality (left) versus the clean, structural map our system generates (right).
+</div>
+
+After isolating structural planes, the 3D point cloud is projected into a 2D laser scan, enabling the use of mature 2D SLAM (e.g., Gmapping) to build efficient, structure-consistent maps.
 
 ## Tech Stack
 

@@ -6,6 +6,9 @@ img: assets/img/campus-autonomy-robot/campusautonomy-robot.jpg
 importance: 2
 category: research
 related_publications: false
+mermaid:
+  enabled: true
+  zoomable: true
 ---
 
 ## Motivation
@@ -54,13 +57,71 @@ The software stack leverages **ROS2 + Nav2** for planning and control, with **Go
 
 The system integrates sophisticated hardware and software components:
 
-<div class="row justify-content-center">
-    <div class="col-sm-6 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/nav2_architecture.jpg" title="Navigation Architecture" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+```mermaid
+graph LR
+    subgraph HW["🤖 Hardware Platform"]
+        A[Hunter SE Robot<br/>Ackermann 4-Wheel]
+        B[Hesai 3D LiDAR]
+        C[IMU Sensor]
+    end
+
+    subgraph Perception["👁️ Perception Processing"]
+        D[Point Cloud Filter<br/>PCL Filters]
+        E[3D to 2D<br/>LaserScan]
+        F[Sensor Fusion<br/>EKF Localization]
+    end
+
+    subgraph Mapping["🗺️ Mapping & Localization"]
+        G[SLAM Mapping<br/>Cartographer]
+        H[AMCL Localization]
+        I[Area Graph<br/>Semantic Map]
+    end
+
+    subgraph Navigation["🧭 Navigation Planning"]
+        J[Global Planning<br/>SMAC Planner]
+        K[Local Control<br/>DWB Controller]
+        L[Costmaps<br/>Obstacle Detection]
+    end
+
+    subgraph Control["⚡ Motion Control"]
+        M[Velocity Command<br/>cmd_vel]
+    end
+
+    A --> F
+    B --> D --> E
+    C --> F
+
+    E --> G
+    E --> H
+    E --> L
+
+    G --> H
+    H --> J
+    I --> J
+
+    L --> J
+    J --> K
+    L --> K
+
+    K --> M --> A
+
+    F -.-> Navigation
+
+    classDef hw fill:#ffcccc,stroke:#ff0000,stroke-width:2px
+    classDef perc fill:#d4edda,stroke:#28a745,stroke-width:2px
+    classDef map fill:#cce5ff,stroke:#0066cc,stroke-width:2px
+    classDef nav fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    classDef ctrl fill:#f8d7da,stroke:#dc3545,stroke-width:2px
+
+    class A,B,C hw
+    class D,E,F perc
+    class G,H,I map
+    class J,K,L nav
+    class M ctrl
+```
+
 <div class="caption">
-    Our system is built upon the powerful and flexible ROS2 Navigation2 stack, integrating perception, planning, and control.
+    Interactive system architecture diagram showing the data flow from hardware sensors through perception, mapping, navigation planning to motion control.
 </div>
 
 ## Tech Stack
@@ -82,20 +143,6 @@ The system integrates sophisticated hardware and software components:
 - **Throughput**: 20 Hz sensor processing
 - **Endurance**: 4+ hours continuous operation
 - **Payload**: Up to 10 kg
-
-## Implementation Highlights
-
-<div class="row equal-height-images">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/robot_testing.jpg" title="Robot Field Testing" class="rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/rviz_visualization.jpg" title="RViz Visualization" class="rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Left: Field testing of the autonomous delivery robot; Right: Real-time visualization in RViz2
-</div>
 
 ## Next Steps
 

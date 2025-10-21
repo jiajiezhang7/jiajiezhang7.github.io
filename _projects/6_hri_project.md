@@ -6,6 +6,9 @@ img: assets/img/hri_project/hri-robot.png
 importance: 6
 category: research
 related_publications: false
+mermaid:
+  enabled: true
+  zoomable: true
 ---
 
 ## Motivation
@@ -35,13 +38,89 @@ The system continuously perceives the environment through panoramic vision, dete
 - **Animation Display**: `robot_animation_display` monitors `/audio_generated` and `/audio_playback_complete`, publishing `/tts_status` in real time.
 - **Auxiliary Tools**: `audio_recorder.py`, `dummy_level_publisher`, and `level_interfaces` for development and integration.
 
-<div class="row justify-content-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/hri_project/hri-pipeline-mermaid.png" title="HRI System Architecture" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+```mermaid
+%% HRI System - Simplified Pipeline Overview
+%% 简化版系统流程图
+
+graph LR
+    %% 用户
+    USER[👤 Human User]
+
+    %% 主要模块
+    subgraph Vision["🎥 Vision System"]
+        V1[360° Camera]
+        V2[Face Detection<br/>YOLOv8 + MTCNN]
+        V3[Angle Calculation]
+        V1 --> V2 --> V3
+    end
+
+    subgraph Motion["🎯 Motion"]
+        M1[Servo Control<br/>Auto Rotation]
+    end
+
+    subgraph Coordinator["🧠 Coordinator"]
+        CO1{Face<br/>Detected?}
+        CO2[Trigger<br/>Question]
+        CO3{Emotion<br/>Analysis}
+        CO4[Continue<br/>Search]
+        CO5[Task<br/>Complete]
+    end
+
+    subgraph VoiceSystem["🎤 Voice Interaction"]
+        direction TB
+        VS1[🎙️ Audio Capture<br/>+ Filter]
+        VS2[🔤 Speech Recognition<br/>Baidu/StepFun]
+        VS3[🧠 LLM Processing<br/>Volcano Engine]
+        VS4[🔊 Speech Synthesis<br/>Baidu/StepFun]
+        VS5[📢 Audio Playback]
+
+        VS1 --> VS2 --> VS3 --> VS4 --> VS5
+    end
+
+    subgraph Animation["🎨 Display"]
+        AN1[TTS Status<br/>Animation]
+    end
+
+    %% 主流程
+    USER -.->|Faces| V1
+    V3 -->|/face_angle| M1
+    V3 --> CO1
+
+    CO1 -->|Yes| CO2
+    CO1 -->|No| V3
+
+    CO2 -->|Question| VS3
+
+    USER -.->|Speaks| VS1
+    VS5 -.->|Robot Speaks| USER
+
+    VS5 --> CO3
+
+    CO3 -->|Positive| CO5
+    CO3 -->|Negative| CO4
+    CO4 --> V3
+
+    VS4 --> AN1
+    VS5 --> AN1
+
+    %% 样式
+    classDef visionClass fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    classDef motionClass fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef voiceClass fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef coordClass fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    classDef animClass fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef userClass fill:#ffebee,stroke:#d32f2f,stroke-width:3px
+
+    class V1,V2,V3 visionClass
+    class M1 motionClass
+    class VS1,VS2,VS3,VS4,VS5 voiceClass
+    class CO1,CO2,CO3,CO4,CO5 coordClass
+    class AN1 animClass
+    class USER userClass
+```
+
 <div class="caption">
-    The overall pipeline of the HRI system, from panoramic perception and intent understanding to servo-based gaze control and dialogue.
+    The overall pipeline of the HRI system, from panoramic perception and intent understanding to servo-based gaze control and dialogue. 
 </div>
 
 ## Results

@@ -8,7 +8,7 @@
     - name: Location
       value: Shanghai, China
     - name: Research Interests
-      value: Mobile Robotics, Embodied AI, SLAM, Navigation
+      value: Mobile Robotics, Embodied AI, Vision-Language-Action Model
     - name: Languages
       value: Chinese (Native), English (Fluent)
 
@@ -19,16 +19,14 @@
       institution: ShanghaiTech University, Shanghai, China
       year: 2023 - Present
       description:
-        - Research focus on Mobile Robotics and Embodied AI
-        - Member of MARS Lab (Mobile Autonomous Robotics Systems)
-        - Advisor: Professor Sören Schwertfeger
-        - Key research areas include navigation, SLAM, and intelligent robotics systems
+        - Member of MARS Lab (Mobile Autonomous Robotics Systems), supervised by <a href="https://robotics.shanghaitech.edu.cn/people/soeren">Professor Sören Schwertfeger</a>
+        - Key research areas include robot navigation, SLAM, and intelligent robotics systems
     - title: B.S. in Automation
       institution: Zhengzhou University, Zhengzhou, China
       year: 2019 - 2023
       description:
         - Graduated with strong foundation in control systems and robotics
-        - Completed coursework in automatic control theory, signal processing, and embedded systems
+        - Supervised By <a href="https://scholar.google.com/citations?hl=zh-CN&user=XqRkWnkAAAAJ&view_op=list_works&sortby=pubdate">Lei Yang</a> on Bachelor Thesis of "Enhance ORB-SLAM2 with Dense Mapping"
 
 - title: Work Experience
   type: time_table
@@ -37,8 +35,8 @@
       institution: AI R&D Center, Central Research Institute, Wolong Electric
       year: 2023 July - Oct.
       description:
-        - Supervised by <a href="https://de.linkedin.com/in/alexander-kleiner-9bb5422">Alexander Kleiner</a>
-        - To pioneer a framework for learning generalizable robot policies from large-scale, action-free video data by representing complex motion dynamics within a task-centric latent action space.
+        - Supervised by <a href="https://scholar.google.com/citations?hl=zh-CN&user=2J5RWqcAAAAJ">Alexander Kleiner</a>
+        - Pioneered a Latent Action Pretraining framework to learn discrete motion representations (i.e., latent actions) from large-scale, unlabeled videos in a fully unsupervised manner , leveraging a VQ-VAE-based objective.
 - title: Technical Skills
   type: nested_list
   contents:
