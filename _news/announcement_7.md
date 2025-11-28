@@ -5,5 +5,4 @@ inline: true
 related_posts: false
 ---
 
-
 New preprint on **From Observation to Action: Latent Action-based Primitive Segmentation for VLA Pre-training in Industrial Settings** is now available on arXiv!
