@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-New preprint on **CAD to OpenStreetMap Generation** for robot navigation is now available on arXiv!
+New preprint on **Generation of Indoor Open Street Maps for Robot Navigation from CAD Files** is now available on arXiv!

@@ -9,7 +9,7 @@ subtitle: >
 
 profile:
   align: right
-  image: new-profile-no-print.png
+  image: prof_pic_new.jpg
   image_circular: false # crops the image to make it circular
   more_info:
 
@@ -39,10 +39,9 @@ My research interests lie in how embodied agents learn efficiently from limited 
 
 ## Recent Work
 
-I am currently working on several exciting projects:
+**AGLoc++ (My Master Thesis)**: I am extending previous work on robust and cross-level indoor localization by incorporating WiFi-aided recovery and Sensor Fusion tracking leveraging [OSMAG](https://ieeexplore.ieee.org/abstract/document/10354976), solving the robot kidnapping problem, making the system product-level practical for real-world deployment.
 
-**AGLoc++ System(Master Thesis)**: I am extending previous work on robust indoor localization by incorporating WiFi-aided recovery and Sensor Fusion tracking leveraging osmAG, solving the robot kidnapping problem, making the system product-level practical for real-world deployment.
+**OSMAG-Navigation Stack**: I am currently working with my teammates to build a full-stack navigation software package based on [OSMAG](https://ieeexplore.ieee.org/abstract/document/10354976). This package includes a suite of ready-to-deploy, real-world-applicable algorithms such as [automatic OSMAG map generation](https://arxiv.org/abs/2507.00552), [OSMAG-based LiDAR localization](https://ieeexplore.ieee.org/abstract/document/10321673), and efficient hierarchical path planning. It will be fully compatible with [Navigation2](https://docs.nav2.org/) and addresses several persistent challenges in existing mature mobile robot navigation stacks, including: the prohibitively large memory footprint of occupancy grid maps, which limits large-scale generation and deployment; the computational inefficiency and high resource consumption of grid-map-based path planning algorithms; and the inability to navigate across floors or between buildings. We hope this will be a meaningful contribution to the Mobile Robotics community!
 
-**Latent Action Tokenizer For VLM Pretraining**: I am working on a novel, unsupervised pipeline that is automatically segmenting continuous, unstructured industrial videos into meaningful action primitives for Vision-Language-Action (VLA) model latent pre-training by defining and detecting semantic boundaries in a latent action representation space.
 
 Feel free to explore my [publications](/publications/) and [projects](/projects/) to learn more about my research contributions, or check out my [CV](/cv/) for detailed academic information.
