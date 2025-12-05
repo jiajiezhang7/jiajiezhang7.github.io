@@ -57,11 +57,13 @@
   contents:
     - year: 2025
       items:
-        - "Zhang, J., Wu, S., Ma, X., & Schwertfeger, S. (2025). Generation of Indoor Open Street Maps for Robot Navigation from CAD Files. <em>arXiv preprint arXiv:2507.00552</em>."
+        - "<strong>Zhang, J.</strong>, & Schwertfeger, S., & Kleiner, A. (2025). From Observation to Action: Latent Action-based Primitive Segmentation for VLA Pre-training in Industrial Settings. <em>arXiv preprint arXiv:2511.21428</em>."
+        - "<strong>Zhang, J.</strong>, Wu, S., Ma, X., & Schwertfeger, S. (2025). Generation of Indoor Open Street Maps for Robot Navigation from CAD Files. <em>arXiv preprint arXiv:2507.00552</em>."
+        - "Ma, X., <strong>Zhang, J.</strong>, Xie, F., & Schwertfeger, S. (2025). WiFi-based Global Localization in Large-Scale Environments Leveraging Structural Priors from osmAG. <em>arXiv preprint arXiv:2508.10144</em>."
+        - "Xie, F., <strong>Zhang, J.</strong>, & Schwertfeger, S. (2025). Intelligent LiDAR Navigation: Leveraging External Information and Semantic Maps with LLM as Copilot. <em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em>."
     - year: 2024
       items:
-        - "Xie, F., Zhang, J., & Schwertfeger, S. (2024). Intelligent LiDAR Navigation: Leveraging External Information and Semantic Maps with LLM as Copilot. <em>arXiv preprint arXiv:2409.08493</em>. (Accepted to IROS 2025)"
-        - "Cui, J., Zhang, J., Kneip, L., & Schwertfeger, S. (2024). Neural Surfel Reconstruction: Addressing Loop Closure Challenges in Large-Scale 3D Neural Scene Mapping. <em>Sensors</em>, 24(21), 6919."
+        - "Cui, J., <strong>Zhang, J.</strong>, Kneip, L., & Schwertfeger, S. (2024). Neural Surfel Reconstruction: Addressing Loop Closure Challenges in Large-Scale 3D Neural Scene Mapping. <em>Sensors</em>, 24(21), 6919."
 
 - title: Research Interests
   type: nested_list
