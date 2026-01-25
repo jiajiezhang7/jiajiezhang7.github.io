@@ -11,6 +11,27 @@ mermaid:
   zoomable: true
 ---
 
+<style>
+.demo-video {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background-color: #000;
+}
+</style>
+
+<div class="row mt-3">
+    <div class="col-sm-12">
+        <video class="demo-video" controls preload="auto" playsinline>
+            <source src="{{ site.baseurl }}/videos/campusautonomy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="caption text-center mt-2">
+            <strong>Project Demo</strong>: Integrating indoor/outdoor navigation on a unified delivery platform
+        </div>
+    </div>
+</div>
+
 ## Motivation
 
 Campus logistics require a single vehicle to navigate open outdoor paths and complex indoor corridors seamlessly. The core challenges are robust scene switching, safe real-time avoidance, and reliable navigation across diverse conditions. This project targets these challenges to enable unified, end-to-end campus delivery.
@@ -157,7 +178,6 @@ Integrate **osmAG** map format with Nav2 plugins for lifelong mapping and accura
 ## Related Resources
 
 - **Project Report**: [Campus Autonomy Final Report](/files/CampusAutonomy_FinalReport.pdf)
-- **Demo Video**: [System Demonstration](/videos/campusautonomy.mp4)
 - **Code Repository**: [GitHub Repository](https://github.com/jiajiezhang7/campus-autonomy-course-project)
 
 ---

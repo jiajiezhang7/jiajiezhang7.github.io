@@ -11,6 +11,27 @@ mermaid:
   zoomable: true
 ---
 
+<style>
+.demo-video {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background-color: #000;
+}
+</style>
+
+<div class="row mt-3">
+    <div class="col-sm-12">
+        <video class="demo-video" controls preload="auto" playsinline>
+            <source src="{{ site.baseurl }}/assets/video/hri_demo.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="caption text-center mt-2">
+            <strong>Project Demo</strong>: Proactive HRI with panoramic perception and voice interaction
+        </div>
+    </div>
+</div>
+
 ## Motivation
 
 Robots operating in public spaces need reliable human-facing perception and natural, low-latency interaction. This project targets an elevator service scenario where the robot detects people facing it, proactively initiates a dialogue, and reacts appropriately based on user intent, enabling contactless and socially acceptable assistance.
@@ -163,7 +184,6 @@ graph LR
 
 ## Related Resources
 
-- **Demo Video**: [System Demonstration](/assets/video/hri_demo.MP4)
 - **code**: [GitHub](https://github.com/jiajiezhang7/HRI-Campus)
 
 ---

@@ -8,6 +8,27 @@ category: research
 related_publications: false
 ---
 
+<style>
+.demo-video {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background-color: #000;
+}
+</style>
+
+<div class="row mt-3">
+    <div class="col-sm-12">
+        <video class="demo-video" controls preload="auto" playsinline>
+            <source src="{{ site.baseurl }}/videos/industrial_demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="caption text-center mt-2">
+            <strong>Project Demo</strong>: Real-time LiDAR detection of solar panel structures
+        </div>
+    </div>
+</div>
+
 ## Motivation
 
 Large-scale solar farms demand precise, efficient, and repeatable panel installation. Manual assembly is slow, costly, and error-prone. We build a real-time LiDAR perception system that delivers the accurate 3D parameters needed for robotic automation to scale installation while reducing cost.

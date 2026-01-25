@@ -11,6 +11,27 @@ mermaid:
   zoomable: true
 ---
 
+<style>
+.demo-video {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background-color: #000;
+}
+</style>
+
+<div class="row mt-3">
+    <div class="col-sm-12">
+        <video class="demo-video" controls preload="auto" playsinline>
+            <source src="{{ '/videos/slam_projects.mp4' | relative_url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="caption text-center mt-2">
+            <strong>Project Demo</strong>: Real-time map building with vertical plane filtering
+        </div>
+    </div>
+</div>
+
 ## Motivation
 
 Indoor environments change frequently, making conventional maps quickly outdated. This project develops a SLAM system that focuses on persistent structures to produce clean, long-lasting maps for dependable lifelong indoor navigation.
@@ -87,16 +108,7 @@ We validated the approach in Gazebo simulation and real laboratory corridors wit
 ### Real World Experiment
 
 <div class="row justify-content-center mt-4 mb-4">
-    <div class="col-sm-10">
-        <video width="100%" controls>
-            <source src="{{ '/videos/slam_projects.mp4' | relative_url }}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-</div>
-<div class="caption">
-    Live demonstration of the vertical plane segmentation SLAM system in action, showing real-time mapping in dynamic indoor environments.
-</div>
+### Real World Experiment
 
 <div class="row equal-height-images">
     <div class="col-sm mt-3 mt-md-0">
