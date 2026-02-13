@@ -27,26 +27,20 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-> **Seeking PhD Position in Embodied AI / Robotics**  
-> I am actively seeking PhD opportunities in **Embodied AI** and **Robotics**. If you are interested in my research background and would like to discuss potential opportunities, please feel free to contact me at [zhangjj2023@shanghaitech.edu.cn](mailto:zhangjj2023@shanghaitech.edu.cn).
-> {: .block-tip }
-
 ## About Me
 
-I am a graduate student at ShanghaiTech University pursuing a Master's degree in Computer Science and Technology. Since 2023, I have been conducting research at the [MARS Lab](https://robotics.shanghaitech.edu.cn/) (Mobile Autonomous Robotics Systems Laboratory) at ShanghaiTech University, advised by [Professor Sören Schwertfeger](https://robotics.shanghaitech.edu.cn/people/soeren), focusing on cutting-edge areas including **Mobile Robotics** and **Embodied AI**. Prior to joining ShanghaiTech University, I completed my Bachelor's degree in Automation at Zhengzhou University (2019-2023), where I developed a strong foundation in control systems, signal processing, and robotics fundamentals.
+I am a graduate student at ShanghaiTech University pursuing a Master's degree in Computer Science and Technology (2023 - Present), advised by [Professor Sören Schwertfeger](https://robotics.shanghaitech.edu.cn/people/soeren) at the [MARS Lab](https://robotics.shanghaitech.edu.cn/) (Mobile Autonomous Robotics Systems Laboratory). I received my B.S. in Automation from Zhengzhou University (2019 - 2023).
 
-My research interests lie in how embodied agents learn efficiently from limited supervision in continual, open-world settings and how to ground large foundation models in the physical world. My goal is to build fundamental algorithms that learn from unbounded data streams and endow agents with robust, physically grounded interaction skills.
+## Research Interests
 
-## Recent Work
+My research focuses on **Mobile Robotics** and **Embodied AI**, specifically:
 
-**AGLoc++ (My Master Thesis)**: I am extending previous work on robust and cross-level indoor localization by incorporating WiFi-aided recovery and Sensor Fusion tracking leveraging [OSMAG](https://ieeexplore.ieee.org/abstract/document/10354976), solving the robot kidnapping problem, making the system product-level practical for real-world deployment.
+- How embodied agents learn efficiently from limited supervision in continual, open-world settings
+- How to ground large foundation models in the physical world
+- Building fundamental algorithms that learn from unbounded data streams and endow agents with robust, physically grounded interaction skills
 
-**OSMAG-Navigation Stack**: I am currently working with my teammates to build a full-stack navigation software package based on [OSMAG](https://ieeexplore.ieee.org/abstract/document/10354976). This package includes a suite of ready-to-deploy, real-world-applicable algorithms such as [automatic OSMAG map generation](https://arxiv.org/abs/2507.00552), [OSMAG-based LiDAR localization](https://ieeexplore.ieee.org/abstract/document/10321673), and efficient hierarchical path planning. It will be fully compatible with [Navigation2](https://docs.nav2.org/) and addresses several persistent challenges in existing mature mobile robot navigation stacks:
+## Current Work
 
-1. The prohibitively large memory footprint of occupancy grid maps, which limits large-scale generation and deployment.
-2. The computational inefficiency and high resource consumption of grid-map-based path planning algorithms.
-3. The inability to navigate across floors or between buildings.
+I am currently working on **AGLoc++** (my Master's thesis), extending robust cross-level indoor localization by incorporating WiFi-aided recovery and sensor fusion tracking. I am also developing the **OSMAG-Navigation Stack** with my teammates, a full-stack navigation software package compatible with Navigation2 that addresses key challenges in large-scale mobile robot navigation.
 
-We hope this will be a meaningful contribution to the Mobile Robotics community!
-
-Feel free to explore my [publications](/publications/) and [projects](/projects/) to learn more about my research contributions, or check out my [CV](/cv/) for detailed academic information.
+For more details, please visit my [publications](/publications/), [projects](/projects/), or [CV](/cv/).
