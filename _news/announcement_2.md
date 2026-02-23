@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Neural Surfel Reconstruction Paper Published in MDPI Sensors
+Our paper **Neural Surfel Reconstruction: Addressing Loop Closure Challenges in Large-Scale 3D Neural Scene Mapping** has been published in **MDPI Sensors**! :tada:

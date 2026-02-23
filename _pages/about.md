@@ -4,11 +4,8 @@ title: About
 permalink: /
 subtitle: >
   <a href='https://robotics.shanghaitech.edu.cn/'>MARS Lab</a>, ShanghaiTech University<br>
-  Graduate Student | Shanghai, China<br>
-  Email: zhangjj2023@shanghaitech.edu.cn
-
 profile:
-  align: right
+  align: left
   image: prof_pic_new.jpg
   image_circular: false # crops the image to make it circular
   more_info:
@@ -17,7 +14,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
-  enabled: false # includes a list of news items
+  enabled: true # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
@@ -33,11 +30,13 @@ I am a graduate student at ShanghaiTech University pursuing a Master's degree in
 
 ## Research Interests
 
-My research focuses on **Mobile Robotics** and **Embodied AI**, specifically:
+My research focuses on Robotic Mobile Manipulation and Embodied AI, specifically at the intersection of Foundation Models and Classical Robotics:
 
-- How embodied agents learn efficiently from limited supervision in continual, open-world settings
-- How to ground large foundation models in the physical world
-- Building fundamental algorithms that learn from unbounded data streams and endow agents with robust, physically grounded interaction skills
+- **System-Level Scaffolding for Embodied AI**: Leveraging classical robotics principles (physics, kinematics, and control) as fundamental inductive biases when applying Foundation Model to the real world. This physical scaffolding constraints the search space, enabling embodied agents to learn efficiently from limited supervision in open-world settings.
+- **Action-Oriented Representations & Inductive Biases**: Building fundamental algorithms that distill unbounded multimodal data streams into structured, semantic representations.
+- **Predictive World Models for Dynamic Environments**: Moving beyond static occupancy grids to develop action-conditioned world models, which allows robots to simulate future states, reason about non-stationary environments, and execute safe, long-horizon mobile manipulation tasks.
+
+<!-- intro_end -->
 
 ## Current Work
 

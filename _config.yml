@@ -139,10 +139,8 @@ newsletter:
 collections:
   # books:
   #   output: true
-  # news:
-  #   defaults:
-  #     layout: post
-  #   output: true
+  news:
+    output: true
   projects:
     output: true
 
@@ -182,12 +180,10 @@ exclude:
   - package-lock.json
   - _pages/about_einstein.md
   - _pages/books.md
-  - _pages/news.md
   - _pages/dropdown.md
   - _pages/profiles.md
   - _pages/repositories.md
   - _books/
-  - _news/
   - _posts/
   - purgecss.config.js
   - README.md
