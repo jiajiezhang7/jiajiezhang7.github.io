@@ -28,10 +28,26 @@
         {% endif %}
       {% endcomment %}
       {% if entry.preview %}
+        {% assign preview_ext = entry.preview | split: '.' | last | downcase %}
         {% if entry.preview contains '://' %}
-          <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
+          {% assign entry_path = entry.preview %}
+        {% elsif entry.preview contains '/' %}
+          {% assign entry_path = entry.preview | prepend: '/assets/img/' %}
         {% else %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
+        {% endif %}
+        {% if preview_ext == 'pdf' %}
+          <object
+            class="preview preview-pdf z-depth-1 rounded"
+            data="{% if entry.preview contains '://' %}{{ entry_path }}{% else %}{{ entry_path | relative_url }}#page=1&view=FitH{% endif %}"
+            type="application/pdf"
+            aria-label="{{ entry.preview }}"
+          >
+            <a href="{% if entry.preview contains '://' %}{{ entry_path }}{% else %}{{ entry_path | relative_url }}{% endif %}">Open preview PDF</a>
+          </object>
+        {% elsif entry.preview contains '://' %}
+          <img class="preview z-depth-1 rounded" src="{{ entry_path }}" alt="{{ entry.preview }}">
+        {% else %}
           {%
             include figure.liquid
             loading="eager"
@@ -162,12 +178,16 @@
     {% else %}
       {% capture entrytype %}{% endcapture %}
     {% endif %}
+    {% capture entrymonth %}{% endcapture %}
+    {% capture entryyear %}{% endcapture %}
     {% if entry.month %}
       {% capture entrymonth %}{{ " " }}{{ entry.month | capitalize }}{% endcapture %}
     {% endif %}
-    {% if entry.year %}
-      {% capture entryyear %}{{ " " }}{{ entry.year }}{% endcapture %}
-    {% endif %}
+    {% unless entry.hide_year %}
+      {% if entry.year %}
+        {% capture entryyear %}{{ " " }}{{ entry.year }}{% endcapture %}
+      {% endif %}
+    {% endunless %}
     {% if entry.location %}
       {% capture entrytype %}{{ entrytype }}{{ ", " }}{{ entry.location }}{% endcapture %}
     {% endif -%}

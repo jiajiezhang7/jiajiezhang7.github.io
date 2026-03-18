@@ -61,7 +61,7 @@
     - year: 2025
       items:
         - "<strong>Zhang, J.</strong>, Wu, S., Ma, X., & Schwertfeger, S. Generation of Indoor Open Street Maps for Robot Navigation from CAD Files. <em>arXiv preprint arXiv:2507.00552</em>."
-        - "Ma, X., <strong>Zhang, J.</strong>, Xie, F., & Schwertfeger, S. WiFi-based Global Localization in Large-Scale Environments Leveraging Structural Priors from osmAG. <em>arXiv preprint arXiv:2508.10144</em>."
+        - "Ma, X., <strong>Zhang, J.</strong>, Xie, F., & Schwertfeger, S. WiFi-based Global Localization in Large-Scale Environments Leveraging Structural Priors from osmAG. <em>Submitted to IROS2026</em>."
         - "Xie, F., <strong>Zhang, J.</strong>, & Schwertfeger, S. Intelligent LiDAR Navigation: Leveraging External Information and Semantic Maps with LLM as Copilot. <strong>IROS 2025</strong>."
     - year: 2024
       items:
