@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+prepend_path_if_exists() {
+  local candidate="$1"
+  if [[ -d "$candidate" ]]; then
+    PATH="$candidate:$PATH"
+  fi
+}
+
+# Prefer Homebrew Ruby on macOS so we do not accidentally pick /usr/bin/bundle.
+prepend_path_if_exists "/opt/homebrew/opt/ruby/bin"
+prepend_path_if_exists "/usr/local/opt/ruby/bin"
+export PATH
+
+echo "Using Ruby: $(command -v ruby)"
+echo "Using Bundler: $(command -v bundle)"
+echo "Ruby version: $(ruby -v)"
+echo "Bundler version: $(bundle -v)"
+
+if ! bundle check >/dev/null 2>&1; then
+  echo "Bundler dependencies are not installed."
+  echo "Run 'bundle install' and try again."
+  exit 1
+fi
+
+exec bundle exec jekyll serve "$@"

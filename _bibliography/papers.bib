@@ -4,6 +4,25 @@
 @string{iros = {IEEE/RSJ International Conference on Intelligent Robots and Systems}}
 @string{sensors = {MDPI Sensors}}
 
+@article{zhang2026osmagnav,
+  abbr={arXiv},
+  bibtex_show={true},
+  title={osmAG-Nav: A Hierarchical Semantic Topometric Navigation Stack for Robust Lifelong Indoor Autonomy},
+  author={Zhang+, Yongqi and Zhang+, Jiajie and Li, Chengqian and Xie, Fujing and Schwertfeger*, S{\"o}ren},
+  abstract={The deployment of mobile robots in large-scale, multi-floor environments demands navigation systems that achieve spatial scalability without compromising local kinematic precision. Traditional navigation stacks, reliant on monolithic occupancy grid maps, face severe bottlenecks in storage efficiency, cross-floor reasoning, and long-horizon planning. To address these limitations, this paper presents osmAG-Nav, a complete, open-source ROS2 navigation stack built upon the hierarchical semantic topometric OpenStreetMap Area Graph (osmAG) map standard. The system follows a "System of Systems" architecture that decouples global topological reasoning from local metric execution. A Hierarchical osmAG planner replaces dense grid searches with an LCA-anchored pipeline on a passage-centric graph whose edge costs derive from local raster traversability rather than Euclidean distance, yielding low-millisecond planning on long campus-scale routes. A Rolling Window mechanism rasterizes a fixed-size local metric grid around the robot, keeping the local costmap memory footprint independent of the total mapped area, while a Segmented Execution strategy dispatches intermediate goals to standard ROS2 controllers for smooth handoffs. System robustness is reinforced by a structure-aware LiDAR localization framework that filters dynamic clutter against permanent architectural priors. Extensive experiments on a real-world multi-story indoor-outdoor campus (>11,025 m^2) show that, on the same-floor benchmark subset, osmAG-Nav delivers up to 7816x lower planning latency than a grid-based baseline on long routes while maintaining low path-length overhead and lifelong localization stability. A single-floor long-range robot mission further validates the integrated stack reliability. The full stack is released as modular ROS2 Lifecycle Nodes.},
+  journal={arXiv preprint arXiv:2603.28271 (Under review for Autonomous Robots)},
+  year={2026},
+  url={https://arxiv.org/abs/2603.28271},
+  pdf={osmAG_Nav.pdf},
+  arxiv={2603.28271},
+  video={https://youtu.be/J5tE_hQxxQg},
+  pages_link={https://jiajiezhang7.github.io/osmAG-Nav},
+  preview={osmag-nav-teaser.jpg},
+  selected={false},
+  dimensions={true},
+  altmetric={true}
+}
+
 @article{zhang2025action,
   abbr={CVPR},
   bibtex_show={true},
@@ -16,7 +35,7 @@
   html={https://arxiv.org/html/2511.21428v1},
   pdf={action_segmentor_paper.pdf},
   arxiv={2511.21428},
-  video={#},
+  video={https://youtu.be/asTX-f2CCL0},
   pages_link={https://jiajiezhang7.github.io/latent-action-primitive-segmenter/},
   code={https://github.com/jiajiezhang7/LAPS},
   preview={action_segmentor_teaser_page-0001.jpg},

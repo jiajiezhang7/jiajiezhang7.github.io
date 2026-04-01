@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "serve": "./bin/serve-local",
     "purge:css": "purgecss -c purgecss.config.js"
   },
   "devDependencies": {

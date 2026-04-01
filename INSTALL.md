@@ -119,6 +119,36 @@ For a hands-on walkthrough of running al-folio locally without using Docker, che
 
 Assuming you have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Bundler](https://bundler.io/) installed on your system (_hint: for ease of managing ruby gems, consider using [rbenv](https://github.com/rbenv/rbenv)_), and also [Python](https://www.python.org/) and [pip](https://pypi.org/project/pip/) (_hint: for ease of managing python packages, consider using a virtual environment, like [venv](https://docs.python.org/pt-br/3/library/venv.html) or [conda](https://docs.conda.io/en/latest/)_).
 
+> Important for this repository on macOS: the site preview runs on **Ruby + Jekyll**. It is **not** served by `npm`, and it does **not** require a Python `venv` for normal local preview.
+>
+> - `npm run serve` is a wrapper around the Jekyll server, not a separate Node-based dev server.
+> - `requirements.txt` is only needed for optional Python helpers such as notebook conversion (`nbconvert`).
+> - A verified local setup on 2026-04-01 was: `Ruby 3.4.4`, `Bundler 2.6.9`, `Jekyll 4.4.1`.
+> - If `which bundle` prints `/usr/bin/bundle`, you are using the macOS system Ruby and may hit `Could not find 'bundler' (2.6.9)`.
+> - This repository now includes a wrapper command: `npm run serve`, which calls `bin/serve-local` and prefers Homebrew Ruby automatically.
+>
+> In that case, prefer Homebrew Ruby explicitly before running Jekyll:
+>
+> ```bash
+> export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+> ruby -v
+> bundle -v
+> bundle check || bundle install
+> bundle exec jekyll serve
+> ```
+
+For this repository, the recommended local preview command is now:
+
+```bash
+$ npm run serve
+```
+
+You can still pass extra Jekyll flags through npm:
+
+```bash
+$ npm run serve -- --host 127.0.0.1 --port 4001
+```
+
 ```bash
 $ bundle install
 # assuming pip is your Python package manager

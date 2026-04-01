@@ -15,11 +15,23 @@
 
 ## 🚀 本地运行
 
+> 重要：这个站点的本地预览依赖 **Ruby + Jekyll**，不是 Node 开发服务器，也不是 Python `venv`。
+> 但这个仓库现在提供了一个 `npm run serve` 包装命令，内部会自动调用正确的 Ruby/Jekyll 启动流程。
+
 ### 环境要求
 
 - Ruby 3.0+
 - Jekyll 4.3+
 - Bundler
+
+### 已验证的本地环境（macOS）
+
+- Ruby 3.4.4
+- Bundler 2.6.9
+- Jekyll 4.4.1
+- 建议使用 Homebrew Ruby：`/opt/homebrew/opt/ruby/bin/ruby`
+
+如果你的终端默认走到了系统 Ruby（例如 `/usr/bin/ruby` 或 `/usr/bin/bundle`），即使机器里已经装了正确依赖，也可能出现 `Could not find 'bundler' (2.6.9)` 这类错误。
 
 ### 安装步骤
 
@@ -33,17 +45,65 @@ cd jiajiezhang7-new.github.io
 2. 安装依赖
 
 ```bash
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+ruby -v
+bundle -v
 bundle install
 ```
 
 3. 运行本地服务器
 
 ```bash
-bundle exec jekyll serve
+npm run serve
 ```
 
 4. 访问网站
    打开浏览器访问 `http://localhost:4000`
+
+### 推荐启动方式
+
+以后优先使用：
+
+```bash
+npm run serve
+```
+
+这个命令会调用仓库里的 `bin/serve-local`，自动优先选择 Homebrew Ruby，避免误用系统 `/usr/bin/bundle`。
+
+如果你需要传递额外参数给 Jekyll，可以这样写：
+
+```bash
+npm run serve -- --host 127.0.0.1 --port 4001
+```
+
+### 故障排查
+
+如果本地启动失败，先确认当前终端是否使用了正确的 Ruby / Bundler：
+
+```bash
+which ruby
+which bundle
+ruby -v
+bundle -v
+bundle exec jekyll --version
+```
+
+期望看到的 `ruby` / `bundle` 路径应优先落在 `/opt/homebrew/opt/ruby/bin/` 下，而不是 `/usr/bin/`。
+
+如果看到 `/usr/bin/bundle`，请先切换 PATH 再启动：
+
+```bash
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+hash -r
+bundle check || bundle install
+npm run serve
+```
+
+### Python / venv 的作用
+
+- 主页本地预览 **不需要** Python `venv`
+- `requirements.txt` 当前只包含 `nbconvert`
+- 只有在你需要处理 Jupyter Notebook 相关文章或相关辅助工具时，Python 依赖才是可选需要
 
 ## 📁 项目结构
 
