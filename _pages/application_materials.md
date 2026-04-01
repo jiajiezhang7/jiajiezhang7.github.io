@@ -18,7 +18,7 @@ noindex: true
       class="btn btn-outline-primary"
       data-protected-download
       data-download-root="{{ '/assets/pdf/' | relative_url }}"
-      data-download-key="OGM5MGYwMzU5NjNkNzNmMi5wZGY="
+      data-download-key="UGhEX0FwcGxpY2F0aW9uX0ppYWppZV9aaGFuZy5wZGY="
       data-download-name="UGhEX0FwcGxpY2F0aW9uX0ppYWppZV9aaGFuZy5wZGY="
     >
       Download PDF
