@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper **From Observation to Action: Latent Action-based Primitive Segmentation for VLA Pre-training in Industrial Settings** has been accepted to **CVPR 2026**! :tada:
+Our paper **From Observation to Action: Latent Action-based Primitive Segmentation for VLA Pre-training in Industrial Settings** has been accepted to **CVPR 2026**! 🎉
