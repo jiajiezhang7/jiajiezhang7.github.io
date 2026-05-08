@@ -30,16 +30,10 @@ I am a graduate student at ShanghaiTech University pursuing a Master's degree in
 
 ## Research Interests
 
-My research focuses on Robotic Mobile Manipulation and Embodied AI, specifically at the intersection of Foundation Models and Classical Robotics:
-
-- **System-Level Scaffolding for Embodied AI**: Leveraging classical robotics principles (physics, kinematics, and control) as fundamental inductive biases when applying Foundation Model to the real world. This physical scaffolding constraints the search space, enabling embodied agents to learn efficiently from limited supervision in open-world settings.
-- **Action-Oriented Representations & Inductive Biases**: Building fundamental algorithms that distill unbounded multimodal data streams into structured, semantic representations.
-- **Predictive World Models for Dynamic Environments**: Moving beyond static occupancy grids to develop action-conditioned world models, which allows robots to simulate future states, reason about non-stationary environments, and execute safe, long-horizon mobile manipulation tasks.
+- Action-centric latent representations from passive video and robot interaction data
+- Generalizable world models for contact-rich, long-horizon robot manipulation
+- World-model-guided policy learning, adaptation, and replanning for embodied intelligence
 
 <!-- intro_end -->
-
-## Current Work
-
-I am currently working on **AGLoc++** (my Master's thesis), extending robust cross-level indoor localization by incorporating WiFi-aided recovery and sensor fusion tracking. I am also developing the **OSMAG-Navigation Stack** with my teammates, a full-stack navigation software package compatible with Navigation2 that addresses key challenges in large-scale mobile robot navigation.
 
 For more details, please visit my [publications](/publications/), [projects](/projects/), or [CV](/cv/).
