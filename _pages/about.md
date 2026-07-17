@@ -3,7 +3,7 @@ layout: about
 title: About
 permalink: /
 subtitle: >
-  <a href='https://robotics.shanghaitech.edu.cn/'>MARS Lab</a>, ShanghaiTech University<br>
+  Research Assistant at PEAK Lab, HKUST-GZ<br>
 profile:
   align: left
   image: prof_pic_new.jpg
@@ -26,7 +26,7 @@ latest_posts:
 
 ## About Me
 
-I am a graduate student at ShanghaiTech University pursuing a Master's degree in Computer Science and Technology (2023 - Present), advised by [Professor Sören Schwertfeger](https://robotics.shanghaitech.edu.cn/people/soeren) at the [MARS Lab](https://robotics.shanghaitech.edu.cn/) (Mobile Autonomous Robotics Systems Laboratory). I received my B.S. in Automation from Zhengzhou University (2019 - 2023).
+I am currently a Research Assistant at PEAK Lab, HKUST-GZ, working with [Professor Changhao Chen](https://changhao-chen.github.io/). I received my Master's degree in Computer Science and Technology from ShanghaiTech University (2023 - 2026), advised by [Professor Sören Schwertfeger](https://robotics.shanghaitech.edu.cn/people/soeren) at the [MARS Lab](https://robotics.shanghaitech.edu.cn/) (Mobile Autonomous Robotics Systems Laboratory). I received my B.S. in Automation from Zhengzhou University (2019 - 2023).
 
 ## Research Interests
 
