@@ -35,12 +35,16 @@ table {
   }
 }
 
-a,
-table.table a {
-  color: var(--global-theme-color);
+a:not(.btn),
+table.table a:not(.btn) {
+  color: #1f3a93 !important;
+
+  &:visited:not(.btn) {
+    color: #1f3a93 !important;
+  }
 
   &:hover {
-    color: var(--global-theme-color);
+    color: #0b2a66 !important;
     text-decoration: underline;
   }
 

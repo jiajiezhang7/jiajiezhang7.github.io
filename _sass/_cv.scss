@@ -16,8 +16,8 @@ table.table-cv {
 }
 
 a.btncv {
-  color: var(--global-text-color) !important;
-  border: 1px solid var(--global-text-color) !important;
+  color: #1f3a93 !important;
+  border: 1px solid #1f3a93 !important;
   border-radius: 0.125rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -33,9 +33,42 @@ a.btncv {
 }
 
 a.btncv:hover {
-  color: var(--global-theme-color) !important;
-  border-color: var(--global-theme-color) !important;
+  color: #0b2a66 !important;
+  border-color: #0b2a66 !important;
   text-decoration: none !important;
+}
+
+/* CV PDF link */
+a.cv-pdf-link,
+a.cv-pdf-link i {
+  color: #1f3a93 !important;
+}
+
+a.cv-pdf-link:hover,
+a.cv-pdf-link:hover i {
+  color: #0b2a66 !important;
+}
+
+/* CV time span badges */
+.cv .list-group-item .badge {
+  color: #fff !important;
+  background-color: #1f3a93 !important;
+  border-color: #1f3a93 !important;
+}
+
+.cv .list-group-item span.badge.font-weight-bold.danger-color-dark.text-uppercase.align-middle {
+  color: #fff !important;
+  background-color: #1f3a93 !important;
+  border-color: #1f3a93 !important;
+}
+
+/* CV links */
+.cv a:not(.btncv):not(.btn) {
+  color: #1f3a93 !important;
+}
+
+.cv a:not(.btncv):not(.btn):hover {
+  color: #0b2a66 !important;
 }
 
 /*****************************

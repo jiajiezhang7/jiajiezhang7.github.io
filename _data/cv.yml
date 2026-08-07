@@ -17,7 +17,7 @@
   contents:
     - title: M.S. in Computer Science and Technology
       institution: ShanghaiTech University, Shanghai, China
-      year: 2023 - Present
+      year: 2023 - 2026
       description:
         - Member of MARS Lab (Mobile Autonomous Robotics Systems), supervised by <a href="https://robotics.shanghaitech.edu.cn/people/soeren">Professor Sören Schwertfeger</a>
         - Key research areas include robot navigation, SLAM, and intelligent robotics systems
@@ -33,7 +33,7 @@
   contents:
     - title: Research Assistant
       institution: AI R&D Center, Central Research Institute, Wolong Electric
-      year: 2023 July - Oct.
+      year: 2025 July - Oct.
       description:
         - Supervised by <a href="https://scholar.google.com/citations?hl=zh-CN&user=2J5RWqcAAAAJ">Dr. Alexander Kleiner</a>
         - Pioneered a Latent Action Pretraining framework to learn discrete motion representations (i.e., latent actions) from large-scale, unlabeled videos in a fully unsupervised manner , leveraging a VQ-VAE-based objective.
