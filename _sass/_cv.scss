@@ -16,8 +16,8 @@ table.table-cv {
 }
 
 a.btncv {
-  color: #1f3a93 !important;
-  border: 1px solid #1f3a93 !important;
+  color: var(--global-link-color) !important;
+  border: 1px solid var(--global-link-color) !important;
   border-radius: 0.125rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -33,20 +33,20 @@ a.btncv {
 }
 
 a.btncv:hover {
-  color: #0b2a66 !important;
-  border-color: #0b2a66 !important;
+  color: var(--global-link-hover-color) !important;
+  border-color: var(--global-link-hover-color) !important;
   text-decoration: none !important;
 }
 
 /* CV PDF link */
 a.cv-pdf-link,
 a.cv-pdf-link i {
-  color: #1f3a93 !important;
+  color: var(--global-link-color) !important;
 }
 
 a.cv-pdf-link:hover,
 a.cv-pdf-link:hover i {
-  color: #0b2a66 !important;
+  color: var(--global-link-hover-color) !important;
 }
 
 /* CV time span badges */
@@ -64,11 +64,11 @@ a.cv-pdf-link:hover i {
 
 /* CV links */
 .cv a:not(.btncv):not(.btn) {
-  color: #1f3a93 !important;
+  color: var(--global-link-color) !important;
 }
 
 .cv a:not(.btncv):not(.btn):hover {
-  color: #0b2a66 !important;
+  color: var(--global-link-hover-color) !important;
 }
 
 /*****************************

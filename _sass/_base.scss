@@ -37,14 +37,14 @@ table {
 
 a:not(.btn),
 table.table a:not(.btn) {
-  color: #1f3a93 !important;
+  color: var(--global-link-color);
 
   &:visited:not(.btn) {
-    color: #1f3a93 !important;
+    color: var(--global-link-color);
   }
 
   &:hover {
-    color: #0b2a66 !important;
+    color: var(--global-link-hover-color);
     text-decoration: underline;
   }
 
