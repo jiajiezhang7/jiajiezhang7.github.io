@@ -61,10 +61,6 @@
     border-radius: 50%;
     background: #fff;
 
-    &--tu-darmstadt {
-      background: transparent;
-    }
-
     img {
       display: block;
       width: 64px;
@@ -92,15 +88,15 @@
     height: 64px;
     overflow: hidden;
 
-    // Display only the Athena emblem from the original TU Darmstadt lockup.
-    &--tu-darmstadt img {
-      position: absolute;
-      top: -30px;
-      left: -9px;
-      width: 200px;
-      max-width: none;
-      height: 125.6px;
-      object-fit: initial;
+    // The PNG includes the same 76px white disc and 64px emblem area as the other marks.
+    &--tu-darmstadt {
+      width: 76px;
+      height: 76px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     // The official Cixi asset includes a wordmark; show its emblem at original proportions.
@@ -183,9 +179,4 @@
       }
     }
   }
-}
-
-// The monochrome Athena emblem needs a light silhouette on dark backgrounds.
-html[data-theme="dark"] .academic-journey__logo--tu-darmstadt img {
-  filter: brightness(0) invert(0.88);
 }

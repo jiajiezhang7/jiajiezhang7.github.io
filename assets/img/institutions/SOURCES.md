@@ -20,4 +20,4 @@ Retrieved 2026-09-07. These are original institution marks used to identify the 
 
 - Original, unmodified SVG: [official website logo](https://www.tu-darmstadt.de/media/resources/images_1/tu_logo_web.svg).
 - Source: [TU Darmstadt official website](https://www.tu-darmstadt.de/index.en.jsp).
-- The source SVG is unmodified. At the user's request, a CSS viewport displays only the Athena emblem at its original proportions, matching the other timeline emblems.
+- The source SVG is retained unmodified. The timeline uses `tu-darmstadt.png`, a 512 × 512 raster export containing only the Athena emblem on a white disc. The disc and inner emblem render at 76px and 64px respectively, matching the other timeline marks. The white background is baked into the PNG so it remains visible in dark themes without recoloring the artwork.

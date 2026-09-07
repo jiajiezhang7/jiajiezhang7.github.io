@@ -5,7 +5,7 @@
       {% for institution in site.data.academic_journey %}
         {% assign next_institution = site.data.academic_journey[forloop.index] %}
         <li class="academic-journey__item{% if institution.current %} academic-journey__item--current{% endif %}{% if institution.upcoming %} academic-journey__item--upcoming{% endif %}{% if next_institution.upcoming %} academic-journey__item--leads-to-upcoming{% endif %}">
-          <div class="academic-journey__emblem{% if institution.logo_style %} academic-journey__emblem--{{ institution.logo_style }}{% endif %}">
+          <div class="academic-journey__emblem">
             {% assign logo_path = institution.logo | prepend: 'assets/img/institutions/' %}
             <span class="academic-journey__logo{% if institution.logo_style %} academic-journey__logo--{{ institution.logo_style }}{% endif %}">
               <img src="{{ logo_path | relative_url }}" alt="{{ institution.name }} emblem" width="64" height="64" loading="lazy">
