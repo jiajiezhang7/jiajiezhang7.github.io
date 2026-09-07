@@ -61,6 +61,10 @@
     border-radius: 50%;
     background: #fff;
 
+    &--tu-darmstadt {
+      background: transparent;
+    }
+
     img {
       display: block;
       width: 64px;
@@ -179,4 +183,9 @@
       }
     }
   }
+}
+
+// The monochrome Athena emblem needs a light silhouette on dark backgrounds.
+html[data-theme="dark"] .academic-journey__logo--tu-darmstadt img {
+  filter: brightness(0) invert(0.88);
 }
