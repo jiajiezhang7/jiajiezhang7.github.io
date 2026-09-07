@@ -1,0 +1,25 @@
+<section class="academic-journey" aria-labelledby="academic-journey-title">
+  <h2 id="academic-journey-title" class="academic-journey__title">Jiajie's Journey</h2>
+  <div class="academic-journey__scroll" tabindex="0" role="region" aria-label="Academic timeline, scroll horizontally on small screens">
+    <ol class="academic-journey__track">
+      {% for institution in site.data.academic_journey %}
+        {% assign next_institution = site.data.academic_journey[forloop.index] %}
+        <li class="academic-journey__item{% if institution.current %} academic-journey__item--current{% endif %}{% if institution.upcoming %} academic-journey__item--upcoming{% endif %}{% if next_institution.upcoming %} academic-journey__item--leads-to-upcoming{% endif %}">
+          <div class="academic-journey__emblem">
+            {% assign logo_path = institution.logo | prepend: 'assets/img/institutions/' %}
+            <span class="academic-journey__logo{% if institution.logo_style %} academic-journey__logo--{{ institution.logo_style }}{% endif %}">
+              <img src="{{ logo_path | relative_url }}" alt="{{ institution.name }} emblem" width="64" height="64" loading="lazy">
+            </span>
+          </div>
+          <span class="academic-journey__node" aria-hidden="true"></span>
+          <p class="academic-journey__years">{{ institution.years }}</p>
+          <h3 class="academic-journey__name">{{ institution.name }}</h3>
+          {% if institution.role %}
+            <p class="academic-journey__role">{{ institution.role }}</p>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+  <p class="academic-journey__hint" aria-hidden="true">Swipe to explore <span>→</span></p>
+</section>

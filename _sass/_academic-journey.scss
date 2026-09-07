@@ -1,0 +1,182 @@
+.academic-journey {
+  margin: 2.5rem 0 3rem;
+
+  &__title {
+    margin: 0 0 1.75rem;
+    color: var(--global-text-color-light);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  &__scroll {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--global-divider-color) transparent;
+
+    &:focus-visible {
+      outline: 2px solid var(--global-link-color);
+      outline-offset: 4px;
+    }
+  }
+
+  &__track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(150px, 1fr);
+    margin: 0;
+    padding: 0 0 0.5rem;
+    list-style: none;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    &::before {
+      position: absolute;
+      top: 88px;
+      right: -50%;
+      left: 50%;
+      height: 1px;
+      background: var(--global-divider-color);
+      content: "";
+    }
+
+    &:last-child::before {
+      display: none;
+    }
+  }
+
+  &__emblem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 8px;
+    border-radius: 50%;
+    background: #fff;
+
+    img {
+      display: block;
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+    }
+  }
+
+  &__node {
+    position: relative;
+    display: block;
+    width: 9px;
+    height: 9px;
+    margin: 0 auto 1rem;
+    border: 1px solid var(--global-text-color-light);
+    border-radius: 50%;
+    background: var(--global-bg-color);
+    box-shadow: 0 0 0 5px var(--global-bg-color);
+  }
+
+  &__logo {
+    position: relative;
+    display: block;
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+
+    // Display only the Athena emblem from the original TU Darmstadt lockup.
+    &--tu-darmstadt img {
+      position: absolute;
+      top: -30px;
+      left: -9px;
+      width: 200px;
+      max-width: none;
+      height: 125.6px;
+      object-fit: initial;
+    }
+
+    // The official Cixi asset includes a wordmark; show its emblem at original proportions.
+    &--cixi img {
+      position: absolute;
+      top: -8px;
+      left: 0;
+      width: 400px;
+      max-width: none;
+      height: 80px;
+      object-fit: initial;
+    }
+  }
+
+  &__years {
+    margin: 0 0 0.5rem;
+    color: var(--global-text-color-light);
+    font-size: 0.75rem;
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+  }
+
+  &__name {
+    flex-grow: 1;
+    max-width: 190px;
+    margin: 0 auto;
+    padding: 0 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-wrap: balance;
+  }
+
+  &__role {
+    margin: 0.5rem 0 0;
+    padding: 0 0.75rem;
+    color: var(--global-text-color-light);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  &__item--current &__node {
+    border-color: var(--global-link-color);
+    background: var(--global-link-color);
+  }
+
+  &__item--current &__years {
+    color: var(--global-link-color);
+  }
+
+  &__item--leads-to-upcoming::before {
+    height: 0;
+    border-top: 1px dashed var(--global-text-color-light);
+    background: none;
+  }
+
+  &__item--upcoming &__node {
+    border-color: var(--global-link-color);
+    border-style: dashed;
+  }
+
+  &__hint {
+    display: none;
+  }
+
+  @media (max-width: 780px) {
+    margin: 2rem 0 2.5rem;
+
+    &__hint {
+      display: block;
+      margin: 0.75rem 0 0;
+      color: var(--global-text-color-light);
+      font-size: 0.6875rem;
+      letter-spacing: 0.03em;
+
+      span {
+        margin-left: 0.25rem;
+      }
+    }
+  }
+}

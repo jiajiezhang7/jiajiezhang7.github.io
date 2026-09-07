@@ -1,0 +1,28 @@
+- name: Cixi High School
+  role: "Kid :)"
+  years: 2016–2019
+  logo: cixi-high-school.png
+  logo_style: cixi
+
+- name: Zhengzhou University
+  role: Bachelor
+  years: 2019–2023
+  logo: zhengzhou-university.svg
+
+- name: ShanghaiTech University
+  role: Master
+  years: 2023–2026
+  logo: shanghaitech.svg
+
+- name: HKUST(GZ)
+  role: Research Assistant
+  years: 2026–Present
+  logo: hkust.svg
+  current: true
+
+- name: TU Darmstadt
+  role: Incoming PhD
+  years: Upcoming
+  logo: tu-darmstadt.svg
+  logo_style: tu-darmstadt
+  upcoming: true
