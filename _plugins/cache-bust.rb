@@ -20,8 +20,10 @@ module Jekyll
       private
 
       def directory_files_content
-        target_path = File.join(directory, '**', '*')
-        Dir[target_path].map{|f| File.read(f) unless File.directory?(f) }.join
+        paths = Array(directory).flat_map do |path|
+          File.directory?(path) ? Dir[File.join(path, '**', '*')] : [path]
+        end
+        paths.reject { |path| File.directory?(path) }.sort.map { |path| File.read(path) }.join
       end
 
       def file_content
@@ -43,7 +45,8 @@ module Jekyll
     end
 
     def bust_css_cache(file_name)
-      CacheDigester.new(file_name: file_name, directory: 'assets/_sass').digest!
+      # Include partials, the Sass entry point, and configuration used by Liquid.
+      CacheDigester.new(file_name: file_name, directory: ['_sass', 'assets/css/main.scss', '_config.yml']).digest!
     end
   end
 end

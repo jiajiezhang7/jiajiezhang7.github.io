@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+# Run with bundle exec ruby bin/check-css-cache.
+require 'liquid'
+require 'tmpdir'
+require 'fileutils'
+require_relative '../_plugins/cache-bust'
+
+filter = Object.new.extend(Jekyll::CacheBust)
+
+Dir.mktmpdir('css-cache-test') do |source|
+  Dir.chdir(source) do
+    FileUtils.mkdir_p(['_sass', 'assets/css'])
+    File.write('_sass/_journey.scss', '.journey { display: grid; }')
+    File.write('assets/css/main.scss', '@import "journey";')
+    File.write('_config.yml', 'max_width: 930px')
+    version = -> { filter.bust_css_cache('/assets/css/main.css') }
+    initial = version.call
+
+    raise 'CSS version hashes an empty directory' if initial.end_with?(Digest::MD5.hexdigest(''))
+    raise 'CSS version is not stable' unless version.call == initial
+
+    ['_sass/_journey.scss', 'assets/css/main.scss', '_config.yml'].each do |path|
+      original = File.read(path)
+      File.write(path, original + "\n/* changed */")
+      raise "CSS version ignores changes to #{path}" if version.call == initial
+      File.write(path, original)
+      raise "CSS version is not reproducible after restoring #{path}" unless version.call == initial
+    end
+
+    File.write('_sass/_new.scss', '.new { color: blue; }')
+    raise 'CSS version ignores new partials' if version.call == initial
+    File.delete('_sass/_new.scss')
+    File.write('unrelated.md', 'Unrelated content')
+    raise 'Unrelated content invalidates CSS' unless version.call == initial
+
+    file_url = filter.bust_file_cache('/assets/css/main.scss')
+    expected = "/assets/css/main.scss?#{Digest::MD5.hexdigest(File.read('assets/css/main.scss'))}"
+    raise 'Existing file cache versioning regressed' unless file_url == expected
+  end
+end
+
+puts 'CSS cache regression checks passed.'
