@@ -6,7 +6,7 @@ subtitle: >
   Research Assistant at PEAK Lab, HKUST-GZ<br>
 profile:
   align: left
-  image: prof_pic_new.jpg
+  image: prof_pic_best.png
   image_circular: false # crops the image to make it circular
   more_info:
 
