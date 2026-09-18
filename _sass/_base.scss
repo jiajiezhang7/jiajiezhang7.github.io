@@ -888,6 +888,150 @@ footer.sticky-bottom {
   }
 }
 
+// Publication rows: image, title, authors, resources, venue, and summary.
+.publications ol.bibliography li {
+  margin-bottom: 2.75rem;
+
+  .publication-entry {
+    align-items: center;
+    row-gap: 1.25rem;
+  }
+
+  .publication-preview {
+    margin: 0;
+
+    figure {
+      margin: 0;
+    }
+
+    .preview {
+      border-radius: 0 !important;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+    }
+  }
+
+  .title {
+    font-size: 1.2rem;
+    line-height: 1.45;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+
+  .author {
+    font-style: italic;
+    line-height: 1.65;
+    margin-bottom: 0.25rem;
+
+    a {
+      color: var(--global-text-color);
+      border-bottom: 0;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0.5rem;
+    margin-bottom: 0.25rem;
+
+    a.btn {
+      color: #008af5;
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.6;
+      text-transform: none;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      box-shadow: none;
+
+      &:hover,
+      &:focus-visible {
+        color: #006ac2;
+        text-decoration: underline;
+        background: transparent;
+      }
+
+      + a::before {
+        content: "/";
+        display: inline-block;
+        margin-right: 0.5rem;
+        color: var(--global-text-color);
+      }
+    }
+  }
+
+  .publication-venue {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.3rem 0.5rem;
+    color: #7136a3;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 0.45rem;
+
+    span,
+    em {
+      color: inherit;
+    }
+
+    .venue-badge {
+      background: #ead1f3;
+      border-radius: 999px;
+      padding: 0.05rem 0.5rem;
+      white-space: nowrap;
+    }
+
+    em {
+      font-style: normal;
+    }
+  }
+
+  .publication-summary {
+    strong {
+      color: inherit;
+    }
+    color: #858585;
+    line-height: 1.65;
+    margin: 0.45rem 0 0;
+  }
+
+  @media (max-width: 575.98px) {
+    .publication-preview {
+      max-width: 420px;
+    }
+    .title {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+html[data-theme="dark"] .publications ol.bibliography li {
+  .links a.btn {
+    color: #65baff;
+  }
+  .publication-venue {
+    color: #d1a5ef;
+  }
+  .venue-badge {
+    background: #422653;
+  }
+  .publication-summary {
+    color: #aaa;
+  }
+}
+
 // Rouge Color Customization
 figure.highlight {
   margin: 0 0 1rem;
