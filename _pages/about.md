@@ -31,4 +31,4 @@ I am passionate about robotics and the prospect of building robots with human-li
 
 <!-- intro_end -->
 
-For more details, please visit my [publications](/publications/), [projects](/projects/), or [CV](/cv/).
+For more details, please visit my [publications](/publications/), [projects](/projects/), or [CV]({{ site.cv_pdf | relative_url }}).
