@@ -15,6 +15,7 @@ Retrieved 2026-09-07. These are original institution marks used to identify the 
 - The three university files are standalone SVG emblems and should retain their original aspect ratios and colors. HKUST is a tall blue-and-gold emblem, with a 390 × 600 viewBox, rather than a circular seal.
 - Wikipedia identifies the university artwork as institutional/non-free logos; attribution records provenance and is not a general license grant.
 - The institution captions and dates are English. Original lettering that is integral to the authentic emblems is preserved.
+- `hkust.png` (added 2026-09-25) is a transparent-background raster export of `hkust.svg` (ImageMagick, `-density 288`, 765 × 1176, alpha preserved). The SVG remains the canonical artwork; the PNG exists for uses that require a raster format.
 
 ## TU Darmstadt
 
