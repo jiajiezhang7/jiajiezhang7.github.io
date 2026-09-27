@@ -27,7 +27,7 @@ latest_posts:
 
 I am currently a Research Assistant at PEAK Lab, HKUST-GZ, working with [Professor Changhao Chen](https://changhao-chen.github.io/). I received my Master's degree in Computer Science and Technology from ShanghaiTech University (2023 - 2026), advised by [Professor Sören Schwertfeger](https://robotics.shanghaitech.edu.cn/people/soeren) at the [MARS Lab](https://robotics.shanghaitech.edu.cn/) (Mobile Autonomous Robotics Systems Laboratory). I received my B.S. in Automation from Zhengzhou University (2019 - 2023).
 
-I am passionate about robotics and the prospect of building robots with human-like physical intelligence. I believe robots will become an integral part of society. Fascinated by the essence of intelligence, I am drawn to ideas beyond traditional robotics that may offer new ways to solve its challenges. My research interests center on robot learning for manipulation.
+I am fascinated by the essence of intelligence, and representation learning may well be one of the keys to understanding and creating intelligence. Endowing robots with such intelligence and the ability to act in the real world is what excites me most, and my research interests center on robot learning for manipulation. I also see enduring value in classical robotics; combining it with robot learning through structure and data is the direction I believe in.
 
 <!-- intro_end -->
 
