@@ -4,6 +4,25 @@
 @string{iros = {IEEE/RSJ International Conference on Intelligent Robots and Systems}}
 @string{sensors = {MDPI Sensors}}
 
+@article{zhang2026cma,
+  tldr={A counterfactual audit protocol shows a robot can remember and react without reliably using memory to choose the behavior its past warrants.},
+  abbr={arXiv},
+  bibtex_show={true},
+  title={Memory That Changes Action Is Not Memory That Guides It: Counterfactual Auditing of History-Conditioned Robot Policies},
+  author={Zhang+, Jiajie and Xiang+, Yankai and Chen*, Changhao},
+  abstract={A robot returning a block to its origin tray may encounter two task-consistent pasts that reconverge to the same current input but warrant different actions. Yet memory-policy evaluations often rely on task success or action change under memory perturbation, neither of which establishes that memory guides the decision. We propose the Counterfactual Memory Audit (CMA), an evaluation protocol that crosses two histories at a verified-identical present, queries a frozen policy under common randomness, and evaluates each saved action under both pasts. This separates memory sensitivity, warranted choice, matched-world physical value, and per-pair reliability. On Mem-0, every audited Put Back pair changes action, but only 20/64 pairs are fully reliable; at a later Swap decision, all paired actions change while both memories select the same branch. Native interventions further show closed-loop influence: replacing the history bank redirects behavior toward the replaced content, while restoring a 4096-byte protected anchor recovers 38.9 points of Swap success lost to injected bank faults. On a dual-arm physical platform, memory changes saved actions, yet five of nine completed Put Back manipulations reach the wrong target. These results show that a robot can remember and react without reliably using memory to choose the behavior its past warrants. CMA provides a decision-level audit for distinguishing these cases.},
+  journal={arXiv preprint arXiv:2609.27247, submitted to ICRA 2027},
+  year={2026},
+  url={https://arxiv.org/abs/2609.27247},
+  html={https://arxiv.org/abs/2609.27247},
+  arxiv={2609.27247},
+  video={https://youtu.be/a16-Gu3KoJM},
+  preview={cma-teaser.png},
+  selected={true},
+  dimensions={true},
+  altmetric={true}
+}
+
 @article{zhang2026osmagnav,
   tldr={A hierarchical semantic topometric navigation stack enables scalable planning and robust lifelong robot autonomy across large indoor environments.},
   abbr={arXiv},
