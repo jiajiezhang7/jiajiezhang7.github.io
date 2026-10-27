@@ -9,11 +9,31 @@ related_publications: xie2023agloc
 ---
 
 <style>
-.demo-video {
+.hero-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #0e1319;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.hero-video {
+    display: block;
     width: 100%;
-    height: 350px;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
     background-color: #000;
+}
+.hero-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 6px 9px;
+    border-radius: 6px;
+    background: rgba(14, 19, 25, 0.72);
+    color: #fff;
+    font: 600 12px/1 monospace;
+    letter-spacing: 0.06em;
+    z-index: 2;
 }
 .equal-height-images-contain img {
     height: 300px;
@@ -23,25 +43,46 @@ related_publications: xie2023agloc
 </style>
 
 <div class="row mt-3">
-    <div class="col-md-6">
-        <video class="demo-video" autoplay muted loop controls playsinline preload="auto">
-            <source src="{{ site.baseurl }}/assets/video/AGLoc_Simulation_demo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <div class="col-md-6 mb-3 mb-md-0">
+        <div class="hero-media">
+            <video class="hero-video" id="agloc-hero-sim" autoplay muted loop playsinline preload="auto"
+                   aria-label="AGLoc++ global localization and tracking in a simulated indoor scene">
+                <source src="{{ site.baseurl }}/assets/video/AGLoc_Simulation_demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <span class="hero-badge">Simulation</span>
+        </div>
         <div class="caption text-center mt-2">
             <strong>Simulation</strong>: AGLoc++ global localization and tracking in a simulated indoor scene.
         </div>
     </div>
     <div class="col-md-6">
-        <video class="demo-video" autoplay muted loop controls playsinline preload="auto">
-            <source src="{{ site.baseurl }}/assets/video/AGLoc_RealEx_demo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div class="hero-media">
+            <video class="hero-video" id="agloc-hero-real" autoplay muted loop playsinline preload="auto"
+                   aria-label="AGLoc++ running on a LiDAR-equipped mobile platform indoors">
+                <source src="{{ site.baseurl }}/assets/video/AGLoc_RealEx_demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <span class="hero-badge">Real world</span>
+        </div>
         <div class="caption text-center mt-2">
             <strong>Real world</strong>: AGLoc++ running on a LiDAR-equipped mobile platform indoors.
         </div>
     </div>
 </div>
+
+<script>
+(function () {
+  if (!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  ['agloc-hero-sim', 'agloc-hero-real'].forEach(function (id) {
+    var v = document.getElementById(id);
+    if (!v) return;
+    v.removeAttribute('autoplay');
+    v.pause();
+    v.controls = true;
+  });
+})();
+</script>
 
 ## Abstract
 

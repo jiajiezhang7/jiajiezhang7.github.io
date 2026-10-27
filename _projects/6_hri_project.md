@@ -12,25 +12,47 @@ mermaid:
 ---
 
 <style>
-.demo-video {
+.hero-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #0e1319;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.hero-video {
+    display: block;
     width: 100%;
-    height: 350px;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
     background-color: #000;
 }
 </style>
 
 <div class="row mt-3">
     <div class="col-sm-12">
-        <video class="demo-video" autoplay muted loop controls playsinline preload="auto">
-            <source src="{{ site.baseurl }}/assets/video/hri_demo.MP4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div class="hero-media">
+            <video class="hero-video" id="hri-hero-video" autoplay muted loop playsinline preload="auto"
+                   aria-label="Proactive dialogue with panoramic perception and servo gaze">
+                <source src="{{ site.baseurl }}/assets/video/hri_demo.MP4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
         <div class="caption text-center mt-2">
             <strong>Demo</strong>: Proactive dialogue with panoramic perception and servo gaze.
         </div>
     </div>
 </div>
+
+<script>
+(function () {
+  var v = document.getElementById('hri-hero-video');
+  if (v && window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    v.removeAttribute('autoplay');
+    v.pause();
+    v.controls = true;
+  }
+})();
+</script>
 
 ## Abstract
 
