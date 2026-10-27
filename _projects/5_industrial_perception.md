@@ -1,9 +1,9 @@
 ---
 layout: page
 title: "Automating Solar Panel Installation: A LiDAR-based Perception System"
-description: "Leveraging LiDAR point clouds to provide real-time, high-precision object detection for the robotic installation of solar panels in large-scale energy projects."
+description: "Real-time dual-LiDAR detection of racks, posts, and panels with 3D pose for robotic solar assembly"
 img: assets/img/industrial_teaser.jpg
-importance: 5
+importance: 6
 category: research
 related_publications: false
 ---
@@ -15,6 +15,11 @@ related_publications: false
     object-fit: contain;
     background-color: #000;
 }
+.equal-height-images img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
 </style>
 
 <div class="row mt-3">
@@ -24,18 +29,31 @@ related_publications: false
             Your browser does not support the video tag.
         </video>
         <div class="caption text-center mt-2">
-            <strong>Project Demo</strong>: Real-time LiDAR detection of solar panel structures
+            <strong>Demo</strong>: Real-time LiDAR detection of solar panel structures on-site.
         </div>
     </div>
 </div>
 
-## Motivation
+## Abstract
 
-Large-scale solar farms demand precise, efficient, and repeatable panel installation. Manual assembly is slow, costly, and error-prone. We build a real-time LiDAR perception system that delivers the accurate 3D parameters needed for robotic automation to scale installation while reducing cost.
+Large-scale solar installation needs repeatable 3D measurements of racks, posts, and panels—center, roll/pitch/yaw, post positions and inclinations—faster and more consistently than manual surveying. This project builds a ROS + PCL pipeline that fuses dual LiDARs, segments planes and vertical posts with RANSAC, and publishes actionable pose parameters at 10 Hz for the assembly controller, including alerts when post angles are unsafe.
 
-## Method Overview
+## Contributions
 
-We process 3D LiDAR point clouds in real time to detect racks, posts, and panels, and to estimate their positions and orientations. These parameters (e.g., center coordinates, roll/pitch/yaw, post positions/angles) are published to the control system as actionable inputs for automated assembly.
+- Built a **dual-LiDAR fusion** perception node (denoise, passthrough, downsample) producing a unified working cloud.
+- Used **RANSAC plane models** to remove ground and fit panel surfaces (center + RPY), and **line models with geometric priors** to locate vertical posts.
+- Published custom ROS messages at **10 Hz** with 3D positions, inclinations, and unsafe-angle alerts for the control system.
+- Validated on a **real installation-site ROS bag** from an industrial partner (panel + all 8 posts detected in the reported frame).
+
+## Method
+
+End-to-end loop at 10 Hz:
+
+1. **Sensor fusion & filtering** — align dual-LiDAR clouds; statistical / passthrough denoise; downsample for latency.
+2. **Plane & line segmentation** — RANSAC planes remove ground and fit the panel surface; line models locate vertical posts using structural priors.
+3. **Parameter extraction & publishing** — compute center coordinates, roll/pitch/yaw, post positions/angles; publish custom messages; raise alerts for unsafe post inclinations.
+
+Geometric RANSAC is preferred over learned detectors here because the structures are highly regular, labeled industrial data is scarce, and the control loop needs deterministic latency.
 
 <style>
 .equal-height-images img {
@@ -54,18 +72,8 @@ We process 3D LiDAR point clouds in real time to detect racks, posts, and panels
     </div>
 </div>
 <div class="caption">
-    Left: System visualization of detected objects in RViz. Right: Real-time object detection and classification results.
+    Left: RViz visualization of detected structures. Right: real-time detection / classification view.
 </div>
-
-## Perception Pipeline
-
-Our ROS-based pipeline runs at 10 Hz for real-time operation:
-
-1. **Sensor Fusion & Filtering**: Fuse dual-LiDAR into a unified frame; denoise (statistical/passthrough) and downsample for speed.
-2. **Plane & Line Segmentation**: RANSAC plane models remove ground and fit panel surface (center + RPY); line models locate vertical posts using priors.
-3. **Parameter Extraction & Publishing**: Compute 3D positions and inclinations; publish custom ROS messages at 10 Hz with alerts for unsafe post angles.
-
-## System Architecture
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -73,26 +81,23 @@ Our ROS-based pipeline runs at 10 Hz for real-time operation:
     </div>
 </div>
 <div class="caption">
-    The overall architecture, illustrating sensor data flow through the processing pipeline to the control interface.
+    Dual-LiDAR → filter/segment → parameter extraction → control interface.
 </div>
 
 ## Results
 
-- **Real-world Dataset**: ROS bag from an active installation site with dual LiDARs (industrial partner).
-- **Real-time**: End-to-end processing at 10 Hz.
-- **Detection**: Accurate identification of panel and all 8 vertical posts.
-- **Pose Estimation**: Example frame—panel inclination (36.7°, -2.9°); post position (-8.75, -1.36, -0.09) with near-zero inclination.
+- **Data**: ROS bag from an active installation site with dual LiDARs (industrial partner).
+- **Latency**: end-to-end processing at **10 Hz**.
+- **Detection**: panel and all **8 vertical posts** identified in the reported evaluation frame.
+- **Pose example** (one frame): panel inclination **(36.7°, -2.9°)**; post position **(-8.75, -1.36, -0.09)** with near-zero inclination.
 
-## Tech Stack
+Stack: ROS, PCL, C++, Eigen, RViz.
 
-- **Robotics Framework**: ROS (Robot Operating System)
-- **Point Cloud Processing**: Point Cloud Library (PCL)
-- **Core Libraries**: C++, Eigen
-- **Visualization**: RViz
+## Failure Cases / Limitations
 
-## Project Impact
-
-This project demonstrates a practical and effective solution for automating solar panel installation. By providing robots with accurate, real-time perception capabilities, our system enables a standardized installation process that improves efficiency, ensures positional and angular accuracy, and significantly reduces the costs associated with manual labor. It represents a key step toward a more streamlined and automated future for deploying solar energy infrastructure.
+- Results are demonstrated on partner bags / selected frames; a large multi-site quantitative benchmark (precision/recall, pose RMSE distribution) is not reported here.
+- Geometric priors assume relatively regular rack/post layouts; heavily occluded or atypical structures can break line/plane fits.
+- Closed-loop robotic installation (perception → manipulator) is the intended consumer; this page covers the perception side only.
 
 ## Project Team
 
@@ -100,8 +105,4 @@ This project demonstrates a practical and effective solution for automating sola
 
 ## Related Resources
 
-- **Technical Report**: [Real-time Object Detection From LiDAR Point Clouds](/files/industrial_perception_report.pdf)
-
----
-
-_This work contributes to the advancement of robotic automation in the renewable energy sector, showcasing the power of LiDAR perception in solving real-world industrial challenges._
+- **Report**: [Real-time Object Detection From LiDAR Point Clouds](/files/industrial_perception_report.pdf)

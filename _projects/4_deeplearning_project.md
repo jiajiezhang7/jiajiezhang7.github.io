@@ -1,20 +1,12 @@
 ---
 layout: page
 title: Towards Safer Navigation - Reward Shaping with Prior Topographic Knowledge
-description: Enhancing navigation safety in deep reinforcement learning agents through reward shaping with prior map information
+description: PPO navigation with continuous safety-gradient reward shaping from prior topographic maps
 img: assets/img/rl_nav.jpg
-importance: 4
+importance: 5
 category: research
 related_publications: false
 ---
-
-## Motivation
-
-Modular navigation is reliable yet rigid; end-to-end RL is flexible but often unsafe near obstacles. We aim to train agents that not only reach goals but also maintain human-like safety margins during navigation.
-
-## Method Overview
-
-We introduce **safety-aware reward shaping** using prior topographic knowledge to form a continuous "safety gradient" rather than a binary collision penalty. The agent is penalized in a near-obstacle "Penalty Zone" and rewarded in a "Safety Zone" that preserves a sensible buffer, balancing progress and safety. Training uses **PPO** with multi-modal inputs (RGB, depth, GPS/compass) for robust perception and control.
 
 <style>
 .equal-height-images-contain img {
@@ -23,6 +15,21 @@ We introduce **safety-aware reward shaping** using prior topographic knowledge t
     object-fit: contain;
 }
 </style>
+
+## Abstract
+
+Modular navigation stacks are reliable but rigid; end-to-end RL is flexible but tends to clip obstacles. This project trains Habitat agents with **safety-aware reward shaping** built from prior topographic knowledge: a continuous safety gradient (Penalty Zone near obstacles, Safety Zone that preserves buffer) replaces a binary collision penalty, so PPO policies must trade off goal progress against clearance rather than only avoiding terminal crashes.
+
+## Contributions
+
+- Defined a **continuous safety-gradient reward** from prior map topography (Penalty Zone / Safety Zone) instead of sparse collision termination.
+- Trained **PPO** agents with multi-modal inputs (RGB, depth, GPS/compass) in Habitat on **MP3D** and **Gibson**.
+- Added **Path Safety** (average distance to nearest obstacle) alongside Success and SPL as an evaluation axis.
+- Reported **+6 cm** Path Safety over baseline while remaining competitive on Success / SPL, with training converging in ~5M steps.
+
+## Method
+
+Prior topographic knowledge is converted into a spatially continuous shaping signal: near-obstacle cells form a Penalty Zone; a surrounding Safety Zone rewards maintaining a human-like buffer. The agent therefore receives dense feedback about proximity, not only a binary crash. Policy learning uses PPO; perception/control consume RGB, depth, and GPS/compass. Architecture components used in training include ResNet18 and LSTM (PyTorch / Habitat-Sim / Habitat-Lab).
 
 <div class="row equal-height-images-contain">
     <div class="col-sm mt-3 mt-md-0">
@@ -33,16 +40,16 @@ We introduce **safety-aware reward shaping** using prior topographic knowledge t
     </div>
 </div>
 <div class="caption">
-    Our method integrates prior map knowledge to shape the agent's rewards, encouraging safer navigation paths.
+    Left: method overview. Right: Penalty Zone / Safety Zone reward shaping from prior map knowledge.
 </div>
 
 ## Results
 
-We train and evaluate in Habitat on MP3D and Gibson. Beyond Success and SPL, we measure **Path Safety** (average distance to nearest obstacle):
+Evaluated in Habitat on MP3D and Gibson:
 
-- **Path Safety**: +6 cm over baseline
-- **Success / SPL**: Competitive with baseline while improving safety
-- **Training**: Converges in ~5M steps (≈10 hours); stable across runs; improved sample efficiency
+- **Path Safety**: +6 cm average clearance over baseline
+- **Success / SPL**: competitive with baseline while improving safety
+- **Training**: converges in ~5M steps (≈10 hours); stable across runs; improved sample efficiency relative to the baseline setup
 
 <div class="row equal-height-images-contain">
     <div class="col-sm mt-3 mt-md-0">
@@ -53,44 +60,25 @@ We train and evaluate in Habitat on MP3D and Gibson. Beyond Success and SPL, we 
     </div>
 </div>
 <div class="caption">
-    Our method shows a clear improvement in the Path Safety metric while remaining competitive in traditional navigation benchmarks.
+    Path Safety improves while traditional Success / SPL remain competitive with the baseline.
 </div>
 
-## Tech Stack
+Exact absolute Success / SPL tables are in the project report and slides; this page keeps only numbers stated in the prior write-up.
 
-- **Deep Learning Framework**: PyTorch 1.9+
-- **RL Algorithm**: Proximal Policy Optimization (PPO)
-- **Simulation**: Habitat-Sim, Habitat-Lab
-- **Computer Vision**: OpenCV, PIL
-- **Neural Networks**: ResNet18, LSTM
-- **Environment**: Python 3.8+, CUDA 11.2
-- **Visualization**: Matplotlib, TensorBoard
+## Failure Cases / Limitations
 
-## Next Steps
-
-Scale up training, refine reward shaping, and transfer to real robots. Extend to dynamic environments with moving obstacles and explore multi-agent coordination for safe, efficient navigation.
-
-## Project Impact
-
-This research contributes to the field of safe autonomous navigation by:
-
-- Demonstrating effective integration of prior knowledge in RL
-- Providing a novel safety-aware reward shaping approach
-- Establishing new evaluation metrics for navigation safety
-- Bridging the gap between simulation and real-world deployment
+- Evaluation is **simulation-only** (Habitat); real-robot transfer is unfinished.
+- Reward shaping assumes access to **prior topographic maps**; fully unknown or dynamic layouts are outside the current setup.
+- Moving obstacles and multi-agent coordination are not covered; scaling and further reward refinement remain open.
 
 ## Project Team
 
-- **Lead Researcher**: Jiajie Zhang (zhangjj2023@shanghaitech.edu.cn)
+- **Lead researcher**: Jiajie Zhang (zhangjj2023@shanghaitech.edu.cn)
 - **Advisor**: Professor Sören Schwertfeger
 - **Institution**: MARS Lab, ShanghaiTech University
 
 ## Related Resources
 
-- **Project Slides**: [Deep Learning Project Defense](/files/CS280_DL_Project_Defence.pdf)
-- **Technical Report**: [Detailed Project Report](/files/DeepLearing_Project_Report.pdf)
-- **Code Repository**: [GitHub Repository](https://github.com/jiajiezhang7/habitat-lab-ppo-comment)
-
----
-
-_This project marks a significant step towards creating safer, more reliable autonomous agents by fundamentally rethinking how they learn to navigate, bridging the gap between task completion and real-world practicality._
+- **Slides**: [Deep Learning Project Defense](/files/CS280_DL_Project_Defence.pdf)
+- **Report**: [Detailed Project Report](/files/DeepLearing_Project_Report.pdf)
+- **Code**: [habitat-lab-ppo-comment](https://github.com/jiajiezhang7/habitat-lab-ppo-comment)

@@ -1,9 +1,9 @@
 ---
 layout: page
 title: SLAM with Vertical Plane Segmentation for Lifelong Indoor Mapping
-description: Development of a SLAM system with vertical plane segmentation for creating long-term indoor maps
+description: RANSAC vertical-plane filtering of 3D LiDAR into clean 2D structural maps for lifelong indoor SLAM
 img: assets/img/slam_teaser.jpg
-importance: 3
+importance: 4
 category: research
 related_publications: false
 mermaid:
@@ -18,6 +18,11 @@ mermaid:
     object-fit: contain;
     background-color: #000;
 }
+.equal-height-images img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
 </style>
 
 <div class="row mt-3">
@@ -27,29 +32,38 @@ mermaid:
             Your browser does not support the video tag.
         </video>
         <div class="caption text-center mt-2">
-            <strong>Project Demo</strong>: Real-time map building with vertical plane filtering
+            <strong>Demo</strong>: Real-time map building with vertical plane filtering.
         </div>
     </div>
 </div>
 
-## Motivation
+## Abstract
 
-Indoor environments change frequently, making conventional maps quickly outdated. This project develops a SLAM system that focuses on persistent structures to produce clean, long-lasting maps for dependable lifelong indoor navigation.
+Indoor maps degrade when people, chairs, and temporary clutter enter the scan and get baked into occupancy. This project inserts a real-time **vertical plane segmentation** stage before 2D SLAM: RANSAC extracts large structural surfaces from 3D LiDAR, drops non-vertical / transient geometry, projects the remainder to a LaserScan, and feeds Gmapping so the resulting map stays structure-consistent across runs.
 
-## Method Overview
+## Contributions
 
-The system applies real-time **vertical plane segmentation** on 3D LiDAR using RANSAC to extract large structural surfaces (e.g., walls) and filter out transient objects.
+- Implemented a ROS1 Noetic node that **voxel-downsamples → RANSAC plane segments → keeps vertical planes → projects to 2D LaserScan**.
+- Showed that filtering transient objects before SLAM yields **cleaner structural maps** than raw-scan Gmapping on the same corridors.
+- Validated the pipeline in **Gazebo** and in **real laboratory corridors** with moving / temporary obstacles.
+- Sustained **10 Hz** cloud processing and **1 Hz** map updates within a modest CPU/memory budget.
 
-### Algorithm Pipeline
+## Method
+
+Design choice: rather than learn a semantic filter, exploit the geometric prior that walls dominate lifelong indoor structure. Pipeline:
+
+1. Voxel grid downsampling of the raw `/point_cloud`
+2. Iterative RANSAC plane segmentation
+3. Verticality test: keep wall-like planes, reject floors / clutter planes
+4. Accumulate retained vertical planes and project to a 2D `/scan`
+5. Run Gmapping on the filtered scan to produce a structural occupancy map
 
 ```mermaid
 graph LR
-    %% Main System Flow
     A[3D LiDAR<br/>Sensor] --> B(Raw Point Cloud<br/>/point_cloud)
     B --> C1
 
-    %% Core Contribution: Vertical Plane Segmentation Node
-    subgraph CoreAlgo["🔍 Core: Vertical Plane Segmentation"]
+    subgraph CoreAlgo["Core: Vertical Plane Segmentation"]
         C1[1. Voxel Grid<br/>Downsampling]
         C2[2. Plane Seg<br/>RANSAC]
         C3{3. Vertical?}
@@ -65,7 +79,6 @@ graph LR
     D --> E[Gmapping<br/>SLAM]
     E --> F((Clean 2D<br/>Structural Map))
 
-    %% Styling
     classDef coreStyle fill:#ffe6f0,stroke:#ff1493,stroke-width:2px
     classDef outputStyle fill:#e6f3ff,stroke:#0066cc,stroke-width:2px
     classDef processStyle fill:#fff9e6,stroke:#ffa500,stroke-width:2px
@@ -76,22 +89,10 @@ graph LR
 ```
 
 <div class="caption">
-    The complete processing pipeline from raw 3D point cloud to clean 2D structural map. The core contribution (highlighted in pink) is the vertical plane segmentation node that filters out transient objects.
+    Raw 3D cloud → vertical plane filter (core) → filtered LaserScan → Gmapping → structural 2D map.
 </div>
 
-<style>
-.equal-height-images img {
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
-}
-</style>
-
-## From Simulation to Reality: Proving the Concept
-
-We validated the approach in Gazebo simulation and real laboratory corridors with transient obstacles, consistently producing clean structural maps in real time.
-
-### Simulation Test
+### Simulation and real-world validation
 
 <div class="row equal-height-images">
     <div class="col-sm mt-3 mt-md-0">
@@ -102,13 +103,8 @@ We validated the approach in Gazebo simulation and real laboratory corridors wit
     </div>
 </div>
 <div class="caption">
-    Testing our approach, from controlled simulations in Gazebo to dynamic, real-world laboratory environments.
+    Left: Gazebo simulation. Right: laboratory corridor deployment.
 </div>
-
-### Real World Experiment
-
-<div class="row justify-content-center mt-4 mb-4">
-### Real World Experiment
 
 <div class="row equal-height-images">
     <div class="col-sm mt-3 mt-md-0">
@@ -119,38 +115,23 @@ We validated the approach in Gazebo simulation and real laboratory corridors wit
     </div>
 </div>
 <div class="caption">
-    Real World Experiment: The cluttered reality (left) versus the clean, structural map our system generates (right).
+    Real-world maps: cluttered baseline Gmapping (left) vs. vertical-plane-filtered structural map (right).
 </div>
-
-After isolating structural planes, the 3D point cloud is projected into a 2D laser scan, enabling the use of mature 2D SLAM (e.g., Gmapping) to build efficient, structure-consistent maps.
-
-## Tech Stack
-
-- **Programming Languages**: C++14, Python 3.6+
-- **Robotics Framework**: ROS1 Noetic
-- **Point Cloud Processing**: PCL (Point Cloud Library)
-- **SLAM Algorithm**: Gmapping
-- **Mathematical Libraries**: Eigen3
-- **Visualization**: RViz, Matplotlib
-- **Simulation**: Gazebo Classic
-- **Build System**: CMake, Catkin
 
 ## Results
 
 - **Processing**: 10 Hz point cloud processing; 1 Hz map updates
-- **Resources**: < 200 MB memory; < 25% CPU (Intel i7-8700K)
-- **Map Quality**: 95% wall detection; 80% transient noise reduction; consistent maps over multiple runs
+- **Resources**: &lt; 200 MB memory; &lt; 25% CPU (Intel i7-8700K)
+- **Map quality** (reported): 95% wall detection; 80% transient noise reduction; consistent maps over multiple runs
 
-## Applications
+Stack: C++14 / Python, ROS1 Noetic, PCL, Eigen3, Gmapping, Gazebo Classic.
 
-- **Long-term Indoor Mapping**: Creation of persistent indoor maps
-- **Global Path Planning**: Reliable maps for indoor navigation
-- **Building Structure Modeling**: Architectural feature extraction
-- **Service Robotics**: Enhanced navigation for cleaning and delivery robots
+## Failure Cases / Limitations
 
-## Next Steps
-
-Extend to **multi-floor** mapping, integrate **semantic segmentation** (e.g., walls vs. doors), and migrate to **ROS2** for modern, scalable deployments.
+- **Non-vertical structure** (ramps, large furniture, glass walls) can be under-represented or missed by the verticality gate.
+- Pipeline is **ROS1 / Gmapping**-centric; ROS2 migration and alternative 2D SLAM backends are unfinished.
+- No semantic labels (wall vs. door vs. glass); multi-floor mapping is not yet supported.
+- Numbers above are from project tests / defense materials, not a formal published benchmark.
 
 ## Project Team
 
@@ -159,10 +140,6 @@ Extend to **multi-floor** mapping, integrate **semantic segmentation** (e.g., wa
 
 ## Related Resources
 
-- **Project Slides**: [SLAM Project Defense](/files/CS284_SLAM_Project_Defence.pdf)
-- **Demo Video**: [System Demonstration](/videos/slam_projects.mp4)
-- **Code Repository**: [GitHub Repository](https://github.com/jiajiezhang7/cs284_slam_project)
-
----
-
-_This project makes a significant contribution to the field of lifelong SLAM, offering a practical and robust solution for creating persistent indoor maps that stand the test of time._
+- **Slides**: [SLAM Project Defense](/files/CS284_SLAM_Project_Defence.pdf)
+- **Demo video**: [System Demonstration](/videos/slam_projects.mp4)
+- **Code**: [cs284_slam_project](https://github.com/jiajiezhang7/cs284_slam_project)

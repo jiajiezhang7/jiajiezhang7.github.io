@@ -1,9 +1,9 @@
 ---
 layout: page
 title: "HRI Voice Interaction Robot: 360° Perception and Proactive Dialogue on ROS2"
-description: "A complete human–robot interaction system with panoramic vision, bilingual speech, LLM reasoning, and servo tracking for elevator service scenarios"
+description: "ROS2 Iron elevator HRI: 360° face-angle perception, bilingual ASR/TTS, LLM intent, servo gaze"
 img: assets/img/hri_project/hri-robot.png
-importance: 6
+importance: 7
 category: research
 related_publications: false
 mermaid:
@@ -27,59 +27,56 @@ mermaid:
             Your browser does not support the video tag.
         </video>
         <div class="caption text-center mt-2">
-            <strong>Project Demo</strong>: Proactive HRI with panoramic perception and voice interaction
+            <strong>Demo</strong>: Proactive dialogue with panoramic perception and servo gaze.
         </div>
     </div>
 </div>
 
-## Motivation
+## Abstract
 
-Robots operating in public spaces need reliable human-facing perception and natural, low-latency interaction. This project targets an elevator service scenario where the robot detects people facing it, proactively initiates a dialogue, and reacts appropriately based on user intent, enabling contactless and socially acceptable assistance.
+Public-space robots must notice people who face them, start a conversation without being summoned, and respond with low-latency speech while keeping eye contact. This project builds an elevator-service HRI stack on **ROS2 Iron**: fisheye → equirectangular 360° perception, dual-stage human/face detection with facing-angle estimation, bilingual ASR/TTS, LLM intent analysis, a proactive state machine, and servo gaze that rotates to the selected user.
 
 ## Contributions
 
-- Built an end-to-end HRI pipeline on **ROS2 Iron** covering perception → understanding → decision → action.
-- Implemented **360° panoramic perception** from fisheye images with equirectangular projection and multi-view splitting.
-- Deployed **dual-stage human/face detection** (YOLOv8 + MTCNN) with facing-angle estimation (0–360°).
-- Integrated **bilingual ASR/TTS** via Baidu and StepFun, and **LLM-based intent analysis** (Volcano Engine) for natural dialogue.
-- Designed **proactive questioning + state machine** to manage interaction flow and target switching.
-- Realized **servo-based gaze control**, rotating to face the target for stable, user-centric interaction.
-- Provided a **modular ROS2 architecture** with clear topics/services and swappable providers.
+- End-to-end ROS2 Iron pipeline: **perception → understanding → decision → action**, with modular topics/services and swappable cloud providers.
+- **360° panoramic perception** from fisheye images via equirectangular projection and multi-view splitting.
+- **Dual-stage detection** (YOLOv8 + MTCNN) with facing-angle estimation on **0–360°**, published on `/face_angle`.
+- **Bilingual ASR/TTS** (Baidu / StepFun) and **LLM intent analysis** (Volcano Engine) for dialogue.
+- **Proactive questioning + state machine** (Idle → Questioning → Playback → Decision) with target switching.
+- **Servo gaze control** that rotates the platform to face the selected user for user-centric interaction.
 
-## System Overview
+## Method
 
-The system continuously perceives the environment through panoramic vision, detects the closest face looking at the robot, turns to face the user, asks a question proactively, recognizes the reply, reasons with an LLM, synthesizes speech, and decides whether to continue or end the interaction based on the sentiment/intent.
+Loop: panoramic vision continuously searches for the closest face looking at the robot → publish `/face_angle` → servo turns to the user → proactive question → ASR → LLM → TTS → playback → sentiment/intent decides continue vs. end.
 
-## System Architecture
+Module map:
 
-- **Visual Perception**: `usb_cam`, `fisheye_process`, `human_detect` (YOLOv8 + MTCNN). Publishes facing angles to `/face_angle`.
-- **Voice Interaction**: `audio_capture`, Baidu/StepFun for ASR and TTS, `llm_bytedance` for LLM reasoning, `audio_play_python` for playback. Pipeline: Audio → ASR → LLM → TTS → Playback.
-- **Motion Control**: `servo` subscribes to `/face_angle` and rotates the platform for visual tracking and eye contact.
-- **Interaction Coordinator**: `interaction_coordinator_node` and `active_questioning_node` manage states (Idle → Questioning → Playback → Decision) and determine whether to continue searching.
-- **Animation Display**: `robot_animation_display` monitors `/audio_generated` and `/audio_playback_complete`, publishing `/tts_status` in real time.
-- **Auxiliary Tools**: `audio_recorder.py`, `dummy_level_publisher`, and `level_interfaces` for development and integration.
+- **Visual perception**: `usb_cam`, `fisheye_process`, `human_detect` (YOLOv8 + MTCNN) → `/face_angle`
+- **Voice**: `audio_capture` → Baidu/StepFun ASR → `llm_bytedance` → TTS → `audio_play_python`
+- **Motion**: `servo` subscribes to `/face_angle` for tracking / eye contact
+- **Coordinator**: `interaction_coordinator_node`, `active_questioning_node` own the interaction state machine
+- **Display**: `robot_animation_display` mirrors TTS status from `/audio_generated` and `/audio_playback_complete`
+
+Why this split: cloud ASR/TTS/LLM stay replaceable behind ROS interfaces; local vision + servo keep the closed loop for gaze even when providers change.
 
 ```mermaid
 %% HRI System - Simplified Pipeline Overview
-%% 简化版系统流程图
 
 graph LR
-    %% 用户
-    USER[👤 Human User]
+    USER[Human User]
 
-    %% 主要模块
-    subgraph Vision["🎥 Vision System"]
+    subgraph Vision["Vision System"]
         V1[360° Camera]
         V2[Face Detection<br/>YOLOv8 + MTCNN]
         V3[Angle Calculation]
         V1 --> V2 --> V3
     end
 
-    subgraph Motion["🎯 Motion"]
+    subgraph Motion["Motion"]
         M1[Servo Control<br/>Auto Rotation]
     end
 
-    subgraph Coordinator["🧠 Coordinator"]
+    subgraph Coordinator["Coordinator"]
         CO1{Face<br/>Detected?}
         CO2[Trigger<br/>Question]
         CO3{Emotion<br/>Analysis}
@@ -87,22 +84,21 @@ graph LR
         CO5[Task<br/>Complete]
     end
 
-    subgraph VoiceSystem["🎤 Voice Interaction"]
+    subgraph VoiceSystem["Voice Interaction"]
         direction TB
-        VS1[🎙️ Audio Capture<br/>+ Filter]
-        VS2[🔤 Speech Recognition<br/>Baidu/StepFun]
-        VS3[🧠 LLM Processing<br/>Volcano Engine]
-        VS4[🔊 Speech Synthesis<br/>Baidu/StepFun]
-        VS5[📢 Audio Playback]
+        VS1[Audio Capture<br/>+ Filter]
+        VS2[Speech Recognition<br/>Baidu/StepFun]
+        VS3[LLM Processing<br/>Volcano Engine]
+        VS4[Speech Synthesis<br/>Baidu/StepFun]
+        VS5[Audio Playback]
 
         VS1 --> VS2 --> VS3 --> VS4 --> VS5
     end
 
-    subgraph Animation["🎨 Display"]
+    subgraph Animation["Display"]
         AN1[TTS Status<br/>Animation]
     end
 
-    %% 主流程
     USER -.->|Faces| V1
     V3 -->|/face_angle| M1
     V3 --> CO1
@@ -124,7 +120,6 @@ graph LR
     VS4 --> AN1
     VS5 --> AN1
 
-    %% 样式
     classDef visionClass fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
     classDef motionClass fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
     classDef voiceClass fill:#fff3e0,stroke:#f57c00,stroke-width:2px
@@ -141,51 +136,40 @@ graph LR
 ```
 
 <div class="caption">
-    The overall pipeline of the HRI system, from panoramic perception and intent understanding to servo-based gaze control and dialogue. 
+    Perception → servo gaze → proactive dialogue → intent decision → continue or terminate.
 </div>
+
+### Typical interaction flow
+
+1. Fisheye capture → panoramic views.
+2. Detect human/face, estimate facing angle, publish `/face_angle`.
+3. Rotate to face the target; ask a question proactively.
+4. ASR → LLM intent → TTS playback.
+5. Terminate or continue searching based on sentiment / keywords.
 
 ## Results
 
-- **Latency**: End-to-end < 3 s (from face detection to playback completion).
-- **Perception**: Face detection accuracy > 95% in tested scenes; supports multi-person selection.
-- **Speech**: Practical ASR accuracy > 90% (Chinese/English) with robust VAD and segmentation.
-- **Robustness & Scalability**: Modular nodes and swappable cloud services; supports continuous operation in public spaces.
+Reported operating numbers from tested scenes:
 
-## Tech Stack
+- **Latency**: end-to-end &lt; **3 s** (face detection → playback completion)
+- **Perception**: face detection accuracy &gt; **95%**; multi-person selection supported
+- **Speech**: practical ASR accuracy &gt; **90%** (Chinese/English) with VAD and segmentation
+- **Architecture**: modular nodes with swappable cloud services for continuous public-space operation
 
-- **Robotics Framework**: ROS2 Iron
-- **Languages**: Python, C++
-- **Computer Vision**: OpenCV, Ultralytics (YOLOv8), MTCNN, FaceNet-PyTorch
-- **Audio & Signal**: GStreamer, ALSA, NumPy, Wave
-- **AI Services**: Baidu ASR/TTS, StepFun ASR/TTS, Volcano Engine LLM
-- **Hardware I/O**: PySerial, USB camera, servo controller
+## Failure Cases / Limitations
 
-## Typical Interaction Flow
-
-1. Perceive scene with fisheye camera and generate panoramic views.
-2. Detect human and face, estimate facing angle, publish `/face_angle`.
-3. Rotate to face the target and initiate a question proactively.
-4. Recognize the reply (ASR), analyze intent (LLM), synthesize and play response (TTS).
-5. Decide to terminate or continue searching based on sentiment/keywords.
-
-## Next Steps
-
-- Expand multilingual support in ASR/TTS.
-- Integrate stronger multimodal LLMs for richer reasoning.
-- Enhance emotion/intent understanding and safety filters.
-- Add gesture recognition and richer non-verbal cues.
-- Optimize latency and throughput for crowded environments.
+- Numbers are from **tested scenes**, not a large public HRI benchmark; crowded-elevator stress tests are incomplete.
+- Dialogue quality and latency depend on **external cloud** ASR/TTS/LLM providers.
+- Emotion / intent understanding is keyword- and LLM-prompt based; gesture / richer non-verbal cues are unfinished.
+- Multilingual coverage beyond Chinese/English and stronger multimodal LLMs are not yet integrated.
+- Safety filters for public speech content need further hardening.
 
 ## Project Team
 
-- **Lead Developer**: Jiajie Zhang (zhangjj2023@shanghaitech.edu.cn)
+- **Lead developer**: Jiajie Zhang (zhangjj2023@shanghaitech.edu.cn)
 - **Collaborator**: Yongqi Zhang (zhangyq2023@shanghaitech.edu.cn)
 - **Advisor**: Professor Sören Schwertfeger
 
 ## Related Resources
 
-- **code**: [GitHub](https://github.com/jiajiezhang7/HRI-Campus)
-
----
-
-_This project demonstrates a practical, end-to-end HRI stack for real-world service robotics, focusing on natural, proactive interactions in public environments such as elevators._
+- **Code**: [HRI-Campus](https://github.com/jiajiezhang7/HRI-Campus)
