@@ -9,10 +9,18 @@ related_publications: false
 ---
 
 <style>
-.demo-video {
+.hero-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #0e1319;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.hero-video {
+    display: block;
     width: 100%;
-    height: 350px;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
     background-color: #000;
 }
 .equal-height-images img {
@@ -24,15 +32,29 @@ related_publications: false
 
 <div class="row mt-3">
     <div class="col-sm-12">
-        <video class="demo-video" autoplay muted loop controls playsinline preload="auto">
-            <source src="{{ site.baseurl }}/videos/industrial_demo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div class="hero-media">
+            <video class="hero-video" id="industrial-hero-video" autoplay muted loop playsinline preload="auto"
+                   aria-label="Real-time LiDAR detection of solar panel structures on site">
+                <source src="{{ site.baseurl }}/videos/industrial_demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
         <div class="caption text-center mt-2">
             <strong>Demo</strong>: Real-time LiDAR detection of solar panel structures on-site.
         </div>
     </div>
 </div>
+
+<script>
+(function () {
+  var v = document.getElementById('industrial-hero-video');
+  if (v && window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    v.removeAttribute('autoplay');
+    v.pause();
+    v.controls = true;
+  }
+})();
+</script>
 
 ## Abstract
 

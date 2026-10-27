@@ -12,11 +12,23 @@ mermaid:
 ---
 
 <style>
-.demo-video {
+.hero-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #0e1319;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.hero-video {
+    display: block;
     width: 100%;
-    height: 350px;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
     background-color: #000;
+}
+/* Source is a 9:16 phone recording. Contain keeps the full clip inside the 16:9 stage. */
+.hero-video-contain {
+    object-fit: contain;
 }
 .equal-height-images img {
     height: 300px;
@@ -27,15 +39,29 @@ mermaid:
 
 <div class="row mt-3">
     <div class="col-sm-12">
-        <video class="demo-video" autoplay muted loop controls playsinline preload="auto">
-            <source src="{{ site.baseurl }}/videos/campusautonomy.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div class="hero-media">
+            <video class="hero-video hero-video-contain" id="campus-hero-video" autoplay muted loop playsinline preload="auto"
+                   aria-label="Indoor and outdoor delivery runs on a Hunter SE platform">
+                <source src="{{ site.baseurl }}/videos/campusautonomy.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
         <div class="caption text-center mt-2">
             <strong>Demo</strong>: Indoor/outdoor delivery runs on a single Hunter SE platform.
         </div>
     </div>
 </div>
+
+<script>
+(function () {
+  var v = document.getElementById('campus-hero-video');
+  if (v && window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    v.removeAttribute('autoplay');
+    v.pause();
+    v.controls = true;
+  }
+})();
+</script>
 
 ## Abstract
 
