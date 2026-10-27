@@ -23,6 +23,12 @@ related_publications: xie2023agloc
     object-fit: cover;
     background-color: #000;
 }
+/* Simulation is 2560×1600 (8:5). Cover inside the 16:9 stage crops the RViz chrome.
+   Contain matches the campus portrait exception; bars use the stage color. */
+.hero-video-contain {
+    object-fit: contain;
+    background-color: #0e1319;
+}
 .hero-badge {
     position: absolute;
     top: 12px;
@@ -45,7 +51,7 @@ related_publications: xie2023agloc
 <div class="row mt-3">
     <div class="col-md-6 mb-3 mb-md-0">
         <div class="hero-media">
-            <video class="hero-video" id="agloc-hero-sim" autoplay muted loop playsinline preload="auto"
+            <video class="hero-video hero-video-contain" id="agloc-hero-sim" autoplay muted loop playsinline preload="auto"
                    aria-label="AGLoc++ global localization and tracking in a simulated indoor scene">
                 <source src="{{ site.baseurl }}/assets/video/AGLoc_Simulation_demo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
@@ -58,7 +64,7 @@ related_publications: xie2023agloc
     </div>
     <div class="col-md-6">
         <div class="hero-media">
-            <video class="hero-video" id="agloc-hero-real" autoplay muted loop playsinline preload="auto"
+            <video class="hero-video hero-video-contain" id="agloc-hero-real" autoplay muted loop playsinline preload="auto"
                    aria-label="AGLoc++ running on a LiDAR-equipped mobile platform indoors">
                 <source src="{{ site.baseurl }}/assets/video/AGLoc_RealEx_demo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
