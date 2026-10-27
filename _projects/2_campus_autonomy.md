@@ -12,41 +12,74 @@ mermaid:
 ---
 
 <style>
-.hero-media {
+.campus-hero {
+    align-items: center;
+}
+.campus-hero-copy p {
+    margin-bottom: 0.85rem;
+}
+.campus-hero-copy ul {
+    margin-bottom: 0;
+    padding-left: 1.15rem;
+}
+.campus-hero-copy li + li {
+    margin-top: 0.45rem;
+}
+.campus-hero-stage {
     position: relative;
-    aspect-ratio: 16 / 9;
+    width: min(100%, calc(min(70vh, 640px) * 9 / 16));
+    max-height: min(70vh, 640px);
+    aspect-ratio: 9 / 16;
+    margin-left: auto;
+    margin-right: auto;
     background: #0e1319;
     border-radius: 12px;
     overflow: hidden;
 }
-.hero-video {
+.campus-hero-video {
+    position: absolute;
+    inset: 0;
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background-color: #000;
-}
-/* Source is a 9:16 phone recording. Contain keeps the full clip inside the 16:9 stage. */
-.hero-video-contain {
-    object-fit: contain;
+    background: #0e1319;
 }
 .equal-height-images img {
     height: 300px;
     width: 100%;
     object-fit: cover;
 }
+@media (min-width: 768px) {
+    .campus-hero-stage {
+        margin-left: 0;
+    }
+}
+@media (max-width: 767.98px) {
+    .campus-hero-copy {
+        margin-top: 0.25rem;
+    }
+}
 </style>
 
-<div class="row mt-3">
-    <div class="col-sm-12">
-        <div class="hero-media">
-            <video class="hero-video hero-video-contain" id="campus-hero-video" autoplay muted loop playsinline preload="auto"
-                   aria-label="Indoor and outdoor delivery runs on a Hunter SE platform">
+<div class="row campus-hero mt-3">
+    <div class="col-12 col-md-5 order-2 order-md-1 campus-hero-copy">
+        <p>Campus logistics needs one vehicle that can leave open outdoor paths, enter indoor corridors, and keep moving under pedestrians and temporary obstacles. This stack runs on an AgileX Hunter SE: scene-switched localization, Cartographer mapping, and Nav2 planning that keeps re-routing around people.</p>
+        <ul>
+            <li>Integrated <strong>Hesai PandarQT64</strong>, panoramic RGB, IMU/odometry on an Ackermann <strong>Hunter SE</strong> chassis into a ROS2 Humble vehicle.</li>
+            <li>Split localization by domain: <strong>GPS-aided outdoor</strong> vs <strong>LiDAR-based indoor</strong>, with scene switching for dual-environment runs.</li>
+            <li>Wired <strong>Google Cartographer</strong> for mapping and <strong>Nav2</strong> (SMAC global planner + DWB local controller + layered costmaps) for planning and control.</li>
+            <li>Demonstrated <strong>real-time dynamic obstacle avoidance</strong> with path re-planning in crowded campus scenes.</li>
+        </ul>
+    </div>
+    <div class="col-12 col-md-7 order-1 order-md-2">
+        <div class="campus-hero-stage">
+            <video class="campus-hero-video" id="campus-hero-video" autoplay muted loop playsinline preload="auto" aria-label="Indoor and outdoor delivery runs on a single Hunter SE platform">
                 <source src="{{ site.baseurl }}/videos/campusautonomy.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
-        <div class="caption text-center mt-2">
+        <div class="caption">
             <strong>Demo</strong>: Indoor/outdoor delivery runs on a single Hunter SE platform.
         </div>
     </div>
@@ -62,17 +95,6 @@ mermaid:
   }
 })();
 </script>
-
-## Abstract
-
-Campus logistics needs one vehicle that can leave open outdoor paths, enter indoor corridors, and keep moving under pedestrians and temporary obstacles. This project builds an end-to-end delivery stack on Agile X HUNTER SE: GPS-aided outdoor localization, LiDAR-based indoor localization, Cartographer mapping, and ROS2 Nav2 planning/control with continuous costmap-driven re-planning.
-
-## Contributions
-
-- Integrated **Hesai PandarQT64**, panoramic RGB, IMU/odometry on an Ackermann **Hunter SE** chassis into a ROS2 Humble vehicle.
-- Split localization by domain: **GPS-aided outdoor** vs **LiDAR-based indoor**, with scene switching for dual-environment runs.
-- Wired **Google Cartographer** for mapping and **Nav2** (SMAC global planner + DWB local controller + layered costmaps) for planning and control.
-- Demonstrated **real-time dynamic obstacle avoidance** with path re-planning in crowded campus scenes.
 
 <div class="row equal-height-images">
     <div class="col-sm mt-3 mt-md-0">
