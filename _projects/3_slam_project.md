@@ -27,7 +27,7 @@ mermaid:
 
 <div class="row mt-3">
     <div class="col-sm-12">
-        <video class="demo-video" controls preload="auto" playsinline>
+        <video class="demo-video" autoplay muted loop controls playsinline preload="auto">
             <source src="{{ '/videos/slam_projects.mp4' | relative_url }}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
