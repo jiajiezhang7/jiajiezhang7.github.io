@@ -64,15 +64,18 @@ related_publications: false
     border-radius: 10px;
     padding: 1rem 1.1rem;
     background: #fff;
+    color: #1a1a1a;
 }
 .piper-card h3 {
     font-size: 1.05rem;
     margin-top: 0;
     margin-bottom: 0.5rem;
+    color: inherit;
 }
 .piper-card p {
     margin-bottom: 0;
     font-size: 0.95rem;
+    color: inherit;
 }
 .piper-chip {
     display: inline-block;
@@ -82,6 +85,7 @@ related_publications: false
     border: 1px solid rgba(0, 0, 0, 0.14);
     font-size: 0.85rem;
     background: #f6f6ef;
+    color: #1a1a1a;
 }
 .equal-height-images-contain img {
     height: 280px;
@@ -94,10 +98,23 @@ details.piper-note {
     padding: 0.6rem 0.9rem;
     margin-bottom: 0.6rem;
     background: #fff;
+    color: #1a1a1a;
 }
 details.piper-note summary {
     cursor: pointer;
     font-weight: 600;
+    color: inherit;
+}
+html[data-theme="dark"] .piper-card,
+html[data-theme="dark"] details.piper-note {
+    background: #1c2128;
+    border-color: rgba(255, 255, 255, 0.14);
+    color: #e6edf3;
+}
+html[data-theme="dark"] .piper-chip {
+    background: #2a3038;
+    border-color: rgba(255, 255, 255, 0.16);
+    color: #e6edf3;
 }
 </style>
 
