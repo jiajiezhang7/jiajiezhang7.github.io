@@ -13,25 +13,44 @@ mermaid:
 
 <style>
 .campus-hero {
-    align-items: center;
+    --campus-stage-width: min(72vw, 16.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
 }
 .campus-hero-copy p {
-    margin-bottom: 0.85rem;
+    margin: 0 0 0.85rem;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    text-wrap: pretty;
 }
 .campus-hero-copy ul {
-    margin-bottom: 0;
-    padding-left: 1.15rem;
+    margin: 0.35rem 0 0;
+    padding-left: 1.25rem;
+    line-height: 1.6;
+}
+.campus-hero-copy li {
+    padding-left: 0.3rem;
 }
 .campus-hero-copy li + li {
-    margin-top: 0.45rem;
+    margin-top: 0.8rem;
+}
+.campus-hero-copy li::marker {
+    color: var(--global-text-color-light);
+}
+.campus-hero-media {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, var(--campus-stage-width));
+    max-width: 100%;
+    margin-inline: auto;
 }
 .campus-hero-stage {
     position: relative;
-    width: min(100%, calc(min(70vh, 640px) * 9 / 16));
-    max-height: min(70vh, 640px);
+    width: 100%;
     aspect-ratio: 9 / 16;
-    margin-left: auto;
-    margin-right: auto;
     background: #0e1319;
     border-radius: 12px;
     overflow: hidden;
@@ -45,27 +64,68 @@ mermaid:
     object-fit: cover;
     background: #0e1319;
 }
+.campus-hero-media .caption {
+    margin-bottom: 0;
+    text-wrap: balance;
+}
 .equal-height-images img {
     height: 300px;
     width: 100%;
     object-fit: cover;
 }
 @media (min-width: 768px) {
+    .campus-hero {
+        --campus-stage-width: 15.25rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) var(--campus-stage-width);
+        grid-template-rows: auto auto;
+        column-gap: 1.5rem;
+        row-gap: 0;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+    .campus-hero-media {
+        display: contents;
+    }
+    .campus-hero-copy {
+        grid-column: 1;
+        grid-row: 1;
+        min-width: 0;
+        max-width: 42rem;
+        justify-self: end;
+        align-self: center;
+        width: 100%;
+    }
     .campus-hero-stage {
-        margin-left: auto;
-        margin-right: 0;
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+        justify-self: stretch;
+        width: 100%;
+    }
+    .campus-hero-media .caption {
+        grid-column: 2;
+        grid-row: 2;
+        width: 100%;
+    }
+}
+@media (min-width: 992px) {
+    .campus-hero {
+        --campus-stage-width: 17.5rem;
+        column-gap: 1.875rem;
     }
 }
 @media (max-width: 767.98px) {
-    .campus-hero-copy {
-        margin-top: 0.25rem;
+    .campus-hero-media {
+        order: -1;
     }
 }
 </style>
 
-<div class="row campus-hero mt-3">
-    <div class="col-12 col-md-5 order-2 order-md-1 campus-hero-copy">
-        <p>Campus logistics needs one vehicle that can leave open outdoor paths, enter indoor corridors, and keep moving under pedestrians and temporary obstacles. This stack runs on an AgileX Hunter SE: scene-switched localization, Cartographer mapping, and Nav2 planning that keeps re-routing around people.</p>
+<div class="campus-hero">
+    <div class="campus-hero-copy">
+        <p>Campus logistics needs one vehicle that can leave open outdoor paths, enter indoor corridors, and keep moving under pedestrians and temporary obstacles.</p>
+        <p>This stack runs on an AgileX Hunter SE: scene-switched localization, Cartographer mapping, and Nav2 planning that keeps re-routing around people.</p>
         <ul>
             <li>Integrated <strong>Hesai PandarQT64</strong>, panoramic RGB, IMU/odometry on an Ackermann <strong>Hunter SE</strong> chassis into a ROS2 Humble vehicle.</li>
             <li>Split localization by domain: <strong>GPS-aided outdoor</strong> vs <strong>LiDAR-based indoor</strong>, with scene switching for dual-environment runs.</li>
@@ -73,8 +133,8 @@ mermaid:
             <li>Demonstrated <strong>real-time dynamic obstacle avoidance</strong> with path re-planning in crowded campus scenes.</li>
         </ul>
     </div>
-    <div class="col-12 col-md-7 order-1 order-md-2">
-        <div class="campus-hero-stage">
+    <div class="campus-hero-media">
+        <div class="campus-hero-stage z-depth-1">
             <video class="campus-hero-video" id="campus-hero-video" autoplay muted loop playsinline preload="auto" aria-label="Indoor and outdoor delivery runs on a single Hunter SE platform">
                 <source src="{{ site.baseurl }}/videos/campusautonomy.mp4" type="video/mp4">
                 Your browser does not support the video tag.
