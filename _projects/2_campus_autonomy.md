@@ -52,7 +52,8 @@ mermaid:
 }
 @media (min-width: 768px) {
     .campus-hero-stage {
-        margin-left: 0;
+        margin-left: auto;
+        margin-right: 0;
     }
 }
 @media (max-width: 767.98px) {
