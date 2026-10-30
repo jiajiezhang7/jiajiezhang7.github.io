@@ -8,10 +8,12 @@ $cream-muted: #6b6b63;
 $cream-line: rgba(42, 42, 38, 0.1);
 $cream-serif: "Source Serif 4", "Roboto Slab", Georgia, "Times New Roman", serif;
 $cream-radius: 14px;
-$cream-shadow: 0 1px 2px rgba(42, 42, 38, 0.04),
+$cream-shadow:
+  0 1px 2px rgba(42, 42, 38, 0.04),
   0 8px 24px rgba(42, 42, 38, 0.08),
   0 20px 40px rgba(42, 42, 38, 0.04);
-$cream-shadow-hover: 0 2px 4px rgba(42, 42, 38, 0.05),
+$cream-shadow-hover:
+  0 2px 4px rgba(42, 42, 38, 0.05),
   0 14px 32px rgba(42, 42, 38, 0.12),
   0 28px 56px rgba(42, 42, 38, 0.06);
 
@@ -393,7 +395,9 @@ body:has(.publications-editorial) {
         border-radius: $cream-radius !important;
         box-shadow: $cream-shadow !important;
         border: 1px solid rgba(42, 42, 38, 0.06);
-        transition: box-shadow 0.28s ease, transform 0.28s ease;
+        transition:
+          box-shadow 0.28s ease,
+          transform 0.28s ease;
       }
 
       @media (hover: hover) and (pointer: fine) {
@@ -543,7 +547,9 @@ body[data-theme="dark"] .publications.publications-editorial {
       .preview,
       img.preview {
         border-color: rgba(232, 230, 220, 0.1);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 12px 28px rgba(0, 0, 0, 0.35) !important;
+        box-shadow:
+          0 1px 2px rgba(0, 0, 0, 0.2),
+          0 12px 28px rgba(0, 0, 0, 0.35) !important;
       }
     }
 

@@ -23,19 +23,19 @@ _styles: |
 
 {% assign featured_project = nil %}
 {% for project in sorted_projects %}
-  {% if project.featured %}
-    {% assign featured_project = project %}
-    {% break %}
-  {% endif %}
+{% if project.featured %}
+{% assign featured_project = project %}
+{% break %}
+{% endif %}
 {% endfor %}
 {% if featured_project == nil and sorted_projects.size > 0 %}
-  {% assign featured_project = sorted_projects | first %}
+{% assign featured_project = sorted_projects | first %}
 {% endif %}
 
 {% if featured_project %}
-  {% assign project = featured_project %}
-  {% assign featured = true %}
-  {% include projects_editorial.liquid %}
+{% assign project = featured_project %}
+{% assign featured = true %}
+{% include projects_editorial.liquid %}
 {% endif %}
 
 <div class="proj-index">
