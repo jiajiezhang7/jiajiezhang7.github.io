@@ -4,6 +4,7 @@ title: "Dual-Arm PiPER Learning Stack"
 description: "Built a full real-robot learning stack for a bimanual PiPER platform; ACT stacks five cups autonomously."
 img: assets/img/piper/rollout_poster.jpg
 importance: 1
+featured: true
 category: research
 related_publications: false
 ---

@@ -1,0 +1,567 @@
+/* Shared cream academic editorial chrome — About + Publications */
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap");
+
+$cream-paper: #f6f6ef;
+$cream-ink: #2a2a26;
+$cream-muted: #6b6b63;
+$cream-line: rgba(42, 42, 38, 0.1);
+$cream-serif: "Source Serif 4", "Roboto Slab", Georgia, "Times New Roman", serif;
+$cream-radius: 14px;
+$cream-shadow: 0 1px 2px rgba(42, 42, 38, 0.04),
+  0 8px 24px rgba(42, 42, 38, 0.08),
+  0 20px 40px rgba(42, 42, 38, 0.04);
+$cream-shadow-hover: 0 2px 4px rgba(42, 42, 38, 0.05),
+  0 14px 32px rgba(42, 42, 38, 0.12),
+  0 28px 56px rgba(42, 42, 38, 0.06);
+
+@mixin cream-page-chrome {
+  background: $cream-paper !important;
+
+  .container,
+  .post {
+    background: transparent;
+  }
+
+  .post-title {
+    font-family: $cream-serif;
+    font-weight: 550;
+    letter-spacing: -0.02em;
+    color: $cream-ink;
+  }
+
+  .post-description,
+  .post-header .desc {
+    font-family: var(--global-font-family), system-ui, sans-serif;
+    color: $cream-muted;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+  }
+}
+
+/* ---------- About ---------- */
+body:has(.about-editorial) {
+  @include cream-page-chrome;
+}
+
+.about-editorial {
+  color: $cream-ink;
+
+  .post-header {
+    margin-bottom: 2rem;
+
+    .post-title {
+      font-family: $cream-serif;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: $cream-ink;
+
+      span {
+        font-family: $cream-serif !important;
+        color: $cream-muted !important;
+        font-weight: 400;
+      }
+    }
+
+    .desc {
+      margin-top: 0.65rem;
+      line-height: 1.55;
+      color: $cream-muted;
+    }
+  }
+
+  .about-contact {
+    margin-top: 0.55rem;
+    font-size: 0.88rem;
+    letter-spacing: 0.01em;
+
+    a {
+      color: $cream-muted !important;
+      text-decoration: underline;
+      text-decoration-color: rgba(42, 42, 38, 0.25);
+      text-underline-offset: 0.18em;
+
+      &:hover {
+        color: var(--global-theme-color) !important;
+        text-decoration-color: currentColor;
+      }
+    }
+  }
+
+  .profile.profile-full {
+    figure,
+    img {
+      border-radius: $cream-radius !important;
+      box-shadow: $cream-shadow;
+      border: 1px solid rgba(42, 42, 38, 0.06);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .about-intro {
+    color: $cream-ink;
+    font-family: $cream-serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.72;
+    letter-spacing: -0.005em;
+
+    p,
+    li,
+    span,
+    strong,
+    em {
+      color: inherit;
+    }
+
+    p {
+      margin: 0 0 1.15rem;
+    }
+
+    a:not(.btn),
+    a:not(.btn):visited {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: rgba(42, 42, 38, 0.28);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--global-theme-color);
+        text-decoration-color: currentColor;
+      }
+    }
+  }
+
+  /* Rest content under intro */
+  article > hr {
+    border: 0;
+    border-top: 1px solid $cream-line;
+    opacity: 1;
+    margin: 2rem 0;
+  }
+
+  article > h2 {
+    margin-top: 2.75rem;
+    margin-bottom: 1.1rem;
+    font-family: $cream-serif;
+    font-weight: 550;
+    font-size: 1.35rem;
+    letter-spacing: -0.015em;
+    color: $cream-ink;
+
+    a {
+      color: inherit !important;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--global-theme-color) !important;
+      }
+    }
+  }
+
+  .academic-journey {
+    margin-top: 2.75rem;
+    padding: 1.5rem 1.25rem 1.25rem;
+    border: 1px solid $cream-line;
+    border-radius: $cream-radius;
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: $cream-shadow;
+
+    &__title {
+      font-family: var(--global-font-family), system-ui, sans-serif;
+      color: $cream-muted;
+    }
+
+    &__emblem {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(42, 42, 38, 0.08);
+      border: 1px solid rgba(42, 42, 38, 0.06);
+    }
+
+    &__name {
+      font-family: $cream-serif;
+      font-weight: 550;
+      color: $cream-ink;
+    }
+
+    &__years,
+    &__role {
+      color: $cream-muted;
+    }
+
+    &__node {
+      background: $cream-paper;
+      box-shadow: 0 0 0 5px $cream-paper;
+    }
+
+    &__item--current .academic-journey__node {
+      box-shadow: 0 0 0 5px $cream-paper;
+    }
+  }
+
+  .news {
+    .table {
+      --bs-table-bg: transparent;
+      color: $cream-ink;
+    }
+
+    th {
+      font-family: var(--global-font-family), system-ui, sans-serif;
+      font-weight: 500;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      color: $cream-muted !important;
+      white-space: nowrap;
+      padding-top: 0.7rem !important;
+      padding-bottom: 0.7rem !important;
+      border-bottom: 1px solid $cream-line !important;
+    }
+
+    td {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding-top: 0.7rem !important;
+      padding-bottom: 0.7rem !important;
+      border-bottom: 1px solid $cream-line !important;
+      color: $cream-ink;
+    }
+
+    tr:last-child th,
+    tr:last-child td {
+      border-bottom: 0 !important;
+    }
+
+    a.news-title {
+      color: $cream-ink;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+
+  /* Selected papers on About reuse publications polish via parent */
+  .publications {
+    margin-top: 0.5rem;
+  }
+
+  .social {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid $cream-line;
+
+    .contact-note {
+      color: $cream-muted;
+    }
+  }
+}
+
+html[data-theme="dark"] body:has(.about-editorial),
+body[data-theme="dark"]:has(.about-editorial) {
+  background: #161714 !important;
+}
+
+html[data-theme="dark"] .about-editorial,
+body[data-theme="dark"] .about-editorial {
+  color: #e8e6dc;
+
+  .post-header .post-title,
+  article > h2 {
+    color: #e8e6dc;
+  }
+
+  .post-header .post-title span,
+  .post-header .desc,
+  .about-contact a {
+    color: #a8a69c !important;
+  }
+
+  .about-intro {
+    color: #e8e6dc;
+
+    a:not(.btn) {
+      text-decoration-color: rgba(232, 230, 220, 0.35);
+    }
+  }
+
+  .academic-journey {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(232, 230, 220, 0.12);
+
+    &__name {
+      color: #e8e6dc;
+    }
+
+    &__title,
+    &__years,
+    &__role {
+      color: #a8a69c;
+    }
+
+    &__node {
+      background: #161714;
+      box-shadow: 0 0 0 5px #161714;
+    }
+
+    &__item--current .academic-journey__node {
+      box-shadow: 0 0 0 5px #161714;
+    }
+  }
+
+  .news {
+    th,
+    td {
+      border-bottom-color: rgba(232, 230, 220, 0.12) !important;
+    }
+
+    th {
+      color: #a8a69c !important;
+    }
+
+    td,
+    a.news-title {
+      color: #e8e6dc;
+    }
+  }
+
+  .social {
+    border-top-color: rgba(232, 230, 220, 0.12);
+
+    .contact-note {
+      color: #a8a69c;
+    }
+  }
+}
+
+/* ---------- Publications ---------- */
+body:has(.publications-editorial) {
+  @include cream-page-chrome;
+}
+
+.publications.publications-editorial {
+  margin-top: 1.25rem;
+  max-width: 54rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: $cream-ink;
+
+  h2.bibliography {
+    font-family: $cream-serif;
+    font-weight: 550;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    text-align: left;
+    color: $cream-muted;
+    border-top: 0;
+    border-bottom: 1px solid $cream-line;
+    padding-top: 0;
+    padding-bottom: 0.65rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  ol.bibliography {
+    > li {
+      margin-bottom: 2.35rem;
+      padding-bottom: 2.1rem;
+      border-bottom: 1px solid $cream-line;
+
+      &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    .publication-entry {
+      align-items: center;
+      row-gap: 1.15rem;
+    }
+
+    .publication-preview {
+      .preview,
+      .preview img,
+      img.preview,
+      figure img {
+        border-radius: $cream-radius !important;
+        box-shadow: $cream-shadow !important;
+        border: 1px solid rgba(42, 42, 38, 0.06);
+        transition: box-shadow 0.28s ease, transform 0.28s ease;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        a:hover .preview,
+        &:hover .preview,
+        &:hover img.preview {
+          box-shadow: $cream-shadow-hover !important;
+        }
+      }
+    }
+
+    .title {
+      font-family: $cream-serif;
+      font-weight: 550;
+      font-size: 1.18rem;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: $cream-ink;
+      margin-bottom: 0.45rem;
+    }
+
+    .author {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: $cream-muted;
+      font-style: normal;
+      margin-bottom: 0.35rem;
+
+      a {
+        color: $cream-ink;
+        border-bottom: 1px solid rgba(42, 42, 38, 0.2);
+
+        &:hover {
+          color: var(--global-theme-color);
+          border-bottom-color: currentColor;
+        }
+      }
+
+      > em,
+      strong {
+        color: $cream-ink;
+        font-style: normal;
+        font-weight: 600;
+        border-bottom: 0;
+      }
+    }
+
+    .publication-venue {
+      color: #5c4a6e;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+
+      .venue-badge {
+        background: rgba(113, 54, 163, 0.12);
+        border-radius: 999px;
+        padding: 0.08rem 0.55rem;
+        font-weight: 600;
+      }
+    }
+
+    .links {
+      a.btn {
+        color: $cream-ink !important;
+        font-size: 0.86rem !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.01em;
+
+        &:hover,
+        &:focus-visible {
+          color: var(--global-theme-color) !important;
+        }
+      }
+
+      a.btn + a::before {
+        color: $cream-muted;
+      }
+    }
+
+    .publication-summary {
+      color: $cream-muted;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-top: 0.55rem;
+    }
+
+    .abstract.hidden.open {
+      margin-top: 0.75rem;
+      border: 1px solid $cream-line !important;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.4);
+      padding: 0.35rem 0.25rem;
+    }
+  }
+}
+
+html[data-theme="dark"] body:has(.publications-editorial),
+body[data-theme="dark"]:has(.publications-editorial) {
+  background: #161714 !important;
+}
+
+html[data-theme="dark"] .publications.publications-editorial,
+body[data-theme="dark"] .publications.publications-editorial {
+  color: #e8e6dc;
+
+  h2.bibliography {
+    color: #a8a69c;
+    border-bottom-color: rgba(232, 230, 220, 0.12);
+  }
+
+  ol.bibliography {
+    > li {
+      border-bottom-color: rgba(232, 230, 220, 0.12);
+    }
+
+    .title {
+      color: #e8e6dc;
+    }
+
+    .author {
+      color: #a8a69c;
+
+      a,
+      > em,
+      strong {
+        color: #e8e6dc;
+      }
+    }
+
+    .publication-venue {
+      color: #d1a5ef;
+
+      .venue-badge {
+        background: #422653;
+      }
+    }
+
+    .links a.btn {
+      color: #e8e6dc !important;
+    }
+
+    .publication-summary {
+      color: #a8a69c;
+    }
+
+    .publication-preview {
+      .preview,
+      img.preview {
+        border-color: rgba(232, 230, 220, 0.1);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 12px 28px rgba(0, 0, 0, 0.35) !important;
+      }
+    }
+
+    .abstract.hidden.open {
+      border-color: rgba(232, 230, 220, 0.12) !important;
+      background: rgba(255, 255, 255, 0.04);
+    }
+  }
+}
+
+html[data-theme="dark"] body:has(.publications-editorial) .post-title,
+body[data-theme="dark"] body:has(.publications-editorial) .post-title,
+html[data-theme="dark"] body:has(.about-editorial) .post-title,
+body[data-theme="dark"] body:has(.about-editorial) .post-title {
+  color: #e8e6dc;
+}
+
+html[data-theme="dark"] body:has(.publications-editorial) .post-description,
+body[data-theme="dark"] body:has(.publications-editorial) .post-description {
+  color: #a8a69c;
+}

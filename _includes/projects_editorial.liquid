@@ -1,0 +1,39 @@
+{% comment %}
+  Cream Paper Magazine Index card.
+  Expects: project, featured (bool). Featured = full-width hero; else grid card.
+{% endcomment %}
+{% assign project_url = project.url | relative_url %}
+{% if project.redirect %}
+  {% assign project_url = project.redirect %}
+{% endif %}
+
+<article class="proj-entry{% if featured %} is-featured{% endif %}" data-proj-reveal>
+  <a class="proj-media" href="{{ project_url }}" aria-label="{{ project.title }}">
+    <span class="proj-media-frame">
+      {% if project.img %}
+        {% if featured %}
+          {% include figure.liquid loading="eager" path=project.img sizes="(min-width: 768px) 960px, 95vw" alt=project.title class="proj-img" %}
+        {% else %}
+          {% include figure.liquid loading="lazy" path=project.img sizes="(min-width: 768px) 460px, 95vw" alt=project.title class="proj-img" %}
+        {% endif %}
+      {% else %}
+        <div class="proj-img proj-img--empty" aria-hidden="true"></div>
+      {% endif %}
+    </span>
+  </a>
+  <div class="proj-copy">
+    {% if featured %}
+      <p class="proj-kicker">Featured</p>
+    {% endif %}
+    <h2 class="proj-title">
+      <a href="{{ project_url }}">{{ project.title }}</a>
+    </h2>
+    <p class="proj-desc">{{ project.description }}</p>
+    <div class="proj-links">
+      <a class="proj-link" href="{{ project_url }}">View</a>
+      {% if project.github %}
+        <a class="proj-link" href="{{ project.github }}" target="_blank" rel="noopener noreferrer">Code</a>
+      {% endif %}
+    </div>
+  </div>
+</article>
