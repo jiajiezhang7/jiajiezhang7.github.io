@@ -250,9 +250,32 @@ body:has(.about-editorial) {
     }
   }
 
-  /* Selected papers on About reuse publications polish via parent */
+  /* Selected papers — match Publications preview rounding
+     (must beat _base `.publications ol.bibliography li .publication-preview .preview`) */
   .publications {
     margin-top: 0.5rem;
+
+    ol.bibliography li .publication-preview {
+      .preview,
+      .preview img,
+      img.preview,
+      figure img {
+        border-radius: $cream-radius !important;
+        box-shadow: $cream-shadow !important;
+        border: 1px solid rgba(42, 42, 38, 0.06);
+        transition:
+          box-shadow 0.28s ease,
+          transform 0.28s ease;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        a:hover .preview,
+        &:hover .preview,
+        &:hover img.preview {
+          box-shadow: $cream-shadow-hover !important;
+        }
+      }
+    }
   }
 
   .social {
@@ -339,6 +362,16 @@ body[data-theme="dark"] .about-editorial {
 
     .contact-note {
       color: #a8a69c;
+    }
+  }
+
+  .publications ol.bibliography li .publication-preview {
+    .preview,
+    img.preview {
+      border-color: rgba(232, 230, 220, 0.1);
+      box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.2),
+        0 12px 28px rgba(0, 0, 0, 0.35) !important;
     }
   }
 }
