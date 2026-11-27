@@ -4,6 +4,25 @@
 @string{iros = {IEEE/RSJ International Conference on Intelligent Robots and Systems}}
 @string{sensors = {MDPI Sensors}}
 
+@article{zhang2026skillenvelope,
+  tldr={Policy-measured 3D Skill Envelopes expose the exact volume a frozen VLA sweeps, letting VLAs execute in-distribution while code recovers out-of-distribution seams with 5.60x live RGB-D speedup.},
+  abbr={arXiv},
+  bibtex_show={true},
+  title={VLAs Execute, Code Recovers: 3D Skill Envelopes Bridge the Compositional Gap in Agentic Manipulation},
+  author={Zhang+, Jiajie and Xiang+, Yankai and Chen*, Changhao},
+  abstract={Composing frozen Vision-Language-Action (VLA) skills under an agentic planner promises scalable long-horizon manipulation without end-to-end demonstrations, yet strong atomic skills routinely fail at the seams between them even under a correct plan. Standard remedies either reset the robot's pose or draft entry conditions in language, missing the physical cause we uncover through controlled causal interventions: even after re-homing, a frozen VLA rigidly retraces its habitual trajectory and collides with displaced scene residue, whether or not the residue is visible. To address this, we propose the Skill Envelope, a policy-measured 3D geometric precondition that captures the volume a frozen skill sweeps during its own successful executions. Because the rigidity that makes a frozen skill fragile at seams also makes its trajectory predictable in advance, we expose each envelope as two classical 3D tools (CHECK to flag blocking residue before execution and FREE to find safe placements), establishing a division of labor where VLAs execute in-distribution skills and code recovers out-of-distribution states. Across LIBERO-Goal (pi0.5) and BOSS-44 (BC-ViT-T), Skill Envelopes outperform frontier VLMs at seam prediction (0.902 vs. 0.793 AUROC), lift autonomous LLM composition from 84.0% to 91.4% on LIBERO and from 25.7% to 60.0% on BOSS-44, and deliver a 5.60x speedup under live RGB-D gating.},
+  journal={arXiv preprint arXiv:2611.32245},
+  year={2026},
+  url={https://arxiv.org/abs/2611.32245},
+  html={https://arxiv.org/abs/2611.32245},
+  arxiv={2611.32245},
+  pages_link={https://jiajiezhang7.github.io/skill-envelopes/},
+  preview={skill-envelope-teaser.png},
+  selected={true},
+  dimensions={true},
+  altmetric={true}
+}
+
 @article{zhang2026cma,
   tldr={A counterfactual audit protocol shows a robot can remember and react without reliably using memory to choose the behavior its past warrants.},
   abbr={arXiv},
