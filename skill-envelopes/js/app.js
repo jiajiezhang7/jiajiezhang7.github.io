@@ -43,20 +43,20 @@
     fig1: {
       attr: "data-f1-grp",
       notes: {
-        0: "<b>Full Flow:</b> Combinatorial motivation → seam collision → causal attribution → 3D Skill Envelope → closed-loop preconditions back to LLM Agent.",
-        1: "<b>1. Seam Failure:</b> Open Drawer finishes (Done ✓), yet Push Plate crashes straight into the open drawer at <b>0/10</b> (Not Ready ✗), halting steps 3–4.",
-        2: "<b>2. Causal Attribution:</b> Re-homing (Body) recovers <b>+68.6 pts</b>; hiding residue (View) adds only <b>+1.7 (n.s.)</b>; physically removing residue (World) recovers <b>+10.0 pts</b> and cuts hits to <b>2.0%</b>.",
-        3: "<b>3. 3D Skill Envelope:</b> Solo rollouts measure the exact 3D volume swept by the frozen arm—red voxel overlap predicts physical collisions before execution.",
-        4: "<b>4. Tools & Closed Loop:</b> <code>CHECK</code> gating + <code>FREE</code> code recovery lifts 3–4 step chains from <b>29.7% → 93.8%</b> and drawer repair from <b>0.4% → 98.6%</b>.",
+        0: "<b>Overview:</b> Why compose skills → seam collision → causal attribution → 3D Skill Envelope → closed-loop 3D tools for the LLM agent.",
+        1: "<b>1. Seam Failure:</b> Open Drawer finishes (Done ✓), but Push Plate hits the open drawer at <b>0/10</b> (Not Ready ✗), blocking steps 3–4.",
+        2: "<b>2. Causal Diagnosis:</b> Re-homing (Body) recovers <b>+68.6 pts</b>; hiding the drawer from pixels (View) adds <b>+1.7 (n.s.)</b>; closing it in physics (World) adds <b>+10.0 pts</b> and cuts hits to <b>2.0%</b>.",
+        3: "<b>3. 3D Skill Envelope:</b> Solo rollouts record the 3D volume the frozen arm sweeps. Red voxel overlap flags collisions before execution.",
+        4: "<b>4. Tools &amp; Closed Loop:</b> <code>CHECK</code> + <code>FREE</code> raise 3–4 step chains from <b>29.7% → 93.8%</b> and drawer recovery from <b>0.4% → 98.6%</b>.",
       },
     },
     fig3: {
       attr: "data-f3-grp",
       notes: {
-        0: "<b>Full Pipeline:</b> (1) Offline O(n) voxel profiling → (2) Online division of labor (Clear fast-lane to VLA vs. Blocked code repair + re-check loop) → (3) CHECK &amp; FREE 3D tools.",
-        1: "<b>1. Offline Profiling O(n):</b> Solo successful rollouts project robot links and held objects onto a 1 cm voxel grid <i>E</i><sub>k</sub>(x)—zero human demos, zero failure data.",
-        2: "<b>2. Online Division of Labor:</b> Plan order → re-home + single-view RGB-D → <code>CHECK(k, s)</code> forks clean seams straight to frozen VLA (skipping LLM/VLM) and routes blocked seams to code repair + re-check.",
-        3: "<b>3. CHECK &amp; FREE 3D Tools:</b> Red voxels isolate blocking residue; teal safe grid avoids the union <i>E</i><sub>k</sub> ∪ <i>E</i><sub>k+1</sub> so displaced objects never block future steps.",
+        0: "<b>Full Pipeline:</b> (1) Offline O(n) voxel profiling → (2) Online routing (clear seams go straight to VLA; blocked seams trigger code recovery + re-check) → (3) CHECK and FREE 3D tools.",
+        1: "<b>1. Offline Profiling O(n):</b> Solo successful rollouts project arm links and held objects onto a 1 cm voxel grid <i>E</i><sub>k</sub>(x)—no extra demos or failure logs.",
+        2: "<b>2. Online Loop:</b> Plan order → re-home + single-view RGB-D → <code>CHECK(k, s)</code> sends clear seams straight to the VLA (skipping LLM/VLM) and routes blocked seams to code recovery.",
+        3: "<b>3. CHECK &amp; FREE Tools:</b> Red voxels mark blocking obstacles; the teal grid stays outside <i>E</i><sub>k</sub> ∪ <i>E</i><sub>k+1</sub> so moved objects do not block later steps.",
       },
     },
   };
@@ -70,7 +70,7 @@
     stage.querySelectorAll(`[${cfg.attr}]`).forEach((el) => {
       const g = el.getAttribute(cfg.attr) || "";
       const active = step === 0 || g.includes(String(step));
-      el.setAttribute("class", "a-grp" + (active ? "" : " a-dim"));
+      el.classList.toggle("a-dim", !active);
     });
     if (note && cfg.notes[step]) note.innerHTML = cfg.notes[step];
     if (ctl) ctl.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", Number(b.dataset.step) === step));
@@ -85,11 +85,11 @@
 
   /* 4. Interactive Start-State Distribution Shift / DAgger Manifold */
   const DS_NOTES = {
-    0: "<b>Full Story:</b> OOD start-state divergence (DAgger-like) → Body re-homing → mid-tube physical collision → targeted 1-variable code clearing (zero policy finetuning).",
-    1: "<b>1. Training Support Tube:</b> Imitation / VLA policies achieve 98% reliability only inside their training start distribution <i>p</i><sub>train</sub>(<i>s</i><sub>0</sub>) and demonstration manifold.",
-    2: "<b>2. OOD Start Shift (DAgger Analogy):</b> Predecessor A leaves the arm out-of-distribution → compounding covariate shift collapses success to <b>14.2%</b>.",
-    3: "<b>3. Mid-Tube Physical Collision:</b> Body re-homing restores the arm entry (<b>82.8%</b>), yet an open drawer still blocks the rigid mid-rollout trajectory (<b>0/10</b>).",
-    4: "<b>4. Surgical Code Clearing:</b> Without touching frozen VLA weights, <code>CHECK</code>/<code>FREE</code> removes only the blocking object—restoring clean traversal to <b>93.8%</b>.",
+    0: "<b>Full Story:</b> Start-state drift → arm re-homing → mid-path obstacle collision → 1-object code clearing (no policy finetuning).",
+    1: "<b>1. Training Tube:</b> Frozen skills succeed at 98% only when starting inside their training support <i>p</i><sub>train</sub>(<i>s</i><sub>0</sub>).",
+    2: "<b>2. Start-State Drift:</b> Skill A leaves the arm out-of-distribution, causing compounding drift down to <b>14.2%</b>.",
+    3: "<b>3. Mid-Path Collision:</b> Re-homing puts the arm back at the entrance (<b>82.8%</b>), but an open drawer still blocks the rigid path (<b>0/10</b>).",
+    4: "<b>4. Code Clearing:</b> Without changing VLA weights, <code>CHECK</code> and <code>FREE</code> clear only the blocking object—lifting chains to <b>93.8%</b>.",
   };
 
   function setDistShift(mode) {

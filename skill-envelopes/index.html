@@ -42,7 +42,7 @@
       <nav class="nav-actions" aria-label="Primary">
         <a class="hide-sm" href="https://jiajiezhang7.github.io/">Home</a>
         <a class="hide-sm" href="#method">Method</a>
-        <a class="hide-sm" href="#demos">Demos</a>
+        <a class="hide-sm" href="#demos">Rollouts</a>
         <a class="hide-sm" href="#experiments">Results</a>
         <a class="nav-pill" href="https://arxiv.org/abs/2611.32245" target="_blank" rel="noopener noreferrer">arXiv:2611.32245</a>
       </nav>
@@ -53,14 +53,14 @@
     <!-- ================================================================== -->
     <section class="hero-cover" id="hero">
       <div class="hero-mosaic" aria-hidden="true">
-        <img src="assets/img/env_obl_blocked.png" alt="" />
-        <img src="assets/img/env_tools_free.png" alt="" />
-        <img src="assets/img/seam_home.jpg" alt="" />
-        <img src="assets/img/env_obl_ready.png" alt="" />
-        <img src="assets/img/env_tools_check.png" alt="" />
-        <img src="assets/img/env_overlay.jpg" alt="" />
-        <img src="assets/img/vla_exec.jpg" alt="" />
-        <img src="assets/img/code_repair.jpg" alt="" />
+        <img src="assets/img/hero/m1_blocked.jpg" alt="" decoding="async" />
+        <img src="assets/img/hero/m2_free.jpg" alt="" decoding="async" />
+        <img src="assets/img/hero/m3_home.jpg" alt="" decoding="async" />
+        <img src="assets/img/hero/m4_ready.jpg" alt="" decoding="async" />
+        <img src="assets/img/hero/m5_check.jpg" alt="" decoding="async" />
+        <img src="assets/img/hero/m6_overlay.jpg" alt="" decoding="async" />
+        <img src="assets/img/hero/m7_vla.jpg" alt="" decoding="async" />
+        <img src="assets/img/hero/m8_code.jpg" alt="" decoding="async" />
       </div>
       <div class="hero-scrim" aria-hidden="true"></div>
       <div class="hero-glow" aria-hidden="true"></div>
@@ -74,24 +74,26 @@
           VLAs Execute,
           <span class="accent-slash">/Code Recovers</span>
         </h1>
-        <p class="hero-subtitle">3D Skill Envelopes bridge the compositional gap between frozen visuomotor policies and agentic manipulation.</p>
+        <p class="hero-subtitle">
+          3D Skill Envelopes map where a frozen VLA moves—so VLAs handle in-distribution skills and code clears out-of-distribution seams.
+        </p>
 
         <div class="hero-stats">
           <div class="hero-stat">
             <div class="k">0.944</div>
-            <div class="l">Zero-shot single-view RGB-D collision AUROC (vs. 0.946 sim)</div>
+            <div class="l">Single-view RGB-D collision AUROC (sim truth: 0.946)</div>
           </div>
           <div class="hero-stat">
             <div class="k">93.8%</div>
-            <div class="l">Multi-step drawer-conflict chain success (up from 29.7%)</div>
+            <div class="l">3–4 step chain success (up from 29.7% re-homed)</div>
           </div>
           <div class="hero-stat blue">
             <div class="k">+34.3 pts</div>
-            <div class="l">Cross-policy transfer to non-VLA BC-ViT-T on BOSS-44</div>
+            <div class="l">Cross-policy gain on BOSS-44 (BC-ViT-T: 25.7% → 60.0%)</div>
           </div>
           <div class="hero-stat clay">
             <div class="k">5.60×</div>
-            <div class="l">Live wall-clock speedup via 0-parameter RGB-D gating</div>
+            <div class="l">Faster live execution via 0-parameter RGB-D gating</div>
           </div>
         </div>
       </div>
@@ -109,7 +111,7 @@
         <li><a href="#diagnosis">Causal Diagnosis</a></li>
         <li><a href="#shift">Distribution Shift</a></li>
         <li><a href="#method">Method &amp; 3D Tools</a></li>
-        <li><a href="#demos">Live Demos</a></li>
+        <li><a href="#demos">Rollouts</a></li>
         <li><a href="#experiments">Experiments</a></li>
         <li><a href="#roadmap">Open Questions</a></li>
         <li><a href="#citation">Citation</a></li>
@@ -158,367 +160,396 @@
                 </svg>
                 <span>PDF</span>
               </a>
-              <a class="cta-btn ghost" href="#demos">
+              <span class="cta-btn upcoming" aria-disabled="true" title="Code will be released upon acceptance">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <polygon points="5 3 19 12 5 21 5 3" />
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  />
                 </svg>
-                <span>Live Demos</span>
-              </a>
-              <a class="cta-btn ghost" href="#citation">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <polyline points="16 18 22 12 16 6" />
-                  <polyline points="8 6 2 12 8 18" />
-                </svg>
-                <span>BibTeX</span>
-              </a>
+                <span>Code <span class="cta-sub">(Upon Acceptance)</span></span>
+              </span>
             </div>
           </div>
 
           <div class="abstract-box">
             <p>
-              Composing frozen Vision-Language-Action (VLA) skills under an agentic planner promises scalable long-horizon manipulation without
-              end-to-end demonstrations, yet strong atomic skills routinely fail at the seams between them even under a correct plan. Standard
-              remedies either reset the robot's pose or draft entry conditions in language, missing the physical cause we uncover through
-              <strong>controlled causal interventions</strong>: even after re-homing, a frozen VLA rigidly retraces its habitual trajectory and
-              collides with displaced scene residue, whether or not the residue is visible.
+              Chaining frozen Vision-Language-Action (VLA) skills under a high-level planner avoids collecting end-to-end demonstrations for every
+              task combination. Yet strong single-step skills (<strong>98.0%</strong> solo) still fail at handoffs—even when the plan is right.
+              Through <strong>controlled causal interventions</strong> on 640 matched handoffs, we isolate why: re-homing fixes arm pose shift
+              (<strong>+68.6 pts</strong>), but the frozen arm still retraces its habitual path and hits objects left behind by earlier steps, even
+              when those objects are hidden from the camera.
             </p>
             <p>
-              We propose the <strong>3D Skill Envelope</strong>, a policy-measured geometric precondition capturing the exact 3D volume a frozen skill
-              sweeps during its own solo successful executions. Because the rigidity that makes a frozen skill fragile at seams also makes its
-              trajectory predictable in advance, we expose each envelope as two classical 3D tools—<code>CHECK</code> to flag blocking residue before
-              execution and <code>FREE</code> to compute safe multi-step placements—establishing a clean division of labor where
-              <strong>VLAs execute in-distribution skills and code recovers out-of-distribution states</strong>. Across LIBERO-Goal
-              (&pi;<sub>0.5</sub>) and BOSS-44 (<code>BC-ViT-T</code>), Skill Envelopes outperform frontier VLMs at seam prediction (<strong
+              We turn that rigidity into an advantage with the <strong>3D Skill Envelope</strong>: the 3D volume a frozen skill sweeps during its own
+              solo successful rollouts. From this measured volume, we build two 3D tools—<code>CHECK</code> flags blocking obstacles before a skill
+              runs, and <code>FREE</code> finds a clear spot outside future skills' paths—so
+              <strong>VLAs handle in-distribution execution and code clears out-of-distribution seams</strong>. Across LIBERO-Goal
+              (&pi;<sub>0.5</sub>) and BOSS-44 (<code>BC-ViT-T</code>), Skill Envelopes beat frontier VLMs on seam prediction (<strong
                 >0.902 vs. 0.793</strong
               >
-              AUROC), lift autonomous LLM composition from <strong>84.0% to 91.4%</strong> on LIBERO and from <strong>25.7% to 60.0%</strong> on
-              BOSS-44, and deliver a <strong>5.60&times;</strong> speedup under live single-view RGB-D gating.
+              AUROC), raise autonomous LLM chaining from <strong>84.0% to 91.4%</strong> on LIBERO and <strong>25.7% to 60.0%</strong> on BOSS-44, and
+              run <strong>5.60&times;</strong> faster with live single-view RGB-D gating.
             </p>
           </div>
 
-          <!-- LIVING ANIMATED FIGURE 1 -->
+          <!-- LIVING ANIMATED FIGURE 1 (HTML Photo Underlay + Vector SVG Overlay) -->
           <div class="anim-stage" id="stage-fig1" data-anim-fig="fig1">
-            <svg
-              class="anim-svg"
-              viewBox="0 0 1120 482"
-              role="img"
-              aria-label="Interactive Figure 1: Combinatorial motivation, seam collapse, causal attribution, 3D Skill Envelope, and closed-loop gains"
-            >
-              <defs>
-                <linearGradient id="f1-agent-grad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#2F6DB3" />
-                  <stop offset="100%" stop-color="#22528C" />
-                </linearGradient>
-                <linearGradient id="f1-exp-fill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#C43E2F" stop-opacity=".22" />
-                  <stop offset="100%" stop-color="#C43E2F" stop-opacity=".02" />
-                </linearGradient>
-                <marker id="ar-f1-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                  <path d="M0 1 L9 5 L0 9z" fill="#2F6DB3" />
-                </marker>
-                <marker id="ar-f1-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
-                  <path d="M0 1 L9 5 L0 9z" fill="#C43E2F" />
-                </marker>
-                <marker id="ar-f1-good" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
-                  <path d="M0 1 L9 5 L0 9z" fill="#527A2D" />
-                </marker>
-                <marker id="ar-f1-warn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
-                  <path d="M0 1 L9 5 L0 9z" fill="#C9821E" />
-                </marker>
-                <clipPath id="f1-clip-1"><rect x="238" y="60" width="182" height="112" rx="9" /></clipPath>
-                <clipPath id="f1-clip-2"><rect x="458" y="60" width="188" height="112" rx="9" /></clipPath>
-                <clipPath id="f1-clip-3"><rect x="678" y="60" width="182" height="112" rx="9" /></clipPath>
-                <clipPath id="f1-clip-4"><rect x="892" y="60" width="176" height="112" rx="9" /></clipPath>
-                <clipPath id="f1-clip-env"><rect x="366" y="266" width="322" height="166" rx="8" /></clipPath>
-              </defs>
-
-              <!-- TOP-LEFT: Why Compose? -->
-              <g class="a-grp" data-f1-grp="1">
-                <rect x="8" y="8" width="212" height="196" rx="12" fill="#F7FAFD" stroke="#B8CEE8" stroke-width="1.4" />
-                <text x="20" y="30" style="font-size: 14px; font-weight: 700; fill: #22528c">Why Compose?</text>
-                <line x1="20" y1="39" x2="208" y2="39" stroke="#DCE7F5" stroke-width="1" />
-                <line x1="42" y1="164" x2="42" y2="52" stroke="#68645C" stroke-width="1.3" />
-                <line x1="42" y1="164" x2="200" y2="164" stroke="#68645C" stroke-width="1.3" />
-                <text x="23" y="112" text-anchor="middle" transform="rotate(-90 23 112)" style="font-size: 11px; fill: #68645c">Demos</text>
-                <text x="121" y="186" text-anchor="middle" style="font-size: 11px; fill: #464b54">Horizon L (1 → 4)</text>
-                <path d="M 46 160 C 96 158, 146 132, 194 58 L 194 162 L 46 162 Z" fill="url(#f1-exp-fill)" />
-                <path d="M 46 160 C 96 158, 146 132, 194 58" fill="none" stroke="#C43E2F" stroke-width="2.5" stroke-linecap="round" />
-                <circle cx="194" cy="58" r="4" fill="#C43E2F" />
-                <circle r="3.6" fill="#C43E2F" stroke="#fff" stroke-width="1.2" class="a-bead f1-b-exp" style="--dur: 2.6s; --del: -0.4s" />
-                <text x="52" y="68" style="font-size: 11.5px; font-weight: 700; fill: #b8382a">End-to-End</text>
-                <text x="52" y="84" style="font-size: 11.5px; font-weight: 600; fill: #b8382a">
-                  O(n
-                  <tspan dy="-4" font-size="8.5">L</tspan>
-                  <tspan dy="4">) = 5,040</tspan>
-                </text>
-                <line x1="46" y1="161" x2="194" y2="161" stroke="#527A2D" stroke-width="2.8" stroke-linecap="round" />
-                <circle cx="194" cy="161" r="4" fill="#527A2D" />
-                <circle r="3.2" fill="#527A2D" stroke="#fff" stroke-width="1.1" class="a-bead f1-b-lin" style="--dur: 2.6s; --del: -1.3s" />
-                <text x="196" y="151" text-anchor="end" style="font-size: 11px; font-weight: 700; fill: #3f6220">Skills O(n) = 10</text>
-              </g>
-
-              <!-- TOP-RIGHT: LLM Agent + 4-Step Skill Chain -->
-              <g class="a-grp" data-f1-grp="1">
-                <rect x="236" y="8" width="832" height="34" rx="17" fill="url(#f1-agent-grad)" />
-                <text x="652" y="30" text-anchor="middle" style="font-size: 14px; font-weight: 600; fill: #ffffff; letter-spacing: 0.01em">
-                  LLM Agent (Task Decomposition, Sequencing &amp; Recovery)
-                </text>
-                <path d="M 328 42 V 58" fill="none" stroke="#2F6DB3" stroke-width="1.8" class="flow-fast" marker-end="url(#ar-f1-blue)" />
-                <path d="M 552 42 V 58" fill="none" stroke="#2F6DB3" stroke-width="1.8" class="flow-fast" marker-end="url(#ar-f1-blue)" />
-                <path d="M 769 42 V 58" fill="none" stroke="#9AA9BE" stroke-width="1.4" stroke-dasharray="3 3" marker-end="url(#ar-f1-blue)" />
-                <path d="M 980 42 V 58" fill="none" stroke="#9AA9BE" stroke-width="1.4" stroke-dasharray="3 3" marker-end="url(#ar-f1-blue)" />
-                <circle r="3" fill="#2F6DB3" class="a-bead f1-b-cmd1" style="--dur: 1.4s; --del: 0s" />
-                <circle r="3" fill="#2F6DB3" class="a-bead f1-b-cmd2" style="--dur: 1.4s; --del: -0.6s" />
-
-                <!-- Frame 1 -->
-                <g clip-path="url(#f1-clip-1)">
-                  <image href="assets/img/scene_open.jpg" x="238" y="32" width="182" height="182" preserveAspectRatio="xMidYMid slice" />
-                </g>
-                <rect x="238" y="60" width="182" height="112" rx="9" fill="none" stroke="#527A2D" stroke-width="2.6" />
-                <circle cx="404" cy="76" r="11" fill="#527A2D" stroke="#fff" stroke-width="1.8" />
-                <path
-                  d="M 399 76 L 402.5 79.5 L 409.5 72.5"
-                  fill="none"
-                  stroke="#fff"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+            <div class="anim-canvas">
+              <div
+                class="stage-photo"
+                data-f1-grp="1"
+                style="left: 21.25%; top: 12.448%; width: 16.25%; height: 23.237%; border-radius: 4.95% / 8.04%"
+              >
+                <img src="assets/img/scene_open.jpg" alt="Step 1: Open Drawer completed" style="object-position: 50% 40%" fetchpriority="high" />
+              </div>
+              <div
+                class="stage-photo"
+                data-f1-grp="1"
+                style="left: 40.893%; top: 12.448%; width: 16.786%; height: 23.237%; border-radius: 4.79% / 8.04%"
+              >
+                <img
+                  src="assets/img/seam_home.jpg"
+                  alt="Step 2: Push Plate blocked by open drawer"
+                  style="object-position: 50% 37%"
+                  fetchpriority="high"
                 />
-                <text x="329" y="189" text-anchor="middle" style="font-size: 13px; font-weight: 600; fill: #1b1e23">1. Open Drawer</text>
-                <text x="329" y="205" text-anchor="middle" style="font-size: 12px; font-weight: 700; fill: #527a2d">Done ✓</text>
+              </div>
+              <div
+                class="stage-photo is-muted"
+                data-f1-grp="1"
+                style="left: 60.536%; top: 12.448%; width: 16.25%; height: 23.237%; border-radius: 4.95% / 8.04%"
+              >
+                <img src="assets/img/goal_8.jpg" alt="Step 3: Put bowl on plate" style="object-position: 50% 37%" />
+              </div>
+              <div
+                class="stage-photo is-muted"
+                data-f1-grp="1"
+                style="left: 79.643%; top: 12.448%; width: 15.714%; height: 23.237%; border-radius: 5.11% / 8.04%"
+              >
+                <img src="assets/img/goal_7.jpg" alt="Step 4: Turn on stove" style="object-position: 50% 44%" />
+              </div>
+              <div
+                class="stage-photo"
+                data-f1-grp="3"
+                style="left: 32.679%; top: 55.187%; width: 28.75%; height: 34.44%; border-radius: 2.48% / 4.82%"
+              >
+                <img
+                  src="assets/img/env_obl_blocked.jpg"
+                  alt="3D Skill Envelope colliding with open drawer"
+                  style="object-position: 50% 28%"
+                  fetchpriority="high"
+                />
+              </div>
 
-                <!-- Broken Seam -->
-                <circle cx="439" cy="116" r="14" fill="none" stroke="#C43E2F" stroke-width="1.8" class="a-pulse" />
-                <path d="M 424 111 H 433 C 436 111 436 121 433 121 H 424" fill="none" stroke="#C43E2F" stroke-width="2.6" stroke-linecap="round" />
-                <path d="M 454 111 H 445 C 442 111 442 121 445 121 H 454" fill="none" stroke="#C43E2F" stroke-width="2.6" stroke-linecap="round" />
-                <line x1="436" y1="104" x2="442" y2="128" stroke="#C43E2F" stroke-width="2.2" stroke-linecap="round" />
+              <svg
+                class="anim-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1120 482"
+                role="img"
+                aria-label="Interactive Figure 1: Combinatorial motivation, seam collapse, causal attribution, 3D Skill Envelope, and closed-loop gains"
+              >
+                <defs>
+                  <linearGradient id="f1-agent-grad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#2F6DB3" />
+                    <stop offset="100%" stop-color="#22528C" />
+                  </linearGradient>
+                  <linearGradient id="f1-exp-fill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#C43E2F" stop-opacity=".22" />
+                    <stop offset="100%" stop-color="#C43E2F" stop-opacity=".02" />
+                  </linearGradient>
+                  <marker id="ar-f1-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M0 1 L9 5 L0 9z" fill="#2F6DB3" />
+                  </marker>
+                  <marker id="ar-f1-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+                    <path d="M0 1 L9 5 L0 9z" fill="#C43E2F" />
+                  </marker>
+                  <marker id="ar-f1-good" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+                    <path d="M0 1 L9 5 L0 9z" fill="#527A2D" />
+                  </marker>
+                  <marker id="ar-f1-warn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+                    <path d="M0 1 L9 5 L0 9z" fill="#C9821E" />
+                  </marker>
+                </defs>
 
-                <!-- Frame 2 -->
-                <g clip-path="url(#f1-clip-2)">
-                  <image href="assets/img/seam_home.jpg" x="458" y="32" width="188" height="188" preserveAspectRatio="xMidYMid slice" />
+                <!-- TOP-LEFT: Why Compose? -->
+                <g class="a-grp" data-f1-grp="1">
+                  <rect x="8" y="8" width="212" height="196" rx="12" fill="#F7FAFD" stroke="#B8CEE8" stroke-width="1.4" />
+                  <text x="20" y="30" style="font-size: 14px; font-weight: 700; fill: #22528c">Why Compose?</text>
+                  <line x1="20" y1="39" x2="208" y2="39" stroke="#DCE7F5" stroke-width="1" />
+                  <line x1="42" y1="164" x2="42" y2="52" stroke="#68645C" stroke-width="1.3" />
+                  <line x1="42" y1="164" x2="200" y2="164" stroke="#68645C" stroke-width="1.3" />
+                  <text x="23" y="112" text-anchor="middle" transform="rotate(-90 23 112)" style="font-size: 11px; fill: #68645c">Demos</text>
+                  <text x="121" y="186" text-anchor="middle" style="font-size: 11px; fill: #464b54">Horizon L (1 → 4)</text>
+                  <path d="M 46 160 C 96 158, 146 132, 194 58 L 194 162 L 46 162 Z" fill="url(#f1-exp-fill)" />
+                  <path d="M 46 160 C 96 158, 146 132, 194 58" fill="none" stroke="#C43E2F" stroke-width="2.5" stroke-linecap="round" />
+                  <circle cx="194" cy="58" r="4" fill="#C43E2F" />
+                  <circle r="3.6" fill="#C43E2F" stroke="#fff" stroke-width="1.2" class="a-bead f1-b-exp" style="--dur: 2.6s; --del: -0.4s" />
+                  <text x="52" y="68" style="font-size: 11.5px; font-weight: 700; fill: #b8382a">End-to-End</text>
+                  <text x="52" y="84" style="font-size: 11.5px; font-weight: 600; fill: #b8382a">
+                    O(n
+                    <tspan dy="-4" font-size="8.5">L</tspan>
+                    <tspan dy="4">) = 5,040</tspan>
+                  </text>
+                  <line x1="46" y1="161" x2="194" y2="161" stroke="#527A2D" stroke-width="2.8" stroke-linecap="round" />
+                  <circle cx="194" cy="161" r="4" fill="#527A2D" />
+                  <circle r="3.2" fill="#527A2D" stroke="#fff" stroke-width="1.1" class="a-bead f1-b-lin" style="--dur: 2.6s; --del: -1.3s" />
+                  <text x="196" y="151" text-anchor="end" style="font-size: 11px; font-weight: 700; fill: #3f6220">Skills O(n) = 10</text>
                 </g>
-                <rect x="458" y="60" width="188" height="112" rx="9" fill="none" stroke="#C43E2F" stroke-width="2.8" />
-                <circle cx="630" cy="76" r="11" fill="#C43E2F" stroke="#fff" stroke-width="1.8" />
-                <path d="M 626 72 L 634 80 M 634 72 L 626 80" stroke="#fff" stroke-width="2.2" stroke-linecap="round" />
-                <text x="552" y="189" text-anchor="middle" style="font-size: 13px; font-weight: 700; fill: #b8382a">2. Push Plate: 0/10</text>
-                <text x="552" y="205" text-anchor="middle" style="font-size: 12px; font-weight: 700; fill: #b8382a">Not Ready ✗</text>
 
-                <!-- Links & Blocked Frames 3-4 -->
-                <rect x="651" y="111" width="12" height="10" rx="5" fill="none" stroke="#B7B1A4" stroke-width="1.8" />
-                <rect x="661" y="111" width="12" height="10" rx="5" fill="none" stroke="#B7B1A4" stroke-width="1.8" />
-                <g opacity=".45">
-                  <g clip-path="url(#f1-clip-3)">
-                    <image href="assets/img/goal_8.jpg" x="678" y="34" width="182" height="182" preserveAspectRatio="xMidYMid slice" />
+                <!-- TOP-RIGHT: LLM Agent + 4-Step Skill Chain -->
+                <g class="a-grp" data-f1-grp="1">
+                  <rect x="236" y="8" width="832" height="34" rx="17" fill="url(#f1-agent-grad)" />
+                  <text x="652" y="30" text-anchor="middle" style="font-size: 14px; font-weight: 600; fill: #ffffff; letter-spacing: 0.01em">
+                    LLM Agent (Task Decomposition, Sequencing &amp; Recovery)
+                  </text>
+                  <path d="M 328 42 V 58" fill="none" stroke="#2F6DB3" stroke-width="1.8" class="flow-fast" marker-end="url(#ar-f1-blue)" />
+                  <path d="M 552 42 V 58" fill="none" stroke="#2F6DB3" stroke-width="1.8" class="flow-fast" marker-end="url(#ar-f1-blue)" />
+                  <path d="M 769 42 V 58" fill="none" stroke="#9AA9BE" stroke-width="1.4" stroke-dasharray="3 3" marker-end="url(#ar-f1-blue)" />
+                  <path d="M 980 42 V 58" fill="none" stroke="#9AA9BE" stroke-width="1.4" stroke-dasharray="3 3" marker-end="url(#ar-f1-blue)" />
+                  <circle r="3" fill="#2F6DB3" class="a-bead f1-b-cmd1" style="--dur: 1.4s; --del: 0s" />
+                  <circle r="3" fill="#2F6DB3" class="a-bead f1-b-cmd2" style="--dur: 1.4s; --del: -0.6s" />
+
+                  <!-- Frame 1 Overlay -->
+                  <rect x="238" y="60" width="182" height="112" rx="9" fill="none" stroke="#527A2D" stroke-width="2.6" />
+                  <circle cx="404" cy="76" r="11" fill="#527A2D" stroke="#fff" stroke-width="1.8" />
+                  <path
+                    d="M 399 76 L 402.5 79.5 L 409.5 72.5"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <text x="329" y="189" text-anchor="middle" style="font-size: 13px; font-weight: 600; fill: #1b1e23">1. Open Drawer</text>
+                  <text x="329" y="205" text-anchor="middle" style="font-size: 12px; font-weight: 700; fill: #527a2d">Done ✓</text>
+
+                  <!-- Broken Seam -->
+                  <circle cx="439" cy="116" r="14" fill="none" stroke="#C43E2F" stroke-width="1.8" class="a-pulse" />
+                  <path d="M 424 111 H 433 C 436 111 436 121 433 121 H 424" fill="none" stroke="#C43E2F" stroke-width="2.6" stroke-linecap="round" />
+                  <path d="M 454 111 H 445 C 442 111 442 121 445 121 H 454" fill="none" stroke="#C43E2F" stroke-width="2.6" stroke-linecap="round" />
+                  <line x1="436" y1="104" x2="442" y2="128" stroke="#C43E2F" stroke-width="2.2" stroke-linecap="round" />
+
+                  <!-- Frame 2 Overlay -->
+                  <rect x="458" y="60" width="188" height="112" rx="9" fill="none" stroke="#C43E2F" stroke-width="2.8" />
+                  <circle cx="630" cy="76" r="11" fill="#C43E2F" stroke="#fff" stroke-width="1.8" />
+                  <path d="M 626 72 L 634 80 M 634 72 L 626 80" stroke="#fff" stroke-width="2.2" stroke-linecap="round" />
+                  <text x="552" y="189" text-anchor="middle" style="font-size: 13px; font-weight: 700; fill: #b8382a">2. Push Plate: 0/10</text>
+                  <text x="552" y="205" text-anchor="middle" style="font-size: 12px; font-weight: 700; fill: #b8382a">Not Ready ✗</text>
+
+                  <!-- Links & Blocked Frames 3-4 Overlays -->
+                  <rect x="651" y="111" width="12" height="10" rx="5" fill="none" stroke="#B7B1A4" stroke-width="1.8" />
+                  <rect x="661" y="111" width="12" height="10" rx="5" fill="none" stroke="#B7B1A4" stroke-width="1.8" />
+                  <g opacity=".65">
+                    <rect x="678" y="60" width="182" height="112" rx="9" fill="none" stroke="#8A867B" stroke-width="1.6" stroke-dasharray="5 4" />
+                    <circle cx="844" cy="76" r="10.5" fill="#8A867B" stroke="#fff" stroke-width="1.5" />
+                    <line x1="839" y1="81" x2="849" y2="71" stroke="#fff" stroke-width="2" />
+                    <text x="769" y="191" text-anchor="middle" style="font-size: 12.5px; fill: #68645c">3. Bowl → Plate</text>
                   </g>
-                  <rect x="678" y="60" width="182" height="112" rx="9" fill="none" stroke="#8A867B" stroke-width="1.6" stroke-dasharray="5 4" />
-                  <circle cx="844" cy="76" r="10.5" fill="#8A867B" stroke="#fff" stroke-width="1.5" />
-                  <line x1="839" y1="81" x2="849" y2="71" stroke="#fff" stroke-width="2" />
-                  <text x="769" y="191" text-anchor="middle" style="font-size: 12.5px; fill: #68645c">3. Bowl → Plate</text>
-                </g>
 
-                <rect x="865" y="111" width="12" height="10" rx="5" fill="none" stroke="#B7B1A4" stroke-width="1.8" />
-                <rect x="875" y="111" width="12" height="10" rx="5" fill="none" stroke="#B7B1A4" stroke-width="1.8" />
-                <g opacity=".45">
-                  <g clip-path="url(#f1-clip-4)">
-                    <image href="assets/img/goal_7.jpg" x="892" y="32" width="176" height="176" preserveAspectRatio="xMidYMid slice" />
+                  <rect x="865" y="111" width="12" height="10" rx="5" fill="none" stroke="#B7B1A4" stroke-width="1.8" />
+                  <rect x="875" y="111" width="12" height="10" rx="5" fill="none" stroke="#B7B1A4" stroke-width="1.8" />
+                  <g opacity=".65">
+                    <rect x="892" y="60" width="176" height="112" rx="9" fill="none" stroke="#8A867B" stroke-width="1.6" stroke-dasharray="5 4" />
+                    <circle cx="1052" cy="76" r="10.5" fill="#8A867B" stroke="#fff" stroke-width="1.5" />
+                    <line x1="1047" y1="81" x2="1057" y2="71" stroke="#fff" stroke-width="2" />
+                    <text x="980" y="191" text-anchor="middle" style="font-size: 12.5px; fill: #68645c">4. Turn on Stove</text>
                   </g>
-                  <rect x="892" y="60" width="176" height="112" rx="9" fill="none" stroke="#8A867B" stroke-width="1.6" stroke-dasharray="5 4" />
-                  <circle cx="1052" cy="76" r="10.5" fill="#8A867B" stroke="#fff" stroke-width="1.5" />
-                  <line x1="1047" y1="81" x2="1057" y2="71" stroke="#fff" stroke-width="2" />
-                  <text x="980" y="191" text-anchor="middle" style="font-size: 12.5px; fill: #68645c">4. Turn on Stove</text>
                 </g>
-              </g>
 
-              <!-- SEAM-GAP CONDUIT -->
-              <g class="a-grp" data-f1-grp="12">
-                <path
-                  d="M 439 128 V 212 H 164 V 222"
-                  fill="none"
-                  stroke="#C43E2F"
-                  stroke-width="2.1"
-                  class="flow-fast"
-                  marker-end="url(#ar-f1-red)"
-                />
-                <circle r="3.6" fill="#C43E2F" stroke="#fff" stroke-width="1.2" class="a-bead f1-b-seam" style="--dur: 2.4s; --del: 0s" />
-                <circle r="3.6" fill="#C43E2F" stroke="#fff" stroke-width="1.2" class="a-bead f1-b-seam" style="--dur: 2.4s; --del: -1.2s" />
-                <rect x="394" y="200" width="90" height="22" rx="11" fill="#FFF4F2" stroke="#C43E2F" stroke-width="1.3" />
-                <text x="439" y="215" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #b8382a">Seam Gap</text>
-              </g>
-
-              <!-- BOX 1: Causal Attribution -->
-              <g class="a-grp" data-f1-grp="2">
-                <rect x="8" y="224" width="312" height="250" rx="12" fill="#FFFFFF" stroke="#D4695A" stroke-width="1.6" stroke-dasharray="6 4" />
-                <path d="M 9 236 A 11 11 0 0 1 20 225 H 308 A 11 11 0 0 1 319 236 V 258 H 9 Z" fill="#FDF0ED" />
-                <text x="20" y="247" style="font-size: 14px; font-weight: 700; fill: #b8382a">1. Causal Attribution</text>
-
-                <rect x="18" y="270" width="92" height="160" rx="9" fill="#FAFBFD" stroke="#D6E4F5" stroke-width="1.2" />
-                <rect x="26" y="278" width="76" height="22" rx="11" fill="#2F6DB3" />
-                <text x="64" y="293" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #fff">Body</text>
-                <path d="M 42 340 L 52 320 L 72 316" fill="none" stroke="#2F6DB3" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
-                <circle cx="52" cy="320" r="3" fill="#2F6DB3" />
-                <path
-                  d="M 60 310 Q 76 306 84 322"
-                  fill="none"
-                  stroke="#2F6DB3"
-                  stroke-width="1.6"
-                  stroke-dasharray="3 2"
-                  marker-end="url(#ar-f1-blue)"
-                />
-                <text x="64" y="376" text-anchor="middle" class="num" style="font-size: 19px; font-weight: 700; fill: #2f6db3">+68.6</text>
-                <text x="64" y="394" text-anchor="middle" style="font-size: 11px; fill: #68645c">pts</text>
-                <text x="64" y="414" text-anchor="middle" class="num" style="font-size: 10.5px; fill: #464b54">14.2 → 82.8%</text>
-
-                <rect x="118" y="270" width="92" height="160" rx="9" fill="#FAF9F6" stroke="#E4E0D6" stroke-width="1.2" />
-                <rect x="126" y="278" width="76" height="22" rx="11" fill="#68645C" />
-                <text x="164" y="293" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #fff">View</text>
-                <circle cx="204" cy="276" r="8.5" fill="#C43E2F" stroke="#fff" stroke-width="1.5" />
-                <path d="M 201 273 L 207 279 M 207 273 L 201 279" stroke="#fff" stroke-width="1.7" stroke-linecap="round" />
-                <rect x="131" y="317" width="22" height="15" rx="3" fill="#68645C" />
-                <circle cx="142" cy="324.5" r="4" fill="#FAF9F6" />
-                <rect x="169" y="314" width="20" height="20" rx="3" fill="none" stroke="#C43E2F" stroke-width="1.5" stroke-dasharray="3 2" />
-                <line x1="156" y1="324" x2="167" y2="324" stroke="#8A867B" stroke-width="1.2" stroke-dasharray="2 2" />
-                <text x="164" y="376" text-anchor="middle" class="num" style="font-size: 19px; font-weight: 700; fill: #68645c">+1.7</text>
-                <text x="164" y="394" text-anchor="middle" style="font-size: 11px; fill: #68645c">pts (n.s.)</text>
-                <text x="164" y="414" text-anchor="middle" class="num" style="font-size: 10.5px; fill: #68645c">hit: 17.0%</text>
-
-                <rect x="218" y="270" width="92" height="160" rx="9" fill="#F6FAF2" stroke="#CBE0B6" stroke-width="1.3" />
-                <rect x="226" y="278" width="76" height="22" rx="11" fill="#527A2D" />
-                <text x="264" y="293" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #fff">World</text>
-                <circle cx="304" cy="276" r="8.5" fill="#527A2D" stroke="#fff" stroke-width="1.5" />
-                <path d="M 300.5 276 L 303 278.5 L 307.5 273.5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" />
-                <rect x="232" y="320" width="17" height="17" rx="3" fill="none" stroke="#C43E2F" stroke-width="1.4" stroke-dasharray="3 2" />
-                <rect x="278" y="320" width="17" height="17" rx="3" fill="#527A2D" />
-                <path d="M 244 316 Q 264 303 282 316" fill="none" stroke="#527A2D" stroke-width="1.6" marker-end="url(#ar-f1-good)" />
-                <text x="264" y="376" text-anchor="middle" class="num" style="font-size: 19px; font-weight: 700; fill: #527a2d">+10.0</text>
-                <text x="264" y="394" text-anchor="middle" style="font-size: 11px; fill: #68645c">pts</text>
-                <text x="264" y="414" text-anchor="middle" class="num" style="font-size: 10.5px; font-weight: 600; fill: #3f6220">hit: 2.0%</text>
-
-                <text x="164" y="456" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #b8382a">
-                  Physical collision dominates visual shift.
-                </text>
-              </g>
-
-              <!-- CONNECTOR 1 -> 2 -->
-              <g class="a-grp" data-f1-grp="23">
-                <path d="M 322 349 H 350" fill="none" stroke="#527A2D" stroke-width="2.4" class="flow-fast" marker-end="url(#ar-f1-good)" />
-                <circle r="3.6" fill="#527A2D" stroke="#fff" stroke-width="1.2" class="a-bead f1-b-c2e" style="--dur: 1.4s; --del: 0s" />
-              </g>
-
-              <!-- BOX 2: 3D Skill Envelope -->
-              <g class="a-grp" data-f1-grp="3">
-                <rect x="354" y="224" width="346" height="250" rx="12" fill="#FFFFFF" stroke="#527A2D" stroke-width="1.8" />
-                <path d="M 355 236 A 11 11 0 0 1 366 225 H 688 A 11 11 0 0 1 699 236 V 258 H 355 Z" fill="#EDF4E5" />
-                <text x="368" y="247" style="font-size: 14px; font-weight: 700; fill: #3a5a1e">2. Insight: 3D Skill Envelope</text>
-
-                <g clip-path="url(#f1-clip-env)">
-                  <image href="assets/img/env_obl_blocked.png" x="366" y="246" width="322" height="248" preserveAspectRatio="xMidYMid slice" />
+                <!-- SEAM-GAP CONDUIT -->
+                <g class="a-grp" data-f1-grp="12">
+                  <path
+                    d="M 439 128 V 212 H 164 V 222"
+                    fill="none"
+                    stroke="#C43E2F"
+                    stroke-width="2.1"
+                    class="flow-fast"
+                    marker-end="url(#ar-f1-red)"
+                  />
+                  <circle r="3.6" fill="#C43E2F" stroke="#fff" stroke-width="1.2" class="a-bead f1-b-seam" style="--dur: 2.4s; --del: 0s" />
+                  <circle r="3.6" fill="#C43E2F" stroke="#fff" stroke-width="1.2" class="a-bead f1-b-seam" style="--dur: 2.4s; --del: -1.2s" />
+                  <rect x="394" y="200" width="90" height="22" rx="11" fill="#FFF4F2" stroke="#C43E2F" stroke-width="1.3" />
+                  <text x="439" y="215" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #b8382a">Seam Gap</text>
                 </g>
-                <rect x="366" y="266" width="322" height="166" rx="8" fill="none" stroke="#CBE0B6" stroke-width="1.2" />
 
-                <circle r="4.8" fill="#527A2D" stroke="#FFFFFF" stroke-width="1.8" class="a-bead f1-b-roll" style="--dur: 2.4s; --del: -0.2s" />
-                <circle cx="556" cy="395" r="14" fill="none" stroke="#FF4A3D" stroke-width="2" class="a-pulse" />
-                <circle cx="556" cy="395" r="5" fill="#C43E2F" stroke="#FFFFFF" stroke-width="1.6" />
-                <line x1="560" y1="391" x2="606" y2="298" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" />
-                <line x1="560" y1="391" x2="606" y2="298" stroke="#C43E2F" stroke-width="1.7" stroke-linecap="round" />
-                <rect x="526" y="274" width="152" height="24" rx="12" fill="#C43E2F" stroke="#FFFFFF" stroke-width="1.3" />
-                <text x="602" y="290" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #ffffff">Overlap → Collision</text>
+                <!-- BOX 1: Causal Attribution -->
+                <g class="a-grp" data-f1-grp="2">
+                  <rect x="8" y="224" width="312" height="250" rx="12" fill="#FFFFFF" stroke="#D4695A" stroke-width="1.6" stroke-dasharray="6 4" />
+                  <path d="M 9 236 A 11 11 0 0 1 20 225 H 308 A 11 11 0 0 1 319 236 V 258 H 9 Z" fill="#FDF0ED" />
+                  <text x="20" y="247" style="font-size: 14px; font-weight: 700; fill: #b8382a">1. Causal Attribution</text>
 
-                <rect x="374" y="403" width="124" height="22" rx="11" fill="rgba(250,248,244,.94)" stroke="#527A2D" stroke-width="1" />
-                <text x="436" y="418" text-anchor="middle" style="font-size: 11px; font-weight: 600; fill: #3a5a1e">Rollout (t = 0 → T)</text>
+                  <rect x="18" y="270" width="92" height="160" rx="9" fill="#FAFBFD" stroke="#D6E4F5" stroke-width="1.2" />
+                  <rect x="26" y="278" width="76" height="22" rx="11" fill="#2F6DB3" />
+                  <text x="64" y="293" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #fff">Body</text>
+                  <path
+                    d="M 42 340 L 52 320 L 72 316"
+                    fill="none"
+                    stroke="#2F6DB3"
+                    stroke-width="2.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <circle cx="52" cy="320" r="3" fill="#2F6DB3" />
+                  <path
+                    d="M 60 310 Q 76 306 84 322"
+                    fill="none"
+                    stroke="#2F6DB3"
+                    stroke-width="1.6"
+                    stroke-dasharray="3 2"
+                    marker-end="url(#ar-f1-blue)"
+                  />
+                  <text x="64" y="376" text-anchor="middle" class="num" style="font-size: 19px; font-weight: 700; fill: #2f6db3">+68.6</text>
+                  <text x="64" y="394" text-anchor="middle" style="font-size: 11px; fill: #68645c">pts</text>
+                  <text x="64" y="414" text-anchor="middle" class="num" style="font-size: 10.5px; fill: #464b54">14.2 → 82.8%</text>
 
-                <text x="404" y="458" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #3a5a1e">Rigid VLA</text>
-                <path d="M 442 454 H 462" fill="none" stroke="#527A2D" stroke-width="1.8" class="flow-fast" marker-end="url(#ar-f1-good)" />
-                <text x="514" y="458" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #3a5a1e">3D Arm Sweep</text>
-                <path d="M 562 454 H 578" fill="none" stroke="#527A2D" stroke-width="1.8" class="flow-fast" marker-end="url(#ar-f1-good)" />
-                <rect x="582" y="442" width="110" height="24" rx="12" fill="#527A2D" />
-                <text x="637" y="458" text-anchor="middle" style="font-size: 11px; font-weight: 700; fill: #ffffff">Predict Collisions</text>
-              </g>
+                  <rect x="118" y="270" width="92" height="160" rx="9" fill="#FAF9F6" stroke="#E4E0D6" stroke-width="1.2" />
+                  <rect x="126" y="278" width="76" height="22" rx="11" fill="#68645C" />
+                  <text x="164" y="293" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #fff">View</text>
+                  <circle cx="204" cy="276" r="8.5" fill="#C43E2F" stroke="#fff" stroke-width="1.5" />
+                  <path d="M 201 273 L 207 279 M 207 273 L 201 279" stroke="#fff" stroke-width="1.7" stroke-linecap="round" />
+                  <rect x="131" y="317" width="22" height="15" rx="3" fill="#68645C" />
+                  <circle cx="142" cy="324.5" r="4" fill="#FAF9F6" />
+                  <rect x="169" y="314" width="20" height="20" rx="3" fill="none" stroke="#C43E2F" stroke-width="1.5" stroke-dasharray="3 2" />
+                  <line x1="156" y1="324" x2="167" y2="324" stroke="#8A867B" stroke-width="1.2" stroke-dasharray="2 2" />
+                  <text x="164" y="376" text-anchor="middle" class="num" style="font-size: 19px; font-weight: 700; fill: #68645c">+1.7</text>
+                  <text x="164" y="394" text-anchor="middle" style="font-size: 11px; fill: #68645c">pts (n.s.)</text>
+                  <text x="164" y="414" text-anchor="middle" class="num" style="font-size: 10.5px; fill: #68645c">hit: 17.0%</text>
 
-              <!-- CONNECTOR 2 -> 3 -->
-              <g class="a-grp" data-f1-grp="34">
-                <path d="M 702 349 H 730" fill="none" stroke="#C9821E" stroke-width="2.4" class="flow-fast" marker-end="url(#ar-f1-warn)" />
-                <circle r="3.6" fill="#C9821E" stroke="#fff" stroke-width="1.2" class="a-bead f1-b-e2t" style="--dur: 1.4s; --del: -0.5s" />
-              </g>
+                  <rect x="218" y="270" width="92" height="160" rx="9" fill="#F6FAF2" stroke="#CBE0B6" stroke-width="1.3" />
+                  <rect x="226" y="278" width="76" height="22" rx="11" fill="#527A2D" />
+                  <text x="264" y="293" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #fff">World</text>
+                  <circle cx="304" cy="276" r="8.5" fill="#527A2D" stroke="#fff" stroke-width="1.5" />
+                  <path d="M 300.5 276 L 303 278.5 L 307.5 273.5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" />
+                  <rect x="232" y="320" width="17" height="17" rx="3" fill="none" stroke="#C43E2F" stroke-width="1.4" stroke-dasharray="3 2" />
+                  <rect x="278" y="320" width="17" height="17" rx="3" fill="#527A2D" />
+                  <path d="M 244 316 Q 264 303 282 316" fill="none" stroke="#527A2D" stroke-width="1.6" marker-end="url(#ar-f1-good)" />
+                  <text x="264" y="376" text-anchor="middle" class="num" style="font-size: 19px; font-weight: 700; fill: #527a2d">+10.0</text>
+                  <text x="264" y="394" text-anchor="middle" style="font-size: 11px; fill: #68645c">pts</text>
+                  <text x="264" y="414" text-anchor="middle" class="num" style="font-size: 10.5px; font-weight: 600; fill: #3f6220">hit: 2.0%</text>
 
-              <!-- BOX 3: Agent Tools & Key Gains -->
-              <g class="a-grp" data-f1-grp="4">
-                <rect x="734" y="224" width="334" height="250" rx="12" fill="#FFFFFF" stroke="#C9821E" stroke-width="1.8" />
-                <path d="M 735 236 A 11 11 0 0 1 746 225 H 1056 A 11 11 0 0 1 1067 236 V 258 H 735 Z" fill="#FBF3E2" />
-                <text x="748" y="247" style="font-size: 14px; font-weight: 700; fill: #9e630f">3. Agent Tools &amp; Key Gains</text>
+                  <text x="164" y="456" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #b8382a">
+                    Physical collision dominates visual shift.
+                  </text>
+                </g>
 
-                <rect x="746" y="268" width="310" height="72" rx="8" fill="#FAF8F4" stroke="#E5DFD6" stroke-width="1.2" />
-                <text x="758" y="288" style="font-family: var(--font-mono); font-size: 11.4px; fill: #1b1e23">
-                  <tspan fill="#9E630F" font-weight="700">if</tspan>
-                  <tspan fill="#B97414" font-weight="700">CHECK</tspan>
-                  (k,s)==
-                  <tspan fill="#C43E2F" font-weight="700">BLOCKED</tspan>
-                  :
-                  <tspan fill="#6F747E"># OOD</tspan>
-                </text>
-                <text x="758" y="309" style="font-family: var(--font-mono); font-size: 11.4px; fill: #1b1e23">
-                  <tspan dx="12" fill="#B97414" font-weight="700">Code_Repair</tspan>
-                  (V
-                  <tspan dy="2" font-size="8.5">e</tspan>
-                  <tspan dy="-2">,</tspan>
-                  <tspan fill="#2F6DB3" font-weight="700">FREE</tspan>
-                  (K,s))
-                </text>
-                <text x="758" y="330" style="font-family: var(--font-mono); font-size: 11.4px; fill: #1b1e23">
-                  <tspan fill="#527A2D" font-weight="700">VLA_Execute</tspan>
-                  (k)
-                  <tspan fill="#6F747E"># in-dist</tspan>
-                </text>
+                <!-- CONNECTOR 1 -> 2 -->
+                <g class="a-grp" data-f1-grp="23">
+                  <path d="M 322 349 H 350" fill="none" stroke="#527A2D" stroke-width="2.4" class="flow-fast" marker-end="url(#ar-f1-good)" />
+                  <circle r="3.6" fill="#527A2D" stroke="#fff" stroke-width="1.2" class="a-bead f1-b-c2e" style="--dur: 1.4s; --del: 0s" />
+                </g>
 
-                <text x="752" y="363" style="font-size: 12px; font-weight: 700; fill: #464b54">Success Rate</text>
-                <text x="954" y="363" text-anchor="end" style="font-size: 12px; font-weight: 600; fill: #6f747e">Base</text>
-                <text x="1044" y="363" text-anchor="end" style="font-size: 12px; font-weight: 700; fill: #3f6220">Ours</text>
-                <line x1="748" y1="371" x2="1054" y2="371" stroke="#E5DFD6" stroke-width="1.2" />
+                <!-- BOX 2: 3D Skill Envelope (transparent card fill lets HTML photo show cleanly underneath) -->
+                <g class="a-grp" data-f1-grp="3">
+                  <rect x="354" y="224" width="346" height="250" rx="12" fill="none" stroke="#527A2D" stroke-width="1.8" />
+                  <path d="M 355 236 A 11 11 0 0 1 366 225 H 688 A 11 11 0 0 1 699 236 V 258 H 355 Z" fill="#EDF4E5" />
+                  <text x="368" y="247" style="font-size: 14px; font-weight: 700; fill: #3a5a1e">2. Insight: 3D Skill Envelope</text>
 
-                <rect x="974" y="378" width="80" height="26" rx="6" fill="#EDF4E5" />
-                <text x="752" y="395" style="font-size: 12.5px; fill: #1b1e23">2-Step (re-homed)</text>
-                <text x="954" y="395" text-anchor="end" class="num" style="font-size: 13px; fill: #464b54">82.8%</text>
-                <text x="1044" y="395" text-anchor="end" class="num" style="font-size: 13.5px; font-weight: 700; fill: #3f6220">92.3%</text>
+                  <rect x="366" y="266" width="322" height="166" rx="8" fill="none" stroke="#CBE0B6" stroke-width="1.2" />
 
-                <rect x="974" y="408" width="80" height="26" rx="6" fill="#EDF4E5" />
-                <text x="752" y="425" style="font-size: 12.5px; fill: #1b1e23">3–4 Step (re-homed)</text>
-                <text x="954" y="425" text-anchor="end" class="num" style="font-size: 13px; fill: #464b54">29.7%</text>
-                <text x="1044" y="425" text-anchor="end" class="num" style="font-size: 13.5px; font-weight: 700; fill: #3f6220">93.8%</text>
+                  <circle r="4.8" fill="#527A2D" stroke="#FFFFFF" stroke-width="1.8" class="a-bead f1-b-roll" style="--dur: 2.4s; --del: -0.2s" />
+                  <circle cx="556" cy="395" r="14" fill="none" stroke="#FF4A3D" stroke-width="2" class="a-pulse" />
+                  <circle cx="556" cy="395" r="5" fill="#C43E2F" stroke="#FFFFFF" stroke-width="1.6" />
+                  <line x1="560" y1="391" x2="606" y2="298" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" />
+                  <line x1="560" y1="391" x2="606" y2="298" stroke="#C43E2F" stroke-width="1.7" stroke-linecap="round" />
+                  <rect x="526" y="274" width="152" height="24" rx="12" fill="#C43E2F" stroke="#FFFFFF" stroke-width="1.3" />
+                  <text x="602" y="290" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #ffffff">Overlap → Collision</text>
 
-                <rect x="974" y="438" width="80" height="26" rx="6" fill="#FBF3E2" />
-                <text x="752" y="455" style="font-size: 12.5px; fill: #1b1e23">Repair (VLA vs Code)</text>
-                <text x="954" y="455" text-anchor="end" class="num" style="font-size: 13px; font-weight: 700; fill: #c43e2f">0.4%</text>
-                <text x="1044" y="455" text-anchor="end" class="num" style="font-size: 13.5px; font-weight: 700; fill: #a86a12">98.6%</text>
-              </g>
+                  <rect x="374" y="403" width="124" height="22" rx="11" fill="rgba(250,248,244,.94)" stroke="#527A2D" stroke-width="1" />
+                  <text x="436" y="418" text-anchor="middle" style="font-size: 11px; font-weight: 600; fill: #3a5a1e">Rollout (t = 0 → T)</text>
 
-              <!-- CLOSED-LOOP FEEDBACK CONDUIT -> LLM AGENT -->
-              <g class="a-grp" data-f1-grp="4">
-                <path
-                  d="M 1068 349 H 1094 V 25 H 1072"
-                  fill="none"
-                  stroke="#527A2D"
-                  stroke-width="2.5"
-                  class="flow-fast"
-                  marker-end="url(#ar-f1-good)"
-                />
-                <circle r="4" fill="#527A2D" stroke="#fff" stroke-width="1.3" class="a-bead f1-b-fb" style="--dur: 3s; --del: 0s" />
-                <circle r="4" fill="#527A2D" stroke="#fff" stroke-width="1.3" class="a-bead f1-b-fb" style="--dur: 3s; --del: -1.5s" />
-                <rect x="1084" y="88" width="20" height="206" rx="6" fill="#FFFFFF" />
-                <text
-                  x="1098"
-                  y="191"
-                  text-anchor="middle"
-                  transform="rotate(-90 1098 191)"
-                  style="font-size: 11.5px; font-weight: 700; fill: #3f6220"
-                >
-                  Measured 3D Preconditions
-                </text>
-              </g>
-            </svg>
+                  <text x="404" y="458" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #3a5a1e">Rigid VLA</text>
+                  <path d="M 442 454 H 462" fill="none" stroke="#527A2D" stroke-width="1.8" class="flow-fast" marker-end="url(#ar-f1-good)" />
+                  <text x="514" y="458" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #3a5a1e">3D Arm Sweep</text>
+                  <path d="M 562 454 H 578" fill="none" stroke="#527A2D" stroke-width="1.8" class="flow-fast" marker-end="url(#ar-f1-good)" />
+                  <rect x="582" y="442" width="110" height="24" rx="12" fill="#527A2D" />
+                  <text x="637" y="458" text-anchor="middle" style="font-size: 11px; font-weight: 700; fill: #ffffff">Predict Collisions</text>
+                </g>
+
+                <!-- CONNECTOR 2 -> 3 -->
+                <g class="a-grp" data-f1-grp="34">
+                  <path d="M 702 349 H 730" fill="none" stroke="#C9821E" stroke-width="2.4" class="flow-fast" marker-end="url(#ar-f1-warn)" />
+                  <circle r="3.6" fill="#C9821E" stroke="#fff" stroke-width="1.2" class="a-bead f1-b-e2t" style="--dur: 1.4s; --del: -0.5s" />
+                </g>
+
+                <!-- BOX 3: Agent Tools & Key Gains -->
+                <g class="a-grp" data-f1-grp="4">
+                  <rect x="734" y="224" width="334" height="250" rx="12" fill="#FFFFFF" stroke="#C9821E" stroke-width="1.8" />
+                  <path d="M 735 236 A 11 11 0 0 1 746 225 H 1056 A 11 11 0 0 1 1067 236 V 258 H 735 Z" fill="#FBF3E2" />
+                  <text x="748" y="247" style="font-size: 14px; font-weight: 700; fill: #9e630f">3. Agent Tools &amp; Key Gains</text>
+
+                  <rect x="746" y="268" width="310" height="72" rx="8" fill="#FAF8F4" stroke="#E5DFD6" stroke-width="1.2" />
+                  <text x="758" y="288" style="font-family: var(--font-mono); font-size: 11.4px; fill: #1b1e23">
+                    <tspan fill="#9E630F" font-weight="700">if</tspan>
+                    <tspan fill="#B97414" font-weight="700">CHECK</tspan>
+                    (k,s)==
+                    <tspan fill="#C43E2F" font-weight="700">BLOCKED</tspan>
+                    :
+                    <tspan fill="#6F747E"># OOD</tspan>
+                  </text>
+                  <text x="758" y="309" style="font-family: var(--font-mono); font-size: 11.4px; fill: #1b1e23">
+                    <tspan dx="12" fill="#B97414" font-weight="700">Code_Repair</tspan>
+                    (V
+                    <tspan dy="2" font-size="8.5">e</tspan>
+                    <tspan dy="-2">,</tspan>
+                    <tspan fill="#2F6DB3" font-weight="700">FREE</tspan>
+                    (K,s))
+                  </text>
+                  <text x="758" y="330" style="font-family: var(--font-mono); font-size: 11.4px; fill: #1b1e23">
+                    <tspan fill="#527A2D" font-weight="700">VLA_Execute</tspan>
+                    (k)
+                    <tspan fill="#6F747E"># in-dist</tspan>
+                  </text>
+
+                  <text x="752" y="363" style="font-size: 12px; font-weight: 700; fill: #464b54">Success Rate</text>
+                  <text x="954" y="363" text-anchor="end" style="font-size: 12px; font-weight: 600; fill: #6f747e">Base</text>
+                  <text x="1044" y="363" text-anchor="end" style="font-size: 12px; font-weight: 700; fill: #3f6220">Ours</text>
+                  <line x1="748" y1="371" x2="1054" y2="371" stroke="#E5DFD6" stroke-width="1.2" />
+
+                  <rect x="974" y="378" width="80" height="26" rx="6" fill="#EDF4E5" />
+                  <text x="752" y="395" style="font-size: 12.5px; fill: #1b1e23">2-Step (re-homed)</text>
+                  <text x="954" y="395" text-anchor="end" class="num" style="font-size: 13px; fill: #464b54">82.8%</text>
+                  <text x="1044" y="395" text-anchor="end" class="num" style="font-size: 13.5px; font-weight: 700; fill: #3f6220">92.3%</text>
+
+                  <rect x="974" y="408" width="80" height="26" rx="6" fill="#EDF4E5" />
+                  <text x="752" y="425" style="font-size: 12.5px; fill: #1b1e23">3–4 Step (re-homed)</text>
+                  <text x="954" y="425" text-anchor="end" class="num" style="font-size: 13px; fill: #464b54">29.7%</text>
+                  <text x="1044" y="425" text-anchor="end" class="num" style="font-size: 13.5px; font-weight: 700; fill: #3f6220">93.8%</text>
+
+                  <rect x="974" y="438" width="80" height="26" rx="6" fill="#FBF3E2" />
+                  <text x="752" y="455" style="font-size: 12.5px; fill: #1b1e23">Repair (VLA vs Code)</text>
+                  <text x="954" y="455" text-anchor="end" class="num" style="font-size: 13px; font-weight: 700; fill: #c43e2f">0.4%</text>
+                  <text x="1044" y="455" text-anchor="end" class="num" style="font-size: 13.5px; font-weight: 700; fill: #a86a12">98.6%</text>
+                </g>
+
+                <!-- CLOSED-LOOP FEEDBACK CONDUIT -> LLM AGENT -->
+                <g class="a-grp" data-f1-grp="4">
+                  <path
+                    d="M 1068 349 H 1094 V 25 H 1072"
+                    fill="none"
+                    stroke="#527A2D"
+                    stroke-width="2.5"
+                    class="flow-fast"
+                    marker-end="url(#ar-f1-good)"
+                  />
+                  <circle r="4" fill="#527A2D" stroke="#fff" stroke-width="1.3" class="a-bead f1-b-fb" style="--dur: 3s; --del: 0s" />
+                  <circle r="4" fill="#527A2D" stroke="#fff" stroke-width="1.3" class="a-bead f1-b-fb" style="--dur: 3s; --del: -1.5s" />
+                  <rect x="1084" y="88" width="20" height="206" rx="6" fill="#FFFFFF" />
+                  <text
+                    x="1098"
+                    y="191"
+                    text-anchor="middle"
+                    transform="rotate(-90 1098 191)"
+                    style="font-size: 11.5px; font-weight: 700; fill: #3f6220"
+                  >
+                    Measured 3D Preconditions
+                  </text>
+                </g>
+              </svg>
+            </div>
           </div>
           <div class="fig-bar">
             <div class="fig-note" id="note-fig1">
-              <b>Full Flow:</b> Combinatorial motivation → seam collision → causal attribution → 3D Skill Envelope → closed-loop preconditions back to
-              LLM Agent.
+              <b>Overview:</b> Why compose skills → seam collision → causal attribution → 3D Skill Envelope → closed-loop 3D tools for the LLM agent.
             </div>
             <div class="seg" role="group" aria-label="Figure 1 Focus Steps" data-anim-ctl="fig1">
               <button data-step="0" aria-pressed="true">Overview</button>
@@ -534,13 +565,12 @@
       <!-- ==================== 2. CAUSAL DIAGNOSIS ==================== -->
       <section class="section section-soft" id="diagnosis">
         <div class="wrap-wide">
-          <div class="sec-kicker">Part I · Controlled Causal Diagnosis</div>
-          <h2 class="sec-title">Done &ne; Ready: Seam Failures Are Physical Collisions, Not Visual Distraction</h2>
+          <div class="sec-kicker">Part I · Causal Diagnosis</div>
+          <h2 class="sec-title">Done &ne; Ready: Seam Failures Are Physical Collisions</h2>
           <p class="lead">
-            Across <strong>640 matched handoff states</strong> (64 ordered LIBERO-Goal pairs &times; 10 states) on frozen &pi;<sub>0.5</sub>, atomic
-            skills succeed at <strong>98.0%</strong> solo but collapse to <strong>14.2%</strong> when chained directly. Re-homing the arm recovers
-            pose shift (<strong>82.8%</strong>), yet leaves a stubborn <strong>15.2-point</strong> gap. To isolate what causes that gap, we perform
-            three matched counterfactual interventions on identical handoff snapshots.
+            Across <strong>640 matched handoffs</strong> (64 ordered LIBERO-Goal pairs &times; 10 states) on frozen &pi;<sub>0.5</sub>, skills succeed
+            at <strong>98.0%</strong> solo but drop to <strong>14.2%</strong> when chained directly. Re-homing recovers pose shift
+            (<strong>82.8%</strong>), leaving a <strong>15.2-point</strong> gap. Three matched interventions isolate why.
           </p>
 
           <!-- Counterfactual Triplet -->
@@ -552,10 +582,10 @@
               </div>
               <div class="photo-meta">
                 <div class="score-row">
-                  <h4>Re-home only</h4>
+                  <h4>Re-home arm only</h4>
                   <span class="stat t-body">82.8% (+68.6)</span>
                 </div>
-                <p>Fixes arm pose shift, yet the open drawer remains physically in the workspace (<strong>17.8%</strong> residue collision rate).</p>
+                <p>Fixes arm pose shift, but the open drawer stays in the workspace (<strong>17.8%</strong> collision rate).</p>
               </div>
             </article>
 
@@ -570,12 +600,10 @@
               </div>
               <div class="photo-meta">
                 <div class="score-row">
-                  <h4>Hide pixels only</h4>
+                  <h4>Hide obstacle from camera</h4>
                   <span class="stat t-view">84.5% (+1.7 n.s.)</span>
                 </div>
-                <p>
-                  Even when the policy sees a spotless closed-drawer image, its arm still slams into the real drawer (<strong>17.0%</strong> hits).
-                </p>
+                <p>Even when fed a clean closed-drawer image, the arm still hits the physical drawer (<strong>17.0%</strong> collisions).</p>
               </div>
             </article>
 
@@ -586,10 +614,10 @@
               </div>
               <div class="photo-meta">
                 <div class="score-row">
-                  <h4>Remove residue</h4>
+                  <h4>Remove obstacle in physics</h4>
                   <span class="stat t-world">92.8% (+10.0)</span>
                 </div>
-                <p>Closing the drawer in physics cuts residue collisions from <strong>17.8% → 2.0%</strong>, recovering the remaining gap.</p>
+                <p>Closing the drawer cuts collisions from <strong>17.8% → 2.0%</strong> and recovers the remaining gap.</p>
               </div>
             </article>
           </div>
@@ -597,19 +625,18 @@
           <!-- Paired Causal & Policy Specificity Charts -->
           <div class="grid-2" style="margin-top: 26px">
             <div class="chart-card">
-              <div class="chart-caption">Controlled Causal Decomposition (640 Matched Handoff States)</div>
+              <div class="chart-caption">Controlled Causal Decomposition (640 Matched Handoffs)</div>
               <div class="chart-box" data-chart="causal"></div>
               <p style="margin-top: 8px; font-size: 0.85rem; color: var(--ink-2)">
-                Post-hoc split confirms the mechanism: re-homed skills succeed <strong>93.7%</strong> when they avoid residue (n=526), versus
-                <strong>32.5%</strong> when they touch it (n=114).
+                Re-homed skills succeed <strong>93.7%</strong> when they avoid leftover objects (n=526), versus <strong>32.5%</strong> when they touch
+                them (n=114).
               </p>
             </div>
             <div class="chart-card">
-              <div class="chart-caption">Policy Specificity: Same Open Middle Drawer → 9 Successor Skills</div>
+              <div class="chart-caption">Same Open Middle Drawer → 9 Next Skills</div>
               <div class="chart-box" data-chart="drawer_split"></div>
               <p style="margin-top: 8px; font-size: 0.85rem; color: var(--ink-2)">
-                The exact same physical obstacle breaks <strong>5 skills</strong> (0–4/10) while leaving <strong>3 skills</strong> untouched
-                (9–10/10).
+                The exact same open drawer breaks <strong>5 skills</strong> (0–4/10) while leaving <strong>3 skills</strong> unaffected (9–10/10).
               </p>
             </div>
           </div>
@@ -618,26 +645,26 @@
           <div class="grid-2" style="margin-top: 22px">
             <article class="photo-card">
               <div class="photo-frame">
-                <img src="assets/img/env_obl_blocked.png" alt="3D Skill Envelope of push plate colliding with open middle drawer" />
+                <img src="assets/img/env_obl_blocked.jpg" alt="3D Skill Envelope of push plate colliding with open middle drawer" />
                 <span class="photo-badge t-world">Push Plate · 0/10 (418 cm³ overlap)</span>
               </div>
               <div class="photo-meta">
-                <p>The policy's habitual 3D arm sweep cuts directly across the extended middle drawer—guaranteed physical collision.</p>
+                <p>The arm's swept path cuts straight through the open drawer—guaranteeing a collision.</p>
               </div>
             </article>
             <article class="photo-card">
               <div class="photo-frame">
-                <img src="assets/img/env_obl_ready.png" alt="3D Skill Envelope of turn on stove clearing open middle drawer" />
+                <img src="assets/img/env_obl_ready.jpg" alt="3D Skill Envelope of turn on stove clearing open middle drawer" />
                 <span class="photo-badge t-good">Turn on Stove · 10/10 (0 cm³ overlap)</span>
               </div>
               <div class="photo-meta">
-                <p>In the exact same scene state, the stove skill sweeps entirely on the left—zero spatial intersection, zero repair needed.</p>
+                <p>In the same scene, the stove skill sweeps entirely on the left—zero overlap, no repair needed.</p>
               </div>
             </article>
           </div>
 
           <blockquote class="pull-quote">
-            “The very trajectory rigidity that makes a frozen VLA fragile at skill seams is what makes its 3D swept volume predictable in advance.”
+            “A frozen VLA's rigid path is what makes it collide at seams—and what makes its 3D swept volume predictable before execution.”
           </blockquote>
         </div>
       </section>
@@ -645,13 +672,12 @@
       <!-- ==================== 3. DISTRIBUTION SHIFT MANIFOLD ==================== -->
       <section class="section" id="shift">
         <div class="wrap-wide">
-          <div class="sec-kicker">Mechanism Intuition · DAgger Analogy</div>
-          <h2 class="sec-title">Why Frozen Skills Collapse: Start-State Shift &amp; Mid-Tube Obstacles</h2>
+          <div class="sec-kicker">Mechanism · Distribution Shift</div>
+          <h2 class="sec-title">Two Failure Modes: Start-State Drift and Mid-Path Obstacles</h2>
           <p class="lead">
-            Viewing skill execution through the lens of behavioral cloning distribution shift unifies both failure modes. Direct chaining drops skill
-            B outside its training start support <i>p</i><sub>train</sub>(<i>s</i><sub>0</sub>), triggering DAgger-like compounding divergence
-            (<strong>14.2%</strong>). Re-homing returns the arm to the entrance of the training manifold, yet displaced physical residue still blocks
-            the rigid mid-rollout tube.
+            Direct chaining drops skill B outside its training start states <i>p</i><sub>train</sub>(<i>s</i><sub>0</sub>), causing compounding drift
+            (<strong>14.2%</strong>). Re-homing puts the arm back at the start of its training tube, but leftover objects still block the path
+            mid-rollout.
           </p>
 
           <div class="anim-stage" id="stage-ds" style="margin-top: 26px">
@@ -842,8 +868,7 @@
           </div>
           <div class="fig-bar">
             <div class="fig-note" id="note-ds">
-              <b>Full Story:</b> OOD start-state divergence (DAgger-like) → Body re-homing → mid-tube physical collision → targeted 1-variable code
-              clearing (zero policy finetuning).
+              <b>Full Story:</b> Start-state drift → arm re-homing → mid-path obstacle collision → 1-object code clearing (no policy finetuning).
             </div>
             <div class="seg" role="group" aria-label="Distribution Shift Stages" data-ds-ctl="ds">
               <button data-ds="0" aria-pressed="true">Full Story</button>
@@ -860,326 +885,336 @@
       <section class="section section-soft" id="method">
         <div class="wrap-wide">
           <div class="sec-kicker">Part II · Method</div>
-          <h2 class="sec-title">3D Skill Envelopes: Offline Profiling, Online Gating &amp; Classical 3D Tools</h2>
+          <h2 class="sec-title">3D Skill Envelopes: Profile Once, Gate Online, Clear with Code</h2>
           <p class="lead">
-            Rather than finetuning brittle policies or prompting VLMs to guess unseen robot trajectories, we profile each frozen skill's swept 3D
-            occupancy offline in <strong>O(n)</strong> solo rollouts and expose it online via two deterministic geometric tools.
+            Instead of finetuning policies or asking VLMs to guess unseen robot paths, we record each skill's 3D swept volume offline in
+            <strong>O(n)</strong> solo rollouts and query it online with <code>CHECK</code> and <code>FREE</code>.
           </p>
 
-          <!-- LIVING ANIMATED FIGURE 3 -->
+          <!-- LIVING ANIMATED FIGURE 3 (HTML Photo Underlay + Vector SVG Overlay) -->
           <div class="anim-stage" id="stage-fig3" data-anim-fig="fig3" style="margin-top: 26px">
-            <svg
-              class="anim-svg"
-              viewBox="0 0 1120 444"
-              role="img"
-              aria-label="Interactive Figure 3: Offline O(n) profiling, online VLA vs code division of labor, and CHECK/FREE 3D tools"
-            >
-              <defs>
-                <marker id="ar-f3-good" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
-                  <path d="M0 1 L9 5 L0 9z" fill="#527A2D" />
-                </marker>
-                <marker id="ar-f3-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
-                  <path d="M0 1 L9 5 L0 9z" fill="#2F6DB3" />
-                </marker>
-                <marker id="ar-f3-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                  <path d="M0 1 L9 5 L0 9z" fill="#464B54" />
-                </marker>
-                <marker id="ar-f3-world" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
-                  <path d="M0 1 L9 5 L0 9z" fill="#C65633" />
-                </marker>
-                <marker id="ar-f3-warn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
-                  <path d="M0 1 L9 5 L0 9z" fill="#C9821E" />
-                </marker>
-                <clipPath id="f3-clip-chk"><rect x="858" y="52" width="242" height="178" rx="9" /></clipPath>
-                <clipPath id="f3-clip-free"><rect x="858" y="244" width="242" height="178" rx="9" /></clipPath>
-              </defs>
+            <div class="anim-canvas">
+              <div
+                class="stage-photo"
+                data-f3-grp="3"
+                style="left: 76.607%; top: 11.712%; width: 21.607%; height: 40.09%; border-radius: 3.72% / 5.06%"
+              >
+                <img src="assets/img/env_tools_check.jpg" alt="CHECK tool intersecting red obstacle voxels with green skill envelope" />
+              </div>
+              <div
+                class="stage-photo"
+                data-f3-grp="3"
+                style="left: 76.607%; top: 54.955%; width: 21.607%; height: 40.09%; border-radius: 3.72% / 5.06%"
+              >
+                <img src="assets/img/env_tools_free.jpg" alt="FREE tool finding a teal safe placement zone outside future skill envelopes" />
+              </div>
 
-              <!-- COLUMN 1: OFFLINE PROFILING -->
-              <g class="a-grp" data-f3-grp="1">
-                <rect x="8" y="8" width="248" height="428" rx="12" fill="#FFFFFF" stroke="#527A2D" stroke-width="1.8" />
-                <path d="M 9 20 A 11 11 0 0 1 20 9 H 244 A 11 11 0 0 1 255 20 V 42 H 9 Z" fill="#EDF4E5" />
-                <text x="22" y="31" style="font-size: 14px; font-weight: 700; fill: #3a5a1e">1. Offline Profiling · O(n)</text>
+              <svg
+                class="anim-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1120 444"
+                role="img"
+                aria-label="Interactive Figure 3: Offline O(n) profiling, online VLA vs code division of labor, and CHECK/FREE 3D tools"
+              >
+                <defs>
+                  <marker id="ar-f3-good" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+                    <path d="M0 1 L9 5 L0 9z" fill="#527A2D" />
+                  </marker>
+                  <marker id="ar-f3-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+                    <path d="M0 1 L9 5 L0 9z" fill="#2F6DB3" />
+                  </marker>
+                  <marker id="ar-f3-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M0 1 L9 5 L0 9z" fill="#464B54" />
+                  </marker>
+                  <marker id="ar-f3-world" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+                    <path d="M0 1 L9 5 L0 9z" fill="#C65633" />
+                  </marker>
+                  <marker id="ar-f3-warn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+                    <path d="M0 1 L9 5 L0 9z" fill="#C9821E" />
+                  </marker>
+                </defs>
 
-                <rect x="22" y="52" width="220" height="54" rx="10" fill="#F4F8EF" stroke="#527A2D" stroke-width="1.3" />
-                <text x="132" y="75" text-anchor="middle" style="font-size: 14px; font-weight: 700; fill: #2d4417">
-                  Frozen VLA π
-                  <tspan dy="3" font-size="10">k</tspan>
-                </text>
-                <text x="132" y="96" text-anchor="middle" style="font-size: 11px; fill: #464b54">Solo rollouts · N successes</text>
+                <!-- COLUMN 1: OFFLINE PROFILING -->
+                <g class="a-grp" data-f3-grp="1">
+                  <rect x="8" y="8" width="248" height="428" rx="12" fill="#FFFFFF" stroke="#527A2D" stroke-width="1.8" />
+                  <path d="M 9 20 A 11 11 0 0 1 20 9 H 244 A 11 11 0 0 1 255 20 V 42 H 9 Z" fill="#EDF4E5" />
+                  <text x="22" y="31" style="font-size: 14px; font-weight: 700; fill: #3a5a1e">1. Offline Profiling · O(n)</text>
 
-                <path d="M 132 106 V 128" fill="none" stroke="#527A2D" stroke-width="2" class="flow-fast" marker-end="url(#ar-f3-good)" />
-                <circle r="3.2" fill="#527A2D" stroke="#fff" stroke-width="1.1" class="a-bead f3-b-p1" style="--dur: 1.4s; --del: 0s" />
+                  <rect x="22" y="52" width="220" height="54" rx="10" fill="#F4F8EF" stroke="#527A2D" stroke-width="1.3" />
+                  <text x="132" y="75" text-anchor="middle" style="font-size: 14px; font-weight: 700; fill: #2d4417">
+                    Frozen VLA π
+                    <tspan dy="3" font-size="10">k</tspan>
+                  </text>
+                  <text x="132" y="96" text-anchor="middle" style="font-size: 11px; fill: #464b54">Solo rollouts · N successes</text>
 
-                <rect x="22" y="132" width="220" height="164" rx="10" fill="#FFFFFF" stroke="#CFC7BC" stroke-width="1.3" />
-                <text x="132" y="152" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #1b1e23">
-                  3D Arm Sweep (1 cm voxels)
-                </text>
-                <path d="M 46 218 L 218 218 L 232 252 L 32 252 Z" fill="#FAF8F4" stroke="#DFDBD0" stroke-width="1" />
-                <g stroke="#E5DFD6" stroke-width="0.8">
-                  <line x1="78" y1="218" x2="70" y2="252" />
-                  <line x1="112" y1="218" x2="110" y2="252" />
-                  <line x1="146" y1="218" x2="152" y2="252" />
-                  <line x1="182" y1="218" x2="192" y2="252" />
-                  <line x1="40" y1="234" x2="224" y2="234" />
+                  <path d="M 132 106 V 128" fill="none" stroke="#527A2D" stroke-width="2" class="flow-fast" marker-end="url(#ar-f3-good)" />
+                  <circle r="3.2" fill="#527A2D" stroke="#fff" stroke-width="1.1" class="a-bead f3-b-p1" style="--dur: 1.4s; --del: 0s" />
+
+                  <rect x="22" y="132" width="220" height="164" rx="10" fill="#FFFFFF" stroke="#CFC7BC" stroke-width="1.3" />
+                  <text x="132" y="152" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #1b1e23">
+                    3D Arm Sweep (1 cm voxels)
+                  </text>
+                  <path d="M 46 218 L 218 218 L 232 252 L 32 252 Z" fill="#FAF8F4" stroke="#DFDBD0" stroke-width="1" />
+                  <g stroke="#E5DFD6" stroke-width="0.8">
+                    <line x1="78" y1="218" x2="70" y2="252" />
+                    <line x1="112" y1="218" x2="110" y2="252" />
+                    <line x1="146" y1="218" x2="152" y2="252" />
+                    <line x1="182" y1="218" x2="192" y2="252" />
+                    <line x1="40" y1="234" x2="224" y2="234" />
+                  </g>
+                  <ellipse cx="192" cy="240" rx="10" ry="4" fill="#B7B1A4" stroke="#68645C" stroke-width="1" />
+                  <rect x="182" y="229" width="20" height="11" fill="#C9C5B9" />
+                  <ellipse cx="192" cy="229" rx="10" ry="4" fill="#DFDBD0" stroke="#68645C" stroke-width="1" />
+
+                  <g stroke="#3A5A1E" stroke-width="0.9" fill="#527A2D">
+                    <rect x="94" y="196" width="14" height="14" rx="2" class="f3-vox" style="--vd: 0s" />
+                    <rect x="106" y="184" width="14" height="14" rx="2" class="f3-vox" style="--vd: -0.25s" />
+                    <rect x="118" y="174" width="14" height="14" rx="2" class="f3-vox" style="--vd: -0.5s" />
+                    <rect x="132" y="168" width="15" height="15" rx="2" class="f3-vox" style="--vd: -0.75s" />
+                    <rect x="146" y="168" width="15" height="15" rx="2" class="f3-vox" style="--vd: -1s" />
+                    <rect x="158" y="174" width="15" height="15" rx="2" class="f3-vox" style="--vd: -1.25s" />
+                    <rect x="170" y="184" width="14" height="14" rx="2" class="f3-vox" style="--vd: -1.5s" />
+                    <rect x="180" y="198" width="14" height="14" rx="2" class="f3-vox" style="--vd: -1.75s" />
+                    <rect x="124" y="186" width="13" height="13" rx="2" class="f3-vox" style="--vd: -0.6s" />
+                    <rect x="140" y="182" width="14" height="14" rx="2" class="f3-vox" style="--vd: -0.9s" />
+                    <rect x="156" y="188" width="14" height="14" rx="2" class="f3-vox" style="--vd: -1.2s" />
+                  </g>
+                  <g opacity=".3" stroke="#8A867B" stroke-width="3.2" stroke-linecap="round" fill="none">
+                    <path d="M 68 236 L 54 186 L 100 202" />
+                  </g>
+                  <g class="f3-arm-sweep">
+                    <line x1="68" y1="236" x2="112" y2="188" stroke="#1B1E23" stroke-width="4.2" stroke-linecap="round" />
+                    <line x1="112" y1="188" x2="168" y2="204" stroke="#1B1E23" stroke-width="3.6" stroke-linecap="round" />
+                    <circle cx="112" cy="188" r="4.2" fill="#FFFFFF" stroke="#1B1E23" stroke-width="2" />
+                    <path d="M 168 198 L 176 202 M 168 210 L 176 206" stroke="#1B1E23" stroke-width="2.2" stroke-linecap="round" />
+                  </g>
+                  <circle cx="68" cy="236" r="5.5" fill="#464B54" stroke="#FFFFFF" stroke-width="1.6" />
+
+                  <rect x="30" y="262" width="204" height="26" rx="8" fill="#EDF4E5" />
+                  <text x="132" y="279" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #3a5a1e">
+                    <tspan font-style="italic">E</tspan>
+                    <tspan dy="3" font-size="9">k</tspan>
+                    <tspan dy="-3">(x) = P(x ∈ sweep)</tspan>
+                  </text>
+
+                  <path d="M 132 296 V 318" fill="none" stroke="#527A2D" stroke-width="2" class="flow-fast" marker-end="url(#ar-f3-good)" />
+                  <circle r="3.2" fill="#527A2D" stroke="#fff" stroke-width="1.1" class="a-bead f3-b-p2" style="--dur: 1.4s; --del: -0.6s" />
+
+                  <rect x="22" y="322" width="220" height="102" rx="10" fill="#FFFFFF" stroke="#527A2D" stroke-width="1.5" stroke-dasharray="5 4" />
+                  <text x="132" y="344" text-anchor="middle" style="font-size: 13px; font-weight: 700; fill: #3a5a1e">Skill Library</text>
+                  <rect x="32" y="356" width="102" height="28" rx="14" fill="#527A2D" />
+                  <text x="83" y="374" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #ffffff">
+                    Envelope E
+                    <tspan dy="2" font-size="8.5">k</tspan>
+                  </text>
+                  <rect x="142" y="356" width="90" height="28" rx="14" fill="#2F6DB3" />
+                  <text x="187" y="374" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #ffffff">Effects</text>
+                  <text x="132" y="408" text-anchor="middle" style="font-size: 11px; fill: #68645c">No demos · zero failure data</text>
                 </g>
-                <ellipse cx="192" cy="240" rx="10" ry="4" fill="#B7B1A4" stroke="#68645C" stroke-width="1" />
-                <rect x="182" y="229" width="20" height="11" fill="#C9C5B9" />
-                <ellipse cx="192" cy="229" rx="10" ry="4" fill="#DFDBD0" stroke="#68645C" stroke-width="1" />
 
-                <g stroke="#3A5A1E" stroke-width="0.9" fill="#527A2D">
-                  <rect x="94" y="196" width="14" height="14" rx="2" class="f3-vox" style="--vd: 0s" />
-                  <rect x="106" y="184" width="14" height="14" rx="2" class="f3-vox" style="--vd: -0.25s" />
-                  <rect x="118" y="174" width="14" height="14" rx="2" class="f3-vox" style="--vd: -0.5s" />
-                  <rect x="132" y="168" width="15" height="15" rx="2" class="f3-vox" style="--vd: -0.75s" />
-                  <rect x="146" y="168" width="15" height="15" rx="2" class="f3-vox" style="--vd: -1s" />
-                  <rect x="158" y="174" width="15" height="15" rx="2" class="f3-vox" style="--vd: -1.25s" />
-                  <rect x="170" y="184" width="14" height="14" rx="2" class="f3-vox" style="--vd: -1.5s" />
-                  <rect x="180" y="198" width="14" height="14" rx="2" class="f3-vox" style="--vd: -1.75s" />
-                  <rect x="124" y="186" width="13" height="13" rx="2" class="f3-vox" style="--vd: -0.6s" />
-                  <rect x="140" y="182" width="14" height="14" rx="2" class="f3-vox" style="--vd: -0.9s" />
-                  <rect x="156" y="188" width="14" height="14" rx="2" class="f3-vox" style="--vd: -1.2s" />
+                <!-- COLUMN 2: ONLINE COMPOSITION -->
+                <g class="a-grp" data-f3-grp="2">
+                  <rect x="282" y="8" width="534" height="428" rx="12" fill="#FFFFFF" stroke="#2F6DB3" stroke-width="1.8" />
+                  <path d="M 283 20 A 11 11 0 0 1 294 9 H 804 A 11 11 0 0 1 815 20 V 42 H 283 Z" fill="#E9F1FA" />
+                  <text x="296" y="31" style="font-size: 14px; font-weight: 700; fill: #22528c">
+                    2. Online Composition: VLAs Execute, Code Recovers
+                  </text>
+
+                  <rect x="298" y="52" width="502" height="52" rx="10" fill="#F4F8FD" stroke="#B8CEE8" stroke-width="1.3" />
+                  <rect x="310" y="65" width="88" height="26" rx="13" fill="#2F6DB3" />
+                  <text x="354" y="82" text-anchor="middle" style="font-size: 12px; font-weight: 700; fill: #ffffff">Goals G</text>
+                  <path d="M 398 78 H 420" fill="none" stroke="#2F6DB3" stroke-width="2" class="flow-fast" marker-end="url(#ar-f3-blue)" />
+                  <circle r="3" fill="#2F6DB3" class="a-bead f3-b-g2p" style="--dur: 1.2s; --del: 0s" />
+                  <text x="430" y="74" style="font-size: 13.5px; font-weight: 700; fill: #22528c">
+                    Plan Order:
+                    <tspan fill="#1B1E23">arg max</tspan>
+                    <tspan dy="3" font-size="9.5" fill="#1B1E23">C</tspan>
+                    <tspan dy="-3" fill="#1B1E23">∏ p</tspan>
+                    <tspan dy="3" font-size="9.5" fill="#1B1E23">k</tspan>
+                  </text>
+                  <text x="430" y="94" style="font-size: 11px; fill: #68645c">Respect goal constraints C, minimize cross-step overlap</text>
+
+                  <rect x="298" y="122" width="502" height="248" rx="12" fill="#FAF8F4" stroke="#C8C2B5" stroke-width="1.3" stroke-dasharray="6 4" />
+                  <rect x="614" y="110" width="172" height="22" rx="11" fill="#FFFFFF" stroke="#C8C2B5" stroke-width="1.1" />
+                  <text x="700" y="125" text-anchor="middle" style="font-size: 11px; font-weight: 600; fill: #464b54">For each skill k in order</text>
+
+                  <path d="M 377 104 V 136" fill="none" stroke="#2F6DB3" stroke-width="2.2" class="flow-fast" marker-end="url(#ar-f3-blue)" />
+                  <circle r="3.5" fill="#2F6DB3" stroke="#fff" stroke-width="1.1" class="a-bead f3-b-p2h" style="--dur: 1.5s; --del: -0.2s" />
+
+                  <rect x="312" y="140" width="130" height="42" rx="9" fill="#E9F1FA" stroke="#2F6DB3" stroke-width="1.6" />
+                  <text x="377" y="166" text-anchor="middle" style="font-size: 13.5px; font-weight: 700; fill: #22528c">HOME (reset)</text>
+
+                  <path d="M 377 182 V 204" fill="none" stroke="#464B54" stroke-width="1.8" class="flow-fast" marker-end="url(#ar-f3-ink)" />
+                  <circle r="3" fill="#464B54" class="a-bead f3-b-h2r" style="--dur: 1.3s; --del: -0.4s" />
+
+                  <rect x="312" y="208" width="130" height="88" rx="9" fill="#FFFFFF" stroke="#C9C3B6" stroke-width="1.3" />
+                  <text x="377" y="228" text-anchor="middle" style="font-size: 13px; font-weight: 700; fill: #1b1e23">
+                    Residue V
+                    <tspan dy="3" font-size="9.5">e</tspan>
+                  </text>
+                  <rect x="326" y="238" width="102" height="20" rx="10" fill="#F2ECE6" />
+                  <text x="377" y="252" text-anchor="middle" style="font-size: 10.5px; fill: #68645c">Sim state</text>
+                  <rect x="322" y="264" width="110" height="23" rx="11.5" fill="#EDF4E5" stroke="#527A2D" stroke-width="1.3" />
+                  <text x="377" y="280" text-anchor="middle" style="font-size: 11px; font-weight: 700; fill: #3a5a1e">Single RGB-D</text>
+
+                  <path d="M 442 248 H 466" fill="none" stroke="#464B54" stroke-width="2" class="flow-fast" marker-end="url(#ar-f3-ink)" />
+                  <circle r="3.2" fill="#464B54" class="a-bead f3-b-r2c" style="--dur: 1.3s; --del: -0.1s" />
+
+                  <!-- CHECK Gate -->
+                  <rect x="470" y="194" width="132" height="104" rx="12" fill="#FBF5E8" stroke="#C9821E" stroke-width="2.2" class="a-gate-glow" />
+                  <rect x="480" y="204" width="112" height="26" rx="8" fill="#C9821E" />
+                  <text x="536" y="221" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #ffffff">CHECK(k, s)</text>
+                  <text x="536" y="254" text-anchor="middle" style="font-size: 13.5px; font-weight: 700; fill: #b8382a">Overlap ≥ τ ?</text>
+                  <text x="536" y="278" text-anchor="middle" style="font-size: 12px; fill: #68645c">
+                    (max
+                    <tspan dy="3" font-size="9" font-style="italic">V</tspan>
+                    <tspan dy="2" font-size="7" font-style="italic">e</tspan>
+                    <tspan dy="-5"></tspan>
+                    <tspan font-style="italic">E</tspan>
+                    <tspan dy="3" font-size="9">k</tspan>
+                    <tspan dy="-3">)</tspan>
+                  </text>
+
+                  <!-- Clear Fast-Lane -->
+                  <path
+                    d="M 602 224 C 624 224, 624 182, 644 182"
+                    fill="none"
+                    stroke="#527A2D"
+                    stroke-width="2.6"
+                    class="flow-fast"
+                    marker-end="url(#ar-f3-good)"
+                  />
+                  <circle r="4" fill="#527A2D" stroke="#fff" stroke-width="1.3" class="a-bead f3-b-clear" style="--dur: 1.6s; --del: 0s" />
+                  <circle r="4" fill="#527A2D" stroke="#fff" stroke-width="1.3" class="a-bead f3-b-clear" style="--dur: 1.6s; --del: -0.8s" />
+                  <text x="618" y="172" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #3f6220">Clear</text>
+
+                  <!-- Blocked Recovery Lane -->
+                  <path
+                    d="M 602 272 C 624 272, 624 287, 644 287"
+                    fill="none"
+                    stroke="#C65633"
+                    stroke-width="2.6"
+                    class="flow-fast"
+                    marker-end="url(#ar-f3-world)"
+                  />
+                  <circle r="4" fill="#C65633" stroke="#fff" stroke-width="1.3" class="a-bead f3-b-block" style="--dur: 1.9s; --del: -0.3s" />
+                  <text x="618" y="310" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #c65633">Blocked</text>
+
+                  <!-- VLA Execute -->
+                  <rect x="648" y="144" width="138" height="76" rx="10" fill="#EDF4E5" stroke="#527A2D" stroke-width="1.8" />
+                  <rect x="658" y="152" width="118" height="24" rx="7" fill="#527A2D" />
+                  <text x="717" y="168" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #ffffff">
+                    VLA π
+                    <tspan dy="2" font-size="9">k</tspan>
+                  </text>
+                  <text x="717" y="194" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #2d4417">Execute</text>
+                  <text x="717" y="211" text-anchor="middle" style="font-size: 10.5px; fill: #3f6220">In-dist · bypass LLM</text>
+
+                  <!-- Code Repair -->
+                  <rect x="648" y="246" width="138" height="82" rx="10" fill="#FBF5E8" stroke="#C9821E" stroke-width="1.8" />
+                  <rect x="658" y="254" width="118" height="24" rx="7" fill="#C9821E" />
+                  <text x="717" y="270" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #ffffff">Code Repair</text>
+                  <text x="717" y="297" text-anchor="middle" style="font-size: 12px; font-weight: 700; fill: #9e630f">Out-of-distribution</text>
+                  <text x="717" y="316" text-anchor="middle" style="font-size: 11px; fill: #68645c">via FREE(K, s)</text>
+
+                  <!-- Re-home & re-check return loop -->
+                  <path
+                    d="M 717 328 V 354 H 304 V 161 H 308"
+                    fill="none"
+                    stroke="#C9821E"
+                    stroke-width="2.2"
+                    class="flow-fast"
+                    marker-end="url(#ar-f3-warn)"
+                  />
+                  <circle r="3.8" fill="#C9821E" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-recheck" style="--dur: 3.6s; --del: 0s" />
+                  <circle r="3.8" fill="#C9821E" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-recheck" style="--dur: 3.6s; --del: -1.8s" />
+                  <rect x="526" y="343" width="150" height="21" rx="6" fill="#FAF8F4" />
+                  <text x="601" y="357" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #a86a12">re-home &amp; re-check</text>
+
+                  <!-- VLA Exit -> Chain End -->
+                  <path d="M 786 182 H 795 V 380" fill="none" stroke="#527A2D" stroke-width="2.2" class="flow-fast" marker-end="url(#ar-f3-good)" />
+                  <circle r="3.6" fill="#527A2D" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-vla2end" style="--dur: 2s; --del: -0.4s" />
+
+                  <rect x="298" y="384" width="502" height="38" rx="10" fill="#F4F8FD" stroke="#B8CEE8" stroke-width="1.3" />
+                  <text x="549" y="408" text-anchor="middle" style="font-size: 12.5px; fill: #464b54">
+                    <tspan font-weight="700" fill="#22528C">Chain end:</tspan>
+                    re-run any undone persistent goal
+                  </text>
                 </g>
-                <g opacity=".3" stroke="#8A867B" stroke-width="3.2" stroke-linecap="round" fill="none">
-                  <path d="M 68 236 L 54 186 L 100 202" />
+
+                <!-- TWO FLOWING GREEN CONDUITS ON TOP -->
+                <g class="a-grp" data-f3-grp="12">
+                  <path
+                    d="M 242 376 H 268 V 78 H 294"
+                    fill="none"
+                    stroke="#527A2D"
+                    stroke-width="2.2"
+                    class="flow-fast"
+                    marker-end="url(#ar-f3-good)"
+                  />
+                  <circle r="3.8" fill="#527A2D" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-lib2plan" style="--dur: 3.2s; --del: 0s" />
+                  <circle r="3.8" fill="#527A2D" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-lib2plan" style="--dur: 3.2s; --del: -1.6s" />
+
+                  <path d="M 242 376 H 492 V 302" fill="none" stroke="#527A2D" stroke-width="2.2" class="flow-fast" marker-end="url(#ar-f3-good)" />
+                  <circle r="3.8" fill="#527A2D" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-lib2chk" style="--dur: 2.8s; --del: -0.5s" />
+                  <circle r="3.8" fill="#527A2D" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-lib2chk" style="--dur: 2.8s; --del: -1.9s" />
+                  <rect x="336" y="366" width="54" height="19" rx="6" fill="#FFFFFF" stroke="#DDE7D2" stroke-width="0.9" />
+                  <text x="363" y="379" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #3a5a1e">
+                    E
+                    <tspan dy="2" font-size="8.5">k</tspan>
+                    <tspan dy="-2">(x)</tspan>
+                  </text>
                 </g>
-                <g class="f3-arm-sweep">
-                  <line x1="68" y1="236" x2="112" y2="188" stroke="#1B1E23" stroke-width="4.2" stroke-linecap="round" />
-                  <line x1="112" y1="188" x2="168" y2="204" stroke="#1B1E23" stroke-width="3.6" stroke-linecap="round" />
-                  <circle cx="112" cy="188" r="4.2" fill="#FFFFFF" stroke="#1B1E23" stroke-width="2" />
-                  <path d="M 168 198 L 176 202 M 168 210 L 176 206" stroke="#1B1E23" stroke-width="2.2" stroke-linecap="round" />
+
+                <!-- CONNECTORS COL 2 -> COL 3 -->
+                <g class="a-grp" data-f3-grp="23">
+                  <path d="M 816 142 H 842" fill="none" stroke="#527A2D" stroke-width="2.2" class="flow-fast" marker-end="url(#ar-f3-good)" />
+                  <circle r="3.4" fill="#527A2D" stroke="#fff" stroke-width="1.1" class="a-bead f3-b-t1" style="--dur: 1.3s; --del: 0s" />
+                  <path d="M 816 320 H 842" fill="none" stroke="#C9821E" stroke-width="2.2" class="flow-fast" marker-end="url(#ar-f3-warn)" />
+                  <circle r="3.4" fill="#C9821E" stroke="#fff" stroke-width="1.1" class="a-bead f3-b-t2" style="--dur: 1.3s; --del: -0.6s" />
                 </g>
-                <circle cx="68" cy="236" r="5.5" fill="#464B54" stroke="#FFFFFF" stroke-width="1.6" />
 
-                <rect x="30" y="262" width="204" height="26" rx="8" fill="#EDF4E5" />
-                <text x="132" y="279" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #3a5a1e">
-                  <tspan font-style="italic">E</tspan>
-                  <tspan dy="3" font-size="9">k</tspan>
-                  <tspan dy="-3">(x) = P(x ∈ sweep)</tspan>
-                </text>
+                <!-- COLUMN 3: CHECK & FREE TOOLS (transparent card fill lets HTML photos show cleanly underneath) -->
+                <g class="a-grp" data-f3-grp="3">
+                  <rect x="846" y="8" width="266" height="428" rx="12" fill="none" stroke="#C9821E" stroke-width="1.8" />
+                  <path d="M 847 20 A 11 11 0 0 1 858 9 H 1100 A 11 11 0 0 1 1111 20 V 42 H 847 Z" fill="#FBF3E2" />
+                  <text x="860" y="31" style="font-size: 14px; font-weight: 700; fill: #9e630f">3. Tools: CHECK &amp; FREE</text>
 
-                <path d="M 132 296 V 318" fill="none" stroke="#527A2D" stroke-width="2" class="flow-fast" marker-end="url(#ar-f3-good)" />
-                <circle r="3.2" fill="#527A2D" stroke="#fff" stroke-width="1.1" class="a-bead f3-b-p2" style="--dur: 1.4s; --del: -0.6s" />
+                  <rect x="858" y="52" width="242" height="178" rx="9" fill="none" stroke="#527A2D" stroke-width="1.7" />
+                  <rect x="865" y="59" width="90" height="22" rx="11" fill="#527A2D" stroke="#fff" stroke-width="1.1" />
+                  <text x="910" y="74" text-anchor="middle" style="font-size: 11px; font-weight: 700; fill: #ffffff">
+                    CHECK · E
+                    <tspan dy="2" font-size="8">k</tspan>
+                  </text>
+                  <circle r="3.8" fill="#527A2D" stroke="#fff" stroke-width="1.4" class="a-bead f3-b-chkarc" style="--dur: 2s; --del: 0s" />
+                  <circle cx="969" cy="172" r="12" fill="none" stroke="#FF4A3D" stroke-width="1.8" class="a-pulse" />
+                  <circle cx="969" cy="172" r="4" fill="#C43E2F" stroke="#fff" stroke-width="1.3" />
+                  <line x1="965" y1="176" x2="932" y2="206" stroke="#fff" stroke-width="2.8" stroke-linecap="round" />
+                  <line x1="965" y1="176" x2="932" y2="206" stroke="#C43E2F" stroke-width="1.5" stroke-linecap="round" />
+                  <rect x="865" y="200" width="74" height="22" rx="11" fill="#C43E2F" stroke="#fff" stroke-width="1.1" />
+                  <text x="902" y="215" text-anchor="middle" style="font-size: 11px; font-weight: 700; fill: #ffffff">Blocked</text>
 
-                <rect x="22" y="322" width="220" height="102" rx="10" fill="#FFFFFF" stroke="#527A2D" stroke-width="1.5" stroke-dasharray="5 4" />
-                <text x="132" y="344" text-anchor="middle" style="font-size: 13px; font-weight: 700; fill: #3a5a1e">Skill Library</text>
-                <rect x="32" y="356" width="102" height="28" rx="14" fill="#527A2D" />
-                <text x="83" y="374" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #ffffff">
-                  Envelope E
-                  <tspan dy="2" font-size="8.5">k</tspan>
-                </text>
-                <rect x="142" y="356" width="90" height="28" rx="14" fill="#2F6DB3" />
-                <text x="187" y="374" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #ffffff">Effects</text>
-                <text x="132" y="408" text-anchor="middle" style="font-size: 11px; fill: #68645c">No demos · zero failure data</text>
-              </g>
-
-              <!-- COLUMN 2: ONLINE COMPOSITION -->
-              <g class="a-grp" data-f3-grp="2">
-                <rect x="282" y="8" width="534" height="428" rx="12" fill="#FFFFFF" stroke="#2F6DB3" stroke-width="1.8" />
-                <path d="M 283 20 A 11 11 0 0 1 294 9 H 804 A 11 11 0 0 1 815 20 V 42 H 283 Z" fill="#E9F1FA" />
-                <text x="296" y="31" style="font-size: 14px; font-weight: 700; fill: #22528c">
-                  2. Online Composition: VLAs Execute, Code Recovers
-                </text>
-
-                <rect x="298" y="52" width="502" height="52" rx="10" fill="#F4F8FD" stroke="#B8CEE8" stroke-width="1.3" />
-                <rect x="310" y="65" width="88" height="26" rx="13" fill="#2F6DB3" />
-                <text x="354" y="82" text-anchor="middle" style="font-size: 12px; font-weight: 700; fill: #ffffff">Goals G</text>
-                <path d="M 398 78 H 420" fill="none" stroke="#2F6DB3" stroke-width="2" class="flow-fast" marker-end="url(#ar-f3-blue)" />
-                <circle r="3" fill="#2F6DB3" class="a-bead f3-b-g2p" style="--dur: 1.2s; --del: 0s" />
-                <text x="430" y="74" style="font-size: 13.5px; font-weight: 700; fill: #22528c">
-                  Plan Order:
-                  <tspan fill="#1B1E23">arg max</tspan>
-                  <tspan dy="3" font-size="9.5" fill="#1B1E23">C</tspan>
-                  <tspan dy="-3" fill="#1B1E23">∏ p</tspan>
-                  <tspan dy="3" font-size="9.5" fill="#1B1E23">k</tspan>
-                </text>
-                <text x="430" y="94" style="font-size: 11px; fill: #68645c">Respect goal constraints C, minimize cross-step overlap</text>
-
-                <rect x="298" y="122" width="502" height="248" rx="12" fill="#FAF8F4" stroke="#C8C2B5" stroke-width="1.3" stroke-dasharray="6 4" />
-                <rect x="614" y="110" width="172" height="22" rx="11" fill="#FFFFFF" stroke="#C8C2B5" stroke-width="1.1" />
-                <text x="700" y="125" text-anchor="middle" style="font-size: 11px; font-weight: 600; fill: #464b54">For each skill k in order</text>
-
-                <path d="M 377 104 V 136" fill="none" stroke="#2F6DB3" stroke-width="2.2" class="flow-fast" marker-end="url(#ar-f3-blue)" />
-                <circle r="3.5" fill="#2F6DB3" stroke="#fff" stroke-width="1.1" class="a-bead f3-b-p2h" style="--dur: 1.5s; --del: -0.2s" />
-
-                <rect x="312" y="140" width="130" height="42" rx="9" fill="#E9F1FA" stroke="#2F6DB3" stroke-width="1.6" />
-                <text x="377" y="166" text-anchor="middle" style="font-size: 13.5px; font-weight: 700; fill: #22528c">HOME (reset)</text>
-
-                <path d="M 377 182 V 204" fill="none" stroke="#464B54" stroke-width="1.8" class="flow-fast" marker-end="url(#ar-f3-ink)" />
-                <circle r="3" fill="#464B54" class="a-bead f3-b-h2r" style="--dur: 1.3s; --del: -0.4s" />
-
-                <rect x="312" y="208" width="130" height="88" rx="9" fill="#FFFFFF" stroke="#C9C3B6" stroke-width="1.3" />
-                <text x="377" y="228" text-anchor="middle" style="font-size: 13px; font-weight: 700; fill: #1b1e23">
-                  Residue V
-                  <tspan dy="3" font-size="9.5">e</tspan>
-                </text>
-                <rect x="326" y="238" width="102" height="20" rx="10" fill="#F2ECE6" />
-                <text x="377" y="252" text-anchor="middle" style="font-size: 10.5px; fill: #68645c">Sim state</text>
-                <rect x="322" y="264" width="110" height="23" rx="11.5" fill="#EDF4E5" stroke="#527A2D" stroke-width="1.3" />
-                <text x="377" y="280" text-anchor="middle" style="font-size: 11px; font-weight: 700; fill: #3a5a1e">Single RGB-D</text>
-
-                <path d="M 442 248 H 466" fill="none" stroke="#464B54" stroke-width="2" class="flow-fast" marker-end="url(#ar-f3-ink)" />
-                <circle r="3.2" fill="#464B54" class="a-bead f3-b-r2c" style="--dur: 1.3s; --del: -0.1s" />
-
-                <!-- CHECK Gate -->
-                <rect x="470" y="194" width="132" height="104" rx="12" fill="#FBF5E8" stroke="#C9821E" stroke-width="2.2" class="a-gate-glow" />
-                <rect x="480" y="204" width="112" height="26" rx="8" fill="#C9821E" />
-                <text x="536" y="221" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #ffffff">CHECK(k, s)</text>
-                <text x="536" y="254" text-anchor="middle" style="font-size: 13.5px; font-weight: 700; fill: #b8382a">Overlap ≥ τ ?</text>
-                <text x="536" y="278" text-anchor="middle" style="font-size: 12px; fill: #68645c">
-                  (max
-                  <tspan dy="3" font-size="9" font-style="italic">V</tspan>
-                  <tspan dy="2" font-size="7" font-style="italic">e</tspan>
-                  <tspan dy="-5"></tspan>
-                  <tspan font-style="italic">E</tspan>
-                  <tspan dy="3" font-size="9">k</tspan>
-                  <tspan dy="-3">)</tspan>
-                </text>
-
-                <!-- Clear Fast-Lane -->
-                <path
-                  d="M 602 224 C 624 224, 624 182, 644 182"
-                  fill="none"
-                  stroke="#527A2D"
-                  stroke-width="2.6"
-                  class="flow-fast"
-                  marker-end="url(#ar-f3-good)"
-                />
-                <circle r="4" fill="#527A2D" stroke="#fff" stroke-width="1.3" class="a-bead f3-b-clear" style="--dur: 1.6s; --del: 0s" />
-                <circle r="4" fill="#527A2D" stroke="#fff" stroke-width="1.3" class="a-bead f3-b-clear" style="--dur: 1.6s; --del: -0.8s" />
-                <text x="618" y="172" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #3f6220">Clear</text>
-
-                <!-- Blocked Recovery Lane -->
-                <path
-                  d="M 602 272 C 624 272, 624 287, 644 287"
-                  fill="none"
-                  stroke="#C65633"
-                  stroke-width="2.6"
-                  class="flow-fast"
-                  marker-end="url(#ar-f3-world)"
-                />
-                <circle r="4" fill="#C65633" stroke="#fff" stroke-width="1.3" class="a-bead f3-b-block" style="--dur: 1.9s; --del: -0.3s" />
-                <text x="618" y="310" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #c65633">Blocked</text>
-
-                <!-- VLA Execute -->
-                <rect x="648" y="144" width="138" height="76" rx="10" fill="#EDF4E5" stroke="#527A2D" stroke-width="1.8" />
-                <rect x="658" y="152" width="118" height="24" rx="7" fill="#527A2D" />
-                <text x="717" y="168" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #ffffff">
-                  VLA π
-                  <tspan dy="2" font-size="9">k</tspan>
-                </text>
-                <text x="717" y="194" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #2d4417">Execute</text>
-                <text x="717" y="211" text-anchor="middle" style="font-size: 10.5px; fill: #3f6220">In-dist · bypass LLM</text>
-
-                <!-- Code Repair -->
-                <rect x="648" y="246" width="138" height="82" rx="10" fill="#FBF5E8" stroke="#C9821E" stroke-width="1.8" />
-                <rect x="658" y="254" width="118" height="24" rx="7" fill="#C9821E" />
-                <text x="717" y="270" text-anchor="middle" style="font-size: 12.5px; font-weight: 700; fill: #ffffff">Code Repair</text>
-                <text x="717" y="297" text-anchor="middle" style="font-size: 12px; font-weight: 700; fill: #9e630f">Out-of-distribution</text>
-                <text x="717" y="316" text-anchor="middle" style="font-size: 11px; fill: #68645c">via FREE(K, s)</text>
-
-                <!-- Re-home & re-check return loop -->
-                <path
-                  d="M 717 328 V 354 H 304 V 161 H 308"
-                  fill="none"
-                  stroke="#C9821E"
-                  stroke-width="2.2"
-                  class="flow-fast"
-                  marker-end="url(#ar-f3-warn)"
-                />
-                <circle r="3.8" fill="#C9821E" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-recheck" style="--dur: 3.6s; --del: 0s" />
-                <circle r="3.8" fill="#C9821E" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-recheck" style="--dur: 3.6s; --del: -1.8s" />
-                <rect x="526" y="343" width="150" height="21" rx="6" fill="#FAF8F4" />
-                <text x="601" y="357" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #a86a12">re-home &amp; re-check</text>
-
-                <!-- VLA Exit -> Chain End -->
-                <path d="M 786 182 H 795 V 380" fill="none" stroke="#527A2D" stroke-width="2.2" class="flow-fast" marker-end="url(#ar-f3-good)" />
-                <circle r="3.6" fill="#527A2D" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-vla2end" style="--dur: 2s; --del: -0.4s" />
-
-                <rect x="298" y="384" width="502" height="38" rx="10" fill="#F4F8FD" stroke="#B8CEE8" stroke-width="1.3" />
-                <text x="549" y="408" text-anchor="middle" style="font-size: 12.5px; fill: #464b54">
-                  <tspan font-weight="700" fill="#22528C">Chain end:</tspan>
-                  re-run any undone persistent goal
-                </text>
-              </g>
-
-              <!-- TWO FLOWING GREEN CONDUITS ON TOP -->
-              <g class="a-grp" data-f3-grp="12">
-                <path
-                  d="M 242 376 H 268 V 78 H 294"
-                  fill="none"
-                  stroke="#527A2D"
-                  stroke-width="2.2"
-                  class="flow-fast"
-                  marker-end="url(#ar-f3-good)"
-                />
-                <circle r="3.8" fill="#527A2D" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-lib2plan" style="--dur: 3.2s; --del: 0s" />
-                <circle r="3.8" fill="#527A2D" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-lib2plan" style="--dur: 3.2s; --del: -1.6s" />
-
-                <path d="M 242 376 H 492 V 302" fill="none" stroke="#527A2D" stroke-width="2.2" class="flow-fast" marker-end="url(#ar-f3-good)" />
-                <circle r="3.8" fill="#527A2D" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-lib2chk" style="--dur: 2.8s; --del: -0.5s" />
-                <circle r="3.8" fill="#527A2D" stroke="#fff" stroke-width="1.2" class="a-bead f3-b-lib2chk" style="--dur: 2.8s; --del: -1.9s" />
-                <rect x="336" y="366" width="54" height="19" rx="6" fill="#FFFFFF" stroke="#DDE7D2" stroke-width="0.9" />
-                <text x="363" y="379" text-anchor="middle" style="font-size: 11.5px; font-weight: 700; fill: #3a5a1e">
-                  E
-                  <tspan dy="2" font-size="8.5">k</tspan>
-                  <tspan dy="-2">(x)</tspan>
-                </text>
-              </g>
-
-              <!-- CONNECTORS COL 2 -> COL 3 -->
-              <g class="a-grp" data-f3-grp="23">
-                <path d="M 816 142 H 842" fill="none" stroke="#527A2D" stroke-width="2.2" class="flow-fast" marker-end="url(#ar-f3-good)" />
-                <circle r="3.4" fill="#527A2D" stroke="#fff" stroke-width="1.1" class="a-bead f3-b-t1" style="--dur: 1.3s; --del: 0s" />
-                <path d="M 816 320 H 842" fill="none" stroke="#C9821E" stroke-width="2.2" class="flow-fast" marker-end="url(#ar-f3-warn)" />
-                <circle r="3.4" fill="#C9821E" stroke="#fff" stroke-width="1.1" class="a-bead f3-b-t2" style="--dur: 1.3s; --del: -0.6s" />
-              </g>
-
-              <!-- COLUMN 3: CHECK & FREE TOOLS -->
-              <g class="a-grp" data-f3-grp="3">
-                <rect x="846" y="8" width="266" height="428" rx="12" fill="#FFFFFF" stroke="#C9821E" stroke-width="1.8" />
-                <path d="M 847 20 A 11 11 0 0 1 858 9 H 1100 A 11 11 0 0 1 1111 20 V 42 H 847 Z" fill="#FBF3E2" />
-                <text x="860" y="31" style="font-size: 14px; font-weight: 700; fill: #9e630f">3. Tools: CHECK &amp; FREE</text>
-
-                <g clip-path="url(#f3-clip-chk)">
-                  <image href="assets/img/env_tools_check.png" x="858" y="52" width="242" height="178" preserveAspectRatio="xMidYMid slice" />
+                  <rect x="858" y="244" width="242" height="178" rx="9" fill="none" stroke="#C9821E" stroke-width="1.7" />
+                  <rect x="865" y="251" width="154" height="22" rx="11" fill="#2F6DB3" stroke="#fff" stroke-width="1.1" />
+                  <text x="942" y="266" text-anchor="middle" style="font-size: 10.5px; font-weight: 700; fill: #ffffff">
+                    FREE · outside E
+                    <tspan dy="2" font-size="8">k</tspan>
+                    <tspan dy="-2">∪ E</tspan>
+                    <tspan dy="2" font-size="8">k+1</tspan>
+                  </text>
+                  <circle r="4.2" fill="#E07B18" stroke="#fff" stroke-width="1.5" class="a-bead f3-b-freearc" style="--dur: 2.2s; --del: -0.5s" />
+                  <rect x="865" y="392" width="84" height="22" rx="11" fill="#C9821E" stroke="#fff" stroke-width="1.1" />
+                  <text x="907" y="407" text-anchor="middle" style="font-size: 11px; font-weight: 700; fill: #ffffff">Code move</text>
+                  <rect x="1010" y="392" width="82" height="22" rx="11" fill="#527A2D" stroke="#fff" stroke-width="1.1" />
+                  <text x="1051" y="407" text-anchor="middle" style="font-size: 11px; font-weight: 700; fill: #ffffff">Safe zone</text>
                 </g>
-                <rect x="858" y="52" width="242" height="178" rx="9" fill="none" stroke="#527A2D" stroke-width="1.7" />
-                <rect x="865" y="59" width="90" height="22" rx="11" fill="#527A2D" stroke="#fff" stroke-width="1.1" />
-                <text x="910" y="74" text-anchor="middle" style="font-size: 11px; font-weight: 700; fill: #ffffff">
-                  CHECK · E
-                  <tspan dy="2" font-size="8">k</tspan>
-                </text>
-                <circle r="3.8" fill="#527A2D" stroke="#fff" stroke-width="1.4" class="a-bead f3-b-chkarc" style="--dur: 2s; --del: 0s" />
-                <circle cx="969" cy="172" r="12" fill="none" stroke="#FF4A3D" stroke-width="1.8" class="a-pulse" />
-                <circle cx="969" cy="172" r="4" fill="#C43E2F" stroke="#fff" stroke-width="1.3" />
-                <line x1="965" y1="176" x2="932" y2="206" stroke="#fff" stroke-width="2.8" stroke-linecap="round" />
-                <line x1="965" y1="176" x2="932" y2="206" stroke="#C43E2F" stroke-width="1.5" stroke-linecap="round" />
-                <rect x="865" y="200" width="74" height="22" rx="11" fill="#C43E2F" stroke="#fff" stroke-width="1.1" />
-                <text x="902" y="215" text-anchor="middle" style="font-size: 11px; font-weight: 700; fill: #ffffff">Blocked</text>
-
-                <g clip-path="url(#f3-clip-free)">
-                  <image href="assets/img/env_tools_free.png" x="858" y="244" width="242" height="178" preserveAspectRatio="xMidYMid slice" />
-                </g>
-                <rect x="858" y="244" width="242" height="178" rx="9" fill="none" stroke="#C9821E" stroke-width="1.7" />
-                <rect x="865" y="251" width="154" height="22" rx="11" fill="#2F6DB3" stroke="#fff" stroke-width="1.1" />
-                <text x="942" y="266" text-anchor="middle" style="font-size: 10.5px; font-weight: 700; fill: #ffffff">
-                  FREE · outside E
-                  <tspan dy="2" font-size="8">k</tspan>
-                  <tspan dy="-2">∪ E</tspan>
-                  <tspan dy="2" font-size="8">k+1</tspan>
-                </text>
-                <circle r="4.2" fill="#E07B18" stroke="#fff" stroke-width="1.5" class="a-bead f3-b-freearc" style="--dur: 2.2s; --del: -0.5s" />
-                <rect x="865" y="392" width="84" height="22" rx="11" fill="#C9821E" stroke="#fff" stroke-width="1.1" />
-                <text x="907" y="407" text-anchor="middle" style="font-size: 11px; font-weight: 700; fill: #ffffff">Code move</text>
-                <rect x="1010" y="392" width="82" height="22" rx="11" fill="#527A2D" stroke="#fff" stroke-width="1.1" />
-                <text x="1051" y="407" text-anchor="middle" style="font-size: 11px; font-weight: 700; fill: #ffffff">Safe zone</text>
-              </g>
-            </svg>
+              </svg>
+            </div>
           </div>
           <div class="fig-bar">
             <div class="fig-note" id="note-fig3">
-              <b>Full Pipeline:</b> (1) Offline O(n) voxel profiling → (2) Online division of labor (Clear fast-lane to VLA vs. Blocked code repair +
-              re-check loop) → (3) CHECK &amp; FREE 3D tools.
+              <b>Full Pipeline:</b> (1) Offline O(n) voxel profiling → (2) Online routing (clear seams go straight to VLA; blocked seams trigger code
+              recovery + re-check) → (3) CHECK and FREE 3D tools.
             </div>
             <div class="seg" role="group" aria-label="Figure 3 Focus Steps" data-anim-ctl="fig3">
               <button data-step="0" aria-pressed="true">Overview</button>
@@ -1198,12 +1233,12 @@
               </div>
             </div>
             <div>
-              <h3 class="sec-subhead">O(n) Offline Profiling &amp; Detector-Free Single-View RGB-D</h3>
+              <h3 class="sec-subhead">O(n) Profiling &amp; Single-View RGB&#8209;D</h3>
               <p class="lead" style="font-size: 0.96rem">
-                For each frozen skill &pi;<sub>k</sub>, we execute <i>N</i> solo rollouts and project robot link meshes, gripper fingers, and held
-                objects onto a <strong>1 cm voxel grid</strong> via forward kinematics (FK)—requiring zero human demonstrations and zero failure data.
-                Online, single-view depth differencing (&gt;1 cm against the initial workspace depth) with a 2 cm inflated FK self-mask extracts
-                displaced residue voxels <i>V</i><sub>depth</sub> with no object detector.
+                For each frozen skill &pi;<sub>k</sub>, we run <i>N</i> solo rollouts and project robot links, gripper, and held objects onto a
+                <strong>1 cm voxel grid</strong> via forward kinematics—no extra demonstrations or failure logs needed. Online, single-view depth
+                differencing (&gt;1 cm from the initial scene) with a 2 cm FK self-mask extracts displaced obstacles <i>V</i><sub>depth</sub> without
+                an object detector.
               </p>
               <div class="eq-box">
                 <img src="assets/math/eq1_envelope.svg" alt="E_k(x) = (1/N) sum 1[x in sweep_i] in [0,1]" />
@@ -1220,27 +1255,27 @@
           <div class="grid-2" style="margin-top: 44px">
             <article class="photo-card" style="border-top: 3px solid var(--c-world)">
               <div class="photo-frame">
-                <img src="assets/img/env_tools_check.png" alt="CHECK tool intersecting red residue voxels with green skill envelope" />
+                <img src="assets/img/env_tools_check.jpg" alt="CHECK tool intersecting red residue voxels with green skill envelope" />
                 <span class="photo-badge t-world">CHECK(k, s) · Collision Check &amp; 0-Param Gating</span>
               </div>
               <div class="photo-meta">
-                <h4>Instant physical collision screening</h4>
+                <h4>Instant collision check</h4>
                 <p>
-                  Intersects residue voxels <i>V</i><sub>e</sub> (red) with the upcoming skill's 3D envelope <i>E</i><sub>k</sub> (green). Any overlap
-                  <i>m</i><sub>e</sub> &ge; 0.05 immediately flags the blocking object; clean seams bypass the LLM/VLM and run frozen VLA directly.
+                  Intersects obstacle voxels <i>V</i><sub>e</sub> (red) with the next skill's envelope <i>E</i><sub>k</sub> (green). Overlap <i>m</i
+                  ><sub>e</sub> &ge; 0.05 flags the blocker; clear seams skip the LLM/VLM and run the frozen VLA directly.
                 </p>
               </div>
             </article>
             <article class="photo-card" style="border-top: 3px solid var(--c-good)">
               <div class="photo-frame">
-                <img src="assets/img/env_tools_free.png" alt="FREE tool computing teal safe placement zone outside union of future envelopes" />
-                <span class="photo-badge t-good">FREE(K, s) · Multi-Step Safe Placement Search</span>
+                <img src="assets/img/env_tools_free.jpg" alt="FREE tool computing teal safe placement zone outside union of future envelopes" />
+                <span class="photo-badge t-good">FREE(K, s) · Safe Placement Search</span>
               </div>
               <div class="photo-meta">
-                <h4>Clear without creating new conflicts</h4>
+                <h4>Move obstacles out of future paths</h4>
                 <p>
-                  Unions envelopes across all remaining skills &bigcup;<sub>j&isin;K</sub> <i>E</i><sub>j</sub> (green + blue), carves out occupied
-                  tabletop cells to reveal the teal safe grid, and selects the nearest reachable free pose for deterministic code clearing.
+                  Unions envelopes of all remaining skills &bigcup;<sub>j&isin;K</sub> <i>E</i><sub>j</sub> (green + blue), masks out occupied cells
+                  to find the teal safe grid, and picks the nearest reachable spot for code clearing.
                 </p>
               </div>
             </article>
@@ -1248,10 +1283,10 @@
 
           <!-- INTERACTIVE PURE-VECTOR LATEX EQ. (3) READINESS MODEL -->
           <div style="margin-top: 48px">
-            <h3 class="sec-subhead">Calibrated 5-Parameter Readiness Model (Eq. 3)</h3>
+            <h3 class="sec-subhead">5-Parameter Readiness Model (Eq. 3)</h3>
             <p class="lead" style="font-size: 0.96rem; margin-bottom: 18px">
-              Online gating uses 0-parameter <code>CHECK</code> alone. When continuous success probabilities are needed for multi-step ordering or VLM
-              AUROC evaluation, a minimal 5-parameter hazard model multiplies baseline pose readiness by per-obstacle collision survival:
+              Online gating uses 0-parameter <code>CHECK</code> alone. When continuous scores are needed for step ordering or VLM comparison, a
+              5-parameter model multiplies pose readiness by per-obstacle collision survival:
             </p>
 
             <div class="eq3-stage" id="stage-eq3">
@@ -1301,26 +1336,25 @@
             <div class="grid-3" style="margin-top: 16px">
               <div class="card eq3-card" data-eq3-card="body" style="border-top: 3px solid var(--c-body)">
                 <div style="font-size: 0.78rem; font-weight: 600; color: var(--c-body)">1 · Arm Alignment</div>
-                <h4 style="margin: 4px 0 6px; font-size: 0.98rem">Obstacle-free baseline</h4>
+                <h4 style="margin: 4px 0 6px; font-size: 0.98rem">Clear-path baseline</h4>
                 <p style="font-size: 0.86rem; color: var(--ink-2)">
-                  Depends only on re-homing pose error <img src="assets/math/eq3_etilde.svg" class="eq3-inline" alt="e_pos, e_ori" />; accurate homing
-                  keeps &sigma;(&middot;) close to 1.
+                  Depends only on re-homing error <img src="assets/math/eq3_etilde.svg" class="eq3-inline" alt="e_pos, e_ori" />; accurate homing
+                  keeps &sigma;(&middot;) near 1.
                 </p>
               </div>
               <div class="card eq3-card" data-eq3-card="world" style="border-top: 3px solid var(--c-world)">
                 <div style="font-size: 0.78rem; font-weight: 600; color: var(--c-world)">2 · Survival Product</div>
                 <h4 style="margin: 4px 0 6px; font-size: 0.98rem">Zero overlap = zero penalty</h4>
                 <p style="font-size: 0.86rem; color: var(--ink-2)">
-                  Non-overlapping residue (<i>m</i><sub>e</sub> = <i>o</i><sub>e</sub> = 0) yields <i>e</i><sup>0</sup> = 1; invading the envelope
-                  triggers smooth exponential decay across multiple obstacles.
+                  Non-overlapping objects (<i>m</i><sub>e</sub> = <i>o</i><sub>e</sub> = 0) give <i>e</i><sup>0</sup> = 1; overlap drops survival
+                  exponentially.
                 </p>
               </div>
               <div class="card eq3-card" data-eq3-card="world" style="border-top: 3px solid var(--c-good); background: var(--c-good-soft)">
-                <div style="font-size: 0.78rem; font-weight: 600; color: var(--c-good)">3 · Why Zero-Drawer Transfers</div>
-                <h4 style="margin: 4px 0 6px; font-size: 0.98rem">Category-agnostic geometry</h4>
+                <div style="font-size: 0.78rem; font-weight: 600; color: var(--c-good)">3 · Zero-Drawer Transfer</div>
+                <h4 style="margin: 4px 0 6px; font-size: 0.98rem">Geometry, not object IDs</h4>
                 <p style="font-size: 0.86rem; color: var(--ink-2)">
-                  No object IDs enter the model—fitting (<i>a</i>, <i>c</i>) on tabletop items alone generalizes to unseen articulated drawers at
-                  <strong>0.912 AUROC</strong>.
+                  Fitting (<i>a</i>, <i>c</i>) on tabletop items alone transfers to unseen open drawers at <strong>0.912 AUROC</strong>.
                 </p>
               </div>
             </div>
@@ -1331,16 +1365,15 @@
       <!-- ==================== 5. ASPIRE-STYLE VIDEO GALLERY ==================== -->
       <section class="section" id="demos">
         <div class="wrap-wide">
-          <div class="sec-kicker">Part III · Live Execution &amp; Recovery</div>
-          <h2 class="sec-title">Side-by-Side Execution Gallery</h2>
+          <div class="sec-kicker">Part III · Simulation Rollouts</div>
+          <h2 class="sec-title">Side-by-Side Rollout Gallery</h2>
           <p class="lead">
-            Unedited simulation rollouts contrasting tool-free / re-homed baselines against 3D Skill Envelope planning, <code>FREE</code> tabletop
-            clearing, and concise analytic recovery primitives across both <strong>LIBERO-Goal</strong> (&pi;<sub>0.5</sub>) and
-            <strong>BOSS-44</strong> (<code>BC-ViT-T</code>).
+            Unedited rollouts comparing baselines against 3D Skill Envelopes, <code>FREE</code> clearing, and code recovery on
+            <strong>LIBERO-Goal</strong> (&pi;<sub>0.5</sub>) and <strong>BOSS-44</strong> (<code>BC-ViT-T</code>).
           </p>
 
           <div class="gallery-filters" role="group" aria-label="Filter demonstrations">
-            <button class="filter-tab" data-gallery-filter="all" aria-pressed="true">All Demos (4)</button>
+            <button class="filter-tab" data-gallery-filter="all" aria-pressed="true">All Rollouts (4)</button>
             <button class="filter-tab" data-gallery-filter="boss">BOSS-44 Hinged Door</button>
             <button class="filter-tab" data-gallery-filter="free">LIBERO FREE Clearing</button>
             <button class="filter-tab" data-gallery-filter="code">Code Primitives</button>
@@ -1355,17 +1388,17 @@
                   muted
                   loop
                   playsinline
-                  preload="metadata"
+                  preload="none"
                   controls
                   data-smart-play
                 ></video>
               </div>
               <div class="video-body">
                 <span class="video-tag">BOSS-44 · BC-ViT-T</span>
-                <h4>Hinged Microwave Door: Tool-Free Agent vs. 3D Envelope Planning</h4>
+                <h4>Hinged Microwave Door: Tool-Free vs. 3D Envelope Planning</h4>
                 <p>
-                  Left: Tool-free agent opens the microwave first, gets trapped, closes &amp; re-opens, and knocks the placed bowl over at 954 steps.
-                  Right: 3D Skill Envelopes order steps cleanly and finish in 348 steps on the first pass.
+                  Left: Tool-free agent opens the microwave first, gets blocked, retries, and knocks the bowl over at 954 steps. Right: 3D Skill
+                  Envelopes pick a conflict-free order and finish in 348 steps.
                 </p>
                 <div class="video-metrics">
                   <span class="metric-chip">+34.3 pts (25.7% → 60.0%)</span>
@@ -1383,18 +1416,17 @@
                   muted
                   loop
                   playsinline
-                  preload="metadata"
+                  preload="none"
                   controls
                   data-smart-play
                 ></video>
               </div>
               <div class="video-body">
                 <span class="video-tag">LIBERO-Goal · FREE(K, s)</span>
-                <h4>Tabletop Obstacle Clearing: Re-homed Only vs. FREE Safe Push</h4>
+                <h4>Tabletop Clearing: Re-homed Only vs. FREE Safe Push</h4>
                 <p>
-                  Left: Re-homing alone leaves the displaced plate inside &pi;<sub>0.5</sub>'s swept path, causing failure. Right:
-                  <code>FREE</code> computes a reachable safe zone outside <i>E</i><sub>k</sub> &cup; <i>E</i><sub>k+1</sub>, pushes the plate aside,
-                  and &pi;<sub>0.5</sub> succeeds immediately.
+                  Left: Re-homing leaves the plate inside &pi;<sub>0.5</sub>'s path, causing failure. Right: <code>FREE</code> picks a clear spot
+                  outside <i>E</i><sub>k</sub> &cup; <i>E</i><sub>k+1</sub>, pushes the plate aside, and &pi;<sub>0.5</sub> succeeds.
                 </p>
                 <div class="video-metrics">
                   <span class="metric-chip">Plate: 45% → 80%</span>
@@ -1411,7 +1443,7 @@
                   muted
                   loop
                   playsinline
-                  preload="metadata"
+                  preload="none"
                   controls
                   data-smart-play
                   data-rate="0.5"
@@ -1419,14 +1451,14 @@
               </div>
               <div class="video-body">
                 <span class="video-tag">0.5× Slow-Mo · ~30-Line Code</span>
-                <h4>Prismatic Drawer Recovery: Code Primitive (98.6%) vs. VLA (0.4%)</h4>
+                <h4>Drawer Recovery: Code (98.6%) vs. Inverse VLA (0.4%)</h4>
                 <p>
-                  Prompting frozen &pi;<sub>0.5</sub> with inverse instructions (“close the drawer”) succeeds only <strong>1/280 (0.4%)</strong>. A
-                  30-line deterministic geometric primitive closes drawers cleanly at <strong>138/140 (98.6%)</strong>.
+                  Prompting frozen &pi;<sub>0.5</sub> with “close the drawer” works only <strong>1/280 (0.4%)</strong>. A 30-line geometric primitive
+                  closes it cleanly at <strong>138/140 (98.6%)</strong>.
                 </p>
                 <div class="video-metrics">
                   <span class="metric-chip">98.6% vs. 0.4%</span>
-                  <span class="metric-chip blue">Zero VLA finetuning</span>
+                  <span class="metric-chip blue">No VLA finetuning</span>
                 </div>
               </div>
             </article>
@@ -1439,17 +1471,17 @@
                   muted
                   loop
                   playsinline
-                  preload="metadata"
+                  preload="none"
                   controls
                   data-smart-play
                 ></video>
               </div>
               <div class="video-body">
                 <span class="video-tag">BOSS-44 · Revolute Door Code</span>
-                <h4>Articulated Hinged Door Recovery Primitive</h4>
+                <h4>Hinged Microwave Door Recovery</h4>
                 <p>
-                  Beyond sliding drawers, a compact two-stage revolute closing primitive recovers swinging microwave doors whenever
-                  <code>CHECK</code> detects overlap with an upcoming <code>BC-ViT-T</code> skill.
+                  A short two-stage revolute closing primitive clears swinging microwave doors whenever <code>CHECK</code> flags overlap with the next
+                  <code>BC-ViT-T</code> skill.
                 </p>
                 <div class="video-metrics">
                   <span class="metric-chip">Repairs −92.2% (51 → 4)</span>
@@ -1464,37 +1496,36 @@
       <!-- ==================== 6. QUANTITATIVE EXPERIMENTS (RQ1-RQ5) ==================== -->
       <section class="section section-soft" id="experiments">
         <div class="wrap-wide">
-          <div class="sec-kicker">Part IV · Quantitative Evaluation</div>
-          <h2 class="sec-title">Experiments &amp; Benchmarks (RQ1–RQ5)</h2>
+          <div class="sec-kicker">Part IV · Experiments</div>
+          <h2 class="sec-title">Quantitative Results (RQ1–RQ5)</h2>
           <p class="lead">
-            Hover any bar or data point for detailed statistics. Across five research questions, 3D Skill Envelopes match privileged simulation truth
-            from a single depth camera, beat frontier VLMs on seam prediction, unify dual LLM backends at the same ceiling, cut live wall-clock
-            latency by <strong>5.60&times;</strong>, and transfer across benchmarks and policy architectures.
+            Hover any bar or point for exact numbers. Across five questions, 3D Skill Envelopes match sim truth from one RGB-D camera, beat frontier
+            VLMs, lift two LLM planners to the same ceiling, run <strong>5.60&times;</strong> faster live, and transfer to a non-VLA policy.
           </p>
 
           <!-- RQ1 -->
           <div class="exp-block">
             <div class="exp-head">
               <h3 class="sec-subhead">Single-View RGB-D Matches Sim Truth (0.944) &amp; Transfers Zero-Drawer</h3>
-              <span class="rq-tag">RQ1 · Detection &amp; Generalization</span>
+              <span class="rq-tag">RQ1 · Detection &amp; Transfer</span>
             </div>
             <div class="rq1-grid">
               <div class="chart-card">
-                <div class="chart-caption">0-Parameter 3D Overlap Detection &amp; 5-Parameter Readiness Cross-Category AUROC</div>
+                <div class="chart-caption">0-Parameter 3D Overlap Detection &amp; 5-Parameter Cross-Category AUROC</div>
                 <div class="chart-box" data-chart="rq1_full"></div>
               </div>
               <div class="rq1-kpis">
                 <div class="kpi-tile" style="border-left: 3px solid var(--c-good)">
                   <div class="v t-good">140 / 140</div>
-                  <div class="d">Exact gating agreement between single-view RGB-D and privileged sim (426 ms)</div>
+                  <div class="d">Exact gating match between single-view RGB-D and sim state (426 ms)</div>
                 </div>
                 <div class="kpi-tile" style="border-left: 3px solid var(--c-body)">
                   <div class="v t-body">0.944 vs 0.946</div>
-                  <div class="d">Zero-shot RGB-D overlap AUROC trails sim truth by only 0.002, detector-free</div>
+                  <div class="d">Detector-free RGB-D AUROC sits within 0.002 of sim truth</div>
                 </div>
                 <div class="kpi-tile" style="border-left: 3px solid var(--c-world)">
                   <div class="v t-world">0.912 vs 0.681</div>
-                  <div class="d">Zero-drawer training generalizes to open drawers; no-geometry drops to 0.499</div>
+                  <div class="d">Zero-drawer training transfers to open drawers; no-geometry drops to 0.499</div>
                 </div>
               </div>
             </div>
@@ -1503,16 +1534,16 @@
           <!-- RQ2a -->
           <div class="exp-block">
             <div class="exp-head">
-              <h3 class="sec-subhead">Why Frontier VLMs Miss Seams: They Cannot See Dynamic 3D Arm Sweeps</h3>
+              <h3 class="sec-subhead">Frontier VLMs Miss Seams Because They Cannot See 3D Arm Sweeps</h3>
               <span class="rq-tag">RQ2(a) · vs. Frontier VLMs</span>
             </div>
             <div class="grid-2">
               <div class="chart-card">
-                <div class="chart-caption">429 Test Handoffs: 3 VLM Backends &times; 3 Prompt Styles</div>
+                <div class="chart-caption">429 Test Handoffs: 3 VLMs &times; 3 Prompt Styles</div>
                 <div class="chart-box" data-chart="rq2_vlm"></div>
               </div>
               <div class="chart-card">
-                <div class="chart-caption">Same Open Middle Drawer → 9 Successors (Qwen4-Max Flags Almost All 7/7)</div>
+                <div class="chart-caption">Same Open Middle Drawer → 9 Next Skills (Qwen4-Max Over-Flags 7/7)</div>
                 <div class="chart-box" data-chart="rq2_matrix"></div>
               </div>
             </div>
@@ -1521,11 +1552,11 @@
           <!-- RQ2b -->
           <div class="exp-block">
             <div class="exp-head">
-              <h3 class="sec-subhead">VLAs Cannot Repair OOD Seams (0.4%); Proactive Code &amp; FREE Recover</h3>
+              <h3 class="sec-subhead">VLAs Fail at OOD Repair (0.4%); Code &amp; FREE Recover Reliably</h3>
               <span class="rq-tag">RQ2(b) · Code Recovery &amp; FREE</span>
             </div>
             <div class="chart-card">
-              <div class="chart-caption">Inverse VLA Prompting vs. Reactive Repair vs. Proactive 3D Code Recovery &amp; FREE Clearing</div>
+              <div class="chart-caption">Inverse VLA Prompting vs. Reactive Repair vs. Proactive Code Recovery &amp; FREE Clearing</div>
               <div class="chart-box" data-chart="rq2_recovery"></div>
             </div>
           </div>
@@ -1533,7 +1564,7 @@
           <!-- RQ3 & RQ4 -->
           <div class="exp-block">
             <div class="exp-head">
-              <h3 class="sec-subhead">Dual LLMs Converge to 91.4%; Live Single-View RGB-D Gating Delivers 5.60&times; Speedup</h3>
+              <h3 class="sec-subhead">Two LLM Planners Reach 91.4%; Live RGB-D Gating Runs 5.60&times; Faster</h3>
               <span class="rq-tag">RQ3 &amp; RQ4 · Multi-Step &amp; Latency</span>
             </div>
             <div class="grid-2">
@@ -1549,15 +1580,15 @@
             <div class="kpi-strip">
               <div class="kpi-tile">
                 <div class="v t-good">656 / 656</div>
-                <div class="d">Online single-view RGB-D gating agrees 100% with privileged state across live chains (93.8% success)</div>
+                <div class="d">Online RGB-D gating matches sim state on every step across live chains (93.8% success)</div>
               </div>
               <div class="kpi-tile">
                 <div class="v t-body">87.8% skipped</div>
-                <div class="d">Clean seams bypass LLM/VLM straight to frozen VLA (0.0 VLM calls; 88/88 chains faster)</div>
+                <div class="d">Clear seams bypass LLM/VLM straight to the VLA (0.0 VLM calls; 88/88 chains faster)</div>
               </div>
               <div class="kpi-tile">
                 <div class="v t-world">0 → 28 / 32</div>
-                <div class="d">Two-drawer conflict chains jump from 0/32 to 28/32 with zero chain-end redos (vs. 27 for tool-free LLM)</div>
+                <div class="d">Two-drawer conflict chains jump from 0/32 to 28/32 with 0 redos (tool-free LLM: 27)</div>
               </div>
             </div>
           </div>
@@ -1565,8 +1596,8 @@
           <!-- RQ5 -->
           <div class="exp-block">
             <div class="exp-head">
-              <h3 class="sec-subhead">Beyond VLAs &amp; Drawers: BOSS-44 (BC-ViT-T + Hinged Microwave) Gains +34.3 pts</h3>
-              <span class="rq-tag">RQ5 · Cross-Benchmark &amp; Cross-Policy</span>
+              <h3 class="sec-subhead">Beyond VLAs &amp; Drawers: BOSS-44 (BC-ViT-T + Microwave) Gains +34.3 pts</h3>
+              <span class="rq-tag">RQ5 · Cross-Policy &amp; Benchmark</span>
             </div>
             <div class="split-row">
               <div class="chart-card">
@@ -1574,13 +1605,12 @@
                 <div class="chart-box" data-chart="rq5_boss"></div>
               </div>
               <div>
-                <h4 class="sec-subhead" style="font-size: 1.3rem">Universal Property of Frozen Visuomotor Policies</h4>
+                <h4 class="sec-subhead" style="font-size: 1.3rem">Works Beyond VLAs and Drawers</h4>
                 <p class="lead" style="font-size: 0.95rem">
-                  Replacing &pi;<sub>0.5</sub> with an independent Transformer behavioral-cloning policy (<code>BC-ViT-T</code>) on a distinct kitchen
-                  benchmark with articulated hinged microwave doors yields the exact same compositional pattern: 3D Skill Envelopes lift completion
-                  from <strong>25.7% (9/35)</strong> to <strong>60.0% (21/35)</strong> (<i>p</i> = 0.0075), cutting mid-chain repairs by
-                  <strong>92.2%</strong>, VLM calls by <strong>87.8%</strong>, execution steps by <strong>38.0%</strong>, and chain-end redos from
-                  <strong>18 → 0</strong>.
+                  Swapping &pi;<sub>0.5</sub> for an independent Transformer BC policy (<code>BC-ViT-T</code>) on a kitchen benchmark with hinged
+                  microwave doors shows the same pattern. 3D Skill Envelopes lift completion from <strong>25.7% (9/35)</strong> to
+                  <strong>60.0% (21/35)</strong> (<i>p</i> = 0.0075), cutting repairs by <strong>92.2%</strong>, VLM calls by <strong>87.8%</strong>,
+                  execution steps by <strong>38.0%</strong>, and chain-end redos from <strong>18 → 0</strong>.
                 </p>
               </div>
             </div>
@@ -1591,35 +1621,33 @@
       <!-- ==================== 7. STAGE-2 OPEN QUESTIONS ==================== -->
       <section class="section" id="roadmap">
         <div class="wrap-wide">
-          <div class="sec-kicker">Part V · Limitations &amp; Roadmap</div>
-          <h2 class="sec-title">Stage-2 Open Scientific Questions</h2>
-          <p class="lead">
-            Three targeted open questions test the remaining physical, scaling, and autonomy assumptions of policy-measured 3D preconditions.
-          </p>
+          <div class="sec-kicker">Part V · Limitations &amp; Next Steps</div>
+          <h2 class="sec-title">Open Questions</h2>
+          <p class="lead">Three open questions remain for deploying policy-measured 3D preconditions at scale.</p>
 
           <div class="grid-3" style="margin-top: 26px">
             <div class="card" style="border-top: 3px solid var(--c-good)">
-              <div style="font-family: var(--font-mono); font-size: 0.74rem; font-weight: 600; color: var(--c-good)">Q1 · PHYSICAL HARDWARE</div>
-              <h4 style="margin: 6px 0 8px; font-family: var(--font-serif); font-size: 1.2rem">Real-Robot Online RGB-D Loop</h4>
+              <div style="font-family: var(--font-mono); font-size: 0.74rem; font-weight: 600; color: var(--c-good)">Q1 · REAL HARDWARE</div>
+              <h4 style="margin: 6px 0 8px; font-family: var(--font-serif); font-size: 1.2rem">Real-Robot RGB-D Loop</h4>
               <p style="font-size: 0.88rem; color: var(--ink-2)">
-                Deploy the single-view RGB-D gating loop on a dual-arm PiPER + Pika + RealSense tabletop cell to test robustness under specular depth
-                holes, calibration drift, and compliant physical contacts.
+                Run the single-view RGB-D loop on a dual-arm PiPER + Pika + RealSense cell to test depth noise, calibration drift, and physical
+                contact.
               </p>
             </div>
             <div class="card" style="border-top: 3px solid var(--c-body)">
               <div style="font-family: var(--font-mono); font-size: 0.74rem; font-weight: 600; color: var(--c-body)">Q2 · SCALE &amp; CROSS-VLA</div>
-              <h4 style="margin: 6px 0 8px; font-family: var(--font-serif); font-size: 1.2rem">High-Clutter Saturation &amp; OpenVLA-OFT</h4>
+              <h4 style="margin: 6px 0 8px; font-family: var(--font-serif); font-size: 1.2rem">Dense Clutter &amp; OpenVLA-OFT</h4>
               <p style="font-size: 0.88rem; color: var(--ink-2)">
-                Scale to 6–10 step cluttered scenes (BEHAVIOR-1K &amp; BOSS CH3) to characterize free-space saturation of &bigcup;<sub>j</sub> <i>E</i
-                ><sub>j</sub>, and test 2&times;2 cross-policy envelope specificity with <code>OpenVLA-OFT</code>.
+                Scale to 6–10 step cluttered scenes (BEHAVIOR-1K, BOSS CH3) to test free-space limits of &bigcup;<sub>j</sub> <i>E</i><sub>j</sub> and
+                cross-VLA specificity with <code>OpenVLA-OFT</code>.
               </p>
             </div>
             <div class="card" style="border-top: 3px solid var(--c-view)">
-              <div style="font-family: var(--font-mono); font-size: 0.74rem; font-weight: 600; color: var(--c-view)">Q3 · AUTONOMOUS RECOVERY</div>
-              <h4 style="margin: 6px 0 8px; font-family: var(--font-serif); font-size: 1.2rem">Envelope-Verified Code Synthesis</h4>
+              <div style="font-family: var(--font-mono); font-size: 0.74rem; font-weight: 600; color: var(--c-view)">Q3 · CODE SYNTHESIS</div>
+              <h4 style="margin: 6px 0 8px; font-family: var(--font-serif); font-size: 1.2rem">Envelope-Verified Recovery Code</h4>
               <p style="font-size: 0.88rem; color: var(--ink-2)">
-                Use <code>CHECK</code> and <code>FREE</code> as geometric safety verifiers for LLM-synthesized recovery primitives on unseen
-                articulated and stacked obstacles, distilling verified fixes into a reusable library.
+                Use <code>CHECK</code> and <code>FREE</code> to verify LLM-written recovery routines on unseen articulated or stacked obstacles and
+                save passing code.
               </p>
             </div>
           </div>
@@ -1631,9 +1659,7 @@
         <div class="wrap">
           <div class="sec-kicker">Citation</div>
           <h2 class="sec-title">BibTeX</h2>
-          <p class="lead" style="font-size: 0.95rem">
-            If you find 3D Skill Envelopes or our controlled seam-attribution findings useful in your research, please cite:
-          </p>
+          <p class="lead" style="font-size: 0.95rem">If you use 3D Skill Envelopes in your work, please cite:</p>
 
           <div class="bibtex-wrap">
             <div class="bibtex-bar">
