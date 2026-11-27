@@ -20,7 +20,7 @@
     <meta property="og:image" content="https://jiajiezhang7.github.io/assets/img/publication_preview/skill-envelope-teaser.png" />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0D11'/%3E%3Crect x='5' y='5' width='22' height='22' rx='4' fill='none' stroke='%2384CC3F' stroke-width='2.5'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='15' font-family='monospace' font-weight='700' fill='%2384CC3F'%3EE%3C/text%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231F4B8E'/%3E%3Crect x='5' y='5' width='22' height='22' rx='4' fill='none' stroke='%23F6F6EF' stroke-width='2'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='15' font-family='monospace' font-weight='700' fill='%23F6F6EF'%3EE%3C/text%3E%3C/svg%3E"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,63 +48,7 @@
       </nav>
     </header>
 
-    <!-- ================================================================== -->
-    <!-- FULL-BLEED DARK COVER HERO (ASPIRE-Inspired)                       -->
-    <!-- ================================================================== -->
-    <section class="hero-cover" id="hero">
-      <div class="hero-mosaic" aria-hidden="true">
-        <img src="assets/img/hero/m1_blocked.jpg" alt="" decoding="async" />
-        <img src="assets/img/hero/m2_free.jpg" alt="" decoding="async" />
-        <img src="assets/img/hero/m3_home.jpg" alt="" decoding="async" />
-        <img src="assets/img/hero/m4_ready.jpg" alt="" decoding="async" />
-        <img src="assets/img/hero/m5_check.jpg" alt="" decoding="async" />
-        <img src="assets/img/hero/m6_overlay.jpg" alt="" decoding="async" />
-        <img src="assets/img/hero/m7_vla.jpg" alt="" decoding="async" />
-        <img src="assets/img/hero/m8_code.jpg" alt="" decoding="async" />
-      </div>
-      <div class="hero-scrim" aria-hidden="true"></div>
-      <div class="hero-glow" aria-hidden="true"></div>
-
-      <div class="hero-inner">
-        <div class="hero-eyebrow">
-          <span class="dot"></span>
-          <span>arXiv:2611.32245 · PEAK Lab, HKUST(GZ) &amp; ShanghaiTech</span>
-        </div>
-        <h1 class="hero-title">
-          VLAs Execute,
-          <span class="accent-slash">/Code Recovers</span>
-        </h1>
-        <p class="hero-subtitle">
-          3D Skill Envelopes map where a frozen VLA moves—so VLAs handle in-distribution skills and code clears out-of-distribution seams.
-        </p>
-
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="k">0.944</div>
-            <div class="l">Single-view RGB-D collision AUROC (sim truth: 0.946)</div>
-          </div>
-          <div class="hero-stat">
-            <div class="k">93.8%</div>
-            <div class="l">3–4 step chain success (up from 29.7% re-homed)</div>
-          </div>
-          <div class="hero-stat blue">
-            <div class="k">+34.3 pts</div>
-            <div class="l">Cross-policy gain on BOSS-44 (BC-ViT-T: 25.7% → 60.0%)</div>
-          </div>
-          <div class="hero-stat clay">
-            <div class="k">5.60×</div>
-            <div class="l">Faster live execution via 0-parameter RGB-D gating</div>
-          </div>
-        </div>
-      </div>
-
-      <a class="hero-scroll" href="#overview" aria-label="Scroll to overview">
-        <span>Scroll</span>
-        <span class="hero-scroll-chev"></span>
-      </a>
-    </section>
-
-    <!-- Fixed Left Minimalist TOC Sidebar (ASPIRE Signature) -->
+    <!-- Persistent Left TOC Sidebar on Wide Desktop -->
     <aside class="toc-sidebar" id="toc-sidebar" aria-label="Page sections">
       <ul class="toc-list">
         <li><a href="#overview" class="active">Overview</a></li>
@@ -123,16 +67,21 @@
     </aside>
 
     <!-- ================================================================== -->
-    <!-- WARM EDITORIAL PAPER CONTENT                                       -->
+    <!-- WARM CREAM EDITORIAL PAPER CONTENT                                 -->
     <!-- ================================================================== -->
     <main class="paper-main">
-      <!-- ==================== 1. OVERVIEW & LIVING FIG 1 ==================== -->
-      <section class="section" id="overview">
+      <!-- ==================== 1. PAPER HEADER, STATS & LIVING FIG 1 ==================== -->
+      <section class="section paper-header-band" id="overview">
         <div class="wrap-wide">
           <div class="paper-meta">
-            <h2 class="paper-meta-title">
-              VLAs Execute, Code Recovers:<br />3D Skill Envelopes Bridge the Compositional Gap in Agentic Manipulation
-            </h2>
+            <div class="paper-eyebrow">
+              <span class="dot" aria-hidden="true"></span>
+              <span>arXiv:2611.32245 · PEAK Lab, HKUST(GZ) &amp; ShanghaiTech</span>
+            </div>
+            <h1 class="paper-meta-title">
+              VLAs Execute, Code Recovers:
+              <span class="title-sub">3D Skill Envelopes Bridge the Compositional Gap in Agentic Manipulation</span>
+            </h1>
             <div class="authors-row">
               <a href="https://jiajiezhang7.github.io/">Jiajie Zhang<sup>1,†</sup></a>
               <span>Yankai Xiang<sup>2,†</sup></span>
@@ -171,25 +120,23 @@
             </div>
           </div>
 
-          <div class="abstract-box">
-            <p>
-              Chaining frozen Vision-Language-Action (VLA) skills under a high-level planner avoids collecting end-to-end demonstrations for every
-              task combination. Yet strong single-step skills (<strong>98.0%</strong> solo) still fail at handoffs—even when the plan is right.
-              Through <strong>controlled causal interventions</strong> on 640 matched handoffs, we isolate why: re-homing fixes arm pose shift
-              (<strong>+68.6 pts</strong>), but the frozen arm still retraces its habitual path and hits objects left behind by earlier steps, even
-              when those objects are hidden from the camera.
-            </p>
-            <p>
-              We turn that rigidity into an advantage with the <strong>3D Skill Envelope</strong>: the 3D volume a frozen skill sweeps during its own
-              solo successful rollouts. From this measured volume, we build two 3D tools—<code>CHECK</code> flags blocking obstacles before a skill
-              runs, and <code>FREE</code> finds a clear spot outside future skills' paths—so
-              <strong>VLAs handle in-distribution execution and code clears out-of-distribution seams</strong>. Across LIBERO-Goal
-              (&pi;<sub>0.5</sub>) and BOSS-44 (<code>BC-ViT-T</code>), Skill Envelopes beat frontier VLMs on seam prediction (<strong
-                >0.902 vs. 0.793</strong
-              >
-              AUROC), raise autonomous LLM chaining from <strong>84.0% to 91.4%</strong> on LIBERO and <strong>25.7% to 60.0%</strong> on BOSS-44, and
-              run <strong>5.60&times;</strong> faster with live single-view RGB-D gating.
-            </p>
+          <div class="headline-stats">
+            <div class="h-stat">
+              <div class="k">0.944</div>
+              <div class="l">Single-view RGB-D collision AUROC (sim truth: 0.946)</div>
+            </div>
+            <div class="h-stat sage">
+              <div class="k">93.8%</div>
+              <div class="l">3–4 step chain success (up from 29.7% re-homed)</div>
+            </div>
+            <div class="h-stat clay">
+              <div class="k">+34.3 pts</div>
+              <div class="l">BOSS&#8209;44 non&#8209;VLA BC&#8209;ViT&#8209;T (25.7% → 60.0%)</div>
+            </div>
+            <div class="h-stat ink">
+              <div class="k">5.60×</div>
+              <div class="l">Faster live execution via 0-parameter RGB-D gating</div>
+            </div>
           </div>
 
           <!-- LIVING ANIMATED FIGURE 1 (HTML Photo Underlay + Vector SVG Overlay) -->
@@ -558,6 +505,28 @@
               <button data-step="3">3. Envelope</button>
               <button data-step="4">4. Tools &amp; Loop</button>
             </div>
+          </div>
+
+          <div class="abstract-box">
+            <div class="abstract-label">Abstract</div>
+            <p>
+              Chaining frozen Vision-Language-Action (VLA) skills under a high-level planner avoids collecting end-to-end demonstrations for every
+              task combination. Yet strong single-step skills (<strong>98.0%</strong> solo) still fail at handoffs—even when the plan is right.
+              Through <strong>controlled causal interventions</strong> on 640 matched handoffs, we isolate why: re-homing fixes arm pose shift
+              (<strong>+68.6 pts</strong>), but the frozen arm still retraces its habitual path and hits objects left behind by earlier steps, even
+              when those objects are hidden from the camera.
+            </p>
+            <p>
+              We turn that rigidity into an advantage with the <strong>3D Skill Envelope</strong>: the 3D volume a frozen skill sweeps during its own
+              solo successful rollouts. From this measured volume, we build two 3D tools—<code>CHECK</code> flags blocking obstacles before a skill
+              runs, and <code>FREE</code> finds a clear spot outside future skills' paths—so
+              <strong>VLAs handle in-distribution execution and code clears out-of-distribution seams</strong>. Across LIBERO-Goal
+              (&pi;<sub>0.5</sub>) and BOSS-44 (<code>BC-ViT-T</code>), Skill Envelopes beat frontier VLMs on seam prediction (<strong
+                >0.902 vs. 0.793</strong
+              >
+              AUROC), raise autonomous LLM chaining from <strong>84.0% to 91.4%</strong> on LIBERO and <strong>25.7% to 60.0%</strong> on BOSS-44, and
+              run <strong>5.60&times;</strong> faster with live single-view RGB-D gating.
+            </p>
           </div>
         </div>
       </section>
@@ -1224,7 +1193,7 @@
             </div>
           </div>
 
-          <!-- ASPIRE-STYLE ALTERNATING SPLIT ROW A: Profiling + Detector-Free RGB-D -->
+          <!-- SPLIT ROW A: Profiling + Detector-Free RGB-D -->
           <div class="split-row" style="margin-top: 52px">
             <div class="photo-card">
               <div class="photo-frame">
@@ -1251,7 +1220,7 @@
             </div>
           </div>
 
-          <!-- ASPIRE-STYLE SPLIT ROW B: CHECK & FREE Tools -->
+          <!-- SPLIT ROW B: CHECK & FREE Tools -->
           <div class="grid-2" style="margin-top: 44px">
             <article class="photo-card" style="border-top: 3px solid var(--c-world)">
               <div class="photo-frame">
@@ -1362,7 +1331,7 @@
         </div>
       </section>
 
-      <!-- ==================== 5. ASPIRE-STYLE VIDEO GALLERY ==================== -->
+      <!-- ==================== 5. SIMULATION ROLLOUT GALLERY ==================== -->
       <section class="section" id="demos">
         <div class="wrap-wide">
           <div class="sec-kicker">Part III · Simulation Rollouts</div>

@@ -1,41 +1,36 @@
 /* ==========================================================================
    VLAs Execute, Code Recovers — Standalone Project Page Stylesheet
-   Editorial split-canvas aesthetic inspired by NVIDIA GEAR ASPIRE:
-   - Full-bleed dark obsidian architectural cover hero (#0A0D11)
-   - Warm editorial paper body (#F2ECE6) with crisp Newsreader serif headings,
-     Inter body copy, IBM Plex Mono accents, and fixed minimalist left TOC.
+   Warm cream academic editorial aesthetic matching jiajiezhang7.github.io:
+   - Cream linen paper canvas (#F6F6EF / #EEEDE4) with Newsreader serif headings,
+     Inter body copy, IBM Plex Mono accents, Oxford cobalt (#1F4B8E) brand accent,
+     and clean persistent left navigation rail on desktop.
    ========================================================================== */
 
 :root {
-  /* Warm paper editorial palette (ASPIRE x Jiajie Cream Editorial) */
-  --paper: #f2ece6;
-  --paper-soft: #eae3db;
-  --surface: #faf8f4;
+  /* Warm cream editorial palette (cohesive with jiajiezhang7.github.io) */
+  --paper: #f6f6ef;
+  --paper-soft: #eeede4;
+  --surface: #fbfbf7;
   --card: #ffffff;
-  --ink: #1b1e23;
-  --ink-2: #464b54;
-  --muted: #6f747e;
-  --line: rgba(27, 30, 35, 0.11);
-  --line-strong: rgba(27, 30, 35, 0.2);
+  --ink: #222320;
+  --ink-2: #4b4d47;
+  --muted: #70726a;
+  --line: rgba(34, 35, 32, 0.11);
+  --line-strong: rgba(34, 35, 32, 0.2);
 
-  /* Dark architectural hero canvas */
-  --dark-bg: #0a0d11;
-  --dark-surface: #12171e;
-  --dark-line: rgba(255, 255, 255, 0.12);
-
-  /* Semantic accents (paper-consistent) */
-  --accent: #5a8729;
-  --accent-bright: #84cc3f;
-  --accent-soft: #eaf2e0;
-  --c-good: #527a2d;
-  --c-good-soft: #edf4e5;
-  --c-body: #2f6db3;
-  --c-body-soft: #e9f1fa;
-  --c-world: #c65633;
-  --c-world-soft: #faeae4;
-  --c-view: #7b60a8;
+  /* Primary brand accent (Oxford cobalt) + semantic scientific colors */
+  --accent: #1f4b8e;
+  --accent-bright: #3b72c4;
+  --accent-soft: #eaf0f8;
+  --c-good: #436e36;
+  --c-good-soft: #edf4ea;
+  --c-body: #245b9e;
+  --c-body-soft: #eaf1fa;
+  --c-world: #c04e2a;
+  --c-world-soft: #faebe5;
+  --c-view: #70589c;
   --c-view-soft: #f1edf8;
-  --c-warn: #a86a12;
+  --c-warn: #a36510;
   --c-warn-soft: #fbf3e2;
   --c-crit: #b8382a;
   --c-fail: #68645c;
@@ -143,33 +138,27 @@ code {
   transition: width 0.08s linear;
 }
 
-/* ---------- Top Minimal Navbar (over dark hero, adapts on mobile) ---------- */
+/* ---------- Top Editorial Navbar ---------- */
 .top-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 58px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 28px;
   z-index: 120;
-  background: rgba(10, 13, 17, 0.45);
-  backdrop-filter: blur(12px) saturate(1.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  color: #f3f6f8;
-  transition:
-    opacity 0.3s var(--ease),
-    transform 0.3s var(--ease),
-    background 0.3s,
-    color 0.3s;
+  background: rgba(246, 246, 239, 0.9);
+  backdrop-filter: blur(12px) saturate(1.1);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  transition: box-shadow 0.25s var(--ease);
 }
 
-.top-nav.past-hero {
-  background: rgba(242, 236, 230, 0.88);
-  border-bottom-color: var(--line);
-  color: var(--ink);
+.top-nav.scrolled {
+  box-shadow: 0 4px 20px -14px rgba(34, 35, 32, 0.28);
 }
 
 .nav-brand {
@@ -177,22 +166,17 @@ code {
   align-items: center;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 600;
   letter-spacing: -0.01em;
+  color: var(--ink);
 }
 
 .nav-brand-dot {
   width: 8px;
   height: 8px;
   border-radius: 2px;
-  background: var(--accent-bright);
-  box-shadow: 0 0 10px rgba(132, 204, 63, 0.65);
-}
-
-.top-nav.past-hero .nav-brand-dot {
   background: var(--accent);
-  box-shadow: none;
 }
 
 .nav-actions {
@@ -204,231 +188,123 @@ code {
 }
 
 .nav-actions a {
-  opacity: 0.82;
-  transition:
-    opacity 0.2s,
-    color 0.2s;
+  color: var(--ink-2);
+  transition: color 0.2s;
 }
 
 .nav-actions a:hover {
-  opacity: 1;
-  color: var(--accent-bright);
-}
-
-.top-nav.past-hero .nav-actions a:hover {
   color: var(--accent);
 }
 
 .nav-pill {
   padding: 5px 13px;
   border-radius: 999px;
-  border: 1px solid rgba(132, 204, 63, 0.42);
-  background: rgba(132, 204, 63, 0.12);
-  color: #c2f088 !important;
-  opacity: 1 !important;
+  border: 1px solid rgba(31, 75, 142, 0.28);
+  background: var(--accent-soft);
+  color: var(--accent) !important;
   font-weight: 600;
 }
 
-.top-nav.past-hero .nav-pill {
-  border-color: rgba(82, 122, 45, 0.35);
-  background: var(--c-good-soft);
-  color: var(--c-good) !important;
+.nav-pill:hover {
+  background: #dce6f5;
 }
 
 /* ==========================================================================
-   FULL-BLEED CINEMATIC DARK HERO (ASPIRE-Inspired Cover)
+   LIGHT EDITORIAL PAPER HEADER & HEADLINE METRICS RIBBON
    ========================================================================== */
-.hero-cover {
+.paper-header-band {
   position: relative;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 96px 32px 84px;
-  background: var(--dark-bg);
-  color: #ffffff;
-  overflow: hidden;
+  padding-top: 94px !important;
+  background-color: var(--paper);
+  background-image: radial-gradient(rgba(31, 75, 142, 0.085) 1px, transparent 1px);
+  background-size: 26px 26px;
 }
 
-/* Subtle dark mosaic of our real robot & 3D Skill Envelope renders */
-.hero-mosaic {
-  position: absolute;
-  inset: -12px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 6px;
-  opacity: 0.44;
-  filter: saturate(0.95) contrast(1.06) brightness(0.86);
-  pointer-events: none;
-}
-
-.hero-mosaic img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.02);
-}
-
-.hero-scrim {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 72% 65% at 28% 46%, rgba(10, 13, 17, 0.56) 0%, rgba(10, 13, 17, 0.8) 70%, rgba(10, 13, 17, 0.92) 100%),
-    linear-gradient(180deg, rgba(10, 13, 17, 0.58) 0%, rgba(10, 13, 17, 0.28) 50%, rgba(10, 13, 17, 0.9) 100%);
-  pointer-events: none;
-}
-
-.hero-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 18% 30%, rgba(132, 204, 63, 0.14), transparent 36%),
-    radial-gradient(circle at 82% 72%, rgba(63, 123, 191, 0.12), transparent 34%);
-  pointer-events: none;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 2;
-  max-width: 1060px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.hero-eyebrow {
+.paper-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(233, 238, 245, 0.76);
-  padding: 6px 14px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  margin-bottom: 26px;
-}
-
-.hero-eyebrow .dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent-bright);
-}
-
-.hero-title {
-  font-family: var(--font-sans);
-  font-size: clamp(2.75rem, 6.4vw, 5.4rem);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.036em;
-  color: #ffffff;
-  max-width: 15ch;
-}
-
-.hero-title .accent-slash {
-  display: block;
-  font-family: var(--font-mono);
-  color: var(--accent-bright);
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 5px 13px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid rgba(31, 75, 142, 0.22);
+  margin-bottom: 20px;
+}
+
+.paper-eyebrow .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.paper-meta-title .title-sub {
+  display: block;
   margin-top: 6px;
-  text-shadow: 0 12px 44px rgba(132, 204, 63, 0.28);
-}
-
-.hero-subtitle {
-  margin-top: 24px;
-  font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
   font-weight: 400;
-  line-height: 1.42;
-  color: rgba(242, 236, 230, 0.88);
-  max-width: 38ch;
+  font-size: 0.78em;
+  color: var(--ink-2);
 }
 
-.hero-stats {
-  margin-top: 38px;
+.paper-tagline {
+  margin: 14px auto 0;
+  max-width: 60ch;
+  font-size: 1.04rem;
+  line-height: 1.56;
+  color: var(--ink-2);
+}
+
+.headline-stats {
+  margin: 0 auto 30px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  max-width: 860px;
+  gap: 12px;
 }
 
-.hero-stat {
-  padding: 15px 18px;
-  background: rgba(16, 21, 28, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-top: 2px solid var(--accent-bright);
-  border-radius: 6px;
-  backdrop-filter: blur(10px);
+.h-stat {
+  padding: 13px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 2.5px solid var(--accent);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px -20px rgba(34, 35, 32, 0.24);
 }
 
-.hero-stat.blue {
-  border-top-color: #62a3ef;
-}
-.hero-stat.clay {
-  border-top-color: #e68262;
+.h-stat.sage {
+  border-top-color: var(--c-good);
 }
 
-.hero-stat .k {
+.h-stat.clay {
+  border-top-color: var(--c-world);
+}
+
+.h-stat.ink {
+  border-top-color: var(--ink);
+}
+
+.h-stat .k {
   font-family: var(--font-mono);
-  font-size: clamp(1.45rem, 2.3vw, 1.9rem);
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
   font-weight: 600;
-  line-height: 1.1;
-  color: #ffffff;
+  line-height: 1.12;
+  color: var(--ink);
 }
 
-.hero-stat .l {
-  margin-top: 5px;
+.h-stat .l {
+  margin-top: 4px;
   font-size: 0.78rem;
-  color: rgba(233, 238, 245, 0.72);
-  line-height: 1.35;
-}
-
-.hero-scroll {
-  position: absolute;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  color: rgba(255, 255, 255, 0.72);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-
-.hero-scroll:hover {
-  color: #ffffff;
-}
-
-.hero-scroll-chev {
-  width: 10px;
-  height: 10px;
-  border-right: 1.8px solid currentColor;
-  border-bottom: 1.8px solid currentColor;
-  transform: rotate(45deg);
-  animation: scrollBounce 2.1s ease-in-out infinite;
-}
-
-@keyframes scrollBounce {
-  0%,
-  100% {
-    transform: translateY(0) rotate(45deg);
-  }
-  50% {
-    transform: translateY(5px) rotate(45deg);
-  }
+  color: var(--ink-2);
+  line-height: 1.38;
 }
 
 /* ==========================================================================
-   EDITORIAL SHELL + LEFT FIXED MINIMALIST TOC SIDEBAR (ASPIRE Signature)
+   EDITORIAL SHELL + PERSISTENT LEFT TOC RAIL
    ========================================================================== */
 .toc-sidebar {
   position: fixed;
@@ -440,18 +316,6 @@ code {
   flex-direction: column;
   justify-content: space-between;
   z-index: 60;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(-8px);
-  transition:
-    opacity 0.35s var(--ease),
-    transform 0.35s var(--ease);
-}
-
-.toc-sidebar.visible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: none;
 }
 
 .toc-list {
@@ -584,22 +448,23 @@ code {
 }
 
 /* ==========================================================================
-   PAPER META HEADER (Authors, Affiliations, Dark Pill CTAs — ASPIRE Style)
+   PAPER META HEADER (Authors, Affiliations, Action Buttons)
    ========================================================================== */
 .paper-meta {
   text-align: center;
-  max-width: 820px;
-  margin: 0 auto 42px;
+  max-width: 860px;
+  margin: 0 auto 30px;
 }
 
 .paper-meta-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 3.1vw, 2.45rem);
+  font-size: clamp(2.05rem, 3.6vw, 2.85rem);
   font-weight: 500;
-  line-height: 1.22;
-  letter-spacing: -0.015em;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
   color: var(--ink);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+  text-wrap: balance;
 }
 
 .authors-row {
@@ -684,7 +549,7 @@ code {
 }
 
 .cta-btn.primary:hover {
-  background: #486e20;
+  background: #173a70;
 }
 
 .cta-btn.ghost {
@@ -726,11 +591,27 @@ code {
 }
 
 .abstract-box {
-  max-width: 780px;
-  margin: 0 auto 48px;
-  font-size: 1.02rem;
-  line-height: 1.78;
+  max-width: 820px;
+  margin: 34px auto 0;
+  padding: 24px 28px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3.5px solid var(--accent);
+  border-radius: 12px;
+  font-size: 1rem;
+  line-height: 1.76;
   color: var(--ink-2);
+  box-shadow: 0 12px 28px -22px rgba(34, 35, 32, 0.24);
+}
+
+.abstract-label {
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
 }
 
 .abstract-box p + p {
@@ -1394,7 +1275,7 @@ code {
 }
 
 /* ==========================================================================
-   ASPIRE-STYLE VIDEO GALLERY
+   SIMULATION ROLLOUT GALLERY
    ========================================================================== */
 .gallery-filters {
   display: flex;
@@ -1682,9 +1563,9 @@ code {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(132, 204, 63, 0.14);
-  border: 1px solid rgba(132, 204, 63, 0.4);
-  color: #c2f088;
+  background: rgba(94, 149, 232, 0.16);
+  border: 1px solid rgba(94, 149, 232, 0.42);
+  color: #b7d3fa;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
@@ -1694,7 +1575,7 @@ code {
 }
 
 .copy-btn:hover {
-  background: rgba(132, 204, 63, 0.25);
+  background: rgba(94, 149, 232, 0.28);
 }
 
 .bibtex-code {
@@ -1744,7 +1625,7 @@ code {
 }
 
 @media (max-width: 920px) {
-  .hero-stats {
+  .headline-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .grid-2,
@@ -1772,13 +1653,11 @@ code {
   .nav-actions .hide-sm {
     display: none;
   }
-  .hero-cover {
-    padding: 84px 20px 64px;
-    min-height: 100svh;
+  .paper-header-band {
+    padding-top: 80px !important;
   }
-  .hero-mosaic {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+  .abstract-box {
+    padding: 18px 18px;
   }
   .section {
     padding: 54px 18px;
@@ -1834,8 +1713,7 @@ code {
   .anim-svg .flow-slow,
   .anim-svg .a-gate-glow,
   .f3-arm-sweep,
-  .f3-vox,
-  .hero-scroll-chev {
+  .f3-vox {
     animation: none !important;
   }
   .anim-svg .a-bead,

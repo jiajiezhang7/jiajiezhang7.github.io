@@ -2,20 +2,15 @@
    Interactivity & Scroll Orchestration for Skill Envelopes Project Page
    ========================================================================== */
 (function () {
-  /* 1. Top Scroll Progress Bar + Navbar Theme Transition + Left Sidebar TOC */
+  /* 1. Top Scroll Progress Bar + Subtle Navbar Shadow on Scroll */
   const progressBar = document.getElementById("scroll-progress");
   const topNav = document.getElementById("top-nav");
-  const tocSidebar = document.getElementById("toc-sidebar");
-  const hero = document.getElementById("hero");
 
   function onScroll() {
     const docH = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docH > 0 ? Math.min(100, Math.max(0, (window.scrollY / docH) * 100)) : 0;
     if (progressBar) progressBar.style.width = pct.toFixed(2) + "%";
-
-    const pastHero = hero ? window.scrollY > hero.offsetHeight - 110 : window.scrollY > 400;
-    if (topNav) topNav.classList.toggle("past-hero", pastHero);
-    if (tocSidebar) tocSidebar.classList.toggle("visible", pastHero);
+    if (topNav) topNav.classList.toggle("scrolled", window.scrollY > 12);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
@@ -173,7 +168,7 @@
     term.addEventListener("mouseleave", () => cards.forEach((c) => c.classList.remove("lit")));
   });
 
-  /* 6. ASPIRE-Style Video Demo Gallery Filter & Smart Viewport Autoplay */
+  /* 6. Rollout Video Gallery Filter & Smart Viewport Autoplay */
   document.querySelectorAll("[data-gallery-filter]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const cat = btn.dataset.galleryFilter;
