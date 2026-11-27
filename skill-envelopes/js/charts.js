@@ -202,7 +202,9 @@
     hover(
       bars,
       (d) =>
-        `<b>${d.k.replace("\n", " ")}</b>: <b>${d.v.toFixed(1)}%</b><br><span class="tip-m">LIBERO-Goal · Frozen π₀.₅ · 64 ordered pairs × 10 matched handoff states (640 states)</span>`
+        `<b>${d.k.replace("\n", " ")}</b>: <b>${d.v.toFixed(
+          1
+        )}%</b><br><span class="tip-m">LIBERO-Goal · Frozen π₀.₅ · 64 ordered pairs × 10 matched handoff states (640 states)</span>`
     );
   };
 
@@ -668,7 +670,9 @@
       hover(
         b,
         (d) =>
-          `<b>${grp.g.replace("\n", " · ")}</b><br>${d.k}: AUROC = <b>${d.v.toFixed(3)}</b><br><span class="tip-m">429 matched test handoffs across 3 VLM backends × 3 prompt styles</span>`
+          `<b>${grp.g.replace("\n", " · ")}</b><br>${d.k}: AUROC = <b>${d.v.toFixed(
+            3
+          )}</b><br><span class="tip-m">429 matched test handoffs across 3 VLM backends × 3 prompt styles</span>`
       );
 
       grp.g.split("\n").forEach((line, li) => {
@@ -834,7 +838,9 @@
       .attr("font-size", 11)
       .text((d) => d.k);
     const tipFn = (d) =>
-      `<b>Open middle drawer → ${d.k}</b><br>Re-homed: ${d.home}/10 · Physical hits: ${d.hit}/10<br>3D Overlap: <b>${d.ov.toFixed(1)} cm³</b> · Qwen4-Max flags: ${d.qwen}/7`;
+      `<b>Open middle drawer → ${d.k}</b><br>Re-homed: ${d.home}/10 · Physical hits: ${d.hit}/10<br>3D Overlap: <b>${d.ov.toFixed(
+        1
+      )} cm³</b> · Qwen4-Max flags: ${d.qwen}/7`;
     hover(b1, tipFn);
     hover(b2, tipFn);
     hover(b3, tipFn);
@@ -1131,7 +1137,9 @@
         hover(
           rect,
           () =>
-            `<b>${r.k} · ${s.label}</b><br>Wall-clock: <b>${val.toFixed(1)} s</b> (${((val / r.total) * 100).toFixed(1)}%)<br><span class="tip-m">Matched all-succeeding chains (n = 88)</span>`
+            `<b>${r.k} · ${s.label}</b><br>Wall-clock: <b>${val.toFixed(1)} s</b> (${((val / r.total) * 100).toFixed(
+              1
+            )}%)<br><span class="tip-m">Matched all-succeeding chains (n = 88)</span>`
         );
         cur += val;
       });
@@ -1266,7 +1274,9 @@
     hover(
       b,
       (d) =>
-        `<b>${d.k}</b>: ${d.v.toFixed(1)}% (${d.frac})<br><span class="tip-m">BOSS-44 · Non-VLA BC-ViT-T policy · 35 held-out chains including hinged microwave door</span>`
+        `<b>${d.k}</b>: ${d.v.toFixed(1)}% (${
+          d.frac
+        })<br><span class="tip-m">BOSS-44 · Non-VLA BC-ViT-T policy · 35 held-out chains including hinged microwave door</span>`
     );
   };
 
