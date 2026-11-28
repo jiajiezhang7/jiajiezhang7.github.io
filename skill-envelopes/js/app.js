@@ -2,15 +2,13 @@
    Interactivity & Scroll Orchestration for Skill Envelopes Project Page
    ========================================================================== */
 (function () {
-  /* 1. Top Scroll Progress Bar + Subtle Navbar Shadow on Scroll */
+  /* 1. Top Scroll Progress Bar */
   const progressBar = document.getElementById("scroll-progress");
-  const topNav = document.getElementById("top-nav");
 
   function onScroll() {
     const docH = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docH > 0 ? Math.min(100, Math.max(0, (window.scrollY / docH) * 100)) : 0;
     if (progressBar) progressBar.style.width = pct.toFixed(2) + "%";
-    if (topNav) topNav.classList.toggle("scrolled", window.scrollY > 12);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();

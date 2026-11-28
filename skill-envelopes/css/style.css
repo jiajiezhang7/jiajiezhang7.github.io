@@ -138,110 +138,14 @@ code {
   transition: width 0.08s linear;
 }
 
-/* ---------- Top Editorial Navbar ---------- */
-.top-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 28px;
-  z-index: 120;
-  background: rgba(246, 246, 239, 0.9);
-  backdrop-filter: blur(12px) saturate(1.1);
-  border-bottom: 1px solid var(--line);
-  color: var(--ink);
-  transition: box-shadow 0.25s var(--ease);
-}
-
-.top-nav.scrolled {
-  box-shadow: 0 4px 20px -14px rgba(34, 35, 32, 0.28);
-}
-
-.nav-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 0.84rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-}
-
-.nav-brand-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 2px;
-  background: var(--accent);
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  font-size: 0.84rem;
-  font-weight: 500;
-}
-
-.nav-actions a {
-  color: var(--ink-2);
-  transition: color 0.2s;
-}
-
-.nav-actions a:hover {
-  color: var(--accent);
-}
-
-.nav-pill {
-  padding: 5px 13px;
-  border-radius: 999px;
-  border: 1px solid rgba(31, 75, 142, 0.28);
-  background: var(--accent-soft);
-  color: var(--accent) !important;
-  font-weight: 600;
-}
-
-.nav-pill:hover {
-  background: #dce6f5;
-}
-
 /* ==========================================================================
-   LIGHT EDITORIAL PAPER HEADER & HEADLINE METRICS RIBBON
+   LIGHT EDITORIAL PAPER HEADER
    ========================================================================== */
 .paper-header-band {
   position: relative;
-  padding-top: 94px !important;
   background-color: var(--paper);
   background-image: radial-gradient(rgba(31, 75, 142, 0.085) 1px, transparent 1px);
   background-size: 26px 26px;
-}
-
-.paper-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  padding: 5px 13px;
-  border-radius: 999px;
-  background: var(--card);
-  border: 1px solid rgba(31, 75, 142, 0.22);
-  margin-bottom: 20px;
-}
-
-.paper-eyebrow .dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
 }
 
 .paper-meta-title .title-sub {
@@ -260,55 +164,12 @@ code {
   color: var(--ink-2);
 }
 
-.headline-stats {
-  margin: 0 auto 30px;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.h-stat {
-  padding: 13px 16px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-top: 2.5px solid var(--accent);
-  border-radius: 10px;
-  box-shadow: 0 8px 24px -20px rgba(34, 35, 32, 0.24);
-}
-
-.h-stat.sage {
-  border-top-color: var(--c-good);
-}
-
-.h-stat.clay {
-  border-top-color: var(--c-world);
-}
-
-.h-stat.ink {
-  border-top-color: var(--ink);
-}
-
-.h-stat .k {
-  font-family: var(--font-mono);
-  font-size: clamp(1.3rem, 2vw, 1.65rem);
-  font-weight: 600;
-  line-height: 1.12;
-  color: var(--ink);
-}
-
-.h-stat .l {
-  margin-top: 4px;
-  font-size: 0.78rem;
-  color: var(--ink-2);
-  line-height: 1.38;
-}
-
 /* ==========================================================================
    EDITORIAL SHELL + PERSISTENT LEFT TOC RAIL
    ========================================================================== */
 .toc-sidebar {
   position: fixed;
-  top: 84px;
+  top: 28px;
   left: 26px;
   bottom: 28px;
   width: var(--toc-w);
@@ -375,7 +236,7 @@ code {
 .section {
   padding: 84px 28px;
   border-top: 1px solid var(--line);
-  scroll-margin-top: 58px;
+  scroll-margin-top: 16px;
 }
 
 @media (min-width: 1280px) {
@@ -1625,9 +1486,6 @@ code {
 }
 
 @media (max-width: 920px) {
-  .headline-stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .grid-2,
   .grid-3,
   .split-row,
@@ -1647,15 +1505,6 @@ code {
 }
 
 @media (max-width: 600px) {
-  .top-nav {
-    padding: 0 16px;
-  }
-  .nav-actions .hide-sm {
-    display: none;
-  }
-  .paper-header-band {
-    padding-top: 80px !important;
-  }
   .abstract-box {
     padding: 18px 18px;
   }
